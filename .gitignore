@@ -1,1 +1,8 @@
 
+# Ignore build files
+# Latex ignores
+*.aux
+*.log
+*.out
+*.toc
+*.pdf
