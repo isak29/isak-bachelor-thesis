@@ -12,4 +12,5 @@
 *.lof
 *.bbl
 *.loa
-
+*.fdb_latexmk
+*.synctex.gz
