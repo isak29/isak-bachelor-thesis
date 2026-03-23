@@ -16,5 +16,38 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{1}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}{%
+           family={Pubali},
+           familyi={P\bibinitperiod},
+           given={Sen},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{fullhash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{fullhashraw}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{bibnamehash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{authorbibnamehash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{authornamehash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{authorfullhash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{authorfullhashraw}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Building AI Agents with Knowledge Graphs vs Retrieval-Augmented Generation, "Knowledge Graphs (KG)"}
+      \verb{urlraw}
+      \verb https://medium.com/@senpubali7/building-ai-agents-with-knowledge-graphs-vs-retrieval-augmented-generation-a2730ec1915a
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@senpubali7/building-ai-agents-with-knowledge-graphs-vs-retrieval-augmented-generation-a2730ec1915a
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 
