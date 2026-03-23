@@ -1,0 +1,82 @@
+%Author of the LaTeX-class is Lennart Franked
+%Main author of the contents in the thesis template is Stefan Forsström at Mid Sweden University
+
+%When writing your thesis in Swedish, only change in the documentclass from English to Swedish. All
+%section headings that have a translate will automatically be changed to the swedish translation.
+
+%\documentclass[english]{miunthesis}
+\documentclass[english]{miunthesis}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{newfloat}
+\usepackage[]{appendix}
+
+\addbibresource{literature.bib}
+
+\title{Desing och utvärdering av ett grafbaserat enterprise knowledge system för kontextualisering av AI-agenter}
+\subtitle{En studie av hur ett grafbaserat enterprise system kan nyttjas av AI-agenter}
+\author{Isak Lampell}
+
+\projecttype{Bachelor Thesis}
+
+\fieldofstudy{Computer Science}
+\coursecredits{15 hp}
+
+\supervisor{Peter van der Meulen \& Nicklas Zetterberg Wallin }
+\examiner{Patrik Österberg}
+
+\coursecode{DT099G} % Optional
+\registrationnr{DT-???-???} % Optional
+
+\studyprogramme{Kandidatprogrammet i Datateknik} % Optional
+
+\begin{document}
+  \maketitle
+  \pagenumbering{roman}
+  \includepdf[pages=1]{Diva_publish.pdf}
+  \newpage
+  \printabstract
+  
+  \include{00-acknowledgements}
+  \newpage
+  
+  \tableofcontents
+  \newpage
+
+  \phantomsection
+  \listoffigures
+  \addcontentsline{toc}{section}{\translate{List of Figures}}
+  \newpage
+
+  \phantomsection
+  \listoftables
+  \addcontentsline{toc}{section}{\translate{List of Tables}}
+  \newpage
+
+  \phantomsection
+  \listofalgorithms
+  \addcontentsline{toc}{section}{\translate{List of Algorithms}}
+  \newpage
+
+  \include{00-terminology}
+  \include{00-acknowledgements}
+  \newpage
+  \pagenumbering{arabic}
+  \include{01-intro}
+  \include{02-theory}
+  \include{03-method}
+  \include{04-prestudy}
+  \include{05-implementation}
+  \include{06-result}
+  \include{07-discussion}
+  \include{08-conclusions}
+  \addcontentsline{toc}{section}{\translate{References}}
+  \printbibliography{}
+  \newpage\clearpage
+  \pagestyle{fancy}
+  \setcounter{page}{1}
+  \appendix
+  \noappendicestocpagenum
+  \include{Appendices/appA}
+\end{document}
