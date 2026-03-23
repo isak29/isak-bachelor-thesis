@@ -10,4 +10,6 @@
 *.fls
 *.lot
 *.lof
+*.bbl
+*.loa
 
