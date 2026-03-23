@@ -6,3 +6,8 @@
 *.out
 *.toc
 *.pdf
+*.blg
+*.fls
+*.lot
+*.lof
+
