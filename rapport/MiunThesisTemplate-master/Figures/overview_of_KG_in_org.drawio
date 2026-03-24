@@ -1,0 +1,139 @@
+<mxfile host="65bd71144e">
+    <diagram name="Sida-1" id="sVXxbVBqwrHaT6Kw9TIT">
+        <mxGraphModel dx="1963" dy="607" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-2" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Overview of How AI Agents Utilize Knowledge Graphs in Enterprise Systems&lt;/font&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="-90" y="30" width="340" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-3" value="Knowledge graph" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="198.75" y="200" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-4" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="310" y="160" as="sourcePoint"/>
+                        <mxPoint x="325" y="140" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-5" value="Documents" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="305" y="120" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-6" value="ERP" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="100" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-8" value="CRM" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="120" width="70" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-9" value="" style="endArrow=none;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" target="xoNp7_SUkmzz-tYQXLwd-8" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="160" as="sourcePoint"/>
+                        <mxPoint x="190" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-10" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="xoNp7_SUkmzz-tYQXLwd-6" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="255" y="160" as="sourcePoint"/>
+                        <mxPoint x="280" y="125" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-11" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="xoNp7_SUkmzz-tYQXLwd-12" target="xoNp7_SUkmzz-tYQXLwd-3" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="255" y="260" as="sourcePoint"/>
+                        <mxPoint x="280" y="250" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-12" value="AI agent" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="203.75" y="250" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-14" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="xoNp7_SUkmzz-tYQXLwd-12" target="xoNp7_SUkmzz-tYQXLwd-35" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="390" y="390" as="sourcePoint"/>
+                        <mxPoint x="254" y="320" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-16" value="AI-agent tolkar frågan från anställd. Använder KG för navigation inom organisationens olika system, filer osv. Hämtar data, ibland direkt från grafen och ibland från API. Returnerar svar till den anställda." style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="170" width="320" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-18" value="Integration layer (APIs, ETL), Mcp&#39;s" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="197.5" y="160" width="112.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-19" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="xoNp7_SUkmzz-tYQXLwd-18" target="xoNp7_SUkmzz-tYQXLwd-3" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="390" y="330" as="sourcePoint"/>
+                        <mxPoint x="440" y="280" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-20" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="xoNp7_SUkmzz-tYQXLwd-3" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="160" y="215" as="sourcePoint"/>
+                        <mxPoint x="170" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-21" value="Internal structure" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="200" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-22" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="xoNp7_SUkmzz-tYQXLwd-23" target="xoNp7_SUkmzz-tYQXLwd-21" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="40" y="220" as="sourcePoint"/>
+                        <mxPoint x="50" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-24" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="xoNp7_SUkmzz-tYQXLwd-23" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="40" y="220" as="sourcePoint"/>
+                        <mxPoint x="70" y="220" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-23" value="Ontology" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-40" y="210" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-25" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="xoNp7_SUkmzz-tYQXLwd-26" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="50" y="240" as="sourcePoint"/>
+                        <mxPoint x="70" y="235" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-26" value="Entities" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-40" y="240" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-28" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" parent="1" source="xoNp7_SUkmzz-tYQXLwd-21" target="xoNp7_SUkmzz-tYQXLwd-29" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="20" y="170" as="sourcePoint"/>
+                        <mxPoint x="50" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-29" value="Relationships" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-40" y="180" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-30" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="340" y="160" as="sourcePoint"/>
+                        <mxPoint x="680" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-31" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="340" y="310" as="sourcePoint"/>
+                        <mxPoint x="340" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-32" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="340" y="310" as="sourcePoint"/>
+                        <mxPoint x="680" y="310" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-33" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="680" y="160" as="sourcePoint"/>
+                        <mxPoint x="680" y="310" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="xoNp7_SUkmzz-tYQXLwd-35" value="Employee" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="300" width="60" height="70" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
