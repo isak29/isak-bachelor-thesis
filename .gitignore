@@ -14,6 +14,7 @@
 *.loa
 *.synctex.gz
 *.fdb_latexmk
+*.env
 
 rapport/MiunThesisTemplate-master/thesis.bcf
 rapport/MiunThesisTemplate-master/thesis.run.xml
