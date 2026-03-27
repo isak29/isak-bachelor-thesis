@@ -1,30 +1,42 @@
-\section{\translate{Introduction}}\label{sec:intro} 
-I det här projektet kommer jag utveckla och utvärdera ett grafbaserat enterprise knowledge system.
-Detta system kommer att användas av AI-agenter för att hitta och kontextualisera information.
-Syftet är att undersöka hur grafbaserade enterprise system jämfört med andra traditionella system kan nyttjas av AI-agenter samt vilka fördelar och nackdelar som finns med att använda de olika typerna av system.
+\section{\translate{Introduktion}}\label{sec:intro} 
+I det här projektet utvecklas och utvärderas ett grafbaserat kunskapssystem.
+Detta system kommer att användas av AI-agenter för att hitta och kontextualisera information från olika källor.
+Syftet är att undersöka hur grafbaserade kunskapssystem jämfört med andra traditionella system kan nyttjas av AI-agenter för att navigera och hitta efterfrågad information, samt vilka fördelar och nackdelar som finns med att använda de olika typerna av system.
+Det undersöks också hur AI-system själva kan bidra till att bygga och underhålla dessa kunskapssystem utifrån den information som finns utspridd i organisationen.
 
 Projektet görs i samarbete med företaget Knightec Group AB.
 \subsection{\translate{Background and motivation}}\label{subsec:background}
 \noindent 
-De flesta organisationer hanterar stora mängder data och information. Denna information innehåller allt ifrån kunddata, produktinformation, processer, och mycker mer. Dessutom är denna information ofta spridd över olika dokument, databaser och interna system.
-Detta gör det svårt för människor och AI-system att på ett effektivt sätt hitta och navigera till relevant information.
-Samtidigt har AI-system blivit allt mer avancerade och kan nu utföra komplexa uppgifter såsom att analysera data, skriva programkod, och generera text.
-För att dessa AI-system ska fungera korrekt och effektivt behövs det att systemen har tillgång till korrekt och strukturerad information om organisationens tekniska miljö.
+I många organisationer är data lagrad, hanterad och isolerad i flera olika system, kallat datasilos. Data kan vara uppdelad i affärssystem, kundhanteringssystem och andra interna databaser.
+Detta försvårar möjligheten att få en samlad bild över verksamheten och hur den presterar. Beslutsfattare saknar därför ofta tillgång till komplett och aktuell information,
+då data måste samlas in manuellt från flera källor\cite{2}.
 
-Ett möjligt sätt att representera sådan inforamtion är genom kunskapsgrafer, där system, teknologier, och tjänster representeras som noder och relationer i form av en grafstruktur.
-Detta gör det möjligt för AI-system att bättre förstå organisationen miljö och hur delar av organisationen hänger ihop med varandra\cite{1}.
+Problemet är inte begränsat till enskilda organisationer, utan förekommer inom många sorters verksamheter.
+Studien\cite{?} visar att en kunskapsarbetare i genomsnitt spenderar upp till 2,5 timmar per dag att söka information, vilket motsvarar ungefär 30\% av arbetsdagen.
+Globalt uppskattas det leda till att företag förlorar stora summor pengar varje år på grund av denna ineffektiviteten i informationshanteringen. Det leder inte bara till dessa ekonomiska förluster,
+utan påverkar även de psykologiska aspekterna hos medarbetare, exempelvis frustration hos medarbetare när en bra idé dör pågrund av den långa tid det tar att hitta stödjande data\cite{2}.
 
+Artificiell inteligens har blivit en central del av många organisationers strategi för att hantera och utnyttja data.
+Trots detta når många AI-initiativ aldrig bortom prototypstadiet. En avgörande orsak till detta är just dessa datasilos.
+När information är uppdelat på detta sätt försvåras AI-systemens möjligheter att utnyttja informationen effektivt, eftersom AI-systemen är beroende av sammanhängande och kontextuell data\cite{3}.
+
+Ett möjligt sätt att effektivisera informationssökningen och lösa problemet med svåråtkomlig information är genom grafbaserade kunskapssystem. I dessa kunskapssystem representeras informationen i form av noder och relationer i en grafstruktur.
+Detta skapar en mer sammanhängande och kontextuell representation av data samlat på ett ställe istället för utspritt i flera olika syste.
+Dessa kunskapsgrafer kan sedan användas av AI-system för att förstå relationer och navigera till relevant information på ett mer effektivt sätt\cite{1}.
 
 \subsection{\translate{Overall aim and problem statement}}\label{subsec:aim}
 \noindent
-Den ökande mängden data inom organisationer är ofta distribuerad över ett stort antal system, databaser och dokument. Denna uppdelning skapar
-stora utmaningar när det gäller att identifiera, förstå och utnyttja relevant information.
+Syftet med detta examensarbete är att undersöka hur ett grafbaserat kunskapssystem kan fungera som ett lager ovanpå en organisations befintliga miljöer och därigenom möjliggöra för AI-agenter att effektivt kunna navigera till och hämta efterfrågad information.
 
-Syftet med detta examensarbete är att undersöka hur ett grafbaserat kunskapssystem kan fungera som ett lager ovanpå en organisations företagsdata och därigenom 
-möjliggöra för AI-agenter att effektivt upptäcka, navigera till och hämta den information som efterfrågas. Genom en kombination av kunskapsgrafer och AI-agenter eftersträvar arbetet att bidra till 
-utvecklingen av mer intelligenta och effektiva system för informationshantering inom organisationer, vilket i sin tur kan leda till förbättrad beslutsfattande, ökad produktivitet och mer effektiv användning av data.
+Vidare syftar arbetet till att analysera hur AI-system själva kan bidra till att bygga dessa kunskapsgrafer utifrån befintlig information från olika system, samt analysering av fördelar och nackdelar med att använda dessa grafbaserade kunskapssystemen.
 
-Det problem som undersökts i detta examensarbete är hur ett grafbaserat kunskapssystem kan tillhandahålla kontext som möjliggör för AI-agenter att upptäcka och relatera information om teknologier, system och expertis inom en organisation.
+Följande forskningsfrågor behandlas i arbetet:
+\begin{itemize}
+  \item Hur skapas grafbaserade kunskapssystem utifrån befintlig information i en organisation.
+  \item På vilka sätt bidrar dessa kunskapssystem till ett mer effektivt informationssöknings arbetsflöde.
+  \item Finns det olika andra sätt att eliminera problemet med datasilos?
+  \item Hur kan en AI-agent använda sig av ett grafbaserat kunskapssystem för att navigera till och hämta efterfrågad information?
+\end{itemize}
 
 \subsection{\translate{Scientific goals}/\translate{Research questions}/\translate{Verifiable
     goals}}\label{subsec:researchquestion}
@@ -35,9 +47,10 @@ Use adjectives and quantify them when possible. Explain what the scientific know
 this work will be.
 
 \begin{enumerate}
-  \item {???}
-  \item {???}
-  \item {???}
+  \item {\texttt{Hur extraherar man information från olika datakällor till en och samma grafdatabas?}\smallbreak}
+  En svårighet är att information är utspridd och lagrad i olika format i olika system. För att skapa en sammanhängande grafdatabas krävs det en metod för att extrahera och integrera information från dessa olika källor.
+  \item {}
+  \item {}
 \end{enumerate}
 
 \subsection{\translate{Scope}}\label{subsec:scope}
