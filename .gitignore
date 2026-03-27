@@ -14,7 +14,10 @@
 *.loa
 *.synctex.gz
 *.fdb_latexmk
+
 *.env
+.venv/
+venv/
 
 
 rapport/MiunThesisTemplate-master/thesis.bcf
