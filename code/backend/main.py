@@ -38,7 +38,7 @@ def format_answer(result):
 
 
 
-q = ask_question("Can you name the 3 players the with highest weight?")
+q = ask_question("Who plays in losangeles lakers?")
 quest = ask_question(q)
 answer = format_answer(quest)
 time.sleep(1)

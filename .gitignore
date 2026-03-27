@@ -16,6 +16,7 @@
 *.fdb_latexmk
 *.env
 
+
 rapport/MiunThesisTemplate-master/thesis.bcf
 rapport/MiunThesisTemplate-master/thesis.run.xml
 rapport/MiunThesisTemplate-master/thesis.synctex.gz
@@ -32,3 +33,10 @@ rapport/MiunThesisTemplate-master/thesis.synctex.gz
 .idea/isak-bachelor-thesis.iml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/inspectionProfiles/profiles_settings.xml
+code/backend/ai/__pycache__/agent.cpython-311.pyc
+
+#Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
