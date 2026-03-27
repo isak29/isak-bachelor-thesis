@@ -1,0 +1,8 @@
+
+
+The files in services are used to build the graph-logic with the help from the integration files.
+
+Then the files in /db will be used to actually build/update the graph.
+
+
+
