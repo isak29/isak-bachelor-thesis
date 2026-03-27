@@ -1,8 +1,12 @@
 # Ansvarar för autentisering och API anrop
 
 import requests
+import os
+from dotenv import load_dotenv
 
-token = "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"
+load_dotenv()
+token = os.getenv('GIT_API_TOKEN')
+
 
 headers = {"Authorization": f"Bearer {token}"
 
