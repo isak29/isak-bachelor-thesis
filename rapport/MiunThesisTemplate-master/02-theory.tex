@@ -24,9 +24,9 @@ chapter with more headings as needed.
 MCP (Model Context Protocol) är ett protokoll som används för att låta applikationer förse LLM'er med kontextuell information.
 MCP gör det möjligt för olika AI-modeller att ansluta till olika datakällor och verktyg. Detta gör det enklare att utveckla AI-applikationer utan att behöva skapa specialiserade gränssnitt för varje datakälla eller modell\cite{4}.
 
-
-
-
+MCP består av tre huvudroller: servrar, klienter och värdar. Servrarna är programmen som tillhandahåller verktyg och dataåtkomstmöjligheterna för LLM'er att använda.
+Varje MCP server tillhandahåller en uppsättning verktyg, vilka är de som ansvarar för att hämta informationen från datakällorna. Klienterna är de som sammankopplar LLM'en med MCP servern. De ansvarar för att ta emot förfrågningar från LLM'en, vidarebefordra dessa till motsvarande MCP server och returnera resultatet från servern tillbaka till LLM'en.
+Värdarna är de som vill få åtkomst till data genom MCP. Exempelvis program som tillhandahåller ett användargränssnitt för att interagera med LLM'er, medan de själva integrerar MCP klienten för att kunna ansluta MCP servrarna och därmed utöka LLM'ens funktion med de verktyg som tillhandahålls av servrarna\cite{4}. 
 
 \subsection{\translate{Related work}}\label{subsec:relatedwork} 
 End the theory chapter with a section called related work. Find a number of
