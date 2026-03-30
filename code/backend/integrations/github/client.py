@@ -8,7 +8,7 @@ load_dotenv()
 token = os.getenv('GIT_API_TOKEN')
 
 
-headers = {"Authorization": f"Bearer {token}"
+headers = {"Authorization": f"token {token}"
 
 }
 
@@ -24,4 +24,6 @@ if response.status_code == 200:
 else:
     print("Det uppstod ett fel:", response.status_code)
 
+
+print(token)
 
