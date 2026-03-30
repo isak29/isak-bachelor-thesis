@@ -1,0 +1,28 @@
+mindmap
+    root((Project))
+        Mål
+            PoC
+                AI
+                    MCP
+                        DB/KG
+                            GitHub
+                            Slack
+                            Confluence
+            Rapport
+                Jämförelse
+                    Olika databaser
+                        Tid
+                        Kvalitet
+                        Kostnad
+                    AI Tränad databaser vs Human assisted?
+        Omfattning
+            Mcp
+            GrafDB
+            Andra sorters DB
+            Externa applikationer
+            Hämta information via ai genom graf/mcp/db
+        Utanför Omfattning
+            ???
+        Tech stack
+            TypeScript
+            Node JS
