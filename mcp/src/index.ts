@@ -1,14 +1,13 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { nodesController } from "./controllers/nodesController.js";
+import { pluralController } from "./controllers/nodesController.js";
 
 const server = new McpServer({
-  name: "isak-knowledge-graph",
+  name: "isak-mcp-server",
   version: "1.0.0",
 });
 
-// Register controllers
-nodesController(server);
+pluralController(server);
 
 // Start the server
 async function main() {
