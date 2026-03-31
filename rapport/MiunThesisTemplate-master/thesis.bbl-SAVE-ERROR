@@ -1,0 +1,134 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{2}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=0dde41803acf7c840890d8ce10cfb9b3}{%
+           family={Mahathidhulipala},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{0dde41803acf7c840890d8ce10cfb9b3}
+      \strng{fullhash}{0dde41803acf7c840890d8ce10cfb9b3}
+      \strng{fullhashraw}{0dde41803acf7c840890d8ce10cfb9b3}
+      \strng{bibnamehash}{0dde41803acf7c840890d8ce10cfb9b3}
+      \strng{authorbibnamehash}{0dde41803acf7c840890d8ce10cfb9b3}
+      \strng{authornamehash}{0dde41803acf7c840890d8ce10cfb9b3}
+      \strng{authorfullhash}{0dde41803acf7c840890d8ce10cfb9b3}
+      \strng{authorfullhashraw}{0dde41803acf7c840890d8ce10cfb9b3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{When Data Silos Became Our Biggest Enemy: How Three Companies Broke Free}
+      \verb{urlraw}
+      \verb https://medium.com/data-science-collective/when-data-silos-became-our-biggest-enemy-how-three-companies-broke-free-2d24bfee3d38
+      \endverb
+      \verb{url}
+      \verb https://medium.com/data-science-collective/when-data-silos-became-our-biggest-enemy-how-three-companies-broke-free-2d24bfee3d38
+      \endverb
+    \endentry
+    \entry{3}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=9b6471be801815b0effbf2a80fc340fa}{%
+           family={Global},
+           familyi={G\bibinitperiod},
+           given={Charter},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b6471be801815b0effbf2a80fc340fa}
+      \strng{fullhash}{9b6471be801815b0effbf2a80fc340fa}
+      \strng{fullhashraw}{9b6471be801815b0effbf2a80fc340fa}
+      \strng{bibnamehash}{9b6471be801815b0effbf2a80fc340fa}
+      \strng{authorbibnamehash}{9b6471be801815b0effbf2a80fc340fa}
+      \strng{authornamehash}{9b6471be801815b0effbf2a80fc340fa}
+      \strng{authorfullhash}{9b6471be801815b0effbf2a80fc340fa}
+      \strng{authorfullhashraw}{9b6471be801815b0effbf2a80fc340fa}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Why Data Silos Are the Silent Killer of Enterprise AI Initiatives}
+      \verb{urlraw}
+      \verb https://charterglobal.com/why-data-silos-are-the-silent-killer-of-enterprise-ai-initiatives/
+      \endverb
+      \verb{url}
+      \verb https://charterglobal.com/why-data-silos-are-the-silent-killer-of-enterprise-ai-initiatives/
+      \endverb
+    \endentry
+    \entry{1}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}{%
+           family={Pubali},
+           familyi={P\bibinitperiod},
+           given={Sen},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{fullhash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{fullhashraw}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{bibnamehash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{authorbibnamehash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{authornamehash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{authorfullhash}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \strng{authorfullhashraw}{bfd46c73b2ebca7b8c6f8cb4ab5c0ab2}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Building AI Agents with Knowledge Graphs vs Retrieval-Augmented Generation, "Knowledge Graphs (KG)"}
+      \verb{urlraw}
+      \verb https://medium.com/@senpubali7/building-ai-agents-with-knowledge-graphs-vs-retrieval-augmented-generation-a2730ec1915a
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@senpubali7/building-ai-agents-with-knowledge-graphs-vs-retrieval-augmented-generation-a2730ec1915a
+      \endverb
+    \endentry
+    \entry{4}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=d208309a8d610fc67ca9c1daa1cbba3f}{%
+           family={Yijun},
+           familyi={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{d208309a8d610fc67ca9c1daa1cbba3f}
+      \strng{fullhash}{d208309a8d610fc67ca9c1daa1cbba3f}
+      \strng{fullhashraw}{d208309a8d610fc67ca9c1daa1cbba3f}
+      \strng{bibnamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
+      \strng{authorbibnamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
+      \strng{authornamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
+      \strng{authorfullhash}{d208309a8d610fc67ca9c1daa1cbba3f}
+      \strng{authorfullhashraw}{d208309a8d610fc67ca9c1daa1cbba3f}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Vad är MCP (Model Context Protocol) och hur det fungerar}
+      \verb{urlraw}
+      \verb https://blog.logto.io/sv/what-is-mcp
+      \endverb
+      \verb{url}
+      \verb https://blog.logto.io/sv/what-is-mcp
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{?}
+\endrefsection
+\endinput
+

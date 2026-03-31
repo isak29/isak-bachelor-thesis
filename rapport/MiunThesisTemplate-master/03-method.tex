@@ -1,10 +1,23 @@
-\section{\translate{Methodology}}\label{sec:method}
-Summarize and introduce the methodology chapter. The method section is the point at which your
-chosen method and intended procedure are presented. This section should contain information for the
-reader to interpret your results and repeat your work, i.e.\ in order to check the results. Here, the
-tools, assumptions, mathematical models, performance measures and assessment criteria are presented.
+\section{\translate{Metod}}\label{sec:method}
+I detta kapitel beskrivs den metodik som använts för att genomföra arbetet och besvara forskningsfrågorna.
+Arbetet innefattar både utveckling av ett grafbaserat kunskapssystem samt en utvärdering av hur detta system kan användas av AI-agenter för effektiv informationssökning.
 
-\subsection{\translate{Scientific method description}}\label{subsec:scientificmethod}
+Metoden syftar till att ge en tydlig bild av hur systemet har utvecklats, designats och testats. Kapitlet beskriver även de verktyg, antaganden och arbetsprocesser som ligger till grund för resultaten.
+\subsection{{Vetenskaplig metod}}\label{subsec:scientificmethod}
+Arbetet genomförs huvudsakligen som en kvalitativ studie med inslag av \emph{design science methology}. Den kvalitativa delen består av analysering av hur ett grafbaserat kunskapssystem kan förse AI-agenter med relevant information för att låta dem navigera till och hämta efterfrågad information. 
+
+\emph{Design science-metodiken} används eftersom arbetet innehåller utvecklande av ett tekniskt system i form av en MCP server, ett grafbaserat kunskapssystem samt en integration med en AI-agent eller annat relevant AI-system.
+Detta system används för att demonstrera och utvärdera hur AI-agenter kan navigera och hämta information från ett grafbaserat kunskapsystem\textcolor{red}{(VS andra olika typer av DB's)}.
+
+Först identifierades problemen som finns i dagens informationshantering. Dessa problem beskrivs i introduktionen och ligger till grund för forskningsfrågorna.
+
+För att besvara forskningsfrågorna utvecklas först en PoC innehållande en MCP server, olika databasstrukturer och en integration med en AI-agent.
+Fokus ligger på att demonstrera hur en vanlig fråga tolkas av en LLM och omvandlas till ett Tool-anrop, där det används olika databasfrågor för att hämta och returnera efterfrågad information i form av ett svar.
+
+Slutligen utvärderas systemet genom att analysera hur väl olika frågor besvaras och hur effektivt en AI-agent kan navigera i de olika databasstrukturerna för att hitta relevant information.
+
+\textcolor{red}{Ovan bör justers, AI-agent kommer inte "navigera" i strukturerna, utan egentligen använda sig av skapade tools som i sin tur definierar olika db queries.}
+
 Explain your scientific method. Will you be using a quantitative or qualitative method? Most works
 in computer engineer will be \emph{quantitative} studies. Will you follow the design science
 methodology or some other methodology, such as action research method, descriptive research design,
