@@ -45,3 +45,9 @@ __pycache__/
 *.pyd
 rapport/MiunThesisTemplate-master/thesis.bbl
 rapport/MiunThesisTemplate-master/thesis.synctex.gz
+
+
+# Ts ignores
+node_modules/
+dist/
+
