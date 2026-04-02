@@ -2,7 +2,7 @@ import { createMcpExpressApp } from "@modelcontextprotocol/sdk/server/express.js
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { v4 as uuidv4 } from "uuid";
-import { nodessController } from "./controllers/nodesController.js";
+import { nodesController } from "./controllers/nodesController.js";
 
 const app = createMcpExpressApp();
 
@@ -22,7 +22,7 @@ app.post('/mcp', async (req, res) => {
     const server = new McpServer({ name: 'my-server', version: '1.0.0' });
 
     // Controllers
-    nodessController(server);
+    nodesController(server);
 
     const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: () => uuidv4()
@@ -39,6 +39,32 @@ app.post('/mcp', async (req, res) => {
         sessions.set(transport.sessionId, transport);
     }
 });
+
+app.get('/mcp', async (req, res) => {
+    const sessionId = req.headers['mcp-session-id'] as string;
+
+    if (!sessionId || !sessions.has(sessionId)) {
+        res.status(404).send("Session not found");
+        return;
+    }
+
+    const transport = sessions.get(sessionId)!;
+    await transport.handleRequest(req, res);
+});
+
+app.get('/mcp', async (req, res) => {
+    const sessionId = req.headers['mcp-session-id'] as string;
+
+    if (!sessionId || !sessions.has(sessionId)) {
+        res.status(404).send("Session not found");
+        return;
+    }
+
+    const transport = sessions.get(sessionId)!;
+    await transport.handleRequest(req, res);
+});
+
+
 
 app.listen(3000, '127.0.0.1');
 console.log('Listening on http://127.0.0.1:3000');
