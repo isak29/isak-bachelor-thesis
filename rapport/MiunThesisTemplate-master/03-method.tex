@@ -3,6 +3,17 @@ I detta kapitel beskrivs den metodik som använts för att genomföra arbetet oc
 Arbetet innefattar både utveckling av ett grafbaserat kunskapssystem samt en utvärdering av hur detta system kan användas av AI-agenter för effektiv informationssökning.
 
 Metoden syftar till att ge en tydlig bild av hur systemet har utvecklats, designats och testats. Kapitlet beskriver även de verktyg, antaganden och arbetsprocesser som ligger till grund för resultaten.
+\subsection{Förstudie}
+En förstudie genomfördes i början av projektet för att samla in relevant och nödvändig information för att först identifiera problemet och sedan för att bidra med en lösning till problemet.
+\subsubsection{LLM:er}
+Det undersöktes vilken typ av LLM som skulle användas i query genereringen. Det undersöktes genom nätbaserade studier och jämförelser av olika LLM:er och deras integrationer.
+\subsubsection{Kommuniktaion med grafdatabas}
+Det undersöktes vilakl olika sätt det fanns att kommunicera med en grafdatabas, både i formn av olika databasstrukturer och olika sätt att låta en LLM kommunicera med databasen.
+Nätbaserad forskning och studier av oliak bibliotek såsom MCP användes för att undersöka detta.
+
+\subsection{Val av verktyg och bibliotek}
+\textcolor{blue}{Beskriv här vilak verktyg och tillvägagångssätt som valdes efter genomförd förstudie.}
+
 \subsection{{Vetenskaplig metod}}\label{subsec:scientificmethod}
 Arbetet genomförs huvudsakligen som en kvalitativ studie med inslag av \emph{design science methology}. Den kvalitativa delen består av analysering av hur ett grafbaserat kunskapssystem kan förse AI-agenter med relevant information för att låta dem navigera till och hämta efterfrågad information. 
 
@@ -16,7 +27,7 @@ Fokus ligger på att demonstrera hur en vanlig fråga tolkas av en LLM och omvan
 
 Slutligen utvärderas systemet genom att analysera hur väl olika frågor besvaras och hur effektivt en AI-agent kan navigera i de olika databasstrukturerna för att hitta relevant information.
 
-\textcolor{red}{Ovan bör justers, AI-agent kommer inte "navigera" i strukturerna, utan egentligen använda sig av skapade tools som i sin tur definierar olika db queries.}
+\textcolor{red}{Ovan bör justers eftersom}
 
 Explain your scientific method. Will you be using a quantitative or qualitative method? Most works
 in computer engineer will be \emph{quantitative} studies. Will you follow the design science
