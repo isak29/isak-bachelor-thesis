@@ -1,16 +1,12 @@
-\section{\translate{Introduktion}}\label{sec:intro} 
-I detta projekt utvecklas och utvärderas ett grafbaserat kunskapssystem.
-Systemet kommer att användas av AI-agenter för att tillsammans med MCP hitta och kontextualisera information från olika datakällor.
-Syftet är att undersöka hur grafbaserade kunskapssystem  med hjälp av AI-agenter kan möjliggöra effektivare informationssökning jämfört med mer traditionella metoder.
-
-Vidare undersökt även hur AI-agenter kan utnyttja strukturerad och relationsbaserad information för att navigera mellan olika typer av organisatorisk kunskap, såsom teknologier, system och expertis.
-
+\section{\translate{Introduktion}}\label{sec:intro}
+Projektets mål var att utveckla ett grafbaserat kunskapssystem och undersöka hur företagsinformation kan representeras för att med hjälp av AI-agenter effektivisera informationssökning.
+Det undersöks hur väl AI-agenter hittar information när de använder ett grafbaserat kunskapssystem jämfört med när de inte gör det.
 
 Projektet görs i samarbete med företaget Knightec Group AB.
 \subsection{\translate{Bakgrund och problemmotivering}}\label{subsec:background}
 \noindent 
 I många organisationer är data lagrad, hanterad och isolerad i flera olika system, kallat datasilos. Data kan vara uppdelad i affärssystem, kundhanteringssystem och andra interna databaser.
-Detta försvårar möjligheten att få en samlad bild över verksamheten och hur den presterar. Beslutsfattare saknar därför ofta tillgång till komplett och aktuell information,
+Detta försvårar möjligheten att få en samlad bild över verksamheten och hur den presterar, vilket också leder till att beslutsfattare ofta saknar tillgång till komplett och aktuell information,
 då data måste samlas in manuellt från flera källor\cite{2}.
 
 Problemet är inte begränsat till enskilda organisationer, utan förekommer inom många sorters verksamheter.
@@ -23,42 +19,55 @@ Trots detta når många AI-initiativ aldrig bortom prototypstadiet. En avgörand
 När information är uppdelat på detta sätt försvåras AI-systemens möjligheter att utnyttja informationen effektivt, eftersom AI-systemen är beroende av sammanhängande och kontextuell data\cite{3}.
 
 Ett möjligt sätt att effektivisera informationssökningen och lösa problemet med svåråtkomlig information är genom grafbaserade kunskapssystem. I dessa kunskapssystem representeras informationen i form av noder och relationer i en grafstruktur.
-Detta skapar en mer sammanhängande och kontextuell representation av data samlat på ett ställe istället för utspritt i flera olika system.
+Detta skapar en mer sammanhängande och kontextuell representation av data samlat på ett ställe ovanpå organisationens befintliga system.
 Dessa kunskapsgrafer kan sedan användas av AI-system för att förstå relationer och navigera till relevant information på ett mer effektivt sätt\cite{1}.
 
 \subsection{\translate{Övergripande syfte}}\label{subsec:aim}
 \noindent
 Syftet med detta examensarbete är att undersöka hur ett grafbaserat kunskapssystem kan fungera som ett lager ovanpå en organisations befintliga miljöer och därigenom möjliggöra för AI-agenter att effektivt kunna navigera till och hämta efterfrågad information.
 
-Vidare syftar arbetet till att analysera hur AI-system själva kan bidra till att bygga dessa kunskapsgrafer utifrån befintlig information från olika system, samt analysering av fördelar och nackdelar med att använda dessa grafbaserade kunskapssystemen.
-
-Följande forskningsfrågor behandlas i arbetet:
-\begin{itemize}
-  \item Hur skapas grafbaserade kunskapssystem utifrån befintlig information i en organisation.
-  \item På vilka sätt bidrar dessa kunskapssystem till ett mer effektivt informationssöknings arbetsflöde.
-  \item Finns det olika andra sätt att eliminera problemet med datasilos?
-  \item Hur kan en AI-agent använda sig av ett grafbaserat kunskapssystem för att navigera till och hämta efterfrågad information?
-\end{itemize}
 
 \subsection{\translate{Konkreta och verifierbara mål}}\label{subsec:researchquestion}
-
-Choose only one of the headlines. Split this hard problem into a number of achievable, concrete,
-measurable, and verifiable scientific goals or a number of research questions that you will answer.
-Use adjectives and quantify them when possible. Explain what the scientific knowledge gained from
-this work will be.
+För att arbetet ska kunna utvärderas på ett verifierbart sätt har följande verifierbara mål satts upp.
 
 \begin{enumerate}
-  \item {\texttt{(Förmodligen inte denna) Hur extraherar man information från olika datakällor till en och samma grafdatabas?}\smallbreak}
-  En svårighet är att information är utspridd och lagrad i olika format i olika system. För att skapa en sammanhängande grafdatabas krävs det en metod för att extrahera och integrera information från dessa olika källor.
-  \item {}
-  \item {}
+  \item {Snabbhet i att hitta relevant information} - Hur mycket snabbare kan en AI-agent hitta relevant information i ett grafbaserat kunskapssysystem jämfört med att söka och hämta information från flera olika datakällor?
+  \item {Skillnader i korrekthet och relevans i de svar som AI-agenten får levererar} - Hur bra kan en AI-agent hitta efterfrågad information i ett grafbaserat system kontra ett icke-grafbaserat system?
+  \item {Hur dyrt blir varje anrop i form av resursförbrukning och kostnad?} - Hur mycket resurser och konstnad krävs det för att en AI-agent ska kunna hämta information från ett grafbaserat kunskapssystem jämfört med att hämta information från flera olika datakällor?
 \end{enumerate}
 
 \subsection{\translate{Avgränsningar}}\label{subsec:scope}
 \noindent
-Explain what you have focused your work on and what you have chosen to not focus
-on. What will be in focus? What will not be in focus?
+För att arbetet ska vara genomförbart inom tidsramen har en del avgränsningar satts upp.
+
+Arbetet inkluderar:
+\begin{itemize}
+  \item {Skapande av ett system i form av en kunskapsgraf, backend med MCP server för att prata med kunskapsgrafen och integrerad LLM för att översätta användarinmatning till cypher frågor}
+  \item {Skapande av ett system som använder samma MCP server för att prata direkt med olika systems API:er istället för kunskapsgrafen}
+  \item {En jämförelse av de punkter från \ref{subsec:researchquestion}}
+\end{itemize}
+
+Arbetet inkluderar inte:
+\begin{itemize}
+  \item{Andra sätt att representera företagsinformation än kunskapsgrafer}
+  \item{Hur data hämtas och läggs in i kunskapsgrafen}
+\end{itemize}
 
 \subsection{\translate{Översikt}}\label{subsec:outline}
 \noindent
-Briefly describe the report's outline. ``Chapter 2 describes\dots''
+\texttt{Kapitel 1.} Introduktion som ger läsaren en förståelse för det befintliga problemet samt en översikt över hur problemet planeras att lösas.
+
+\texttt{Kapitel 2.} Teorin ger läsaren en förståelse för de olika bibliotek och verktyg som använts för att skapa Proof Of Concept(PoC) systemet.
+
+\texttt{Kapitel 3.} Metoden tar upp hur genomförandet av arbetet har sett ut, det vill säga de arbetsmetoder som följts.
+
+\texttt{Kapitel 4.} Förstudien redogör för de studier som genomförts för att identifiera problemen, lösningar och de tekniska verktyg som används.
+
+\texttt{Kapitel 5.} Implementations kapitlet går igenom hur systemet har implementerats, fungerar och vilka tekniker som använts.
+
+\texttt{Kapitel 6.} Resultat presenterar resultaten av implementationen och de verifierbara målen som satts upp.
+
+\texttt{Kapitel 7.} I diskussionen diskuteras resultaten, metodvalen och begränsningarna i arbetet. Här diskuteras även möjliga förbättringar till framtida arbeten.
+
+\texttt{Kapitel 8.} Slutsatsen ger en sammanfattning av arbetet och diskuterar uppnådda mål, samt ger förslag på framtida arbeten och utveckling av systemet.
+

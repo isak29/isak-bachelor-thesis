@@ -169,10 +169,9 @@ import { driver } from "../../db/neo4j.js";
   );
 }; */
 
-/* AI generated tools */
 
+// Tool 1 – expose the graph schema so the LLM can build correct Cypher queries
 export const nodesController = (server: McpServer) => {
-  // Tool 1 – expose the graph schema so the LLM can build correct Cypher queries
   server.registerTool(
     'get-graph-schema',
     {
@@ -262,4 +261,7 @@ export const nodesController = (server: McpServer) => {
     }
   );
 };
+
+/* Tools for the non Graph-based operations */
+
 

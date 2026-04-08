@@ -10,6 +10,12 @@ Detta gör det möjligt att analysera och förstå komplexa samband i data på e
 Kunskapsgrafer är särskilt användbara i situationer där data är starkt sammankopplad och där relationerna i sig bär viktig information. De används inom rekommendationssystem, bedrägeridetektion och avancerad informationssökning.
 Genom att integrera data från olika källor och organisera den efter tydliga samband kan kunskapsgrafer bidra till att synliggöra mönster och insikter som annars kan vara svåra att upptäcka\cite{5}.
 
+\subsubsection{Neo4j}
+Neo4j är grafdatabasen som används i detta arbete för att implementera kunskapsgrafen.
+Neo4j är en grafdatasbas där grafstrukturen är implementerad direkt i databasen på lagringsnivå, och inte ovanpå an annan databasmodell.
+Detta bidrar till hög prestanda även vid frågor som involverar många noder och relationer. För att arbeta med Neo4j används frågespråket Cypher\cite{6}.
+\subsubsection{Cypher}
+Cypher är Neo4js frågespråk. Det är ett naturligt språk som erbjuder ett visuellt sätt att matcha mönster och relationer i grafen.
 
 \subsection{MCP}\label{subsec:mcp_theory}
 MCP (Model Context Protocol) är ett protokoll som används för att låta applikationer förse LLM'er med kontextuell information.
