@@ -1,0 +1,12 @@
+sequenceDiagram
+    actor Användare
+    participant LLM as LLM (GPT-4o)
+    participant MCP as MCP Server
+    participant Tools as Verktyg (Neo4j / API:er)
+
+    Användare->>LLM: Ställer en fråga
+    LLM->>MCP: Anropar tool via MCP
+    MCP->>Tools: Kör databasfråga / API-anrop
+    Tools-->>MCP: Returnerar data
+    MCP-->>LLM: Returnerar tool-svar
+    LLM-->>Användare: Formulerar och returnerar svar
