@@ -54,16 +54,21 @@ Figur \ref{fig:system_architecture} visar en översikt av systemets arkitektur o
 För att kunna testa och utvärdera systemet så behövdes det data i databasen. Eftersom det är utanför projektets scope att låta detta ske automatiskt via API anrop och liknande, så genererades det mock data som ska efterlikna den data som skulle finnas i en verklig organisation.
 Denna data representerar olika typer av organisatoriska enheter såsom, GitHub repositories, Confluence sidor, anställda, projekt och liknande. Genom prompter och hjälp av ChatGPT så genererades cypher-frågor som skapade denna data i grafdatabasen.
 
-Se Figur \ref{fig:graph_structure} för en översikt av grafdatabasens struktur och de olika noderna och relationerna som finns i den.
+Se Figur \ref{fig:db} för en översikt av grafdatabasens struktur.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=15cm]{Figures/AI_gen_grafdb.png}
-  \caption{Grafdatabas struktur}\label{fig:graph_structure}
+  \includegraphics[width=15cm]{Figures/db_overview.png}
+  \caption{Grafdatabas struktur}\label{fig:db}
 \end{figure}
 
-Figuren visar en överblick av grafdatabasens struktur och inte alla attribut till varje nod och relation.
-\textcolor{blue}{Detta är en AI genererad bild, det kommer att göras en egen när DB strukturen är klar.}
+Se Figur \ref{fig:db_labels} för en översikt av de olika noder och relationer som utgör grafdabatasen ovan.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=15cm]{Figures/db_overview_labels.png}
+  \caption{Grafdatabas noder och relationer}\label{fig:db_labels}
+\end{figure}
 
 
 \subsection{Arbetsmetod}\label{subsec:projectmethod}
