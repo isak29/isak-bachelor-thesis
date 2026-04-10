@@ -25,10 +25,15 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [
     {
         role: 'system',
-        content:
-            'You answer questions about an organisation using a Neo4j knowledge graph. ' +
-            'Use get-graph-schema to understand the structure, then query-graph to fetch data. ' +
-            'Only generate read-only Cypher.',
+        content:`You answer questions about an organisation using a Neo4j knowledge graph.
+
+        - Try to directly generate a Cypher query first.
+        - Only call get-graph-schema in the start of the chat to get labels and relationships
+        - if the query fails or schema is unknown call it again and add in this text in the response "(I needed to call the schmea again. sry :( ))".
+        - Always use read-only Cypher.
+        - Be efficient: avoid unnecessary tool calls.
+        `, // You can customize this system prompt to guide the assistant's behavior
+            
     },
 ];
 
