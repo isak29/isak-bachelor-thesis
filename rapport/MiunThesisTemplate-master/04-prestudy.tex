@@ -1,25 +1,54 @@
-\section{Förstudie}\label{sec:prestudy} 
+\section{Förstudie}\label{sec:prestudy}
 
-Detta kapitel redogör för de tekniker, bibliotek, tillvägagångssätt och tidigare befintliga lösningar som identifierats under förstudien.
+Som nämnt i kapitel \ref{subsec:background} är det ett växande problem med att data och information är spridda över många olika interna system.
+Detta kapitel redogör därför för de tekniker, bibliotek, tillvägagångssätt och tidigare befintliga lösningar som identifierats under förstudien och som används för att bidra med en lösning på detta problem.
 Syftet med förstudien var att identifiera problem och relevanta tekniska lösningar för att kunna lösa problemet och besvara forskningsfrågorna.
 
 \subsection{Problemfördjupning}
+\textcolor{blue}{Kan vara ett överflödigt kapitel. Vänta och se.}
 
 \subsection{Analys av möjliga lösningar}
+Under förstudien identifierades en del oliak tekniker och tillväga gångssätt som kan användas för att lösa problemet med ostrukturerad data och information.
 \subsubsection{Direkt API-baserad retrieval}
-\subsubsection{Vector database / embeddings (RAG)}
+Att direkt använda API:er för att hämta data och information från flera olika interna system och låta en LLM omvandla en användarfråga till API-anrop är ett möjligt angreppssätt.
+Denna lösning kräver inget extra lager ovanpå de befintliga systemen, utan bygger direkt på de API:er som redan finns. 
+
 \subsubsection{Kunskapsgrafer}
+Kunskapsgrafer är en teknik som kan användas för att strukturera och organisera data och information från de olika interna systemen på ett sätt som ger de olika systemen en gemensam semantisk struktur att hämta data ifrån.
+Denna lösning skapar samband och relationer mellan data och förväntas därav ge en mer sammanhängande representation av data vilket i sin tur förväntas ge AI:n en bättre förståelse för hur den ska hämta den efterfrågade inforamtionen\cite{1}.
+
+\subsubsection{Vector database / embeddings (RAG)}
+En annan potentiell lösning som identifierades under förstudien var att använda en vector databas och embeddings för att strukturera och organisera data och information på.
+Denna lösning bygger på att omvandla användarfrågan till en vektorrepresentation (embedding) och sedan jämföra mot de lagrade vektorerna i databasen för att hitta de mest liknande\cite{1}.
+De
 
 \subsection{Val av teknisk arkitektur}
+Under förstudien identifierades flera olika verktyg och tekniker för att implementera de olika lösningarna på.
+Det har därför tagits beslut om vilka specifika tekniker och verktyg som används i den slutgiltiga lösningen.
 \subsubsection{Val av grafdatabas}
+Grafdatabasen som valdes var neo4j. Denna databas valdes då den upplevdes simpel att använda och mycket relevant för skapandet av kunskapsgrafen.
 \subsubsection{Val av kommunikationslager}
+Kommunikationslagret som valdes var MCP. Detta val gjordes då det är ett modernt och lättanvänt sätt att låta LLM:er kommunicera med externa system.
+Denna lösning valdes framförallt för att den fungerar för båda de identifierade lösningarna som jämförs mot varandra (direkt API-baserad retrieval och kunskapsgrafer).
 \subsubsection{Val av LLM}
-
+Det undersöktes flera olika LLM integrationer under förstudien men den som valdes att användas var OpenAI's API.
+Detta val gjordes då detta är något som är väl dokumenterat och som har en stabil och snabb API som är lätt att använda.
+Det finns även tillgång till flera olika modeller vilket gör det möjligt att välja modell utifrån behov och krav.
+Det finns både kostnadsfria alternativ lämpade för tester och små projekt och mer kraftfulla betalalternativ lämpade för stora organisationer.
 \subsection{Design av kunskapsgrafen}
-
+Avgränsningarna i kapitel \ref{subsec:scope} gjorde det inte möjligt att skapa ett komplett system där AI:n själv hämtar och skapar grafdatabasen.
+Därför har det en förstudie om hur databasen skulle designas för att efterlikna de olika informationskällorna som finns i en verklig organisation.
+Det har undersökts vilka viktiga entitier och relationer som bör finnas för att kunna besvara de olika frågorna som väntas ställas i systemet.
 \subsection{Prompt engineering och frågegenering}
 
+\textcolor{blue}{Om detta kapitel ska vara kvar, gör då undersökningaro detta.}
+
+
 \subsection{Utvärderings strategi (Koppling till mål)}
+\textcolor{blue}{Mätningarna ska göras på så sätt}
+
 
 \subsection{Sammanfattning av designbeslut}
+
+\textcolor{blue}{Sammanfattningsvis har förstudien indentifierat.... besluten har lett till....}
 
