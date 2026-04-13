@@ -32,7 +32,13 @@ const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [
         - if the query fails or schema is unknown call it again and add in this text in the response "(I needed to call the schmea again. sry :( ))".
         - Always use read-only Cypher.
         - Be efficient: avoid unnecessary tool calls.
-        `, // You can customize this system prompt to guide the assistant's behavior
+        - If the question is ambiguous, ask for clarification instead of guessing.
+        - If the question doesn't exactly match the schema, try to find the closest match.
+         Example: user asks for Isak but schema contains Isak Lampell and no other Isak, then it's likely correct.
+          But if the system contains many Isaks, ask for surname or other distinguishing information.
+
+        - after the response create a list with the reasoning steps and tool calls in correct order. (This is for me to evalutate the performance).
+        `,
             
     },
 ];
@@ -64,7 +70,8 @@ while (true) {
             console.log(`\nAssistant: ${choice.message.content}\n`);
             break;
         }
-
+        
+        // Call the tool LLM chose
         for (const toolCall of choice.message.tool_calls) {
             const fn = (toolCall as any).function;
             const result = await mcpClient.callTool({
