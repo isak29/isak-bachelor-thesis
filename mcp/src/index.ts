@@ -3,6 +3,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { v4 as uuidv4 } from "uuid";
 import { nodesController } from "./controllers/nodesController.js";
+import { githubController } from "./controllers/githubController.js";
+
 
 const app = createMcpExpressApp();
 
@@ -22,6 +24,8 @@ app.post('/mcp', async (req, res) => {
     const server = new McpServer({ name: 'my-server', version: '1.0.0' });
 
     nodesController(server);
+    //For the other solution
+    githubController(server);
 
     const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: () => uuidv4()
