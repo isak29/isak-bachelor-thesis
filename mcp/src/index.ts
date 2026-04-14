@@ -4,6 +4,7 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import { v4 as uuidv4 } from "uuid";
 import { nodesController } from "./controllers/nodesController.js";
 import { githubController } from "./controllers/githubController.js";
+import { slackController } from "./controllers/slackController.js";
 
 
 const app = createMcpExpressApp();
@@ -27,6 +28,8 @@ app.post('/mcp', async (req, res) => {
     nodesController(server);
     // Github tools
     githubController(server);
+    // Slack tools
+    slackController(server);
 
     const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: () => uuidv4()
