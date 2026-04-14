@@ -1,7 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { githubFetch } from "../../db/github.js";
-
+    
 export const githubController = (server: McpServer) => {
 
   // List all repos for a specified user (organisation) tool  
@@ -177,6 +177,6 @@ export const githubController = (server: McpServer) => {
     }
   );
 
-  
+
 };
 

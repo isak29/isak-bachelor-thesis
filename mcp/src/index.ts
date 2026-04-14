@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { nodesController } from "./controllers/nodesController.js";
 import { githubController } from "./controllers/githubController.js";
 import { slackController } from "./controllers/slackController.js";
+import { confluenceController } from "./controllers/confluenceController.js";
 
 
 const app = createMcpExpressApp();
@@ -30,6 +31,8 @@ app.post('/mcp', async (req, res) => {
     githubController(server);
     // Slack tools
     slackController(server);
+    // Confluence tools
+    confluenceController(server);
 
     const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: () => uuidv4()
