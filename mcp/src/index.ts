@@ -23,8 +23,9 @@ app.post('/mcp', async (req, res) => {
     // create a session
     const server = new McpServer({ name: 'my-server', version: '1.0.0' });
 
+    // Graph db tools
     nodesController(server);
-    //For the other solution
+    // Github tools
     githubController(server);
 
     const transport = new StreamableHTTPServerTransport({
