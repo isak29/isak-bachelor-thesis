@@ -11,17 +11,16 @@ const sessions = new Map<string, StreamableHTTPServerTransport>();
 app.post('/mcp', async (req, res) => {
     const sessionId = req.headers['mcp-session-id'] as string | undefined;
 
-    // Reuse existing session
+    // Reuse the existing session if there is one
     if (sessionId && sessions.has(sessionId)) {
         const transport = sessions.get(sessionId)!;
         await transport.handleRequest(req, res, req.body);
         return;
     }
 
-    // New session
+    // create a session
     const server = new McpServer({ name: 'my-server', version: '1.0.0' });
 
-    // Controllers
     nodesController(server);
 
     const transport = new StreamableHTTPServerTransport({
@@ -39,31 +38,6 @@ app.post('/mcp', async (req, res) => {
         sessions.set(transport.sessionId, transport);
     }
 });
-
-app.get('/mcp', async (req, res) => {
-    const sessionId = req.headers['mcp-session-id'] as string;
-
-    if (!sessionId || !sessions.has(sessionId)) {
-        res.status(404).send("Session not found");
-        return;
-    }
-
-    const transport = sessions.get(sessionId)!;
-    await transport.handleRequest(req, res);
-});
-
-app.get('/mcp', async (req, res) => {
-    const sessionId = req.headers['mcp-session-id'] as string;
-
-    if (!sessionId || !sessions.has(sessionId)) {
-        res.status(404).send("Session not found");
-        return;
-    }
-
-    const transport = sessions.get(sessionId)!;
-    await transport.handleRequest(req, res);
-});
-
 
 
 app.listen(3000, '127.0.0.1');
