@@ -3,6 +3,7 @@ import { z } from "zod";
 import { slackFetch } from "../../db/slack.js";
 
 export const slackController = (server: McpServer) => {
+  
   // List Every channel in workspace tool
   server.registerTool(
     'list-slack-channels',
@@ -32,6 +33,7 @@ export const slackController = (server: McpServer) => {
       };
     }
   );
+
   // Search message in channel by keyword
   server.registerTool(
     'search-messages-by-keyword',
@@ -74,6 +76,7 @@ export const slackController = (server: McpServer) => {
       };
     }
   );
+
   // Search message by user in channel
   server.registerTool(
     'get-messages-by-user',

@@ -29,11 +29,11 @@ const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [
 
         - Try to directly generate a Cypher query first.
         - Only call get-graph-schema in the start of the chat to get labels and relationships
-        - if the query fails or schema is unknown call it again and add in this text in the response "(I needed to call the schmea again. sry :( ))".
+        - if the query fails or schema is unknown call it again and add in this text in the response "(I needed to call the schema again. sry :( )".
         - Always use read-only Cypher.
         - Be efficient: avoid unnecessary tool calls.
         - If the question is ambiguous, ask for clarification instead of guessing.
-        - If the question doesn't exactly match the schema, try to find the closest match.
+        - If the question doesn't exactly match the schema, try to find the closest match. (Example: the user says: "Wat does isak contribute with?" But the schema says "Isak Lampell" and "Work" instead of "isak" and "contribute".)
          Example: user asks for Isak but schema contains Isak Lampell and no other Isak, then it's likely correct.
           But if the system contains many Isaks, ask for surname or other distinguishing information.
 
