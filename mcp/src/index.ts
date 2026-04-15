@@ -2,6 +2,7 @@ import { createMcpExpressApp } from "@modelcontextprotocol/sdk/server/express.js
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { v4 as uuidv4 } from "uuid";
+import type { Request, Response } from "express";
 import { nodesController } from "./controllers/nodesController.js";
 import { githubController } from "./controllers/githubController.js";
 import { slackController } from "./controllers/slackController.js";
@@ -12,7 +13,7 @@ const app = createMcpExpressApp();
 
 const sessions = new Map<string, StreamableHTTPServerTransport>();
 
-app.post('/mcp', async (req, res) => {
+app.post('/mcp', async (req: Request, res: Response) => {
     const sessionId = req.headers['mcp-session-id'] as string | undefined;
 
     // Reuse the existing session if there is one
