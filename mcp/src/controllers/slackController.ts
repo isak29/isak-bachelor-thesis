@@ -77,6 +77,58 @@ export const slackController = (server: McpServer) => {
     }
   );
 
+  // Look up Slack users by name
+  server.registerTool(
+    'get-slack-user-by-name',
+    {
+      title: 'Get Slack user info by name',
+      description:
+        'Searches all workspace members for users whose real name or display name contains the given search term. ' +
+        'Returns all matching users with their profile details (email, title, phone, timezone, etc.). ' +
+        'Use this when you need a user\'s ID or contact information based on their name.',
+      inputSchema: z.object({
+        name: z.string().describe('Partial or full name to search for, e.g. "Isak" will match "Isak Persson" and "Isak Larsson"'),
+      }),
+    },
+    async ({ name }) => {
+      const r = await slackFetch('/users.list?limit=200');
+      const data = await r.json() as any;
+
+      if (!data.ok) {
+        return { content: [{ type: 'text', text: `Slack error: ${data.error}` }] };
+      }
+
+      const members: any[] = data.members ?? [];
+      const lowerName = name.toLowerCase();
+
+      const matches = members
+        .filter((m: any) => {
+          if (m.deleted || m.is_bot) return false;
+          const realName = (m.profile?.real_name ?? '').toLowerCase();
+          const displayName = (m.profile?.display_name ?? '').toLowerCase();
+          return realName.includes(lowerName) || displayName.includes(lowerName);
+        })
+        .map((m: any) => ({
+          id: m.id,
+          real_name: m.profile?.real_name ?? null,
+          display_name: m.profile?.display_name ?? null,
+          email: m.profile?.email ?? null,
+          title: m.profile?.title ?? null,
+          phone: m.profile?.phone ?? null,
+          timezone: m.tz ?? null,
+          is_admin: m.is_admin ?? false,
+        }));
+
+      if (matches.length === 0) {
+        return { content: [{ type: 'text', text: `No users found matching "${name}".` }] };
+      }
+
+      return {
+        content: [{ type: 'text', text: JSON.stringify(matches, null, 2) }],
+      };
+    }
+  );
+
   // Search message by user in channel
   server.registerTool(
     'get-messages-by-user',

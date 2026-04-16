@@ -141,6 +141,120 @@ export const githubController = (server: McpServer) => {
     }
   );
 
+  // List all members of a GitHub organisation with profile details
+  server.registerTool(
+    'list-org-members',
+    {
+      title: 'List members of a GitHub organisation',
+      description:
+        'Returns all members of a GitHub organisation along with their profile information ' +
+        '(login, name, email, bio, company, location, public repos count). ' +
+        'Note: email is only available if the user has made it public on GitHub.',
+      inputSchema: z.object({
+        org: z.string().describe('The GitHub organisation name, e.g. my-company'),
+      }),
+    },
+    async ({ org }) => {
+      // Fetch up to 100 members (paginated at 100 per page)
+      const r = await githubFetch(`/orgs/${encodeURIComponent(org)}/members?per_page=100`);
+      const members = await r.json() as any[];
+
+      if (!Array.isArray(members) || members.length === 0) {
+        return { content: [{ type: 'text', text: `No members found for organisation "${org}".` }] };
+      }
+
+      // Fetch detailed profile for each member
+      const profiles = await Promise.all(
+        members.map(async (m: any) => {
+          const profileRes = await githubFetch(`/users/${encodeURIComponent(m.login)}`);
+          const p = await profileRes.json() as any;
+          return {
+            login: p.login,
+            name: p.name ?? null,
+            email: p.email ?? null,
+            bio: p.bio ?? null,
+            company: p.company ?? null,
+            location: p.location ?? null,
+            public_repos: p.public_repos,
+            profile_url: p.html_url,
+          };
+        })
+      );
+
+      return {
+        content: [{ type: 'text', text: JSON.stringify(profiles, null, 2) }],
+      };
+    }
+  );
+
+  // List all repos for a GitHub organisation
+  server.registerTool(
+    'list-org-repos',
+    {
+      title: 'List repositories for a GitHub organisation',
+      description:
+        'Returns a list of repositories belonging to a specific GitHub organisation. ' +
+        'Use this when you need repos for an org rather than a personal user account.',
+      inputSchema: z.object({
+        org: z.string().describe('The GitHub organisation name, e.g. my-company'),
+      }),
+    },
+    async ({ org }) => {
+      const r = await githubFetch(`/orgs/${encodeURIComponent(org)}/repos?per_page=100&sort=updated`);
+      const repos = await r.json() as any[];
+
+      if (!Array.isArray(repos) || repos.length === 0) {
+        return { content: [{ type: 'text', text: `No repositories found for organisation "${org}".` }] };
+      }
+
+      const results = repos.map((repo: any) => ({
+        full_name: repo.full_name,
+        description: repo.description ?? null,
+        visibility: repo.visibility,
+        language: repo.language ?? null,
+        stars: repo.stargazers_count,
+        forks: repo.forks_count,
+        updated_at: repo.updated_at,
+      }));
+
+      return {
+        content: [{ type: 'text', text: JSON.stringify(results, null, 2) }],
+      };
+    }
+  );
+
+  // Get all contributors for a repository
+  server.registerTool(
+    'get-repo-contributors',
+    {
+      title: 'Get contributors for a repository',
+      description:
+        'Returns all contributors to a specific GitHub repository, sorted by number of contributions. ' +
+        'Use list-repos or list-org-repos first to find the correct full repository name (owner/repo).',
+      inputSchema: z.object({
+        repo: z.string().describe('Full repository name in the format owner/repo, e.g. isak29/isak-bachelor-thesis'),
+      }),
+    },
+    async ({ repo }) => {
+      const r = await githubFetch(`/repos/${repo}/contributors?per_page=100`);
+      const contributors = await r.json() as any[];
+
+      if (!Array.isArray(contributors) || contributors.length === 0) {
+        return { content: [{ type: 'text', text: `No contributors found for repository "${repo}".` }] };
+      }
+
+      const results = contributors.map((c: any) => ({
+        login: c.login,
+        contributions: c.contributions,
+        profile_url: c.html_url,
+      }));
+
+      return {
+        content: [{ type: 'text', text: JSON.stringify(results, null, 2) }],
+      };
+    }
+  );
+
   // Get issues by author tool
   server.registerTool(
     'get-issues-by-author',
