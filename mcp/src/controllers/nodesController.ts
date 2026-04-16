@@ -3,7 +3,7 @@ import { z } from "zod";
 import { driver } from "../../db/neo4j.js";
 
 
-// Tool 1 – expose the graph schema so the LLM can build correct Cypher queries
+
 export const nodesController = (server: McpServer) => {
 
   // Get complete graph schema tool
