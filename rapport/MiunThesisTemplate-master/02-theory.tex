@@ -25,11 +25,12 @@ MCP består av tre huvudroller: servrar, klienter och värdar. Servrarna är pro
 Varje MCP server tillhandahåller en uppsättning verktyg, vilka är de som ansvarar för att hämta informationen från datakällorna. Klienterna är de som sammankopplar LLM'en med MCP servern. De ansvarar för att ta emot förfrågningar från LLM'en, vidarebefordra dessa till motsvarande MCP server och returnera resultatet från servern tillbaka till LLM'en.
 Värdarna är de som vill få åtkomst till data genom MCP. Exempelvis program som tillhandahåller ett användargränssnitt för att interagera med LLM'er, medan de själva integrerar MCP klienten för att kunna ansluta MCP servrarna och därmed utöka LLM'ens funktion med de verktyg som tillhandahålls av servrarna\cite{4}. 
 
-\subsection{Relaterat arbete}\label{subsec:relatedwork} 
-End the theory chapter with a section called related work. Find a number of
-scientific related works/”competitors”. Meaning other works that have done
-something similar to what you have done. One good place to begin this is work is
-by searching for similar works to yours on Google Scholar.
+\subsection{Cherry Studio}\label{subsec:relatedwork} 
+Cherry Studio är en plattform som erbjuder ett användargränssnitt för att interagera med LLM'er. Den har stöd för att ansluta till olika mcp servrar och därmed utöka LLM'ens funktionalitet.
+Det går också att välja bland olika AI modeller. 
+
+Cherry Studio har i detta arbete använts för att ansluta en LLM till den skapade MCP servern och därmed låta LLM'en svara på användarens frågor genom att hämta information från de verktyg som MCP servern exponerar.
+
 
 \subsubsection{Example of a related work domain}\label{subsubsec:examplerelatedwork}
 Explain how your work will be similar and how you work will be different from
