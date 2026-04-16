@@ -196,6 +196,35 @@
       \verb https://blog.logto.io/sv/what-is-mcp
       \endverb
     \endentry
+    \entry{7}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=5714031392063820eb2b4e1889259f9f}{%
+           family={Studio},
+           familyi={S\bibinitperiod},
+           given={Cherry},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{5714031392063820eb2b4e1889259f9f}
+      \strng{fullhash}{5714031392063820eb2b4e1889259f9f}
+      \strng{fullhashraw}{5714031392063820eb2b4e1889259f9f}
+      \strng{bibnamehash}{5714031392063820eb2b4e1889259f9f}
+      \strng{authorbibnamehash}{5714031392063820eb2b4e1889259f9f}
+      \strng{authornamehash}{5714031392063820eb2b4e1889259f9f}
+      \strng{authorfullhash}{5714031392063820eb2b4e1889259f9f}
+      \strng{authorfullhashraw}{5714031392063820eb2b4e1889259f9f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-16}
+      \field{title}{Project Introduction}
+      \verb{urlraw}
+      \verb https://docs.cherry-ai.com/docs/en-us
+      \endverb
+      \verb{url}
+      \verb https://docs.cherry-ai.com/docs/en-us
+      \endverb
+    \endentry
   \enddatalist
   \missing{?}
 \endrefsection
