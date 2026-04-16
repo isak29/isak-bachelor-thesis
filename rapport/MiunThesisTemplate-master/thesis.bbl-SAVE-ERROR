@@ -37,6 +37,7 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-01}
       \field{title}{When Data Silos Became Our Biggest Enemy: How Three Companies Broke Free}
       \verb{urlraw}
       \verb https://medium.com/data-science-collective/when-data-silos-became-our-biggest-enemy-how-three-companies-broke-free-2d24bfee3d38
@@ -65,6 +66,7 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-01}
       \field{title}{Why Data Silos Are the Silent Killer of Enterprise AI Initiatives}
       \verb{urlraw}
       \verb https://charterglobal.com/why-data-silos-are-the-silent-killer-of-enterprise-ai-initiatives/
@@ -93,12 +95,78 @@
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-03-29}
       \field{title}{Building AI Agents with Knowledge Graphs vs Retrieval-Augmented Generation, "Knowledge Graphs (KG)"}
       \verb{urlraw}
       \verb https://medium.com/@senpubali7/building-ai-agents-with-knowledge-graphs-vs-retrieval-augmented-generation-a2730ec1915a
       \endverb
       \verb{url}
       \verb https://medium.com/@senpubali7/building-ai-agents-with-knowledge-graphs-vs-retrieval-augmented-generation-a2730ec1915a
+      \endverb
+    \endentry
+    \entry{5}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=c21978c0a23c79ccc7d739026aa9b4f4}{%
+           family={Stegeman},
+           familyi={S\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4c241584d9947a43531be89e6bf66f21}{%
+           family={O'Shee},
+           familyi={O\bibinitperiod},
+           given={Kara\bibnamedelima Doriani},
+           giveni={K\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{8a7ae65172a9f9fceb6af188123a3256}
+      \strng{fullhash}{8a7ae65172a9f9fceb6af188123a3256}
+      \strng{fullhashraw}{8a7ae65172a9f9fceb6af188123a3256}
+      \strng{bibnamehash}{8a7ae65172a9f9fceb6af188123a3256}
+      \strng{authorbibnamehash}{8a7ae65172a9f9fceb6af188123a3256}
+      \strng{authornamehash}{8a7ae65172a9f9fceb6af188123a3256}
+      \strng{authorfullhash}{8a7ae65172a9f9fceb6af188123a3256}
+      \strng{authorfullhashraw}{8a7ae65172a9f9fceb6af188123a3256}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{12}
+      \field{month}{3}
+      \field{note}{Hämtad: 2026-04-02}
+      \field{title}{What Is a Knowledge Graph?}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://neo4j.com/blog/knowledge-graph/how-to-build-knowledge-graph/
+      \endverb
+      \verb{url}
+      \verb https://neo4j.com/blog/knowledge-graph/how-to-build-knowledge-graph/
+      \endverb
+    \endentry
+    \entry{6}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=4f16d2b1f38f316b477da6dbf0e9bc79}{%
+           family={Neo4j},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{4f16d2b1f38f316b477da6dbf0e9bc79}
+      \strng{fullhash}{4f16d2b1f38f316b477da6dbf0e9bc79}
+      \strng{fullhashraw}{4f16d2b1f38f316b477da6dbf0e9bc79}
+      \strng{bibnamehash}{4f16d2b1f38f316b477da6dbf0e9bc79}
+      \strng{authorbibnamehash}{4f16d2b1f38f316b477da6dbf0e9bc79}
+      \strng{authornamehash}{4f16d2b1f38f316b477da6dbf0e9bc79}
+      \strng{authorfullhash}{4f16d2b1f38f316b477da6dbf0e9bc79}
+      \strng{authorfullhashraw}{4f16d2b1f38f316b477da6dbf0e9bc79}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-08}
+      \field{title}{What is Neo4j?}
+      \verb{urlraw}
+      \verb https://neo4j.com/docs/getting-started/whats-neo4j/
+      \endverb
+      \verb{url}
+      \verb https://neo4j.com/docs/getting-started/whats-neo4j/
       \endverb
     \endentry
     \entry{4}{misc}{}{}
@@ -115,16 +183,46 @@
       \strng{authornamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
       \strng{authorfullhash}{d208309a8d610fc67ca9c1daa1cbba3f}
       \strng{authorfullhashraw}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-02}
       \field{title}{Vad är MCP (Model Context Protocol) och hur det fungerar}
       \verb{urlraw}
       \verb https://blog.logto.io/sv/what-is-mcp
       \endverb
       \verb{url}
       \verb https://blog.logto.io/sv/what-is-mcp
+      \endverb
+    \endentry
+    \entry{7}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=5714031392063820eb2b4e1889259f9f}{%
+           family={Studio},
+           familyi={S\bibinitperiod},
+           given={Cherry},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{5714031392063820eb2b4e1889259f9f}
+      \strng{fullhash}{5714031392063820eb2b4e1889259f9f}
+      \strng{fullhashraw}{5714031392063820eb2b4e1889259f9f}
+      \strng{bibnamehash}{5714031392063820eb2b4e1889259f9f}
+      \strng{authorbibnamehash}{5714031392063820eb2b4e1889259f9f}
+      \strng{authornamehash}{5714031392063820eb2b4e1889259f9f}
+      \strng{authorfullhash}{5714031392063820eb2b4e1889259f9f}
+      \strng{authorfullhashraw}{5714031392063820eb2b4e1889259f9f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-16}
+      \field{title}{Project Introduction}
+      \verb{urlraw}
+      \verb https://docs.cherry-ai.com/docs/en-us
+      \endverb
+      \verb{url}
+      \verb https://docs.cherry-ai.com/docs/en-us
       \endverb
     \endentry
   \enddatalist
