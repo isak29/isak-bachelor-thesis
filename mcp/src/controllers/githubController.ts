@@ -84,7 +84,7 @@ export const githubController = (server: McpServer) => {
       }),
     },
     async ({ repo, author }) => {
-      const r = await githubFetch(`/repos/${repo}/commits?author=${encodeURIComponent(author)}&per_page=10`);
+      const r = await githubFetch(`/repos/${repo}/commits?author=${encodeURIComponent(author)}&per_page=20`);
       const commits = await r.json() as any[];
 
       if (!Array.isArray(commits) || commits.length === 0) {

@@ -53,4 +53,5 @@ app.post('/mcp', async (req: Request, res: Response) => {
 
 
 app.listen(3000, '127.0.0.1');
-console.log('Listening on http://127.0.0.1:3000');
+console.error('Listening on http://127.0.0.1:3000/mcp'); // added the /mcp to test it with cherry.
+
