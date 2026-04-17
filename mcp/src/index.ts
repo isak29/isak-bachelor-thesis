@@ -49,12 +49,12 @@ app.post('/mcp', async (req: Request, res: Response) => {
 
     // Graph db tools
     nodesController(server);
-    // Github tools
-    githubController(server);
-    // Slack tools
-    slackController(server);
-    // Confluence tools
-    confluenceController(server);
+    // // Github tools
+    // githubController(server);
+    // // Slack tools
+    // slackController(server);
+    // // Confluence tools
+    // confluenceController(server);
 
     const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: () => uuidv4()
