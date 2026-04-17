@@ -291,5 +291,44 @@ export const githubController = (server: McpServer) => {
     }
   );
 
+
+  // Search commits by keyword in a repository
+  server.registerTool(
+    'search-commits',
+    {
+      title: 'Search commits by keyword in a repository',
+      description:
+        'Searches commit messages in a specific GitHub repository for a keyword or phrase. ' +
+        'Use this when the user asks to find a commit about a topic, e.g. "find the commit about API integration". ' +
+        'Use list-repos first to find the correct full repository name (owner/repo). ' +
+        'Returns matching commits with sha, author, date, and message.',
+      inputSchema: z.object({
+        repo: z.string().describe('Full repository name in the format owner/repo, e.g. isak29/isak-bachelor-thesis'),
+        keyword: z.string().describe('Keyword or phrase to search for in commit messages, e.g. "api integration"'),
+      }),
+    },
+    async ({ repo, keyword }) => {
+      const query = encodeURIComponent(`${keyword} repo:${repo}`);
+      const r = await githubFetch(`/search/commits?q=${query}&per_page=20&sort=committer-date&order=desc`);
+      const data = await r.json() as any;
+
+      if (!Array.isArray(data.items) || data.items.length === 0) {
+        return { content: [{ type: 'text', text: `No commits matching "${keyword}" found in ${repo}.` }] };
+      }
+
+      const results = data.items.map((item: any) => ({
+        sha: item.sha,
+        author: item.commit.author.name,
+        date: item.commit.author.date,
+        message: item.commit.message,
+        url: item.html_url,
+      }));
+
+      return {
+        content: [{ type: 'text', text: JSON.stringify(results, null, 2) }],
+      };
+    }
+  );
+
 };
 

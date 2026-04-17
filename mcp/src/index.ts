@@ -14,6 +14,27 @@ const app = createMcpExpressApp();
 const sessions = new Map<string, StreamableHTTPServerTransport>();
 
 app.post('/mcp', async (req: Request, res: Response) => {
+    const start = Date.now();
+
+    // Log tool calls so reasoning can be followed
+    const body = req.body;
+    const isToolCall = body?.method === 'tools/call';
+    if (isToolCall) {
+        const toolName = body?.params?.name ?? '(unknown)';
+        const args = body?.params?.arguments ?? {};
+        console.error(`\n[TOOL] ${toolName}`);
+        console.error(`[ARGS] ${JSON.stringify(args, null, 2)}`);
+    }
+
+    // Patch res.end to capture when the response is sent
+    const originalEnd = res.end.bind(res);
+    (res as any).end = (...args: Parameters<typeof res.end>) => {
+        if (isToolCall) {
+            console.error(`[TIME] ${Date.now() - start} ms`);
+        }
+        return originalEnd(...args);
+    };
+
     const sessionId = req.headers['mcp-session-id'] as string | undefined;
 
     // Reuse the existing session if there is one
@@ -28,12 +49,12 @@ app.post('/mcp', async (req: Request, res: Response) => {
 
     // Graph db tools
     nodesController(server);
-    // Github tools
-    githubController(server);
-    // Slack tools
-    slackController(server);
-    // Confluence tools
-    confluenceController(server);
+    // // Github tools
+    // githubController(server);
+    // // Slack tools
+    // slackController(server);
+    // // Confluence tools
+    // confluenceController(server);
 
     const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: () => uuidv4()

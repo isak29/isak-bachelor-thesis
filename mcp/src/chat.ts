@@ -36,7 +36,7 @@ const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [
         - If the question doesn't exactly match the schema, try to find the closest match. (Example: the user says: "Wat does isak contribute with?" But the schema says "Isak Lampell" and "Work" instead of "isak" and "contribute".)
          Example: user asks for Isak but schema contains Isak Lampell and no other Isak, then it's likely correct.
           But if the system contains many Isaks, ask for surname or other distinguishing information.
-
+        - Use your own reasoning to decide what relationship to try, if the user types for example "List all repos isak is active in" Then dont look for only relationships names active look for the relationship that connects a person to a repo. And do not only try the exact name Isak. Look at all persons and take similiar.
         - after the response create a list with the reasoning steps and tool calls in correct order. (This is for me to evalutate the performance).
         `,
             
