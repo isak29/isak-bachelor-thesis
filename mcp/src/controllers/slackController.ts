@@ -170,5 +170,40 @@ export const slackController = (server: McpServer) => {
       };
     }
   );
+
+  // Get all users from organisation
+  server.registerTool(
+    'list-organisation-users',
+    {
+      title: 'List all Slack users in the organisation',
+      description:
+        'Returns all non-bot, active workspace members with their basic profile info. ' +
+        'Use this to get an overview of who is in the organisation or to find user IDs.',
+      inputSchema: z.object({}),
+    },
+    async () => {
+      const r = await slackFetch('/users.list?limit=200');
+      const data = await r.json() as any;
+
+      if (!data.ok) {
+        return { content: [{ type: 'text', text: `Slack error: ${data.error}` }] };
+      }
+
+      const members = (data.members ?? [])
+        .filter((m: any) => !m.deleted && !m.is_bot && m.id !== 'USLACKBOT')
+        .map((m: any) => ({
+          id: m.id,
+          real_name: m.profile?.real_name ?? null,
+          display_name: m.profile?.display_name ?? null,
+          email: m.profile?.email ?? null,
+          title: m.profile?.title ?? null,
+          is_admin: m.is_admin ?? false,
+        }));
+
+      return {
+        content: [{ type: 'text', text: JSON.stringify(members, null, 2) }],
+      };
+    }
+  );
 };
 
