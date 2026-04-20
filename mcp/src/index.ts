@@ -14,28 +14,16 @@ const app = createMcpExpressApp();
 const sessions = new Map<string, StreamableHTTPServerTransport>();
 
 app.post('/mcp', async (req: Request, res: Response) => {
-    const start = Date.now();
-
-    // Log tool calls so reasoning can be followed
     const body = req.body;
     const isToolCall = body?.method === 'tools/call';
+    const sessionId = req.headers['mcp-session-id'] as string | undefined;
+
     if (isToolCall) {
         const toolName = body?.params?.name ?? '(unknown)';
         const args = body?.params?.arguments ?? {};
         console.error(`\n[TOOL] ${toolName}`);
         console.error(`[ARGS] ${JSON.stringify(args, null, 2)}`);
     }
-
-    // Patch res.end to capture when the response is sent
-    const originalEnd = res.end.bind(res);
-    (res as any).end = (...args: Parameters<typeof res.end>) => {
-        if (isToolCall) {
-            console.error(`[TIME] ${Date.now() - start} ms`);
-        }
-        return originalEnd(...args);
-    };
-
-    const sessionId = req.headers['mcp-session-id'] as string | undefined;
 
     // Reuse the existing session if there is one
     if (sessionId && sessions.has(sessionId)) {
@@ -44,23 +32,47 @@ app.post('/mcp', async (req: Request, res: Response) => {
         return;
     }
 
-    // create a session
+    // Create a session
     const server = new McpServer({ name: 'my-server', version: '1.0.0' });
 
-    // Graph db tools
-    nodesController(server);
-    // // Github tools
-    // githubController(server);
-    // // Slack tools
-    // slackController(server);
-    // // Confluence tools
-    // confluenceController(server);
+    // //Graph db tools
+    //nodesController(server);
+    // Github tools
+    githubController(server);
+    // Slack tools
+    slackController(server);
+    // Confluence tools
+    confluenceController(server);
+
+    let sessionToolCount = 0;
+    let sessionStart = 0;
+    let sessionEnd = 0;
 
     const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: () => uuidv4()
     });
 
+    // Wrap handleRequest to intercept tool call timing per session
+    const origHandle = transport.handleRequest.bind(transport);
+    transport.handleRequest = async (req, res, body) => {
+        const isTC = (body as any)?.method === 'tools/call';
+        if (isTC) {
+            if (sessionToolCount === 0) sessionStart = Date.now();
+            sessionToolCount++;
+            const originalEnd = res.end.bind(res);
+            (res as any).end = (...args: Parameters<typeof res.end>) => {
+                sessionEnd = Date.now();
+                console.error(`[RUNNING] tool calls so far=${sessionToolCount} | span=${sessionEnd - sessionStart} ms`);
+                return originalEnd(...args);
+            };
+        }
+        return origHandle(req, res, body);
+    };
+
     transport.onclose = () => {
+        if (sessionToolCount > 0) {
+            console.error(`\n[SUMMARY] tool calls=${sessionToolCount} | span (first tool call → last tool response)=${sessionEnd - sessionStart} ms`);
+        }
         if (transport.sessionId) sessions.delete(transport.sessionId);
     };
 
