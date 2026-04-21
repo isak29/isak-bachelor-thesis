@@ -41,7 +41,23 @@ Denna uppdelning gör det möjlig för LLM'en att anpassa sitt beteende och sin 
 
 
 \subsection{MCP-servern}\label{subsec:overview2}
-Another piece of the solution.
+MCP-servern är en central komponent i systemet som fungerar som en mellanhand mellan LLM'en och de externa verktygen. 
+Istället för att LLM'en kommunicerar direkt med Databasen eller API:erna sker istället all kommunikation via MCP servern, som i sin tur kommunicerar med de externa verktygen.
+
+Servern exponerar funktionalitet i form av verktyg (tools), som LLM'en anropar. Varje verktyg representerar en specifik operation, exempelvis hämta schema från grafdatabasen eller hämta senaste uppdateringen från ett specifikt dokument.
+Detta innebär att språkmodellen inte behöver känna till detaljer kring hur data lagras eller hämtas, utan endast vilka verktyg som finns och hur de används.
+
+Implementationen av MCP-servern är baserad på ett HTTP-gränssnitt där inkommande förfrågningar hanteras via en endpoint.
+Servern upprättar en session per startad chatt, vilket möjliggör en kontinuerlig kommunikation tills att servern stängs av.
+Verktygen registreras vid uppstart av servern och görs då tillgängliga för språkmodellen. Vid testning och jämförelse av de olika arkitekturerna registreras endast de verktyg som tillhör respektive lösning, de andra kommenteras tillfälligt bort.
+
+\subsubsection{Grafdatabas lösningens verktyg}
+
+\subsubsection{API/TOOL baserade lösningens verktyg}
+
+
+
+
 
 \subsection{Kunskapsgrafs-lösningen}\label{subsec:overview3}
 Another piece of the solution. Etc.\
