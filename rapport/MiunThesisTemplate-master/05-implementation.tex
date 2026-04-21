@@ -1,18 +1,44 @@
 \section{Implementation}\label{sec:implementation} 
-Detta kapitel innefattar en detaljerad beskrivning av hur det grafbaserade kunskapsystemet, MCP servern och integrationen med AI-agenten har implementerats.
+Detta kapitel innefattar en detaljerad beskrivning av implementeringen av systemet.
 Implementeringen är uppdelad i olika delar som tillsammans utgör den övergripande lösningen. Varje del beskrivs i detalj, inklusive de tekniker, bibliotek och designval som gjorts under utvecklingen.
-En översikt av systemet och dess komponenter presenteras i Figur \ref{fig:overview}.
+En översikt av systemet och dess komponenter presenteras i Figur \ref{fig:implementation_overview}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=15cm]{Figures/seq_diagram_workflow2.png}
-  \caption{System overview}\label{fig:overview}
+  \includegraphics[width=15cm]{Figures/image.png}
+  \caption{System overview}\label{fig:implementation_overview}
 \end{figure}
 
 \subsection{System översikt}\label{subsec:overview1}
 Use a top-down approach, divide and conquer, split the figure into relevant pieces. Explain each
 piece in detail, use titles that can be found in the overview figure. Use flow charts, UML diagram,
 pseudocode etc.\ but no real code. Refer to the appendix for the actual source code.
+
+\subsection{Användarinmatning}\label{subsec:overview5}
+Användaren interagerar med systemet genom att ställa frågor i ett naturligt språk. Användaren ställer frågor som "Vilka projekt har vi pågående?" eller "Vad står det i dokument x?", och behöver inte ha någon teknisk kunskao om hur systemet fungerar.
+
+Dessa frågor ställs i ett användargränssnitt som tillhandahålls av Cherry Studio.
+Cherry Studio är en integrerad AI-plattform som låter användare ställa frågor till LLM'er och få svar.
+
+
+\subsection{LLM-kommunikation}\label{subsec:overview6}
+AI modellen som används i systemet för att tolka användarens frågor är Gpt-5.4-mini.
+Modellen är en av OpenAi's mest kapabla mini modell, och den har kvalalitéer i form av bra kodning, resonemang, multimodal förståelse och verktygsanvändning
+ samtidigt som den är snabb och billigare än större modeller\cite{8}.
+
+Kommunikationen med LLM'en sker via gränssnittet i Cherry Studio, där varje förfrågan består av en sekvens meddelanden från användaren.
+Dessa meddelanden består av systemprompt, användarens inmatning samt eventuella svar från tidigare frågor i samma session.
+Detta möjliggör att modellen kan information från tidigare frågor i sina resonemang.
+
+Modellen jobbar iterativt genom en såkallad agent-loop. I denna process får modellen möjligheten att via MCP-servern använda flera olika tools för informationshämtning. Resultatet från ett anrop kan då användas som inmatning till ett annat.
+Detta kan vara lämplig vid mer komplexa frågor som kräver informationshämtning från flera olika delar av systemet. Framförallt i den TOOL/API baserade lösningen.
+
+För att styra modellens beteende används en system prompt som innehåller regler och riktlinjer för hur frågor ska tolkas och verktyg ska användas.
+Systemprompten säkerställer bland annat att LLM'en alltid utgår från databas-schemat med korrekta namn för entiteter och relationer, och inte ordagrant följer det som matas in av användaren.
+Promptarna är olika för Grafdatabas lösningen och TOOL/API baserade lösningen. I grafdatabas lösningen innehåller prompten mest olika riktlinjer i form av hur cypher frågorna ska formuleras, medans den i den andra lösningen innehåller mer tips om hur LLM'en ska identifiera vilka verktyg som ska användas beroende på användarens fråga.
+
+Denna uppdelning gör det möjlig för LLM'en att anpassa sitt beteende och sin strategi för att kunna returnera rätt information till användaren.
+
 
 \subsection{MCP-servern}\label{subsec:overview2}
 Another piece of the solution.
@@ -22,7 +48,6 @@ Another piece of the solution. Etc.\
 
 \subsection{Tool-baserade API lösningen}\label{subsec:overview4}
 
-\subsection{AI-agent och systemprompt}\label{subsec:overview5}
 
 \subsection{Evalueringsupplägg}\label{subsec:eval_setup} 
 
