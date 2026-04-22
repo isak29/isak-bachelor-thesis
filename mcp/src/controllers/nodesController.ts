@@ -74,7 +74,7 @@ export const nodesController = (server: McpServer) => {
           record.keys.forEach((key: string) => {
             const value = record.get(key);
             if (value && value.properties) {
-              obj[key] = { labels: value.labels, ...value.properties };
+              obj[key] = { labels: value.labels, ...value.properties };  // Tar bort det onödiga, och  plockar ut endast labels och properties för noder
             } else {
               obj[key] = value;
             }

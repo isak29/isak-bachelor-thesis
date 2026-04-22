@@ -21,13 +21,13 @@ export const githubController = (server: McpServer) => {
     }
   );
 
-  //Get latest push for a specifik repo tool
+  //Get latest commit for a specific repo tool
   server.registerTool(
-    'get-latest-push',
+    'get-latest-commit',
     {
-      title: 'Get latest push from a repository',
+      title: 'Get latest commit from a repository',
       description:
-        'Returns details about the most recent commit (push) from a specific GitHub repository. ' +
+        'Returns details about the most recent commit from a specific GitHub repository. ' +
         'Use list-repos first to find the correct full repository name (owner/repo). ' +
         'Returns the commit author, date, message, and changed files.',
       inputSchema: z.object({
