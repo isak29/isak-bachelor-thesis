@@ -225,6 +225,35 @@
       \verb https://docs.cherry-ai.com/docs/en-us
       \endverb
     \endentry
+    \entry{8}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=0523b13262b12c215d8009938f5c14f1}{%
+           family={OpenAI},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{fullhash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{fullhashraw}{0523b13262b12c215d8009938f5c14f1}
+      \strng{bibnamehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authorbibnamehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authornamehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authorfullhash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authorfullhashraw}{0523b13262b12c215d8009938f5c14f1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-21}
+      \field{title}{Vi presenterar GPT-5.4 mini och nano}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://openai.com/sv-SE/index/introducing-gpt-5-4-mini-and-nano/
+      \endverb
+      \verb{url}
+      \verb https://openai.com/sv-SE/index/introducing-gpt-5-4-mini-and-nano/
+      \endverb
+    \endentry
   \enddatalist
   \missing{?}
 \endrefsection

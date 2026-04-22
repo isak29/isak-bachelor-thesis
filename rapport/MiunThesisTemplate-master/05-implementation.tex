@@ -72,7 +72,7 @@ Samtidigt innebär det att LLM'ens förmåga att första relationerna i grafen f
 I den API-baserade lösningen är verktygen mer specifika och inriktade på att hämta information från specifika API:er eller externa system.
 De externa system som används i denna lösning är GitHub, Slack och Confluence, och det finns flertalet verktyg som är kopplade till varje system.
 
-Varje verktyg är utformat för att hämta specifik information från det externa systemet.
+Verktygen är utformade för att hämta specifik information från det externa systemet.
 Exempelvis hämta alla repositories i GitHub-organisationen, de senaste meddelanden från en specifik Slack-kanal eller information om ett specifikt Confluence dokument.
 Dessa verktyg kapslar in API-anrop och returnerar resultatet i ett strukturerat format som LLM'en sedan kan använda för att antingen kalla på ett annat verktyg eller för att formulera ett svar till användaren.
 
@@ -106,11 +106,44 @@ Data lagras i Neo4j och nås via databasanslutningen som används av MCP-servern
 
 \subsection{API-baserade lösningen}\label{subsec:overview4}
 
-Eftersom distrubitionen är spridd över flera olika system saknas en central datastruktur som binder samman entiteter och relationer på ett sätt som gör det möjligt att förstå hur data i de olika systemen hänger ihop.
-Detta innebär att språkmodellen själv måste kombinera flera olika resultat från verktygen för att kunna besvara mer komplexa frågor.
+Den API-baserade lösningen implementerades genom att integrera systemen GitHub, Slack och Confluence via deras API:er.
+Till skillnad från grafdatabaslösningen lagras ingen data centralt, utan all information hämtas dynamiskt via respektive systems API.
 
+\subsubsection{Datakällor och struktur}
+De externa systemen representerar olika delar av organisationens struktur och aktiviteter.
+GitHub används för att hämta information om repositories, issues, commits och aktiva användare, Slack används för att hämta information om kanaler och inlägg i dessa, och Confluence används för att hämta dokumentation.
+
+Varje system har sin egen datastruktur och sina identifierare. Detta innebär att det inte finns någon gemensam modell som binder samman en person från github till ett meddelande i Slack.
+Detta innebär att samma entitet förekommer i flera system utan direkt koppling.
+
+\subsubsection{Implementation av API-integrationer}
+
+API-integrationerna implementerades genom separata funktioner som kapslar in anrop till respektive system.
+Dessa funktioner används av MCP-servern och exponeras som verktyg till LLM'en. Varje verktyg är anpassad efter en specifik typ av data, exempelvis hämta information från ett specifikt repository.
+
+Resultaten från dessa anrop returneras i ett strukturerat format, vilket gör det möjligt för LLM'en att jobba vidare med informationen.
+
+\subsubsection{Integration med MCP och LLM}
+
+LLM'en interagerar med de externa systemen via MCP-servern genom att 
+anropa flera olika verktyg beroende på användarens fråga. Till skillnad från 
+grafdatabaslösningen, där en enskild fråga kan räcka, kräver denna lösning ofta 
+en sekvens av verktygsanrop.
+
+Modellen använder resultatet från ett verktyg som indata till nästa steg i 
+processen, vilket möjliggör att information från flera system kan kombineras. 
+Denna iterativa process hanteras inom agent-loopen och fortsätter tills modellen 
+har tillräckligt med information för att generera ett svar.
 
 \subsection{Evalueringsupplägg}\label{subsec:eval_setup} 
 
-Remember to explain how you will measure/evaluate your implementation and how your test bench has
-been built/setup/implemented.
+För att utvärdera de två lösningarna har 15 testfrågor definierats, där frågorna varierar i komplexitet.
+Varje fråga körs i en ny session för att inte tidigare frågor och svar ska påverka LLM'ens resonemang.
+
+Vid varje tests mäts korrekthet, tid, antal verktygsanrop samt om modellen behöver ställa följdfrågor.
+
+Mätningen om svarstid sker från att användarens fråga är skickad tills dess att ett färdigt svar är genererat.
+
+Testmiljön består av den implementerade MCP-servern tillsammans med respektive lösning, där endast relevanta verktyg för den lösningen är aktiverade.
+
+
