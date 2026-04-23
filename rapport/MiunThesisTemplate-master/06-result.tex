@@ -28,33 +28,107 @@ Se Figur \ref{fig:xxx}, \ref{fig:yyy} för ett exempel på en fråga och svar sa
 Kapitlet presenterar resultaten kopplade till de verifierbara målen som formulerats i avsnitt \ref{subsec:aim}.
 Resultaten kommer ifrån testerna som utförts på de två implementerade lösningarna, den grafbaserade lösningen och den API-baserade lösningen.
 
-\subsubsection{Korrekthet}\label{subsubsec:korrekthetResult}
+\subsection{Frågor som testats}
+De testfrågor som använts i utvärderingen av de två lösningarna presenteras nedan.
 
-\subsubsection{Svarstid}\label{subsubsec:svarstidResult}
+\begin{itemize}
+\item[Q1] Get all github repos
+\item[Q2] Show the latest message from the general slack channel.
+\item[Q3] Get information about the bachelor-thesis repo
+\item[Q4] Show every user in the organisation
+\item[Q5] Send me all pages from confluence
+\item[Q6] What GitHub issues are open right now in the payment-service repo?
+\item[Q7] What project is connected to the isak-bachelor-thesis repo, and who works on that? 
+\item[Q8] Summarize what happened in the general slack channel on April 13, 14 and 15.    
+\item[Q9] Are there any blockers in any of our projects right now?
+\item[Q10] Which documents in confluence is about aws? and what does it say?
+\item[Q11] Give me anoverview of the project Payment Platform, including its repositories, active issues and the people working on it.
+\item[Q12] Which developers have both open Git isseus and have been active in Slack during the last 24 hours? Give me proof of it.
+\item[Q13] Send me the name and email to all persons who commited in the payment-service repo. Also tell me waht the commit message says.
+\item[Q14] In which repositories does the person who created the "information about aws" page in Confluence work?     
+\item[Q15] Can you send me the name of the most recent updated Confluence document from the person that did the most recent commit in payment-servic repo?
+\end{itemize}
 
-\subsubsection{Antal verktygsanrop}\label{subsubsec:verktygsanropResult}
+Frågorna är på engleska för att undvika att LLM'en behöver översätta mellan svenska och engelska när den resonerar över vilka verktyg som ska användas.
 
-\subsubsection{mål x}
-\subsubsection{mål y}
-  % \begin{table}
-  %   \caption{Measured times for the model.}
-  %   \begin{tabular}{c c c c c}
-  %               & Shortest (ms) & Longest (ms) & Average (ms) & Stdev (ms)\\
-  %     \toprule
-  %     Model one & 10 & 30 & 20 & 5 \\
-  %     \midrule 
-  %     Model two & 20 & 40 & 35 & 3 \\
-  %     \bottomrule
-  %   \end{tabular}
-  % \end{table}
+\subsubsection{Enklare frågor}\label{subsubsec:enklareFragorResult}
 
-  Here is an example of a line graph. See~\cref{fig:line}.
-  \begin{figure}
-    \includegraphics[width=5cm]{Figures/graph1.png}
-    \caption{Line graph example.}\label{fig:line}
-  \end{figure}
+\begin{table}[h]
+\centering
+\begin{tabular}{c l l}
+\hline
+ID & Grafdatabas (tid / verktygsanrop / korrekt) & API (tid / verktygsanrop / korrekt) \\
+\hline
+Q1 & 1378 ms / 2 / Ja & 811 ms / 1 / Ja \\
+Q2 & 4804 ms / 3 / Ja & 1751 ms / 2 / Ja \\
+Q3 & 2425 ms / 2 / Ja & 3616 ms / 3 / Ja \\
+Q4 & 1231 ms / 2 / Ja & 270 ms / 1 / Ja \\
+Q5 & 1306 ms / 2 / Ja & 1155 ms / 1 / Ja \\
+\hline
+\end{tabular}
+\caption{Resultat för enkla frågor}
+\end{table}
+
+Som vi ser i denna tabell behövdes det inte många verktygsanrop.Det varierade mellan 1 till 3 anrop vilket är normalt.
+Graflösningen behöver alltid göra ett extra anrop för att hämta grafens schema, vilket resulterar i ett anrop mer än vad den hade behövt göra om schemat låg som kontext istället för att skapas efter ett anrop.
+
+Vi ser även att den API-baserade lösningen presterade bättre i form av snabbare svarstid och mindra verktygsanrop.
+Eftersom det var simplare frågor räckte det här med ett enda anrop på det flesta frågorna.
+
+Alla frågor som ställdes svarades med ett korrekt svar.
 
 
-  \begin{equation}
-    P_{i,j} = C\frac{P_iG_{i,j}}{d^a_{i,j}}
-  \end{equation}
+\subsubsection{Medelsvåra frågor}\label{subsubsec:medelsvaraResult}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c l l}
+\hline
+ID & Grafdatabas (tid / verktygsanrop / korrekt) & API (tid / verktygsanrop / korrekt) \\
+\hline
+Q6  & 1653 ms / 2 / Yes & 1875 ms / 2 / Nej \\
+Q7  & 5548 ms / 4 / Yes & 2097 ms / 2 / Ja \\
+Q8  & 11879 ms / 8 / Yes & 8774 + 7579 ms (16353) / 6 + 5 / Ja \\
+Q9  & 5219 ms / 4 / Delvis & 2331 ms / 4 / Nej \\
+Q10 & 1889 ms / 2 / Yes & 3597 ms / 3 / Nej \\
+\hline
+\end{tabular}
+\caption{Resultat för medelsvåra frågor}
+\end{table}
+
+När de medelsvåra frågorna ställdes fick vi ett mer varierat resultat.
+Den grafbaserade lösnignen presterade bra och svarade korrekt på alla frågor förutom en där den delvis svarade korrekt. Se Bilaga A: för svaret.
+
+Den API-baserade lösningen presterade minder bra i form av korrekta andel svar då 3 av 5 upplevdes vara felaktiga.
+Här ser vi också att antalet verktygsanrop börjar stiga i båda lösningarna, men vi ser den tydligaste ökningen på API-baserade lösningen.
+I fråga åtta ser vi två stycken siffror, detta då LLM'en behövde ställa en följdfråga för att komma fram till det slutgiltiga svaret.
+
+
+\subsubsection{Komplexa frågor}\label{subsubsec:komplexaFragorResult}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c l l}
+\hline
+ID & Grafdatabas (tid / verktygsanrop / korrekt) & API (tid / verktygsanrop / korrekt) \\
+\hline
+Q11 & 2125 ms / 2 / Ja & 3355 ms / 3 / Ja \\
+Q12 & 2993 ms / 2 / Ja & 72314 ms / 16 / Nej \\
+Q13 & 3369 ms / 3 / Nej & 2171 ms / 2 / Nej \\
+Q14 & 1614 ms / 2 / Ja & 8762 ms / 6 / Nej \\
+Q15 & 4724 ms / 3 / Ja & 5337 ms / 3 / Nej \\
+\hline
+\end{tabular}
+\caption{Resultat för komplexa frågor}
+\end{table}
+
+Vid de lite mer komplexa frågorna där ett resonemang om tydliga kopplingar krävs ser vi att den grafbaserade lösningen presterar bra,
+ med fyra av fem korrekta svar. Snabb svarstid har den också och vi ser att verktygsanropen är väldigt få.
+
+ Den API-baserade lösningen presterade inte alls lika bra och svarade endast rätt på en av fem frågor.
+ Vi ser en mycket längre svarstid som kommer med ökningen av antal verktygsanrop.
+ I dessa komplexa frågor krävs det att det görs kopplingar mellan olika externa system och därav ser vi ökningen i antalet verktygsanrop.
+
+
+
+
