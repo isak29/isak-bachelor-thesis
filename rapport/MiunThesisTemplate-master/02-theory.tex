@@ -21,7 +21,7 @@ Cypher är Neo4js frågespråk. Det är ett naturligt språk som erbjuder ett vi
 \subsubsection{LLM}\label{subsubsec:gpt-5.4}
 
 
-\subsection{MCP}\label{subsec:mcp_theory}
+\subsection{Model Context Protocol (MCP)}\label{subsec:mcp_theory}
 MCP (Model Context Protocol) är ett protokoll som används för att låta applikationer förse LLM'er med kontextuell information.
 MCP gör det möjligt för olika AI-modeller att ansluta till olika datakällor och verktyg. Detta gör det enklare att utveckla AI-applikationer utan att behöva skapa specialiserade gränssnitt för varje datakälla eller modell\cite{4}.
 
@@ -29,13 +29,15 @@ MCP består av tre huvudroller: servrar, klienter och värdar. Servrarna är pro
 Varje MCP server tillhandahåller en uppsättning verktyg, vilka är de som ansvarar för att hämta informationen från datakällorna. Klienterna är de som sammankopplar LLM'en med MCP servern. De ansvarar för att ta emot förfrågningar från LLM'en, vidarebefordra dessa till motsvarande MCP server och returnera resultatet från servern tillbaka till LLM'en.
 Värdarna är de som vill få åtkomst till data genom MCP. Exempelvis program som tillhandahåller ett användargränssnitt för att interagera med LLM'er, medan de själva integrerar MCP klienten för att kunna ansluta MCP servrarna och därmed utöka LLM'ens funktion med de verktyg som tillhandahålls av servrarna\cite{4}. 
 
+\subsection{API-baserad dataåtkomst}\label{subsec:api}
+
+
 \subsection{Cherry Studio}\label{subsec:CherryStudio} 
 Cherry Studio är en integrerad AI-plattform som kombinerar flertalet funktioner såsom multimodellstöd, kunskapsbashantering, översättning och AI-genererad bildskapning\cite{7}.
 
 Systemet erbjuder också användandet av MCP servrar för att ansluta till externa datakällor och verktyg, vilket gör det möjlgit att utöka funktionaliteten i LLM'er som används inom plattformen.
 Det går att använda befintliga MCP servrar eller att skapa sina egna för att ansluta till specifika datakällor eller verktyg som inte redan är integrerade i Cherry Studio.
 
-\subsection{}
 
 \subsubsection{Example of a related work domain}\label{subsubsec:examplerelatedwork}
 Explain how your work will be similar and how you work will be different from
