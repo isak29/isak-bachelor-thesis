@@ -1,30 +1,52 @@
 \section{Teori}\label{sec:theory} 
-Den teori som presenteras i detta kapitel är den teori som är relevant för att förstå de tekniker och bibliotek som används i arbetet.
+Den teori som presenteras i detta kapitel är den teori som är relevant för att förstå de tekniker och verktyg som används i arbetet.
 
 
 \subsection{Kunskapsgraf}\label{subsec:Kunskapsgraf}
-En kunskapsgraf är ett designmönster som som används för att organisera och representera data där fokus ligger på relationer mellan olika entiteter.
+En kunskapsgraf är ett designmönster som används för att organisera och representera data där fokus ligger på relationer mellan olika entiteter.
 Istället för att lagra information i tabeller eller dokument, struktureras data i form av noder (entiteter) och relationer som kopplar samman dessa.
-Detta gör det möjligt att analysera och förstå komplexa samband i data på ett effektivt vis\cite{5}.
+Detta möjliggör analys och förståelse av komplexa samband mellan noder\cite{5}.
 
-Kunskapsgrafer är särskilt användbara i situationer där data är starkt sammankopplad och där relationerna i sig bär viktig information. De används inom rekommendationssystem, bedrägeridetektion och avancerad informationssökning.
-Genom att integrera data från olika källor och organisera den efter tydliga samband kan kunskapsgrafer bidra till att synliggöra mönster och insikter som annars kan vara svåra att upptäcka\cite{5}.
+Kunskapsgrafer är särskilt användbara i situationer där data är starkt sammankopplad och där relationerna i sig bär viktig information. De används exempelvis inom rekommendationssystem, bedrägeridetektion och avancerad informationssökning.
+Genom att integrera data från olika källor och organisera den utifrån tydliga samband kan kunskapsgrafer bidra till att synliggöra mönster och insikter som annars kan vara svåra att upptäcka\cite{5}.
 
 \subsubsection{Grafdatabasen Neo4j}
 
 Grafdatabaser är en typ av databashanteringssystem som representerar data i from av noder och relationer.
 Till skillnad från traditionella relationsdatabaser är relationerna en central del av datamodellen, vilket bidrar till effektiv traversering av data(s.~6)\cite{robinson2015graph}. 
-Grafdatabaserna innehåller riktade grafer, det vill säga att alla relationer har en startnod och en slutnod och går enbart i en riktning.
-Det finns alltså inga relationer eller noder som hänger löst, alla noder i grafen hänger ihop med något annat på ett eller annat sätt\cite{10}.
 
-Neo4j är grafdatabasen som används i det här projektet. I Neo4j är grafstrukturen implementerad direkt i databasen på lagringsnivå, och inte ovanpå an annan databasmodell.
-Detta betyder att data i grafen inte behöver vara ett nytt lager ovanpå befintliga strukturer, utan kan istället lagras direkt i strukturen\cite{6}.
+Grafdatabaser baseras på riktade grafer, vilket innebär att varje relation har en startnod och därmed en definierad riktning.
+Denna riktning används för att beskriva semantiken i relationen mellan två noder.
+Trots detta kan relationer traverseras i båda riktningarna vid frågeställning\cite{10}.
+
+Det är inte heller nödvändigt att alla noder i en graf är direkt kopplade till varandra, utan en graf kan bestå av flera sammanhängande delgrafer.
+
+Neo4j är grafdatabasen som används i detta projekt för att implementera kunskapsgrafen. I Neo4j är grafstrukturen implementerad direkt i databasen på lagringsnivå, och inte ovanpå an annan databasmodell.
+Detta innebär att data lagras direkt i grafstrukturen, vilket bidrar till effektiv hantering av relationer och traversering av data\cite{6}.
 
 
 \subsubsection{Cypher}
-Cypher är Neo4js frågespråk. Det är ett naturligt språk som erbjuder ett visuellt sätt att matcha mönster och relationer i grafen.
+Cypher är det frågespråk som används i Neo4j. Det är ett deklarativt frågespårk för grafdatabaser ursprungligen utvecklat för just Neo4j.
+Språket är utformat för att uttrycka frågor genom mönstermatchning, vilket gör det möjligt att formulera graftraverseringar på ett naturligt sätt \cite{11}.
+
+Syftet med cypher somfrågespråk är att förenkla frågeställningar i grafdatabaser genom att möjliggöra analy av relationer utan join-operationer. Uttrycka graftraversering på ett naturligt sätt. Hantera skapande, uppdateringar och borttagning av data i grafen\cite{11}.
+
+En cypher fråga ser ut på följande sätt:
+\begin{verbatim}
+MATCH (p:Person)-[:WORKS_ON]->(r:Repository)
+RETURN r
+\end{verbatim}
+Denna fråga hämtar alla noder av typen Repository som är kopplade till noder av typen Person genom relationen WORKS\_ON.
+
+Som vi ser i exemplet ovan är språket väldigt intuitivt och lätt att förstå.
+
 
 \subsection{Large Language Model (LLM)}\label{subsec:LLM}
+En LLM är är en typ av artificiell intelligensmodell som är tränad på stora mängder data. Detta gör dem kapabla till att förstå det mänskliga språket samt andra typer av innehåll för att kunna utföra olika typer av arbetsuppgifter\cite{12}.
+
+I detta projekt kommer LLM'en att användas för att tolka en användares fråga och sedan tolka vilket eller vilka verktyg som ska användas för att returnera den information som efterfrågats.
+
+
 \subsubsection{Gpt-5.4-mini}\label{subsubsec:gpt-5.4}
 
 

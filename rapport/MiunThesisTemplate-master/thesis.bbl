@@ -264,6 +264,64 @@
       \verb https://neo4j.com/docs/getting-started/whats-neo4j/
       \endverb
     \endentry
+    \entry{11}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=3474a7ab617bd7c75a6c282e12d7346b}{%
+           family={GLOSSARY},
+           familyi={G\bibinitperiod},
+           given={TIGERGRAPH},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{fullhash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{fullhashraw}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{bibnamehash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{authorbibnamehash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{authornamehash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{authorfullhash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{authorfullhashraw}{3474a7ab617bd7c75a6c282e12d7346b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-27}
+      \field{title}{Cypher Query Language}
+      \verb{urlraw}
+      \verb https://www.tigergraph.com/glossary/cypher-query-language/
+      \endverb
+      \verb{url}
+      \verb https://www.tigergraph.com/glossary/cypher-query-language/
+      \endverb
+    \endentry
+    \entry{12}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=3ad6590e5b4a21e93d302b7e0bf0d768}{%
+           family={Stryker},
+           familyi={S\bibinitperiod},
+           given={Cole},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{fullhash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{fullhashraw}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{bibnamehash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{authorbibnamehash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{authornamehash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{authorfullhash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{authorfullhashraw}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-27}
+      \field{title}{What are large language models (LLMs)?}
+      \verb{urlraw}
+      \verb https://www.ibm.com/think/topics/large-language-models
+      \endverb
+      \verb{url}
+      \verb https://www.ibm.com/think/topics/large-language-models
+      \endverb
+    \endentry
     \entry{4}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=d208309a8d610fc67ca9c1daa1cbba3f}{%
