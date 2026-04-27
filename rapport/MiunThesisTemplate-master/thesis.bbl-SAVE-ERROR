@@ -46,6 +46,37 @@
       \verb https://medium.com/data-science-collective/when-data-silos-became-our-biggest-enemy-how-three-companies-broke-free-2d24bfee3d38
       \endverb
     \endentry
+    \entry{armedia}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=46abe5162e7cfea29eeeebb6c1863708}{%
+           family={dloo},
+           familyi={d\bibinitperiod}}}%
+      }
+      \strng{namehash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{fullhash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{fullhashraw}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{bibnamehash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{authorbibnamehash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{authornamehash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{authorfullhash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{authorfullhashraw}{46abe5162e7cfea29eeeebb6c1863708}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{30}
+      \field{month}{10}
+      \field{note}{Hämtad: 2026-04-27}
+      \field{title}{When Data Silos Became Our Biggest Enemy: How Three Companies Broke Free}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://armedia.com/blog/federated-search-the-importance-of-being-able-to-find-information/
+      \endverb
+      \verb{url}
+      \verb https://armedia.com/blog/federated-search-the-importance-of-being-able-to-find-information/
+      \endverb
+    \endentry
     \entry{3}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=9b6471be801815b0effbf2a80fc340fa}{%
@@ -142,6 +173,70 @@
       \verb https://neo4j.com/blog/knowledge-graph/how-to-build-knowledge-graph/
       \endverb
     \endentry
+    \entry{robinson2015graph}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=eaed36ba79bb2c6095773ccc079ca1d0}{%
+           family={Robinson},
+           familyi={R\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=de1f6562412a8121370e1b6d96e5e72d}{%
+           family={Webber},
+           familyi={W\bibinitperiod},
+           given={Jim},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2be209985a2c19f4ea597e15b8093025}{%
+           family={Eifrem},
+           familyi={E\bibinitperiod},
+           given={Emil},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{69f016811276dc3d8c309f790f64963a}
+      \strng{fullhash}{77edf458bcda3ac3061f8e216386c363}
+      \strng{fullhashraw}{77edf458bcda3ac3061f8e216386c363}
+      \strng{bibnamehash}{77edf458bcda3ac3061f8e216386c363}
+      \strng{authorbibnamehash}{77edf458bcda3ac3061f8e216386c363}
+      \strng{authornamehash}{69f016811276dc3d8c309f790f64963a}
+      \strng{authorfullhash}{77edf458bcda3ac3061f8e216386c363}
+      \strng{authorfullhashraw}{77edf458bcda3ac3061f8e216386c363}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Graph Databases}
+      \field{year}{2015}
+    \endentry
+    \entry{10}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=fdb684db7d6282b59709e317abf9a90a}{%
+           family={braph.build},
+           familyi={b\bibinitperiod}}}%
+      }
+      \strng{namehash}{fdb684db7d6282b59709e317abf9a90a}
+      \strng{fullhash}{fdb684db7d6282b59709e317abf9a90a}
+      \strng{fullhashraw}{fdb684db7d6282b59709e317abf9a90a}
+      \strng{bibnamehash}{fdb684db7d6282b59709e317abf9a90a}
+      \strng{authorbibnamehash}{fdb684db7d6282b59709e317abf9a90a}
+      \strng{authornamehash}{fdb684db7d6282b59709e317abf9a90a}
+      \strng{authorfullhash}{fdb684db7d6282b59709e317abf9a90a}
+      \strng{authorfullhashraw}{fdb684db7d6282b59709e317abf9a90a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämta: 2026-04-23}
+      \field{title}{What is Graph Structure?}
+      \verb{urlraw}
+      \verb https://graph.build/resources/graph-models?
+      \endverb
+      \verb{url}
+      \verb https://graph.build/resources/graph-models?
+      \endverb
+    \endentry
     \entry{6}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=4f16d2b1f38f316b477da6dbf0e9bc79}{%
@@ -156,8 +251,8 @@
       \strng{authornamehash}{4f16d2b1f38f316b477da6dbf0e9bc79}
       \strng{authorfullhash}{4f16d2b1f38f316b477da6dbf0e9bc79}
       \strng{authorfullhashraw}{4f16d2b1f38f316b477da6dbf0e9bc79}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-08}
@@ -167,6 +262,93 @@
       \endverb
       \verb{url}
       \verb https://neo4j.com/docs/getting-started/whats-neo4j/
+      \endverb
+    \endentry
+    \entry{11}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=3474a7ab617bd7c75a6c282e12d7346b}{%
+           family={GLOSSARY},
+           familyi={G\bibinitperiod},
+           given={TIGERGRAPH},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{fullhash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{fullhashraw}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{bibnamehash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{authorbibnamehash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{authornamehash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{authorfullhash}{3474a7ab617bd7c75a6c282e12d7346b}
+      \strng{authorfullhashraw}{3474a7ab617bd7c75a6c282e12d7346b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-27}
+      \field{title}{Cypher Query Language}
+      \verb{urlraw}
+      \verb https://www.tigergraph.com/glossary/cypher-query-language/
+      \endverb
+      \verb{url}
+      \verb https://www.tigergraph.com/glossary/cypher-query-language/
+      \endverb
+    \endentry
+    \entry{12}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=3ad6590e5b4a21e93d302b7e0bf0d768}{%
+           family={Stryker},
+           familyi={S\bibinitperiod},
+           given={Cole},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{fullhash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{fullhashraw}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{bibnamehash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{authorbibnamehash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{authornamehash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{authorfullhash}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \strng{authorfullhashraw}{3ad6590e5b4a21e93d302b7e0bf0d768}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-27}
+      \field{title}{What are large language models (LLMs)?}
+      \verb{urlraw}
+      \verb https://www.ibm.com/think/topics/large-language-models
+      \endverb
+      \verb{url}
+      \verb https://www.ibm.com/think/topics/large-language-models
+      \endverb
+    \endentry
+    \entry{13}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=242df64c0aec2a0407b31533cda92b51}{%
+           family={Protocol},
+           familyi={P\bibinitperiod},
+           given={Model\bibnamedelima Context},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{fullhash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{fullhashraw}{242df64c0aec2a0407b31533cda92b51}
+      \strng{bibnamehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authorbibnamehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authornamehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authorfullhash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authorfullhashraw}{242df64c0aec2a0407b31533cda92b51}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-27}
+      \field{title}{What is the Model Context Protocol (MCP)?}
+      \verb{urlraw}
+      \verb https://modelcontextprotocol.io/docs/getting-started/intro
+      \endverb
+      \verb{url}
+      \verb https://modelcontextprotocol.io/docs/getting-started/intro
       \endverb
     \endentry
     \entry{4}{misc}{}{}
@@ -183,8 +365,8 @@
       \strng{authornamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
       \strng{authorfullhash}{d208309a8d610fc67ca9c1daa1cbba3f}
       \strng{authorfullhashraw}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-02}
@@ -239,8 +421,8 @@
       \strng{authornamehash}{0523b13262b12c215d8009938f5c14f1}
       \strng{authorfullhash}{0523b13262b12c215d8009938f5c14f1}
       \strng{authorfullhashraw}{0523b13262b12c215d8009938f5c14f1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-21}
@@ -255,7 +437,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{?}
 \endrefsection
 \endinput
 

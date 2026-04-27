@@ -46,36 +46,28 @@ En LLM är är en typ av artificiell intelligensmodell som är tränad på stora
 
 I detta projekt kommer LLM'en att användas för att tolka en användares fråga och sedan tolka vilket eller vilka verktyg som ska användas för att returnera den information som efterfrågats.
 
-
-\subsubsection{Gpt-5.4-mini}\label{subsubsec:gpt-5.4}
-
-
 \subsection{Model Context Protocol (MCP)}\label{subsec:mcp_theory}
-MCP (Model Context Protocol) är ett protokoll som används för att låta applikationer förse LLM'er med kontextuell information.
-MCP gör det möjligt för olika AI-modeller att ansluta till olika datakällor och verktyg. Detta gör det enklare att utveckla AI-applikationer utan att behöva skapa specialiserade gränssnitt för varje datakälla eller modell\cite{4}.
+Model Context Protocol (MCP) är ett protokoll som används för att koppla samman LLM:er med externa system.
+Genom att använda sig av MCP kan då LLM:erna få tillgång till den skapade grafdatabasen och andra externa datakällor\cite{13}.
+Detta gör det enklare att utveckla AI-applikationer utan att behöva skapa specialiserade gränssnitt för varje datakälla eller modell\cite{4}.
 
-MCP består av tre huvudroller: servrar, klienter och värdar. Servrarna är programmen som tillhandahåller verktyg och dataåtkomstmöjligheterna för LLM'er att använda.
-Varje MCP server tillhandahåller en uppsättning verktyg, vilka är de som ansvarar för att hämta informationen från datakällorna. Klienterna är de som sammankopplar LLM'en med MCP servern. De ansvarar för att ta emot förfrågningar från LLM'en, vidarebefordra dessa till motsvarande MCP server och returnera resultatet från servern tillbaka till LLM'en.
-Värdarna är de som vill få åtkomst till data genom MCP. Exempelvis program som tillhandahåller ett användargränssnitt för att interagera med LLM'er, medan de själva integrerar MCP klienten för att kunna ansluta MCP servrarna och därmed utöka LLM'ens funktion med de verktyg som tillhandahålls av servrarna\cite{4}. 
+Istället för att modellen har direkt tillgång till alla datakällor, fungerar MCP som ett mellanlager där funktionalitet exponeras i form av verktyg.
+Dessa verktyg kan sedan användas för att hämta data från databaser, anropa API:er eller utföra andra typer av operationer.
+
+När en användare ställer en fråga kan LLM:en tolka frågan och avgöra vilket eller vilka verktyg som behöver användas för att samla in relevant information.
+Resultated från dessa anrop används sedan som underlag för att generera ett svar till användaren.
+
+MCP möjliggör därmed utvecklingen av AI-applikationer där LLM:er fungerar som agenter som aktivt hittar och hämtar information från källor\cite{4}.
 
 \subsection{API-baserad dataåtkomst}\label{subsec:api}
-
+I lösningen som används för att jämföra mot grafdatabas lösningen används en API-baserad dataåtkomst där verktygen i MCP-servern gör olika API-anrop för att hämta data från olika datakällor.
+Detta innebär att istället för att ha en centraliserad databas där all data är lagrad, så hämtas data i realtid från olika källor när det behövs.
 
 \subsection{Cherry Studio}\label{subsec:CherryStudio} 
-Cherry Studio är en integrerad AI-plattform som kombinerar flertalet funktioner såsom multimodellstöd, kunskapsbashantering, översättning och AI-genererad bildskapning\cite{7}.
+Cherry Studio är en plattform som används för att interagera med LLM:er genom ett grafiskt användargränssnitt. Plattformen stödjer flera 
+olika modeller och möjliggör konfiguration av externa integrationer exempelvis MCP\cite{7}.
 
-Systemet erbjuder också användandet av MCP servrar för att ansluta till externa datakällor och verktyg, vilket gör det möjlgit att utöka funktionaliteten i LLM'er som används inom plattformen.
-Det går att använda befintliga MCP servrar eller att skapa sina egna för att ansluta till specifika datakällor eller verktyg som inte redan är integrerade i Cherry Studio.
+I detta arbete används Cherry Studio som klient för att skicka och få svar av LLM:en, samt för att koppla samman LLM:en med den skapade MCP-servern.
+Genom denna integration får LLM:en tillgång till de verktyg som i sin tur har tillgång till grafdatabasen och API:erna.
 
-
-\subsubsection{Example of a related work domain}\label{subsubsec:examplerelatedwork}
-Explain how your work will be similar and how you work will be different from
-their work. Put your work into relation to theirs. 
-
-Continue the list with one heading for each concrete piece of related work.
-
-\subsubsection{Another example of related work domain}\label{subsubsec:anotherexample}
-Explain another related work.
-
-\subsubsection{Etc.\ until all related works has been covered}\label{subsubsec:etc}
-Explain another related work.
+Cherry Studio fungerar därmed som gränssnittet mellan användaren och systemets backend, där LLM:en blir en central komponent för att tolka och besvara användarens frågor.

@@ -322,6 +322,35 @@
       \verb https://www.ibm.com/think/topics/large-language-models
       \endverb
     \endentry
+    \entry{13}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=242df64c0aec2a0407b31533cda92b51}{%
+           family={Protocol},
+           familyi={P\bibinitperiod},
+           given={Model\bibnamedelima Context},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{fullhash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{fullhashraw}{242df64c0aec2a0407b31533cda92b51}
+      \strng{bibnamehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authorbibnamehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authornamehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authorfullhash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authorfullhashraw}{242df64c0aec2a0407b31533cda92b51}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-27}
+      \field{title}{What is the Model Context Protocol (MCP)?}
+      \verb{urlraw}
+      \verb https://modelcontextprotocol.io/docs/getting-started/intro
+      \endverb
+      \verb{url}
+      \verb https://modelcontextprotocol.io/docs/getting-started/intro
+      \endverb
+    \endentry
     \entry{4}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=d208309a8d610fc67ca9c1daa1cbba3f}{%
@@ -392,8 +421,8 @@
       \strng{authornamehash}{0523b13262b12c215d8009938f5c14f1}
       \strng{authorfullhash}{0523b13262b12c215d8009938f5c14f1}
       \strng{authorfullhashraw}{0523b13262b12c215d8009938f5c14f1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-21}
