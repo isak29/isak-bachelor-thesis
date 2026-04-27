@@ -129,6 +129,89 @@ Vid de lite mer komplexa frågorna där ett resonemang om tydliga kopplingar kr�
  Vi ser en mycket längre svarstid som kommer med ökningen av antal verktygsanrop.
  I dessa komplexa frågor krävs det att det görs kopplingar mellan olika externa system och därav ser vi ökningen i antalet verktygsanrop.
 
+\subsection{Genomsnitt av resultat}\label{subsec:summaryResult}
+Figur \ref{fig:timeSummary} visar genomsnittet av tid per svar per komplexitet.
+Graflösningen hade i genomsnitt 2229ms svarstid för simpla frågor, 5238ms för medelsvåra frågor och 2965ms för komplexa frågor.
+API-baserade lösningen hade i genomsnitt 1521ms svarstid för simpla frågor, 5241ms för medelsvåra frågor och 18388ms för komplexa frågor.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    bar width=10pt,
+    width=11.5cm,
+    height=7cm,
+    ylabel={Tid (ms)},
+    symbolic x coords={Simpla frågor, Medelsvåra frågor, Komplexa frågor},
+    xtick=data,
+    legend pos=north west,
+    ymin=0, ymax=20000,
+    ytick={0,5000,10000,15000,20000},
+    scaled y ticks=false
+]
+\addplot[fill=blue!40] coordinates {(Simpla frågor, 2229) (Medelsvåra frågor, 5238) (Komplexa frågor, 2965)};
+\addplot[fill=red!40] coordinates {(Simpla frågor, 1521) (Medelsvåra frågor, 5241) (Komplexa frågor, 18388)};
+\legend{Grafdatabas, API}
+\end{axis}
+\end{tikzpicture}
+\caption{Genomsnittlig svarstid per komplexitet}
+\label{fig:timeSummary}
+\end{figure}
 
+Figur \ref{fig:toolCallsSummary} visar de genomsnittliga antalet verktygsanrop vardera lösningen behövde göra per komplexitet.
+Graflösningen hade i genomsnitt 2.2 verktygsanrop för simpla frågor, 4 för medelsvåra och 2.4 för komplexa, medans API-baserade lösningen hade 1.6 för simpla, 4.4 för medelsvåra och 6 för komplexa frågor.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    bar width=10pt,
+    width=11.5cm,
+    height=7cm,
+    ylabel={Antal verktygsanrop},
+    symbolic x coords={Simpla frågor, Medelsvåra frågor, Komplexa frågor},
+    xtick=data,
+    legend pos=north west,
+    ymin=0, ymax=7,
+    ytick={0,1,2,3,4,5,6,7},
+    scaled y ticks=false
+]
+\addplot[fill=blue!40] coordinates {(Simpla frågor, 2.2) (Medelsvåra frågor, 4) (Komplexa frågor, 2.4)};
+\addplot[fill=red!40] coordinates {(Simpla frågor, 1.6) (Medelsvåra frågor, 4.4) (Komplexa frågor, 6)};
+\legend{Grafdatabas, API}
+\end{axis}
+\end{tikzpicture}
+\caption{Genomsnittligt antal verktygsanrop per komplexitet}
+\label{fig:toolCallsSummary}
+\end{figure}
+
+Figur \ref{fig:correctnessSummary}, visar antal procent korrekta svar som vardera lösning levererade (utan följdfrågor från LLM:en).
+Graflösningen hade 100\% rätta svar vid de simplare frågorna och 80\% i både de medelsvåra och komplexa.
+API-baserade lösningen hade 100\% korrekta vid de simpla frågorna, 40\% vid medelsvåra och endast 20\% vid komplexa.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    bar width=10pt,
+    width=11.5cm,
+    height=7cm,
+    ylabel={Korrekthet (\%)},
+    symbolic x coords={Simpla frågor, Medelsvåra frågor, Komplexa frågor},
+    xtick=data,
+    legend pos=north west,
+    ymin=0, ymax=100,
+    ytick={0,20,40,60,80,100},
+    scaled y ticks=false
+]
+\addplot[fill=blue!40] coordinates {(Simpla frågor, 100) (Medelsvåra frågor, 80) (Komplexa frågor, 80)};
+\addplot[fill=red!40] coordinates {(Simpla frågor, 100) (Medelsvåra frågor, 40) (Komplexa frågor, 20)};
+\legend{Grafdatabas, API}
+\end{axis}
+\end{tikzpicture}
+\caption{Korrekthet per komplexitet}
+\label{fig:correctnessSummary}
+\end{figure}
 
 
