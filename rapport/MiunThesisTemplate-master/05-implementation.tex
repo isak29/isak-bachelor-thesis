@@ -51,7 +51,7 @@ Implementationen av MCP-servern är baserad på ett HTTP-gränssnitt där inkomm
 Servern upprättar en session per startad chatt, vilket möjliggör en kontinuerlig kommunikation tills att servern stängs av.
 Verktygen registreras vid uppstart av servern och görs då tillgängliga för språkmodellen. Vid testning och jämförelse av de olika arkitekturerna registreras endast de verktyg som tillhör respektive lösning, de andra kommenteras tillfälligt bort.
 
-Detta möjliggör en enhetlig kommunikationskanal där LLM'en använder samma gränssnitt oavsätt om data hämtas från en databas eller API:er.
+Detta möjliggör en enhetlig kommunikationskanal där LLM'en använder samma gränssnitt oavsett om data hämtas från en databas eller API:er.
 Dett gör det också möjligt att enkelt byta ut och lägga till verktyg utan att behöva ändra något annat i systemet.
 
 \subsubsection{Grafdatabas lösningens verktyg}

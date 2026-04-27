@@ -8,12 +8,13 @@ Metoden syftar till att ge en tydlig bild av hur systemet har utvecklats, design
 
 \subsection{{Vetenskaplig metod}}\label{subsec:scientificmethod}
 Arbetet genomförs huvudsakligen som en kvantitativ studie med inslag av kvalitativa bedömningar.
- De kvantitativa delarna består av mätningar för systemets prestanda i form av svarstid och kostnader, medans mätningarna för korrekthet och relevans är mer kvalitativa.
+ De kvantitativa delarna består av mätningar för systemets prestanda i form av svarstid och antal verktygs anrop, medans mätningarna för korrekthet och relevans är mer kvalitativa.
 
 Utöver detta tillämpas även en designvetenskaplig metodik, då arbetet inte bara syftar till att analysera ett problem utan även utveckla en lösning i form av ett tekniskt system.
 Det tekniska systemet kommer att användas för att jämföra de olika sätten att låta en LLM hämta och bearbeta information på.
 
-Först identifierades problemen som finns i dagens informationshantering. Dessa problem beskrivs i introduktionen \ref{subsec:background} och ligger till grund för de forskningsfrågor som identifierats.
+Först identifierades problemen som finns i dagens informationshantering.
+ Dessa problem beskrivs i introduktionen \ref{subsec:background} och ligger till grund för de forskningsfrågor som identifierats.
 
 Metodvalet motiveras av arbetets forskningsfrågor som identifierades i kapitel \ref{subsec:researchquestion}, och fokuserar på att undersöka hur en LLM kan utnyttja en grafbaserad kunskapsgraf 
 för att effektivisera informationssökningen inom en organisation. Genom en kombination av kvantitativa mätningar och kvalitativa bedömningar 
@@ -26,41 +27,45 @@ utvärdering av systemet och dess funktionalitet.
 En förstudie genomfördes i början av projektet för att samla in relevant och nödvändig information för att först identifiera problemet och sedan för att bidra med en lösning till problemet.
 \subsubsection{LLM:er}
 Det undersöktes vilken typ av LLM som skulle användas i query genereringen. Det undersöktes genom nätbaserade studier och jämförelser av olika LLM:er och deras integrationer.
-\subsubsection{Kommunikation med grafdatabas}
-Det undersöktes om olika sätt att kommunicera med en grafdatabas, både i form av olika databasstrukturer och olika sätt att låta en LLM kommunicera med databasen.
+\subsubsection{Kommunikation med databas och externa system}
+Det undersöktes om vilka olika sätt en LLM kan kommunicera med externa system.
 Nätbaserad forskning och studier av olika bibliotek såsom MCP användes för att undersöka detta.
 
 \subsection{Val av verktyg och bibliotek}
-Efter förstudien var gjord så valdes det vilka verktyg och bibliotek som skulle användas i implementationen av systemet.
-För kommunikationen mellan LLM och de olika datakällorna skapades en MCP server. För programmeringen av MCP servern valdes programmeringsspråket Typescript. För grafdatabasen valdes Neo4j och för LLM integrationen valdes OpenAI's API.
-AI-modellen som användes i OpenAI's API var GPT-4o. Dessa val gjordes baserat på förstudien och utifrån vilka verktyg som bäst passade de krav och behov som identifierats i arbetet.
+
+Efter genomförd förstudie identifierades ett antal krav på systemet.
+Dessa krav var bland annat behovet av flexibel och skalbar arkitektur, stöd för olika datakällor och LLM integration samt möjlighet till skapande av kunskapsgraf.
+
+Valet av verktyg och bibliotek baserades på dessa krav och på den information som samlats in under förstudien.
 
 Under implementationen användes även hjälpmedel såsom ChatGPT och Claude för att få stöd med programmering, dokumentering och felsökning.
 
-\subsection{Systemarkitektur och design}\label{subsec:architechture_and_design}
-Systemet designades med en arkitektur som möjliggör flexibel kommunikation mellan LLM och olika datakällor. En användarfråga skickas till en LLM via Open AI's API, där den tolkas och i ena fallet omvandlas till en cypher-fråga som sedan via MCP servern körs mot grafdatabasen, och i det andra fallet omvandlas till ett API-anrop mot rätt informationskälla via MCP servern.
-MCP servern fungerar som en mellanhand och är den som exponerar såkallade tools för LLM:en att anropa. I det ena fallet kallas det toolet som kör en cypher fråga  mot grafdatabasen och i det andra fallet kallas nödvändiga tools för körning mot olika API:er.
-Resultatet returneras sedan till användaren i form av ett svar på den ursprungliga frågan.
+% \subsection{Systemarkitektur och design}\label{subsec:architechture_and_design}
+% Systemet designades med en arkitektur som möjliggör flexibel kommunikation mellan LLM och olika datakällor.
+%  En användarfråga skickas till en LLM via Open AI's API, där den tolkas och i ena fallet omvandlas till en cypher-fråga som sedan via MCP servern körs mot grafdatabasen, och i det andra fallet omvandlas till ett API-anrop mot rätt informationskälla via MCP servern.
+% MCP servern fungerar som en mellanhand och är den som exponerar såkallade tools för LLM:en att anropa.
+%  I det ena fallet kallas det toolet som kör en cypher fråga  mot grafdatabasen och i det andra fallet kallas nödvändiga tools för körning mot olika API:er.
+% Resultatet returneras sedan till användaren i form av ett svar på den ursprungliga frågan.
 
-Figur \ref{fig:system_architecture} visar en översikt av systemets arkitektur och hur de olika komponenterna interagerar med varandra.
+% Figur \ref{fig:system_architecture} visar en översikt av systemets arkitektur och hur de olika komponenterna interagerar med varandra.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=15cm]{Figures/system-architecture.png}
-  \caption{System överblick}\label{fig:system_architecture}
-\end{figure}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=15cm]{Figures/system-architecture.png}
+%   \caption{System överblick}\label{fig:system_architecture}
+% \end{figure}
 
-\subsection{Grafdatabas struktur och generering av mock data}
-För att kunna testa och utvärdera systemet så behövdes det data i databasen. Eftersom det är utanför projektets scope att låta detta ske automatiskt via API anrop och liknande, så genererades det mock data som ska efterlikna den data som skulle finnas i en verklig organisation.
-Denna data representerar olika typer av organisatoriska enheter såsom, GitHub repositories, Confluence sidor, anställda, projekt och liknande. Genom prompter och hjälp av ChatGPT så genererades cypher-frågor som skapade denna data i grafdatabasen.
+% \subsection{Grafdatabas struktur och generering av mock data}
+% För att kunna testa och utvärdera systemet så behövdes det data i databasen. Eftersom det är utanför projektets scope att låta detta ske automatiskt via API anrop och liknande, så genererades det mock data som ska efterlikna den data som skulle finnas i en verklig organisation.
+% Denna data representerar olika typer av organisatoriska enheter såsom, GitHub repositories, Confluence sidor, anställda, projekt och liknande. Genom prompter och hjälp av ChatGPT så genererades cypher-frågor som skapade denna data i grafdatabasen.
 
-Se Figur \ref{fig:db} för en översikt av grafdatabasens struktur.
+% Se Figur \ref{fig:db} för en översikt av grafdatabasens struktur.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=15cm]{Figures/db_overview.png}
-  \caption{Grafdatabas struktur}\label{fig:db}
-\end{figure}
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=15cm]{Figures/db_overview.png}
+%   \caption{Grafdatabas struktur}\label{fig:db}
+% \end{figure}
 
 \subsection{Arbetsmetod}\label{subsec:projectmethod}
 Arbetet har genomförts enligt en designvetenskaplig metodik där utvecklingen har strukturerats i olika faser.
@@ -68,24 +73,28 @@ Dessa faser inkluderar problemidentifiering, målformulering, design, utveckling
 
 I den första fasen undersöktes och identifierades de problem som finns med dagens informationshantering inom organisationer.
 Fasen bestod av en litteraturstudie och analys av befintliga problem och potentiella lösningar. Det undersöktes om relevanta tekniker och metoder 
-för att hantera dessa problem. Här identifierades tekniker såsom grafdatabaser, LLM:er och verktyg som MCP. Detta ledde till formuleringen av de forskningsfrågor som arbetet syftar till att besvara.
+för att hantera dessa problem. Här identifierades tekniker såsom kunskapsgrafer, grafdatabaser, LLM:er och verktyg som MCP. Detta ledde till formuleringen av de forskningsfrågor som arbetet syftar till att besvara.
 
 I den andra fasen formulerades målen för arbetet baserat på de problem som identifierats under den första fasen. 
 Det blev här tydligt att målet var att utveckla ett system med en struktur som tillåter en LLM att effektivt navigera och hämta information inom en organisation för att eliminera problemet med datasilos.
-Det blev även tydligare vilka tekniker och verktyg som skulle användas i utvecklingen av systemet, såsom Neo4j för grafdatabasen och OpenAI's API för LLM integrationen.
+Det blev även tydligare vilka tekniker och verktyg som skulle användas i utvecklingen av systemet, såsom Neo4j för grafdatabasen och Cherry Studio för användargränssnittet och LLM integrationer.
 
 I den tredje fasen designades systemet och databasen. Här började arbetet med att designa systemets arkitektur och struktur. 
 Det skapades en plan som beskriver hur systemet skulle byggas och vilka komponenter som skulle ingå, samt hur de skulle interagera med varandra.
 Databasens struktur designades till att efterlikna en riktig organisation med olika typer av dokumentation, anställda, projekt och liknande.
-Med hjälp av prompter med ChapGPT genererades också fejk data som användes för att fylla databasen och möjliggöra testning av systemet.
+Med hjälp av prompter med ChatGPT genererades också fejk data som användes för att fylla databasen och möjliggöra testning av systemet.
 
 I den fjärde fasen utvecklades systemet enligt den design som skapats i föregående fasen.
-Här skrevs koden för MCP servern, intergrationen med LLM:en och kommunikationen med databasen.
+Här skrevs koden för MCP servern, integrationen med LLM:en och kommunikationen med databasen och externa systems API:er.
 Systemet byggdes iterativt där olika delar utvecklades och testades allt eftersom.
 
 I den sista fasen testades och utvärderades systemet. Här genomfördes olika tester för att besvara de frågor som legat som grund för arbetet.
-Här mättes svarstid, kostnader, korrekthet och relevans för att komma fram till ett resultat. Detta möjliggjorde en analys av skillnaderna mellan de två sätten att låta en LLM hämta information på, och därmed besvara forskningsfrogorna och dra en slutsats.
+Här mättes svarstid, kostnader, korrekthet och relevans för att komma fram till ett resultat.
+ Detta möjliggjorde en analys av skillnaderna mellan de två lösningarna, och därmed besvara forskningsfrågorna och dra en slutsats.
 
 
 \subsection{Utvärderingsmetod}\label{subsec:evalmethod}
-Projektet utvärderas utifrån hur väl det skapade systemt kan besvara de forskningsfrågor som identifierats, samt hur väl detta system skulle kunna användas i en verklig organisation för att effektivisera informationssökningen.
+Arbetet utvräderas genom att jämföra de två skapade lösningarna för att besvara de forskningsfrågor som identifierats i kapitel \ref{subsec:researchquestion}.
+De båda lösningarna kommer att ha tillgång till liknande information, och testas genom att få samma uppsättning frågor som de ska besvara.
+
+För att besvara forskningsfrågorna så kommer det att mätas svarstid, antal verktygsanrop, korrekthet och relevans. 
