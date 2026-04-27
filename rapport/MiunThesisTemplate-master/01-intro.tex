@@ -1,16 +1,19 @@
 \section{\translate{Introduktion}}\label{sec:intro}
-Projektets mål var att utveckla ett grafbaserat kunskapssystem och undersöka hur företagsinformation kan representeras för att med hjälp av AI-agenter effektivisera informationssökning.
-Det undersöks hur väl AI-agenter hittar information när de använder ett grafbaserat kunskapssystem jämfört med när de inte gör det.
+Projektet syftar till att undersöka hur organisatiorisk information på bästa sätt kan representeras för att med hjälp av AI-agenter effektivisera intern informationssökning.
+Projektet fokuserar på att utveckla och utvärdera två olika system, där data representeras på olika sätt.
 
 Projektet görs i samarbete med företaget Knightec Group AB.
 \subsection{\translate{Bakgrund och problemmotivering}}\label{subsec:background}
 \noindent 
-I många organisationer är data lagrad, hanterad och isolerad i flera olika system, kallat datasilos. Data kan vara uppdelad i affärssystem, kundhanteringssystem och andra interna databaser.
-Detta försvårar möjligheten att få en samlad bild över verksamheten och hur den presterar, vilket också leder till att beslutsfattare ofta saknar tillgång till komplett och aktuell information,
-då data måste samlas in manuellt från flera källor\cite{2}.
+I många organisationer är data lagrad och hanterad i flera separata system, 
+vilket leder till att information isoleras i så kallade datasilos. 
+Dessa kan bestå av affärssystem, kundhanteringssystem och andra interna databaser.
+
+Denna uppdelning försvårar möjligheten att få en samlad och övergripande bild av verksamheten och dess prestation.
+Som en konsekvens av detta saknar medarbetare ofta en helhetsbild av organisationens data då den manuellt måste letas och samlas in från flera olika system\cite{2}.
 
 Problemet är inte begränsat till enskilda organisationer, utan förekommer inom många sorters verksamheter.
-Studien\cite{?} visar att en kunskapsarbetare i genomsnitt spenderar upp till 2,5 timmar per dag att söka information, vilket motsvarar ungefär 30\% av arbetsdagen.
+Enligt en studie från IDC (International Data Corporation) citerad i \cite{armedia} visar att en kunskapsarbetare i genomsnitt spenderar upp till 2,5 timmar per dag att söka information, vilket motsvarar ungefär 30\% av en vanlig arbetsdag.
 Globalt uppskattas det leda till att företag förlorar stora summor pengar varje år på grund av denna ineffektiviteten i informationshanteringen. Det leder inte bara till dessa ekonomiska förluster,
 utan påverkar även de psykologiska aspekterna hos medarbetare, exempelvis frustration hos medarbetare när en bra idé dör pågrund av den långa tid det tar att hitta stödjande data\cite{2}.
 
@@ -19,21 +22,20 @@ Trots detta når många AI-initiativ aldrig bortom prototypstadiet. En avgörand
 När information är uppdelat på detta sätt försvåras AI-systemens möjligheter att utnyttja informationen effektivt, eftersom AI-systemen är beroende av sammanhängande och kontextuell data\cite{3}.
 
 Ett möjligt sätt att effektivisera informationssökningen och lösa problemet med svåråtkomlig information är genom grafbaserade kunskapssystem. I dessa kunskapssystem representeras informationen i form av noder och relationer i en grafstruktur.
-Detta skapar en mer sammanhängande och kontextuell representation av data samlat på ett ställe ovanpå organisationens befintliga system.
+Detta skapar en mer sammanhängande och kontextuell representation av data samlat på ett ställe antingen ovanpå organisationens befintliga system, eller genom att ersätta delar av dem.
 Dessa kunskapsgrafer kan sedan användas av AI-system för att förstå relationer och navigera till relevant information på ett mer effektivt sätt\cite{1}.
 
 \subsection{\translate{Övergripande syfte}}\label{subsec:aim}
 \noindent
-Syftet med detta examensarbete är att undersöka hur ett grafbaserat kunskapssystem kan fungera som ett lager ovanpå en organisations befintliga miljöer och därigenom möjliggöra för AI-agenter att effektivt kunna navigera till och hämta efterfrågad information.
-
+Syftet med arbetet har främst varit att identifiera lösningar på problemet med datasilos och svåråtkomlig information i organisationer, för att sedan implementera prototyper av dessa lösningar och utvärdera dem mot varandra.
 
 \subsection{\translate{Konkreta och verifierbara mål}}\label{subsec:researchquestion}
 För att arbetet ska kunna utvärderas på ett verifierbart sätt har följande verifierbara mål satts upp.
 
 \begin{enumerate}
-  \item {Snabbhet i att hitta relevant information} - Hur mycket snabbare kan en AI-agent hitta relevant information i ett grafbaserat kunskapssysystem jämfört med att söka och hämta information från flera olika datakällor?
-  \item {Skillnader i korrekthet och relevans i de svar som AI-agenten får levererar} - Hur bra kan en AI-agent hitta efterfrågad information i ett grafbaserat system kontra ett icke-grafbaserat system?
-  \item {Hur dyrt blir varje anrop i form av resursförbrukning och kostnad?} - Hur mycket resurser och konstnad krävs det för att en AI-agent ska kunna hämta information från ett grafbaserat kunskapssystem jämfört med att hämta information från flera olika datakällor?
+  \item {Snabbhet i att hitta relevant information} - Hur lång tid tar det för en LLM att hitta relevant information i ett grafbaserat kunskapssysystem jämfört med att göra API anrop mot de olika systemen?
+  \item {Skillnader i korrekthet och relevans i de svar som AI-agenten levererar} - Hur bra kan en AI-agent hitta efterfrågad information i ett grafbaserat system jämfört med i ett icke-grafbaserat system?
+  \item {Hur dyrt blir varje anrop i form av antal verktygsanrop och omfrågningar?} - Hur många olika verktygsanrop behöver LLM'en göra för att hitta informationen, och behöver den fråga användaren igen efter kompletterande information?
 \end{enumerate}
 
 \subsection{\translate{Avgränsningar}}\label{subsec:scope}
@@ -42,15 +44,15 @@ För att arbetet ska vara genomförbart inom tidsramen har en del avgränsningar
 
 Arbetet inkluderar:
 \begin{itemize}
-  \item {Skapande av ett system i form av en kunskapsgraf, backend med MCP server för att prata med kunskapsgrafen och integrerad LLM för att översätta användarinmatning till cypher frågor}
+  \item {Skapande av en kunskapsgraf i form av en grafdatabas, backend med MCP server för att låta LLM prata med grafdatabasen, och en LLM för att tolka användarinmatning}
   \item {Skapande av ett system som använder samma MCP server för att prata direkt med olika systems API:er istället för kunskapsgrafen}
   \item {En jämförelse av de punkter från \ref{subsec:researchquestion}}
 \end{itemize}
 
 Arbetet inkluderar inte:
 \begin{itemize}
-  \item{Andra sätt att representera företagsinformation än kunskapsgrafer}
-  \item{Hur data hämtas och läggs in i kunskapsgrafen}
+  \item{Andra strukturer för att representera företagsinformation än kunskapsgrafer.}
+  \item{Automatiserad överföring av data från de olika systemen till grafdatabasen.}
 \end{itemize}
 
 \subsection{\translate{Översikt}}\label{subsec:outline}

@@ -46,6 +46,37 @@
       \verb https://medium.com/data-science-collective/when-data-silos-became-our-biggest-enemy-how-three-companies-broke-free-2d24bfee3d38
       \endverb
     \endentry
+    \entry{armedia}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=46abe5162e7cfea29eeeebb6c1863708}{%
+           family={dloo},
+           familyi={d\bibinitperiod}}}%
+      }
+      \strng{namehash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{fullhash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{fullhashraw}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{bibnamehash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{authorbibnamehash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{authornamehash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{authorfullhash}{46abe5162e7cfea29eeeebb6c1863708}
+      \strng{authorfullhashraw}{46abe5162e7cfea29eeeebb6c1863708}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{30}
+      \field{month}{10}
+      \field{note}{Hämtad: 2026-04-27}
+      \field{title}{When Data Silos Became Our Biggest Enemy: How Three Companies Broke Free}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://armedia.com/blog/federated-search-the-importance-of-being-able-to-find-information/
+      \endverb
+      \verb{url}
+      \verb https://armedia.com/blog/federated-search-the-importance-of-being-able-to-find-information/
+      \endverb
+    \endentry
     \entry{3}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=9b6471be801815b0effbf2a80fc340fa}{%
@@ -319,7 +350,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{?}
 \endrefsection
 \endinput
 
