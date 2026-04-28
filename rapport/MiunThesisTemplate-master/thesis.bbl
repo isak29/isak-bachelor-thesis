@@ -228,7 +228,7 @@
       \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Hämta: 2026-04-23}
+      \field{note}{Hämtad: 2026-04-23}
       \field{title}{What is Graph Structure?}
       \verb{urlraw}
       \verb https://graph.build/resources/graph-models?
@@ -338,6 +338,7 @@
       \strng{authornamehash}{242df64c0aec2a0407b31533cda92b51}
       \strng{authorfullhash}{242df64c0aec2a0407b31533cda92b51}
       \strng{authorfullhashraw}{242df64c0aec2a0407b31533cda92b51}
+      \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -378,6 +379,92 @@
       \verb https://blog.logto.io/sv/what-is-mcp
       \endverb
     \endentry
+    \entry{14}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=110ebc9b7677a096c590f533b782e1d0}{%
+           family={TEam},
+           familyi={T\bibinitperiod},
+           given={IBM\bibnamedelimb Cloud\bibnamedelima Education},
+           giveni={I\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{110ebc9b7677a096c590f533b782e1d0}
+      \strng{fullhash}{110ebc9b7677a096c590f533b782e1d0}
+      \strng{fullhashraw}{110ebc9b7677a096c590f533b782e1d0}
+      \strng{bibnamehash}{110ebc9b7677a096c590f533b782e1d0}
+      \strng{authorbibnamehash}{110ebc9b7677a096c590f533b782e1d0}
+      \strng{authornamehash}{110ebc9b7677a096c590f533b782e1d0}
+      \strng{authorfullhash}{110ebc9b7677a096c590f533b782e1d0}
+      \strng{authorfullhashraw}{110ebc9b7677a096c590f533b782e1d0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-28}
+      \field{title}{What is an SDK?}
+      \verb{urlraw}
+      \verb https://www.ibm.com/think/topics/api-vs-sdk
+      \endverb
+      \verb{url}
+      \verb https://www.ibm.com/think/topics/api-vs-sdk
+      \endverb
+    \endentry
+    \entry{15}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=1488cd7dea69d5c59483e3acdc47060d}{%
+           family={modelcontextprotocol},
+           familyi={m\bibinitperiod}}}%
+      }
+      \strng{namehash}{1488cd7dea69d5c59483e3acdc47060d}
+      \strng{fullhash}{1488cd7dea69d5c59483e3acdc47060d}
+      \strng{fullhashraw}{1488cd7dea69d5c59483e3acdc47060d}
+      \strng{bibnamehash}{1488cd7dea69d5c59483e3acdc47060d}
+      \strng{authorbibnamehash}{1488cd7dea69d5c59483e3acdc47060d}
+      \strng{authornamehash}{1488cd7dea69d5c59483e3acdc47060d}
+      \strng{authorfullhash}{1488cd7dea69d5c59483e3acdc47060d}
+      \strng{authorfullhashraw}{1488cd7dea69d5c59483e3acdc47060d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-01}
+      \field{title}{MCP TypeScript SDK}
+      \verb{urlraw}
+      \verb https://github.com/modelcontextprotocol/typescript-sdk
+      \endverb
+      \verb{url}
+      \verb https://github.com/modelcontextprotocol/typescript-sdk
+      \endverb
+    \endentry
+    \entry{16}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=242df64c0aec2a0407b31533cda92b51}{%
+           family={Protocol},
+           familyi={P\bibinitperiod},
+           given={Model\bibnamedelima Context},
+           giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{fullhash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{fullhashraw}{242df64c0aec2a0407b31533cda92b51}
+      \strng{bibnamehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authorbibnamehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authornamehash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authorfullhash}{242df64c0aec2a0407b31533cda92b51}
+      \strng{authorfullhashraw}{242df64c0aec2a0407b31533cda92b51}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-04-28}
+      \field{title}{Streamable HTTP}
+      \verb{urlraw}
+      \verb https://modelcontextprotocol.io/specification/2025-06-18/basic/transports
+      \endverb
+      \verb{url}
+      \verb https://modelcontextprotocol.io/specification/2025-06-18/basic/transports
+      \endverb
+    \endentry
     \entry{7}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=5714031392063820eb2b4e1889259f9f}{%
@@ -394,8 +481,8 @@
       \strng{authornamehash}{5714031392063820eb2b4e1889259f9f}
       \strng{authorfullhash}{5714031392063820eb2b4e1889259f9f}
       \strng{authorfullhashraw}{5714031392063820eb2b4e1889259f9f}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-16}

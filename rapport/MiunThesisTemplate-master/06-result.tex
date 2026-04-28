@@ -1,9 +1,8 @@
 \section{Resultat}\label{sec:results}
-I detta kapitel presenteras resultaten från de utvecklade applikationerna samt utvärderingen av de två implementerade lösningarna:
- grafbaserade lösningen och den API-baserade lösningen.
+I detta kapitel presenteras resultatet från testerna som utförts på systemen. Det inkluderar både de individuella resultaten från varje test samt en jämförelse mellan de två implementerade lösningarna: grafbaserade lösningen och den API-baserade lösningen.
 
-Varje testfråga har körts separat i en ny session för att inte låta tidiagre svar och kontext påverka LLM'ens resonemang.
-De som har mätts i varje körning är korrekthet, svarstid, antal verktygsanrop samt om det har behövts följdfrågor för att besvara frågan.
+Varje testfråga har körts separat i en ny session för att inte låta tidigare svar och kontext påverka LLM:ens resonemang.
+Det som har mätts i varje körning är korrekthet, svarstid, antal verktygsanrop samt om det har behövts följdfrågor för att besvara frågan.
 
 
 \subsection{Genererad applikation}\label{subsec:resultapp}
@@ -186,7 +185,7 @@ Graflösningen hade i genomsnitt 2.2 verktygsanrop för simpla frågor, 4 för m
 \label{fig:toolCallsSummary}
 \end{figure}
 
-Figur \ref{fig:correctnessSummary}, visar antal procent korrekta svar som vardera lösning levererade (utan följdfrågor från LLM:en).
+Figur \ref{fig:correctnessSummary} visar antal procent korrekta svar som vardera lösning levererade.
 Graflösningen hade 100\% rätta svar vid de simplare frågorna och 80\% i både de medelsvåra och komplexa.
 API-baserade lösningen hade 100\% korrekta vid de simpla frågorna, 40\% vid medelsvåra och endast 20\% vid komplexa.
 \begin{figure}[H]
