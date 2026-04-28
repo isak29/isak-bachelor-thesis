@@ -1,5 +1,5 @@
 \section{Resultat}\label{sec:results}
-I detta kapitel presenteras resultatet från testerna som utförts på systemen. Det inkluderar både de individuella resultaten från varje test samt en jämförelse mellan de två implementerade lösningarna: grafbaserade lösningen och den API-baserade lösningen.
+I detta kapitel presenteras resultatet från testerna som utförts på systemen. Det inkluderar de individuella resultaten från varje test från två implementerade lösningarna: grafbaserade lösningen och den API-baserade lösningen.
 
 Varje testfråga har körts separat i en ny session för att inte låta tidigare svar och kontext påverka LLM:ens resonemang.
 Det som har mätts i varje körning är korrekthet, svarstid, antal verktygsanrop samt om det har behövts följdfrågor för att besvara frågan.
@@ -7,7 +7,7 @@ Det som har mätts i varje körning är korrekthet, svarstid, antal verktygsanro
 
 \subsection{Genererad applikation}\label{subsec:resultapp}
 Den färdiga applikationen består av en MCP-server som exponerar verktyg till de båda lösningarna.
-Den består av ett UI (Cherry Studio) med integrerad LLM, mer bestämt Gpt-5.4-mini som ansluter mot MCP-servern och får tillgång till att använda verktygen.
+Den består av ett UI (Cherry Studio) med integrerad LLM (Gpt-5.4-mini) som ansluter mot MCP-servern och får tillgång till att använda verktygen.
 
 Den består även av en kunskapsgraf i form av en grafdatabas skapad och lagrad i Neo4j.
 Se Figur \ref{fig:xxx}, \ref{fig:yyy} för ett exempel på en fråga och svar samt ett urklipp från grafdatabasen.
@@ -66,15 +66,18 @@ Q5 & 1306 ms / 2 / Ja & 1155 ms / 1 / Ja \\
 \hline
 \end{tabular}
 \caption{Resultat för enkla frågor}
+\label{tab:simple}
 \end{table}
 
-Som vi ser i denna tabell behövdes det inte många verktygsanrop.Det varierade mellan 1 till 3 anrop vilket är normalt.
-Graflösningen behöver alltid göra ett extra anrop för att hämta grafens schema, vilket resulterar i ett anrop mer än vad den hade behövt göra om schemat låg som kontext istället för att skapas efter ett anrop.
+Tabellen \ref{tab:simple} visar resultatet för de enklare frågorna där det inte krävs något resonemang eller kopplingar mellan olika datakällor för att hitta svaret.
 
-Vi ser även att den API-baserade lösningen presterade bättre i form av snabbare svarstid och mindra verktygsanrop.
-Eftersom det var simplare frågor räckte det här med ett enda anrop på det flesta frågorna.
+% Som vi ser i denna tabell behövdes det inte många verktygsanrop.Det varierade mellan 1 till 3 anrop vilket är normalt.
+% Graflösningen behöver alltid göra ett extra anrop för att hämta grafens schema, vilket resulterar i ett anrop mer än vad den hade behövt göra om schemat låg som kontext istället för att skapas efter ett anrop.
 
-Alla frågor som ställdes svarades med ett korrekt svar.
+% Vi ser även att den API-baserade lösningen presterade bättre i form av snabbare svarstid och mindra verktygsanrop.
+% Eftersom det var simplare frågor räckte det här med ett enda anrop på det flesta frågorna.
+
+% Alla frågor som ställdes svarades med ett korrekt svar.
 
 
 \subsubsection{Medelsvåra frågor}\label{subsubsec:medelsvaraResult}
@@ -93,14 +96,17 @@ Q10 & 1889 ms / 2 / Yes & 3597 ms / 3 / Nej \\
 \hline
 \end{tabular}
 \caption{Resultat för medelsvåra frågor}
+\label{tab:medelsvara}
 \end{table}
 
-När de medelsvåra frågorna ställdes fick vi ett mer varierat resultat.
-Den grafbaserade lösnignen presterade bra och svarade korrekt på alla frågor förutom en där den delvis svarade korrekt. Se Bilaga A: för svaret.
+Det vi ser i tabellen \ref{tab:medelsvara} är de resultat från de medelsvåra frågorna där det krävs att det görs kopplingar mellan olika datakällor, eller att det krävs ett resonemang för att hitta svaret. 
 
-Den API-baserade lösningen presterade minder bra i form av korrekta andel svar då 3 av 5 upplevdes vara felaktiga.
-Här ser vi också att antalet verktygsanrop börjar stiga i båda lösningarna, men vi ser den tydligaste ökningen på API-baserade lösningen.
-I fråga åtta ser vi två stycken siffror, detta då LLM'en behövde ställa en följdfråga för att komma fram till det slutgiltiga svaret.
+% När de medelsvåra frågorna ställdes fick vi ett mer varierat resultat.
+% Den grafbaserade lösnignen presterade bra och svarade korrekt på alla frågor förutom en där den delvis svarade korrekt. Se Bilaga A: för svaret.
+
+% Den API-baserade lösningen presterade minder bra i form av korrekta andel svar då 3 av 5 upplevdes vara felaktiga.
+% Här ser vi också att antalet verktygsanrop börjar stiga i båda lösningarna, men vi ser den tydligaste ökningen på API-baserade lösningen.
+% I fråga åtta ser vi två stycken siffror, detta då LLM'en behövde ställa en följdfråga för att komma fram till det slutgiltiga svaret.
 
 
 \subsubsection{Komplexa frågor}\label{subsubsec:komplexaFragorResult}
@@ -119,19 +125,22 @@ Q15 & 4724 ms / 3 / Ja & 5337 ms / 3 / Nej \\
 \hline
 \end{tabular}
 \caption{Resultat för komplexa frågor}
+\label{tab:komplexa}
 \end{table}
 
-Vid de lite mer komplexa frågorna där ett resonemang om tydliga kopplingar krävs ser vi att den grafbaserade lösningen presterar bra,
- med fyra av fem korrekta svar. Snabb svarstid har den också och vi ser att verktygsanropen är väldigt få.
+Tabellen \ref{tab:komplexa} visare resultatet för de komplexa frågorna där de krävs tydliga kopplingar mellan olika datakällor, eller att det krävs ett mer komplext resonemang för att hitta svaret.
 
- Den API-baserade lösningen presterade inte alls lika bra och svarade endast rätt på en av fem frågor.
- Vi ser en mycket längre svarstid som kommer med ökningen av antal verktygsanrop.
- I dessa komplexa frågor krävs det att det görs kopplingar mellan olika externa system och därav ser vi ökningen i antalet verktygsanrop.
+% Vid de lite mer komplexa frågorna där ett resonemang om tydliga kopplingar krävs ser vi att den grafbaserade lösningen presterar bra,
+%  med fyra av fem korrekta svar. Snabb svarstid har den också och vi ser att verktygsanropen är väldigt få.
+
+%  Den API-baserade lösningen presterade inte alls lika bra och svarade endast rätt på en av fem frågor.
+%  Vi ser en mycket längre svarstid som kommer med ökningen av antal verktygsanrop.
+%  I dessa komplexa frågor krävs det att det görs kopplingar mellan olika externa system och därav ser vi ökningen i antalet verktygsanrop.
 
 \subsection{Genomsnitt av resultat}\label{subsec:summaryResult}
 Figur \ref{fig:timeSummary} visar genomsnittet av tid per svar per komplexitet.
-Graflösningen hade i genomsnitt 2229ms svarstid för simpla frågor, 5238ms för medelsvåra frågor och 2965ms för komplexa frågor.
-API-baserade lösningen hade i genomsnitt 1521ms svarstid för simpla frågor, 5241ms för medelsvåra frågor och 18388ms för komplexa frågor.
+Graflösningen hade i genomsnitt 1967ms svarstid för simpla frågor, 5234ms för medelsvåra frågor och 2965ms för komplexa frågor.
+API-baserade lösningen hade i genomsnitt 1521ms svarstid för simpla frågor, 5251ms för medelsvåra frågor och 18388ms för komplexa frågor.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
@@ -148,8 +157,8 @@ API-baserade lösningen hade i genomsnitt 1521ms svarstid för simpla frågor, 5
     ytick={0,5000,10000,15000,20000},
     scaled y ticks=false
 ]
-\addplot[fill=blue!40] coordinates {(Simpla frågor, 2229) (Medelsvåra frågor, 5238) (Komplexa frågor, 2965)};
-\addplot[fill=red!40] coordinates {(Simpla frågor, 1521) (Medelsvåra frågor, 5241) (Komplexa frågor, 18388)};
+\addplot[fill=blue!40] coordinates {(Simpla frågor, 1967) (Medelsvåra frågor, 5234) (Komplexa frågor, 2965)};
+\addplot[fill=red!40] coordinates {(Simpla frågor, 1521) (Medelsvåra frågor, 5251) (Komplexa frågor, 18388)};
 \legend{Grafdatabas, API}
 \end{axis}
 \end{tikzpicture}

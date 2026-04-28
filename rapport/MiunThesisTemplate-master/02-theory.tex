@@ -64,7 +64,7 @@ För att implementera MCP servern användes ett programvarubibliotek (SDK) som e
 Ett SDK är en komplett uppsättning verktyg som gör det möjligt för utvecklare att bygga programvara för en specifik plattform.
 Det innehåller bland annat byggstenar, ramverk, kodexempel, felsökningsverktyg och dokumentation\cite{14}.
 
-I projektet används MCP SDK \cite{15} för att skapa servern, sessioner, verktyg som LLM:en kan använda med mera.
+I projektet används MCP SDK \cite{15} för att skapa servern, sessioner och verktyg som LLM:en kan använda.
 
 \subsubsection{Kommunikation över HTTP}
 Kommunikationen mellan LLM:en och MCP-servern sker över HTTP genom request/response-baserat gränssnitt.
@@ -72,7 +72,6 @@ När LLM:En anropar ett verktyg skickas en förfrågan till MCP-servern som då 
 
 Denna modell bidrar till en tydlig separation mellan LLM:en och datakällorna, där MCP-servern fungerar som en mellanhand som hanterar de externa anropen.
 Genom att använda HTTP-gränssnittet blir systemet felxibelt och kan integreras med flera olika klienter och tjänster.
-
 
 \subsection{API-baserad dataåtkomst}\label{subsec:api}
 I lösningen som används för att jämföra mot grafdatabas lösningen används en API-baserad dataåtkomst där verktygen i MCP-servern gör olika API-anrop för att hämta data från olika datakällor.
