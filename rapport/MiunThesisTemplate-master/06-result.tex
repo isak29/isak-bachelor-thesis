@@ -1,5 +1,5 @@
 \section{Resultat}\label{sec:results}
-I detta kapitel presenteras resultatet från testerna som utförts på systemen. Det inkluderar de individuella resultaten från varje test från två implementerade lösningarna: grafbaserade lösningen och den API-baserade lösningen.
+I detta kapitel presenteras resultatet från testerna som utförts på systemet. Det inkluderar den grafbaserade lösningen och den API-baserade lösningen.
 
 Varje testfråga har körts separat i en ny session för att inte låta tidigare svar och kontext påverka LLM:ens resonemang.
 Det som har mätts i varje körning är korrekthet, svarstid, antal verktygsanrop samt om det har behövts följdfrågor för att besvara frågan.
@@ -48,7 +48,7 @@ De testfrågor som använts i utvärderingen av de två lösningarna presenteras
 \item[Q15] Can you send me the name of the most recent updated Confluence document from the person that did the most recent commit in payment-servic repo?
 \end{itemize}
 
-Frågorna är på engleska för att undvika att LLM'en behöver översätta mellan svenska och engelska när den resonerar över vilka verktyg som ska användas.
+Frågorna är på engelska för att undvika att LLM'en behöver översätta mellan svenska och engelska när den resonerar över vilka verktyg som ska användas.
 
 \subsubsection{Enklare frågor}\label{subsubsec:enklareFragorResult}
 
@@ -99,7 +99,7 @@ Q10 & 1889 ms / 2 / Yes & 3597 ms / 3 / Nej \\
 \label{tab:medelsvara}
 \end{table}
 
-Det vi ser i tabellen \ref{tab:medelsvara} är de resultat från de medelsvåra frågorna där det krävs att det görs kopplingar mellan olika datakällor, eller att det krävs ett resonemang för att hitta svaret. 
+Det vi ser i Tabell \ref{tab:medelsvara} är de resultat från de medelsvåra frågorna där det krävs att det görs kopplingar mellan olika datakällor, eller att det krävs ett resonemang för att hitta svaret. 
 
 % När de medelsvåra frågorna ställdes fick vi ett mer varierat resultat.
 % Den grafbaserade lösnignen presterade bra och svarade korrekt på alla frågor förutom en där den delvis svarade korrekt. Se Bilaga A: för svaret.
