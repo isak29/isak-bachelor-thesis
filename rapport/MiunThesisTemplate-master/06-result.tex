@@ -54,15 +54,18 @@ Frågorna är på engelska för att undvika att LLM'en behöver översätta mell
 
 \begin{table}[h]
 \centering
-\begin{tabular}{c l l}
+\begin{tabular}{|c|l|l|}
 \hline
-ID & Grafdatabas (tid / verktygsanrop / korrekt) & API (tid / verktygsanrop / korrekt) \\
+\rowcolor{blue!25}
+\textbf{ID} & \textbf{Grafdatabas (tid / anrop / korrekt)} & \textbf{API (tid / anrop / korrekt)} \\
 \hline
-Q1 & 1378 ms / 2 / Ja & 811 ms / 1 / Ja \\
-Q2 & 4804 ms / 3 / Ja & 1751 ms / 2 / Ja \\
-Q3 & 2425 ms / 2 / Ja & 3616 ms / 3 / Ja \\
-Q4 & 1231 ms / 2 / Ja & 270 ms / 1 / Ja \\
-Q5 & 1306 ms / 2 / Ja & 1155 ms / 1 / Ja \\
+Q1 & 1378 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 811 ms / 1 / \textcolor{green!60!black}{\textbf{Ja}} \\
+\rowcolor{gray!12}
+Q2 & 4804 ms / 3 / \textcolor{green!60!black}{\textbf{Ja}} & 1751 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} \\
+Q3 & 2425 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 3616 ms / 3 / \textcolor{green!60!black}{\textbf{Ja}} \\
+\rowcolor{gray!12}
+Q4 & 1231 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 270 ms / 1 / \textcolor{green!60!black}{\textbf{Ja}} \\
+Q5 & 1306 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 1155 ms / 1 / \textcolor{green!60!black}{\textbf{Ja}} \\
 \hline
 \end{tabular}
 \caption{Resultat för enkla frågor}
@@ -71,28 +74,22 @@ Q5 & 1306 ms / 2 / Ja & 1155 ms / 1 / Ja \\
 
 Tabellen \ref{tab:simple} visar resultatet för de enklare frågorna där det inte krävs något resonemang eller kopplingar mellan olika datakällor för att hitta svaret.
 
-% Som vi ser i denna tabell behövdes det inte många verktygsanrop.Det varierade mellan 1 till 3 anrop vilket är normalt.
-% Graflösningen behöver alltid göra ett extra anrop för att hämta grafens schema, vilket resulterar i ett anrop mer än vad den hade behövt göra om schemat låg som kontext istället för att skapas efter ett anrop.
-
-% Vi ser även att den API-baserade lösningen presterade bättre i form av snabbare svarstid och mindra verktygsanrop.
-% Eftersom det var simplare frågor räckte det här med ett enda anrop på det flesta frågorna.
-
-% Alla frågor som ställdes svarades med ett korrekt svar.
-
-
 \subsubsection{Medelsvåra frågor}\label{subsubsec:medelsvaraResult}
 
 \begin{table}[h]
 \centering
-\begin{tabular}{c l l}
+\begin{tabular}{|c|l|l|}
 \hline
-ID & Grafdatabas (tid / verktygsanrop / korrekt) & API (tid / verktygsanrop / korrekt) \\
+\rowcolor{blue!25}
+\textbf{ID} & \textbf{Grafdatabas (tid / anrop / korrekt)} & \textbf{API (tid / anrop / korrekt)} \\
 \hline
-Q6  & 1653 ms / 2 / Yes & 1875 ms / 2 / Nej \\
-Q7  & 5548 ms / 4 / Yes & 2097 ms / 2 / Ja \\
-Q8  & 11879 ms / 8 / Yes & 8774 + 7579 ms (16353) / 6 + 5 / Ja \\
-Q9  & 5219 ms / 4 / Delvis & 2331 ms / 4 / Nej \\
-Q10 & 1889 ms / 2 / Yes & 3597 ms / 3 / Nej \\
+Q6  & 1653 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 1875 ms / 2 / \textcolor{red!70!black}{\textbf{Nej}} \\
+\rowcolor{gray!12}
+Q7  & 5548 ms / 4 / \textcolor{green!60!black}{\textbf{Ja}} & 2097 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} \\
+Q8  & 11879 ms / 8 / \textcolor{green!60!black}{\textbf{Ja}} & 8774 + 7579 ms (16353) / 6 + 5 / \textcolor{green!60!black}{\textbf{Ja}} \\
+\rowcolor{gray!12}
+Q9  & 5219 ms / 4 / \textcolor{orange!80!black}{\textbf{Delvis / Nej}} & 2331 ms / 4 / \textcolor{red!70!black}{\textbf{Nej}} \\
+Q10 & 1889 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 3597 ms / 3 / \textcolor{red!70!black}{\textbf{Nej}} \\
 \hline
 \end{tabular}
 \caption{Resultat för medelsvåra frågor}
@@ -101,27 +98,22 @@ Q10 & 1889 ms / 2 / Yes & 3597 ms / 3 / Nej \\
 
 Det vi ser i Tabell \ref{tab:medelsvara} är de resultat från de medelsvåra frågorna där det krävs att det görs kopplingar mellan olika datakällor, eller att det krävs ett resonemang för att hitta svaret. 
 
-% När de medelsvåra frågorna ställdes fick vi ett mer varierat resultat.
-% Den grafbaserade lösnignen presterade bra och svarade korrekt på alla frågor förutom en där den delvis svarade korrekt. Se Bilaga A: för svaret.
-
-% Den API-baserade lösningen presterade minder bra i form av korrekta andel svar då 3 av 5 upplevdes vara felaktiga.
-% Här ser vi också att antalet verktygsanrop börjar stiga i båda lösningarna, men vi ser den tydligaste ökningen på API-baserade lösningen.
-% I fråga åtta ser vi två stycken siffror, detta då LLM'en behövde ställa en följdfråga för att komma fram till det slutgiltiga svaret.
-
-
 \subsubsection{Komplexa frågor}\label{subsubsec:komplexaFragorResult}
 
 \begin{table}[h]
 \centering
-\begin{tabular}{c l l}
+\begin{tabular}{|c|l|l|}
 \hline
-ID & Grafdatabas (tid / verktygsanrop / korrekt) & API (tid / verktygsanrop / korrekt) \\
+\rowcolor{blue!25}
+\textbf{ID} & \textbf{Grafdatabas (tid / anrop / korrekt)} & \textbf{API (tid / anrop / korrekt)} \\
 \hline
-Q11 & 2125 ms / 2 / Ja & 3355 ms / 3 / Ja \\
-Q12 & 2993 ms / 2 / Ja & 72314 ms / 16 / Nej \\
-Q13 & 3369 ms / 3 / Nej & 2171 ms / 2 / Nej \\
-Q14 & 1614 ms / 2 / Ja & 8762 ms / 6 / Nej \\
-Q15 & 4724 ms / 3 / Ja & 5337 ms / 3 / Nej \\
+Q11 & 2125 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 3355 ms / 3 / \textcolor{green!60!black}{\textbf{Ja}} \\
+\rowcolor{gray!12}
+Q12 & 2993 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 72314 ms / 16 / \textcolor{red!70!black}{\textbf{Nej}} \\
+Q13 & 3369 ms / 3 / \textcolor{red!70!black}{\textbf{Nej}} & 2171 ms / 2 / \textcolor{red!70!black}{\textbf{Nej}} \\
+\rowcolor{gray!12}
+Q14 & 1614 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 8762 ms / 6 / \textcolor{red!70!black}{\textbf{Nej}} \\
+Q15 & 4724 ms / 3 / \textcolor{green!60!black}{\textbf{Ja}} & 5337 ms / 3 / \textcolor{red!70!black}{\textbf{Nej}} \\
 \hline
 \end{tabular}
 \caption{Resultat för komplexa frågor}
@@ -129,13 +121,6 @@ Q15 & 4724 ms / 3 / Ja & 5337 ms / 3 / Nej \\
 \end{table}
 
 Tabellen \ref{tab:komplexa} visare resultatet för de komplexa frågorna där de krävs tydliga kopplingar mellan olika datakällor, eller att det krävs ett mer komplext resonemang för att hitta svaret.
-
-% Vid de lite mer komplexa frågorna där ett resonemang om tydliga kopplingar krävs ser vi att den grafbaserade lösningen presterar bra,
-%  med fyra av fem korrekta svar. Snabb svarstid har den också och vi ser att verktygsanropen är väldigt få.
-
-%  Den API-baserade lösningen presterade inte alls lika bra och svarade endast rätt på en av fem frågor.
-%  Vi ser en mycket längre svarstid som kommer med ökningen av antal verktygsanrop.
-%  I dessa komplexa frågor krävs det att det görs kopplingar mellan olika externa system och därav ser vi ökningen i antalet verktygsanrop.
 
 \subsection{Genomsnitt av resultat}\label{subsec:summaryResult}
 Figur \ref{fig:timeSummary} visar genomsnittet av tid per svar per komplexitet.
