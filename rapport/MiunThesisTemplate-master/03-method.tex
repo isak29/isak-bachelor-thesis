@@ -69,7 +69,7 @@ Under implementationen användes även hjälpmedel såsom ChatGPT och Claude fö
 
 \subsection{Arbetsmetod}\label{subsec:projectmethod}
 Arbetet har genomförts enligt en designvetenskaplig metodik där utvecklingen har strukturerats i olika faser.
-Dessa faser inkluderar problemidentifiering, målformulering, design, utveckling, demonstration samt utvärdering.
+Dessa faser inkluderar problemidentifiering, målformulering, design, utveckling, testning av systemen samt utvärdering.
 
 I den första fasen undersöktes och identifierades de problem som finns med dagens informationshantering inom organisationer.
 Fasen bestod av en litteraturstudie och analys av befintliga problem och potentiella lösningar. Det undersöktes om relevanta tekniker och metoder 
@@ -88,13 +88,31 @@ I den fjärde fasen utvecklades systemet enligt den design som skapats i föreg�
 Här skrevs koden för MCP servern, integrationen med LLM:en och kommunikationen med databasen och externa systems API:er.
 Systemet byggdes iterativt där olika delar utvecklades och testades allt eftersom.
 
-I den sista fasen testades och utvärderades systemet. Här genomfördes olika tester för att besvara de frågor som legat som grund för arbetet.
-Här mättes svarstid, kostnader, korrekthet och relevans för att komma fram till ett resultat.
+I den femte fasen testades systemen. Här genomfördes olika tester för att besvara de frågor som legat som grund för arbetet.
+Här mättes svarstid, antal verktygsanrop, korrekthet och relevans för att komma fram till ett resultat.
  Detta möjliggjorde en analys av skillnaderna mellan de två lösningarna, och därmed besvara forskningsfrågorna och dra en slutsats.
+
+I den sista fasen utvärderades systemet. Här identifierades möjliga ändringar som hade kunnat implementerats i systemen.
+Det diskuterades även om framtida forskning och vidare utveckling av systemen. 
 
 
 \subsection{Utvärderingsmetod}\label{subsec:evalmethod}
-Arbetet utvräderas genom att jämföra de två skapade lösningarna för att besvara de forskningsfrågor som identifierats i kapitel \ref{subsec:researchquestion}.
+Arbetet utvärderas genom att jämföra de två skapade lösningarna för att besvara de forskningsfrågor som identifierats i kapitel \ref{subsec:researchquestion}.
 De båda lösningarna kommer att ha tillgång till liknande information, och testas genom att få samma uppsättning frågor som de ska besvara.
 
 För att besvara forskningsfrågorna så kommer det att mätas svarstid, antal verktygsanrop, korrekthet och relevans. 
+
+\subsubsection{Jämförelsens syfte och avgränsningar}
+
+Syftet med studien är inte att genomföra en strikt jämförelse mellan två identiska system, utan att undersöka hur olika sätt att representera organisatorisk information påverkar en LLM:s förmåga att kunna navigera till och hämta rätt information.
+
+Den grafbaserade lösningen utgör studiens huvudsakliga fokus, då den representerar ett alternativt sätt att strukturera och representera information på.
+
+Det är också viktigt att ta hänsyn till att de två lösningarna inte har tillgång till exakt samma information eller informationsrepresentation.
+Den grafbaserade lösningen bygger på en strukturerad kunskapsgraf där relationer mellan entiteter är manuellt modellerade för att efterlikna en organisations olika delar.
+Den API-baserade lösningen hämtar istället information från specifika och faktiska datakällor.
+
+Eftersom den grafbaserade lösningen är manuellt modellerad betyder det även att all data i den är manuellt skapad och inte verklig, medan den API-baserade lösningen hämtar verklig data från riktiga API:er.
+
+Det betyder att de båda lösningarna skiljer sig från varandra i form av vad data innehåller och hur mycket data som finns i dem. 
+Det påverkar tidsmätningen i testerna samt skärmdumparna som finns i \ref{sec:appA}, och detta kommer att diskuteras mer ingående i kapitel \ref{sec:discussion}.

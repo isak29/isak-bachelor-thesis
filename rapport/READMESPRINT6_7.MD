@@ -13,5 +13,5 @@ Att fokusera på fram till möte torsdag 26-05-07
 
 Sekundärt fokus
 ---------------
-- Fyll i teorin eftersom
+- Fyll på i teorin eftersom
 - Kom på vad som ska stå i kapitel 4

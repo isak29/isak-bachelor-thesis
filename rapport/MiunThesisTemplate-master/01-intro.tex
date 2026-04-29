@@ -32,9 +32,12 @@ Syftet med arbetet har främst varit att identifiera lösningar på problemet me
 För att arbetet ska kunna utvärderas på ett verifierbart sätt har följande verifierbara mål satts upp.
 
 \begin{enumerate}
-  \item {Snabbhet i att hitta relevant information} - Hur lång tid tar det för en LLM att hitta relevant information i ett grafbaserat kunskapssysystem jämfört med att göra API anrop mot de olika systemen?
-  \item {Skillnader i korrekthet och relevans i de svar som AI-agenten levererar} - Hur bra kan en AI-agent hitta efterfrågad information i ett grafbaserat system jämfört med i ett icke-grafbaserat system?
-  \item {Hur dyrt blir varje anrop i form av antal verktygsanrop och omfrågningar?} - Hur många olika verktygsanrop behöver LLM'en göra för att hitta informationen, och behöver den fråga användaren igen efter kompletterande information?
+  \item \textbf{Effektivitet i informationssökning } \\
+   Hur lång tid tar det för en LLM att hitta och hämta relevant information i ett grafbaserat system jämfört med en API-baserad lösning?
+  \item \textbf{Kvalitet på genererade svar} \\
+   Hur ofta genereras relevanta och korrekta svar?
+  \item \textbf{Resursanvändning vid informationshämtning} \\
+   Hur många verktygsanrop behövs för att hitta informationen? Och behövs kompletterande information från användaren?
 \end{enumerate}
 
 \subsection{\translate{Avgränsningar}}\label{subsec:scope}
