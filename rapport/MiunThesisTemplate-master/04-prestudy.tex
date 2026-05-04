@@ -33,13 +33,18 @@ Denna lösning förväntas ge färre verktygsanrop vid mer komplexa frågor som 
 En annan potentiell lösning som identifierades under förstudien var att använda en vector databas och embeddings för att strukturera och organisera data och information på.
 Denna lösning bygger på att omvandla användarfrågan till en vektorrepresentation (embedding) och sedan jämföra mot de lagrade vektorerna i databasen för att hitta de mest liknande\cite{1}.
 
-Denna lösning valdes att inte implementeras i detta arbete då den liksom den API-baserade lösningen inte förändrar 
+Denna lösning valdes att inte implementeras i detta arbete då den liksom den API-baserade lösningen inte förändrar hur relationer och samband mellan data från olika källor representeras, vilket är det primära syftet med detta arbete.
 
 \subsection{Val av teknisk arkitektur}
 Under förstudien identifierades flera olika verktyg och tekniker för att implementera de olika lösningarna på.
 Det har därför tagits beslut om vilka specifika tekniker och verktyg som används i den slutgiltiga lösningen.
 \subsubsection{Val av grafdatabas}
-Grafdatabasen som valdes var Neo4j. Denna databas valdes då den upplevdes simpel att använda och mycket relevant för skapandet av kunskapsgrafen.
+Grafdatabasens syfte i detta arbete är att lagra data och information från de olika interna systemet i form av en kunskapsgraf.
+För att välja vilken grafdatabas som skulle användas har det gjorts en undersökning om vilken som lämpar sig bäst för detta arbetet.
+
+Databasen som valdes var Neo4j. Detta val gjordes då det är en marknasledande grafdatabas med störst användarbas och bäst community-stöd.
+Den har en låg inlärningströskel med omfattande dokumentation och många guider för att komma igång. Den är även av typen OLAP (Online Analytical Processing), vilket betyder att den är specifikt anpassad för just affärsintelligens och informationssökning vilket är det primära syftet för databasen i detta arbete\cite{17}.
+
 \subsubsection{Val av kommunikationslager}
 Kommunikationslagret som valdes var MCP. Detta val gjordes då det är ett modernt och lättanvänt sätt att låta LLM:er kommunicera med externa system.
 Denna lösning valdes framförallt för att den fungerar för båda de identifierade lösningarna som jämförs mot varandra (direkt API-baserad retrieval och kunskapsgrafer).
@@ -57,14 +62,17 @@ För att kunna ställa samma frågor till båda lösningarna och på så sätt k
 Vilka API:er och verktyg som skulle behövas för att denna lösning skulle innehålla samma information som kunskapsgrafen och därmed kunna besvara samma frågor.
 \subsection{Prompt engineering och frågegenering}
 
-\textcolor{blue}{Om detta kapitel ska vara kvar, gör då undersökningaro detta.}
+\textcolor{blue}{Om detta kapitel ska vara kvar, gör då undersökningar om detta.}
 
 
 \subsection{Utvärderings strategi (Koppling till mål)}
 \textcolor{blue}{Mätningarna ska göras på så sätt}
 
 
+
 \subsection{Sammanfattning av designbeslut}
+
+
 
 \textcolor{blue}{Sammanfattningsvis har förstudien indentifierat.... besluten har lett till....}
 

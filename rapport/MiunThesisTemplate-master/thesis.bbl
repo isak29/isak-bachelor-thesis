@@ -494,6 +494,39 @@
       \verb https://docs.cherry-ai.com/docs/en-us
       \endverb
     \endentry
+    \entry{17}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=0f83aa534f3a7f6cd71a2eb037401e57}{%
+           family={Hunt},
+           familyi={H\bibinitperiod},
+           given={Rosy},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f83aa534f3a7f6cd71a2eb037401e57}
+      \strng{fullhash}{0f83aa534f3a7f6cd71a2eb037401e57}
+      \strng{fullhashraw}{0f83aa534f3a7f6cd71a2eb037401e57}
+      \strng{bibnamehash}{0f83aa534f3a7f6cd71a2eb037401e57}
+      \strng{authorbibnamehash}{0f83aa534f3a7f6cd71a2eb037401e57}
+      \strng{authornamehash}{0f83aa534f3a7f6cd71a2eb037401e57}
+      \strng{authorfullhash}{0f83aa534f3a7f6cd71a2eb037401e57}
+      \strng{authorfullhashraw}{0f83aa534f3a7f6cd71a2eb037401e57}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{26}
+      \field{month}{10}
+      \field{note}{Hämtad: 2026-05-04}
+      \field{title}{Graph databases factors to consider}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cambridge-intelligence.com/choosing-graph-database/
+      \endverb
+      \verb{url}
+      \verb https://cambridge-intelligence.com/choosing-graph-database/
+      \endverb
+    \endentry
     \entry{8}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=0523b13262b12c215d8009938f5c14f1}{%
