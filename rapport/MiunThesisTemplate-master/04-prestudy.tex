@@ -46,33 +46,77 @@ Databasen som valdes var Neo4j. Detta val gjordes då det är en marknasledande 
 Den har en låg inlärningströskel med omfattande dokumentation och många guider för att komma igång. Den är även av typen OLAP (Online Analytical Processing), vilket betyder att den är specifikt anpassad för just affärsintelligens och informationssökning vilket är det primära syftet för databasen i detta arbete\cite{17}.
 
 \subsubsection{Val av kommunikationslager}
-Kommunikationslagret som valdes var MCP. Detta val gjordes då det är ett modernt och lättanvänt sätt att låta LLM:er kommunicera med externa system.
-Denna lösning valdes framförallt för att den fungerar för båda de identifierade lösningarna som jämförs mot varandra (direkt API-baserad retrieval och kunskapsgrafer).
+Kommunikationslagret som valdes till detta arbete var MCP. Detta val gjordes då det är ett modernt och lättanvänt sätt att låta LLM:er kommunicera med externa system.
+Denna lösning valdes framförallt för att den fungerar för båda de lösningarna som jämförs mot varandra (API-baserad och graf-baserad).
 \subsubsection{Val av LLM}
-Det undersöktes flera olika LLM integrationer under förstudien men den som valdes att användas var OpenAI's API.
-Detta val gjordes då detta är något som är väl dokumenterat och som har en stabil och snabb API som är lätt att använda.
-Det finns även tillgång till flera olika modeller vilket gör det möjligt att välja modell utifrån behov och krav.
-Det finns både kostnadsfria alternativ lämpade för tester och små projekt och mer kraftfulla betalalternativ lämpade för stora organisationer.
+
+För att jämföra de två lösningarna på ett rättvist sätt krävs det att samma LLM används för båda lösningarna. 
+Den LLM som valdes till detta var GPT-5.4-mini. Detta val gjordes då det är en billig modell som ändå har hög prestanda och därmed möjliggör många tester och mätningar utan att det blir för dyrt.
+
+Eftersom det ständigt släpps nya AI-modeller är det viktiga i detta arbete inte vilken modell som används utan egentligen bara att samma modell används för båda lösningarna.
+
 \subsection{Design av kunskapsgrafen}
 Avgränsningarna i kapitel \ref{subsec:scope} gjorde det inte möjligt att skapa ett komplett system där AI:n själv hämtar och skapar grafdatabasen.
 Därför har det gjorts en förstudie om hur databasen skulle designas för att efterlikna de olika informationskällorna som finns i en verklig organisation.
 Det har undersökts vilka viktiga entitier och relationer som bör finnas för att kunna besvara de olika frågorna som väntas ställas i systemet.
 \subsection{Design av API-baserade lösningen}
-För att kunna ställa samma frågor till båda lösningarna och på så sätt kunna göra en rättvis jämförelse mellan dem, har det även gjorts en förundersökning om hur den API/Tool baserade lösningen skulle designas.
-Vilka API:er och verktyg som skulle behövas för att denna lösning skulle innehålla samma information som kunskapsgrafen och därmed kunna besvara samma frågor.
+För att kunna ställa samma frågor till båda lösningarna och på så sätt kunna göra en rättvis jämförelse mellan dem, har det även gjorts en förundersökning om hur den API-baserade lösningen skulle designas.
+Det har identifierats vilka API:er och verktyg som skulle behövas för att denna lösning ska innehålla samma eller liknande information som kunskapsgrafen och därmed tillhandahålla information som kan användas för att besvara samma frågor.
+
 \subsection{Prompt engineering och frågegenering}
 
-\textcolor{blue}{Om detta kapitel ska vara kvar, gör då undersökningar om detta.}
+I förstudien har det först bestämts vilka externa system som ska inkluderas i lösningen och vilken information som ska hämtas från dessa system.
+Därefter utformades frågorna för att täcka de olika informationskällorna.
 
+Frågorna utformades med tre olika komplexiteter för att kunna mäta hur väl de olika lösningarna presterar vid olika typer av frågor.
 
-\subsection{Utvärderings strategi (Koppling till mål)}
-\textcolor{blue}{Mätningarna ska göras på så sätt}
+Frågorna utformades för att efterlikna realistiska frågor som en användare skulle ställa i en verklig organisation som har dessa typer informationskällor.
 
+\subsection{Utvärderingsstrategi (Koppling till mål)}
 
+Under förstudien identifierades hur utvärderingen av de två lösningarna skulle
+  utformas för att kunna besvara de verifierbara målen i kapitel
+  \ref{subsec:researchquestion}.
+
+För varje identifierbart mål identifierades ett konkret mätvärde:
+
+  \begin{itemize}
+    \item \textbf{Effektivitet} — svarstid i millisekunder är ett objektivt och
+    enkelt mätbart mått på hur snabbt systemet hämtar information.
+
+    \item \textbf{Kvalitet på svar} — korrekthet bedömd manuellt mot ett
+    förväntat svar.
+
+    \item \textbf{Resursanvändning} — antal verktygsanrop speglar hur effektivt
+    LLM:en navigerar till rätt information, och är ett direkt mått på hur
+    väl informationsrepresentationen stödjer LLM:ens resonemang.
+
+  \end{itemize}
 
 \subsection{Sammanfattning av designbeslut}
 
+Förstudien resulterade i ett antal konkreta beslut som tillsammans utgör
+grunden för implementationen och utvärderingen i detta arbete.
 
+Av de tre identifierade lösningsalternativen valdes två att implementeras:
+den grafbaserade-lösningen som arbetets huvudsakliga fokus, samt
+den API-baserade lösningen som jämförelsepunkt. Den vektorbaserade
+(RAG) lösningen uteslöts då den inte består av relationsstrukturen mellan
+data, vilket är det arbetet syftar till att undersöka.
 
-\textcolor{blue}{Sammanfattningsvis har förstudien indentifierat.... besluten har lett till....}
+Som teknisk grund valdes Neo4j som grafdatabas tack vare dess OLAP-karaktär
+och mogna ekosystem, MCP som kommunikationslager för att på ett enhetligt
+sätt exponera verktyg för båda lösningarna, samt GPT-5.4-mini som LLM
+för att möjliggöra ett stort antal tester till en låg kostnad.
+
+Kunskapsgrafen och den API-baserade lösningen designades för att täcka
+samma informationskällor och därigenom möjliggöra en rättvis jämförelse.
+
+Testfrågorna utformades i tre komplexitetsnivåer för att undersöka i vilka situationer de två lösningarna
+skiljer sig åt, med fokus på de komplexa frågorna där det krävs kopplingar mellan data från olika källor.
+
+Utvärderingen baseras på tre mätvärden som är svarstid, antal verktygsanrop
+och korrekthet, som direkt kopplar till de verifierbara målen i kapitel
+\ref{subsec:researchquestion}.
+
 
