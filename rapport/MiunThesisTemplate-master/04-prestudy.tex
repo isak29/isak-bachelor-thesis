@@ -1,17 +1,21 @@
 \section{Förstudie}\label{sec:prestudy}
 
-Som nämnt i kapitel \ref{subsec:background} är det ett växande problem med att data och information är spridda över många olika interna system.
-Detta kapitel redogör därför för de tekniker, bibliotek, tillvägagångssätt och tidigare befintliga lösningar som identifierats under förstudien och som används för att bidra med en lösning på detta problem.
+Detta kapitel redogör för de tekniker, bibliotek, tillvägagångssätt och tidigare befintliga lösningar som identifierats under förstudien och som används för att bidra med en lösning på detta problem.
 Syftet med förstudien var att identifiera problem och relevanta tekniska lösningar för att kunna lösa problemet och besvara forskningsfrågorna.
 
-\subsection{Problemfördjupning}
-\textcolor{blue}{Kan vara ett överflödigt kapitel. Vänta och se.}
-
 \subsection{Analys av möjliga lösningar}
-Under förstudien identifierades en del oliak tekniker och tillväga gångssätt som kan användas för att lösa problemet med ostrukturerad data och information.
+Under förstudien identifierades en del olika tekniker och tillvägagångssätt som kommer att användas för att lösa problemet med ineffektiv informationshantering.
+
 \subsubsection{Direkt API-baserad retrieval}
-Att direkt använda API:er för att hämta data och information från flera olika interna system och låta en LLM omvandla en användarfråga till API-anrop är ett möjligt angreppssätt.
-Denna lösning kräver inget extra lager ovanpå de befintliga systemen, utan bygger direkt på de API:er som redan finns. 
+
+Ett möjligt sätt för att ge en LLM tillgång till organisationens information är att skapa en lösning som direkt exponerar de befintliga systemens API:er som verktyg.
+LLM:en tolkar då användarens fråga och avgör själv vilket eller vilka verktyg som ska anropas för att hämta information från rätt system.
+Denna lösning introducerar inget extra datalager och kräver ingen omstrukturering av befintlig data, utan nyttjar endast de API:er som redan finns.
+
+Det är dock viktigt att ta hänsyn till att denna lösning i grunden inte förändrar hur data är strukturerad eller representerad.
+Information förblir spridd över separata system utan gemensam semantisk kontext, och LLM:en bär hela ansvaret för att koppla samman information från de olika källorna.
+Denna lösning inkluderas i arbetet primärt som en jämförelsepunkt mot den grafbaserade lösningen, för att undersöka om en grafbaserad lösning faktiskt ger LLM:en fördelar att koppla samman information från olika källor.
+
 
 \subsubsection{Kunskapsgrafer}
 Kunskapsgrafer är en teknik som kan användas för att strukturera och organisera data och information från de olika interna systemen på ett sätt som ger de olika systemen en gemensam semantisk struktur att hämta data ifrån.
