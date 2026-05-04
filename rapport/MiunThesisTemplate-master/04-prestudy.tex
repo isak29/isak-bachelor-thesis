@@ -17,14 +17,23 @@ Information förblir spridd över separata system utan gemensam semantisk kontex
 Denna lösning inkluderas i arbetet primärt som en jämförelsepunkt mot den grafbaserade lösningen, för att undersöka om en grafbaserad lösning faktiskt ger LLM:en fördelar att koppla samman information från olika källor.
 
 
-\subsubsection{Kunskapsgrafer}
-Kunskapsgrafer är en teknik som kan användas för att strukturera och organisera data och information från de olika interna systemen på ett sätt som ger de olika systemen en gemensam semantisk struktur att hämta data ifrån.
-Denna lösning skapar samband och relationer mellan data och förväntas därav ge en mer sammanhängande representation av data vilket i sin tur förväntas ge AI:n en bättre förståelse för hur den ska hämta den efterfrågade inforamtionen\cite{1}.
+\subsubsection{Kunskapsgrafs-baserad lösning}
 
-\subsubsection{Vector database / embeddings (RAG)}
+Ett identifierat angreppssätt för att ge en LLM tillgång till organisationens information är att skapa en kunskapsgraf innehållande data och information från de olika interna systemen.
+Data från de olika systemen samlas under en gemensam struktur där samband och relationer mellan dem skapas.
+
+Genom denna representation av data förväntas en LLM kunna koppla samman information från olika källor mer effektivt och därmed kunna navigera relationer med ett enda verktyg istället för att anropa flera olika API:er och själv försöka koppla samman informationen.
+
+Denna lösning förväntas ge färre verktygsanrop vid mer komplexa frågor som kräver tydliga samband mellan data från olika källor, och därmed bidra till en mer effektiv informationshämtning.
+
+% Kunskapsgrafer är en teknik som kan användas för att strukturera och organisera data och information från de olika interna systemen på ett sätt som ger de olika systemen en gemensam semantisk struktur att hämta data ifrån.
+% Denna lösning skapar samband och relationer mellan data och förväntas därav ge en mer sammanhängande representation av data vilket i sin tur förväntas ge AI:n en bättre förståelse för hur den ska hämta den efterfrågade informationen\cite{1}.
+
+\subsubsection{Vector databas / embeddings (RAG)}
 En annan potentiell lösning som identifierades under förstudien var att använda en vector databas och embeddings för att strukturera och organisera data och information på.
 Denna lösning bygger på att omvandla användarfrågan till en vektorrepresentation (embedding) och sedan jämföra mot de lagrade vektorerna i databasen för att hitta de mest liknande\cite{1}.
-De
+
+Denna lösning valdes att inte implementeras i detta arbete då den liksom den API-baserade lösningen inte förändrar 
 
 \subsection{Val av teknisk arkitektur}
 Under förstudien identifierades flera olika verktyg och tekniker för att implementera de olika lösningarna på.
@@ -44,7 +53,7 @@ Avgränsningarna i kapitel \ref{subsec:scope} gjorde det inte möjligt att skapa
 Därför har det gjorts en förstudie om hur databasen skulle designas för att efterlikna de olika informationskällorna som finns i en verklig organisation.
 Det har undersökts vilka viktiga entitier och relationer som bör finnas för att kunna besvara de olika frågorna som väntas ställas i systemet.
 \subsection{Design av API-baserade lösningen}
-För att kunna ställa samma frågor till båda lösningarna och på så sätt kunna göra en rättvi jämförelse mellan dem, har det även gjorts en förundersökning om hur den API/Tool baserade lösningen skulle designas.
+För att kunna ställa samma frågor till båda lösningarna och på så sätt kunna göra en rättvis jämförelse mellan dem, har det även gjorts en förundersökning om hur den API/Tool baserade lösningen skulle designas.
 Vilka API:er och verktyg som skulle behövas för att denna lösning skulle innehålla samma information som kunskapsgrafen och därmed kunna besvara samma frågor.
 \subsection{Prompt engineering och frågegenering}
 
