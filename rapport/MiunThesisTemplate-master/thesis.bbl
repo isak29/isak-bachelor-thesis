@@ -494,6 +494,157 @@
       \verb https://docs.cherry-ai.com/docs/en-us
       \endverb
     \endentry
+    \entry{hevner2004design}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=e054261c7f1739e1ba1db0a45e385c1b}{%
+           family={Hevner},
+           familyi={H\bibinitperiod},
+           given={Alan\bibnamedelima R.},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=5aec260b5b1381edc4b8ff6755f2d543}{%
+           family={March},
+           familyi={M\bibinitperiod},
+           given={Salvatore\bibnamedelima T.},
+           giveni={S\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=c518c214dc9e77148493e9ea47f505ab}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Jinsoo},
+           giveni={J\bibinitperiod}}}%
+        {{hash=65565df90d4793da7a2f20e5e1b07345}{%
+           family={Ram},
+           familyi={R\bibinitperiod},
+           given={Sudha},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{77b3350005135e016e7a83431f326d8f}
+      \strng{fullhash}{b163bef761d9a2c79a3d232595321775}
+      \strng{fullhashraw}{b163bef761d9a2c79a3d232595321775}
+      \strng{bibnamehash}{77b3350005135e016e7a83431f326d8f}
+      \strng{authorbibnamehash}{77b3350005135e016e7a83431f326d8f}
+      \strng{authornamehash}{77b3350005135e016e7a83431f326d8f}
+      \strng{authorfullhash}{b163bef761d9a2c79a3d232595321775}
+      \strng{authorfullhashraw}{b163bef761d9a2c79a3d232595321775}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{MIS Quarterly}
+      \field{number}{1}
+      \field{title}{Design Science in Information Systems Research}
+      \field{volume}{28}
+      \field{year}{2004}
+      \field{pages}{75\bibrangedash 105}
+      \range{pages}{31}
+      \verb{doi}
+      \verb 10.2307/25148625
+      \endverb
+    \endentry
+    \entry{llm_nondeterminism}{misc}{}{}
+      \name{author}{6}{}{%
+        {{hash=905f36009215a99d5462eed44cea1659}{%
+           family={Joshi},
+           familyi={J\bibinitperiod},
+           given={Anmol},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b17731ec6b85a4c7f0758bb13a13421a}{%
+           family={Heidari},
+           familyi={H\bibinitperiod},
+           given={Hamid},
+           giveni={H\bibinitperiod}}}%
+        {{hash=04bf67367b4401d90de2633d19857d37}{%
+           family={Shahmohammadi},
+           familyi={S\bibinitperiod},
+           given={Mohammad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8ade1859eb2c4f7b01f06095c2da5d95}{%
+           family={Kannan},
+           familyi={K\bibinitperiod},
+           given={Sriram},
+           giveni={S\bibinitperiod}}}%
+        {{hash=de3d833c91f61cb9bd9f20225a3022cc}{%
+           family={Rouhani},
+           familyi={R\bibinitperiod},
+           given={Bita},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9973441d15edda43e344b0e22010f4a4}{%
+           family={Guliani},
+           familyi={G\bibinitperiod},
+           given={Dhruv},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fc2e2ae60f815451c14197c7c7c11a0}
+      \strng{fullhash}{4b86f935f0821da5a5114529bc8f873a}
+      \strng{fullhashraw}{4b86f935f0821da5a5114529bc8f873a}
+      \strng{bibnamehash}{1fc2e2ae60f815451c14197c7c7c11a0}
+      \strng{authorbibnamehash}{1fc2e2ae60f815451c14197c7c7c11a0}
+      \strng{authornamehash}{1fc2e2ae60f815451c14197c7c7c11a0}
+      \strng{authorfullhash}{4b86f935f0821da5a5114529bc8f873a}
+      \strng{authorfullhashraw}{4b86f935f0821da5a5114529bc8f873a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{arXiv:2408.04667. Hämtad: 2026-05-05}
+      \field{title}{Non-Determinism of {``Deterministic''} {LLM} Settings}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2408.04667
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2408.04667
+      \endverb
+    \endentry
+    \entry{llm_background_temperature}{misc}{}{}
+      \name{author}{5}{}{%
+        {{hash=c8d516de52eb2dba2245488233b42d8d}{%
+           family={Starace},
+           familyi={S\bibinitperiod},
+           given={Giulio},
+           giveni={G\bibinitperiod}}}%
+        {{hash=835eae10ebbb1862e3a2cc6e50cffe3b}{%
+           family={Sprague},
+           familyi={S\bibinitperiod},
+           given={Dylan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=e67cdb625bd6930cf68cbffe390a2c92}{%
+           family={Peyrard},
+           familyi={P\bibinitperiod},
+           given={Maxime},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5eab59e5d515093b239c2849fdf70f8f}{%
+           family={Mirchev},
+           familyi={M\bibinitperiod},
+           given={Miroslav},
+           giveni={M\bibinitperiod}}}%
+        {{hash=98a2abed0f78f10192f88bd557f4228e}{%
+           family={Bachmann},
+           familyi={B\bibinitperiod},
+           given={Gregor},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{0a7d691ac234d829ff2dd3ffb1d707d4}
+      \strng{fullhash}{b8c63b875b83ad8e4c8e2b5c8d43523d}
+      \strng{fullhashraw}{b8c63b875b83ad8e4c8e2b5c8d43523d}
+      \strng{bibnamehash}{0a7d691ac234d829ff2dd3ffb1d707d4}
+      \strng{authorbibnamehash}{0a7d691ac234d829ff2dd3ffb1d707d4}
+      \strng{authornamehash}{0a7d691ac234d829ff2dd3ffb1d707d4}
+      \strng{authorfullhash}{b8c63b875b83ad8e4c8e2b5c8d43523d}
+      \strng{authorfullhashraw}{b8c63b875b83ad8e4c8e2b5c8d43523d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{arXiv:2604.22411. Hämtad: 2026-05-05}
+      \field{title}{Introducing Background Temperature to Characterise Hidden Randomness in Large Language Models}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2604.22411
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2604.22411
+      \endverb
+    \endentry
     \entry{17}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=0f83aa534f3a7f6cd71a2eb037401e57}{%

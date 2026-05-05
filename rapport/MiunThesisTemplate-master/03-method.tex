@@ -8,64 +8,20 @@ Metoden syftar till att ge en tydlig bild av hur systemen har utvecklats, design
 
 \subsection{{Vetenskaplig metod}}\label{subsec:scientificmethod}
 Arbetet genomförs huvudsakligen som en kvantitativ studie med inslag av kvalitativa bedömningar.
- De kvantitativa delarna består av mätningar för systemets prestanda i form av svarstid och antal verktygs anrop, medans mätningarna för korrekthet och relevans är mer kvalitativa.
+ De kvantitativa delarna består av mätningar för systemets prestanda i form av svarstid och antal verktygsanrop, medans mätningarna för korrekthet och relevans är mer kvalitativa.
 
-Utöver detta tillämpas även en designvetenskaplig metodik, då arbetet inte bara syftar till att analysera ett problem utan även utveckla en lösning i form av ett tekniskt system.
+Utöver detta tillämpas även en designvetenskaplig metodik enligt Hevner et al. \cite{hevner2004design}, då arbetet inte enbart syftar till att analysera ett problem utan även utveckla och utvärdera ett tekniskt system som lösning.
 Det tekniska systemet kommer att användas för att jämföra de olika sätten att låta en LLM hämta och bearbeta information på.
 
 Först identifierades problemen som finns i dagens informationshantering.
  Dessa problem beskrivs i introduktionen \ref{subsec:background} och ligger till grund för de forskningsfrågor som identifierats.
 
-Metodvalet motiveras av arbetets forskningsfrågor som identifierades i kapitel \ref{subsec:researchquestion}, och fokuserar på att undersöka hur en LLM kan utnyttja en grafbaserad kunskapsgraf 
+Metodvalet motiveras av arbetets forskningsfrågor som identifierades i kapitel \ref{subsec:researchquestion}, och fokuserar på att undersöka hur en LLM kan utnyttja en grafbaserad struktur 
 för att effektivisera informationssökningen inom en organisation. Genom en kombination av kvantitativa mätningar och kvalitativa bedömningar 
-går det att få en bra översikt av systemets effektivitet och kvalitet för att sedan kunna besvara forskningsfrågorna.
+går det att få en översikt av systemets effektivitet och kvalitet för att sedan kunna besvara forskningsfrågorna.
 
 Vidare möjliggör den designvetenskapliga metodiken en iterativ utveckling och 
 utvärdering av systemet och dess funktionalitet.
-
-% \subsection{Förstudie}
-% En förstudie genomfördes i början av projektet för att samla in relevant och nödvändig information för att först identifiera problemet och sedan för att bidra med en lösning till problemet.
-% \subsubsection{LLM:er}
-% Det undersöktes vilken typ av LLM som skulle användas i query genereringen. Det undersöktes genom nätbaserade studier och jämförelser av olika LLM:er och deras integrationer.
-% \subsubsection{Kommunikation med databas och externa system}
-% Det undersöktes om vilka olika sätt en LLM kan kommunicera med externa system.
-% Nätbaserad forskning och studier av olika bibliotek såsom MCP användes för att undersöka detta.
-
-% \subsection{Val av verktyg och bibliotek}
-
-% Efter genomförd förstudie identifierades ett antal krav på systemet.
-% Dessa krav var bland annat behovet av flexibel och skalbar arkitektur, stöd för olika datakällor och LLM integration samt möjlighet till skapande av kunskapsgraf.
-
-% Valet av verktyg och bibliotek baserades på dessa krav och på den information som samlats in under förstudien.
-
-% Under implementationen användes även hjälpmedel såsom ChatGPT och Claude för att få stöd med programmering, dokumentering och felsökning.
-
-% \subsection{Systemarkitektur och design}\label{subsec:architechture_and_design}
-% Systemet designades med en arkitektur som möjliggör flexibel kommunikation mellan LLM och olika datakällor.
-%  En användarfråga skickas till en LLM via Open AI's API, där den tolkas och i ena fallet omvandlas till en cypher-fråga som sedan via MCP servern körs mot grafdatabasen, och i det andra fallet omvandlas till ett API-anrop mot rätt informationskälla via MCP servern.
-% MCP servern fungerar som en mellanhand och är den som exponerar såkallade tools för LLM:en att anropa.
-%  I det ena fallet kallas det toolet som kör en cypher fråga  mot grafdatabasen och i det andra fallet kallas nödvändiga tools för körning mot olika API:er.
-% Resultatet returneras sedan till användaren i form av ett svar på den ursprungliga frågan.
-
-% Figur \ref{fig:system_architecture} visar en översikt av systemets arkitektur och hur de olika komponenterna interagerar med varandra.
-
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=15cm]{Figures/system-architecture.png}
-%   \caption{System överblick}\label{fig:system_architecture}
-% \end{figure}
-
-% \subsection{Grafdatabas struktur och generering av mock data}
-% För att kunna testa och utvärdera systemet så behövdes det data i databasen. Eftersom det är utanför projektets scope att låta detta ske automatiskt via API anrop och liknande, så genererades det mock data som ska efterlikna den data som skulle finnas i en verklig organisation.
-% Denna data representerar olika typer av organisatoriska enheter såsom, GitHub repositories, Confluence sidor, anställda, projekt och liknande. Genom prompter och hjälp av ChatGPT så genererades cypher-frågor som skapade denna data i grafdatabasen.
-
-% Se Figur \ref{fig:db} för en översikt av grafdatabasens struktur.
-
-% \begin{figure}[H]
-%   \centering
-%   \includegraphics[width=15cm]{Figures/db_overview.png}
-%   \caption{Grafdatabas struktur}\label{fig:db}
-% \end{figure}
 
 \subsection{Arbetsmetod}\label{subsec:projectmethod}
 Arbetet har genomförts enligt en designvetenskaplig metodik där utvecklingen har strukturerats i olika faser.
@@ -116,3 +72,21 @@ Eftersom den grafbaserade lösningen är manuellt modellerad betyder det även a
 
 Det betyder att de båda lösningarna skiljer sig från varandra i form av vad data innehåller och hur mycket data som finns i dem. 
 Det påverkar tidsmätningen i testerna samt skärmdumparna som finns i \ref{sec:appA}, och detta kommer att diskuteras mer ingående i kapitel \ref{sec:discussion}.
+
+
+\subsection{Reliabilitet och validitet}\label{subsec:reliabilityvalidity}
+\subsubsection{Reliabilitet}
+En begränsning i arbetet är att varje testfråga endast besvaras en gång av varje system.
+Eftersom LLM:er är icke-deterministiska kan svaret variera mellan körningar \cite{llm_nondeterminism,llm_background_temperature}.
+ Detta innebär att resultaten inte nödvändigtvis är fullt reproducerbara.
+
+Svarstiden påverkas dessutom av externa faktorer såsom nätverkshastighet och belastning på LLM:ens API-server,
+ vilket gör att tidsmätningarna bör tolkas som indikativa istället för exakta.
+
+\subsubsection{Validitet}
+Korrekthetsbedömningen av svaren görs manuellt och innebär därmed ett visst mått av subjektivitet.
+För att minska denna subjektiviteten jämförs svaren med information från respektive system för att se till att det är rätt information som hämtats.
+
+Utvärderingen baseras på 15 testfrågor där de två lösningarna har tillgång till olika informationskällor.
+Resultaten bör därför ses som något som visar lösningarnas styrkor och svagheter snarare än en definitiv jämförelse av deras prestanda i alla situationer.
+
