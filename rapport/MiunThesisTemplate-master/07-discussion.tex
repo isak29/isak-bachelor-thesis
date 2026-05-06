@@ -1,6 +1,6 @@
 \section{Diskussion}\label{sec:discussion}
 
-Diskussions kapitlet inkluderar en diskussion kring resultaten som uppnåts i projektet, samt en analys av metoder, tekniska förutsättningar och vidare utveckling av systemen.
+Diskussionskapitlet inkluderar en diskussion kring resultaten som uppnåts i projektet, samt en analys av metoder, tekniska förutsättningar och vidare utveckling av systemen.
 
 \subsection{Analys av Resultat}\label{subsec:discussion_analysis}
 
@@ -30,9 +30,9 @@ Genom att det finns kopplingar mellan exempelvis en person till ett repository o
 
 Ett bevis på detta resonemang ser vi i fråga 15 där det frågades om namnet på det senast uppdaterade confluence dokumentet från personen som gjorde den senaste commiten i repositoryt "payment-service".
 Som vi ser i Figur \ref{fig:kg_q15}, frågar LLM:en först efter schemat, sedan efter personen som gjorde den senaste commiten i det efterfrågade repositoryt, och till sist efter det senaste uppdaterade dokumentet från den personen.
-Den hämtade den informationen med en enda generard cypher fråga, om man räknar bort schema anropet.
+Den hämtade denna informationen med en enda generard cypher fråga, om man räknar bort schema anropet.
 
-Det är i frågor som denna vi ser styrkan i den graf-baserade lösningen att ge LLM:en den kontext den behöver för att kunna följa kopplingar mellan data från olika källor.
+Det är i frågor som denna vi ser styrkan i den graf-baserade lösningen, då den ger LLM:en den kontext den behöver för att kunna följa samband mellan data från olika källor.
 
 \subsubsection{API-baserade Lösning}
 
@@ -49,8 +49,11 @@ Att den presterade så dåligt i denna kategori beror troligen på att frågorna
 LLM:en fick råa svar från API:erna och behövde sedan själv resonera kring vad som var relevant, vilket då i flera fall ledde till felaktiga slutsatser.
 
 I de komplexa frågorna presterade lösningen dåligt med endast 20\% korrekta svar.
+Lösningen hade stora problem med att koppla data från en källa med data från en annan.
+Till skillnad från den graf-baserade lösningen där en person representeras som en nod med tydliga relationer till andra entiteter, kan samma person ha olika namn eller representation i olika system i den API-baserade lösningen, vilket gör det svårt för LLM:en att avgöra att det är samma person.
+Detta är en bidragande orsak till att lösningen svarade fel på det mesta.
 
-
+Detta bekräftar hypotesen om att en relationsbaserad graf med tydliga samband mellan entiteter underlättar för LLM:en att navigera och hämta data från olika källor.
 
 \subsection{Metoddiskussion}\label{subsec:project_method_discussion}
 Make a deep analysis and discussion of your chosen method, chosen approach,
