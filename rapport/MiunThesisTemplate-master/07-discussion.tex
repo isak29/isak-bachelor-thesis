@@ -1,11 +1,40 @@
 \section{Diskussion}\label{sec:discussion}
-Diskussions kapitlet innehåller en sammanfattande diskussion av resultaten samt en analys av de metoder som använts.
+
+Diskussions kapitlet inkluderar en diskussion kring resultaten som uppnåts i projektet, samt en analys av metoder, tekniska förutsättningar och vidare utveckling av systemen.
 
 \subsection{Analys av Resultat}\label{subsec:discussion_analysis}
-\textcolor{blue}{Projektets huvudsakliga mål var..... och ..}
-\subsubsection{Grafdatabas lösningen}
-exemple exempel
-\subsubsection{Tool-baserad API Lösning}
+
+Projektets huvudsakliga mål var att undersöka och utveckla en lösning som med hjälp av AI effektiviserar informationssökning inom en organisation.
+Baserat på resultaten kan det konstateras att bägge de testade lösningarna fungerar på olika plan.
+
+Ett tekniskt hinder var att mätningarna inte gjordes på samma mängd data, samt data med olika innehåll.
+
+\subsubsection{Graf-baserade lösningen}
+
+Den graf-baserade lösningen presterade överlag väl och visade tydliga fördelar i de scenarion den var designad för.
+Resultaten visar ett mönster där lösningens styrkor framträder mer och mer när frågorna blir komplexare och data från flera källor behöver kombineras.
+
+I de enklare frågorna behövdes det generellt sett göras mer verktygsanrop än den api-baserade lösningen. Det tog även längre tid från en fråga ställs till att ett svar är genererat.
+Anledningen till att det tar längre tid är för att det blir en del overhead då LLM:en först måste hämta hela graf-schemat och sedan generera en cypher fråga som exekveras mot databasen.
+Det blir fler verktygsanrop än API-baserade lösningen då min design av lösningen alltid kallar på verktyget som returnerar schemat för grafen, även för de mest simpla frågorna.
+
+I de medelsvåra frågorna där det behövdes mer resonemang presterade lösningen bra. Den svarade rätt på alla frågor förutom en där den egentligen hade delvis rätt.
+Frågan den hade fel på var fråga nio där det frågades om det fanns några blockers i projektet. Med blockers i projektet menade jag egentligen bara vanliga issues.
+Men LLM:en resonerade som att en blocker var en issue med label \texttt{blocked}, \texttt{stuck}, \texttt{at risk} eller \texttt{risk}, se Figur \ref{fig:kg_q9}.
+Där tog jag beslutet att markera svaret som felaktigt eftersom jag räknar alla issues som blockers.
+
+I de komplexa frågorna presterade lösningen bra. Den hade väldigt få verktygsanrop (lika många som i de simpla frågorna) och svarade rätt på alla frågor förutom en.
+Tiden det tog att svara på på frågorna var ungefär lika lång som när den svarade på de simpla frågorna.
+I dessa frågor behövdes det resoneras kring hur data hänger ihop mellan olika källor, och det är just det graflösningen är designad för att göra.
+Genom att det finns kopplingar mellan exempelvis en person till ett repository och från samma person till ett slack inlägg kan LLM:en enkelt följa dessa kopplingar för att se att det är samma person som har gjort ett inlägg som är med i ett repository.
+
+Ett bevis på detta resonemang ser vi i fråga 15 där det frågades om namnet på det senast uppdaterade confluence dokumentet från personen som gjorde den senaste commiten i repositoryt "payment-service".
+Som vi ser i Figur \ref{fig:kg_q15}, frågar LLM:en först efter schemat, sedan efter personen som gjorde den senaste commiten i det efterfrågade repositoryt, och till sist efter det senaste uppdaterade dokumentet från den personen.
+Den hämtade den informationen med en enda generard cypher fråga, om man räknar bort schema anropet.
+
+Det är i frågor som denna vi ser styrkan i den graf-baserade lösningen att ge LLM:en den kontext den behöver för att kunna följa kopplingar mellan data från olika källor.
+
+\subsubsection{API-baserade Lösning}
 ex ex
 
 \subsection{Metoddiskussion}\label{subsec:project_method_discussion}
@@ -32,4 +61,6 @@ considerations. Use the human perspective, how will we be effected by this work,
 was people involved in the process, privacy? Remember to discuss and show
 insights into this projects role in society and our responsibilities for how it
 is used.
-\subsection{Verklig distrubition av system}
+
+\subsection{Verklig distribution av system}\label{subsec:real_system_distribution}
+
