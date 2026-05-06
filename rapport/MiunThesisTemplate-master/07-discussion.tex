@@ -35,7 +35,22 @@ Den hämtade den informationen med en enda generard cypher fråga, om man räkna
 Det är i frågor som denna vi ser styrkan i den graf-baserade lösningen att ge LLM:en den kontext den behöver för att kunna följa kopplingar mellan data från olika källor.
 
 \subsubsection{API-baserade Lösning}
-ex ex
+
+Den API-baserade lösningen presterade bra på de enklare frågorna där lika mycket resonemang inte behövdes, men visade tydliga svagheter i de mer komplexa frågorna där kopplingar mellan olika datakällor behövde göras.
+
+I de enklare frågorna presterade lösningen bra och svarade rätt på alla frågor med i genomsnitt färre verktygsanrop och med lite kortare tid än den graf-baserade lösningen.
+Det var förväntat att den här sortens lösning skulle prestera bra när det är tydliga frågor som endast kräver data från en källa.
+ Verktygen är designade för att hämta specifik information från en källa och i de enklare frågorna var det endast det som behövdes.
+
+I de medelsvåra frågorna började lösningen visa svagheter. Den svarade rätt på 40\% av frågorna trots att den i genomsnitt hade fler verktygsanrop.
+Det var lite överraskande att den hade så många fel i denna komplexitet då dessa frågor inte handlar om att koppla ihop data från specifika källor utan mer att hämta olika data från samma källa och sedan resonera kring det.
+
+Att den presterade så dåligt i denna kategori beror troligen på att frågorna krävde tolkningar och filtreringar som verktygen inte stödjer.
+LLM:en fick råa svar från API:erna och behövde sedan själv resonera kring vad som var relevant, vilket då i flera fall ledde till felaktiga slutsatser.
+
+I de komplexa frågorna presterade lösningen dåligt med endast 20\% korrekta svar.
+
+
 
 \subsection{Metoddiskussion}\label{subsec:project_method_discussion}
 Make a deep analysis and discussion of your chosen method, chosen approach,
