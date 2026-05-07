@@ -68,7 +68,7 @@ I projektet används MCP SDK \cite{15} för att skapa servern, sessioner och ver
 
 \subsubsection{Kommunikation över HTTP}
 Kommunikationen mellan LLM:en och MCP-servern sker över HTTP genom request/response-baserat gränssnitt.
-När LLM:En anropar ett verktyg skickas en förfrågan till MCP-servern som då utför den begärda operationen och returnerar resultatet\cite{16}.
+När LLM:en anropar ett verktyg skickas en förfrågan till MCP-servern som då utför den begärda operationen och returnerar resultatet\cite{16}.
 
 Denna modell bidrar till en tydlig separation mellan LLM:en och datakällorna, där MCP-servern fungerar som en mellanhand som hanterar de externa anropen.
 Genom att använda HTTP-gränssnittet blir systemet felxibelt och kan integreras med flera olika klienter och tjänster.
@@ -89,8 +89,11 @@ Cherry Studio fungerar därmed som gränssnittet mellan användaren och systemet
 \subsection{Relaterat arbete}
 
 I detta underkapitel presenteras tidigare forskning och arbete som är relevant för detta projekt.
-Det inkluderar både forskning inom området för datasilos, kunskapsgrafer och användning av LLM:er i informationssökning.
 
-\subsubsection{Datasilos}
-\subsubsection{Kunskapsgrafer}
-\subsubsection{LLM:er i informationssökning}
+\subsubsection{Related work 1 ?}
+
+Arbetet undersöker hur kunskapsgrafer kan användas som faktakällor för att minska hallucinationer i LLM-genererade svar inom utbildningssystem.
+Författarna visar att en LLM som har tillgång till strukturerad kontext från en kunskapsgraf levererar mer korrekta och relevanta förklaringar jämfört när modellen enbart förlitar sig på träningsdata\cite{21}.
+
+Arbetet bygger liksom mitt på att ge en LLM strukturerad kontext från en kunskapsgraf för att förbättra dess förmåga att hämta och använda information.
+Skillnaden är att detta arbete fokuserar på att minska hallucinationer inom utbildningen, medan mitt arbete fokuserar på informationshämtning inom en organisation.
