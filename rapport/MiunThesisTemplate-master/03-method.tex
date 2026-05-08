@@ -41,6 +41,7 @@ Det skapades en plan som beskriver hur systemet skulle byggas och vilka komponen
 Databasens struktur designades till att efterlikna en riktig organisation med olika typer av dokumentation, anställda, projekt och liknande.
 Dessa entiteter och relationer designades för att passa data från systemen: Confluence, Slack och GitHub. Dessa system valdes eftersom de är vanliga i många IT-organisationer och innehåller olika typer av information som kan vara relevant att hämta.
 Med hjälp av prompter med ChatGPT genererades också fejk data som användes för att fylla databasen och möjliggöra testning av systemet.
+Figur \ref{fig:methodology} visar en översikt över grafdatabasens design med dess olika entiteter och relationer.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Figures/nodesANDrelationships.png}
@@ -49,15 +50,16 @@ Med hjälp av prompter med ChatGPT genererades också fejk data som användes f�
 \end{figure}
 
 I den fjärde fasen utvecklades systemet enligt den design som skapats i föregående fasen.
-Här skrevs koden för MCP servern, integrationen med LLM:en och kommunikationen med databasen och externa systems API:er.
-Systemet byggdes iterativt där olika delar utvecklades och testades allt eftersom.
+Här skrevs koden för MCP servern och uppkopplingen till databasen och API:erna i TypeScript, och integrationen med LLM:en och MCP servern etablerades i Cherry Studio.
+Systemet byggdes iterativt där olika delar utvecklades och testades allt eftersom. 
+Det lades till nya verktyg och ny funktionalitet under utvecklingens gång då nya behov upptäcktes.
 
 I den femte fasen testades systemen. Här genomfördes olika tester för att besvara de frågor som legat som grund för arbetet.
 Här mättes svarstid, antal verktygsanrop, korrekthet och relevans för att komma fram till ett resultat.
  Detta möjliggjorde en analys av skillnaderna mellan de två lösningarna, och därmed besvara forskningsfrågorna och dra en slutsats.
 
-I den sista fasen utvärderades systemet. Här identifierades möjliga ändringar som hade kunnat implementerats i systemen.
-Det diskuterades även om framtida forskning och vidare utveckling av systemen. 
+I den sista fasen utvärderades systemet. Här identifierades möjliga ändringar som hade kunnat implementerats i systemen. Exempelvis fler verktyg för att hämta mer specifik information, eller en mer avancerad design av grafdatabasen.
+Det diskuterades även om framtida forskning och vidare utveckling av systemen, såsom exempelvis automatisk uppdatering och skapande av grafdatabasen. 
 
 
 \subsection{Utvärderingsmetod}\label{subsec:evalmethod}
