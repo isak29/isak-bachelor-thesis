@@ -494,6 +494,49 @@
       \verb https://docs.cherry-ai.com/docs/en-us
       \endverb
     \endentry
+    \entry{21}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=0d37e9bdd87456d07a61831b6dda1fad}{%
+           family={Abu-Rasheed},
+           familyi={A\bibinithyphendelim R\bibinitperiod},
+           given={Hasan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e0c72a4d6a9b1e2496d7716f78b87e5b}{%
+           family={Weber},
+           familyi={W\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3a179c3bd68cb4c3b46f58ee6d02103d}{%
+           family={Fathi},
+           familyi={F\bibinitperiod},
+           given={Madjid},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{de1c841301b173bf2ff40a805db13545}
+      \strng{fullhash}{6e3ba3081d0725c8a802d9645359c671}
+      \strng{fullhashraw}{6e3ba3081d0725c8a802d9645359c671}
+      \strng{bibnamehash}{6e3ba3081d0725c8a802d9645359c671}
+      \strng{authorbibnamehash}{6e3ba3081d0725c8a802d9645359c671}
+      \strng{authornamehash}{de1c841301b173bf2ff40a805db13545}
+      \strng{authorfullhash}{6e3ba3081d0725c8a802d9645359c671}
+      \strng{authorfullhashraw}{6e3ba3081d0725c8a802d9645359c671}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEEE Global Engineering Education Conference (EDUCON)}
+      \field{title}{Knowledge Graphs as Context Sources for {LLM}-Based Explanations of Learning Recommendations}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1109/EDUCON60312.2024.10578654
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2403.03008
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2403.03008
+      \endverb
+    \endentry
     \entry{hevner2004design}{article}{}{}
       \name{author}{4}{}{%
         {{hash=e054261c7f1739e1ba1db0a45e385c1b}{%

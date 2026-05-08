@@ -8,10 +8,11 @@ Metoden syftar till att ge en tydlig bild av hur systemen har utvecklats, design
 
 \subsection{{Vetenskaplig metod}}\label{subsec:scientificmethod}
 Arbetet genomförs huvudsakligen som en kvantitativ studie med inslag av kvalitativa bedömningar.
- De kvantitativa delarna består av mätningar för systemets prestanda i form av svarstid och antal verktygsanrop, medans mätningarna för korrekthet och relevans är mer kvalitativa.
+ De kvantitativa delarna består av mätningar för systemets prestanda i form av svarstid i millisekunder och antal verktygsanrop per fråga, medans mätningarna för korrekthet är kvalitativa och bedöms med antingen rätt eller fel.
 
-Utöver detta tillämpas även en designvetenskaplig metodik enligt Hevner et al. \cite{hevner2004design}, då arbetet inte enbart syftar till att analysera ett problem utan även utveckla och utvärdera ett tekniskt system som lösning.
-Det tekniska systemet kommer att användas för att jämföra de olika sätten att låta en LLM hämta och bearbeta information på.
+Utöver detta tillämpas även en designvetenskaplig metodik enligt Hevner et al. \cite{hevner2004design}. Detta motiveras av att arbetet inte enbart syftar till att analysera ett problem utan även utveckling och utvärdering av ett tekniskt system med två olika typer av lösningar för informationshantering.
+En lösning som bygger på att data från de externa datakällorna lagras i form av en grafstruktur i en grafdatabas, och en lösning som bygger på att hämta information direkt från de externa systemens API:er.
+Systemet kommunicerar med strukturerna genom en MCP server som också utvecklas i detta arbete.
 
 Först identifierades problemen som finns i dagens informationshantering.
  Dessa problem beskrivs i introduktionen \ref{subsec:background} och ligger till grund för de forskningsfrågor som identifierats.
@@ -32,13 +33,20 @@ Fasen bestod av en litteraturstudie och analys av befintliga problem och potenti
 för att hantera dessa problem. Här identifierades tekniker såsom kunskapsgrafer, grafdatabaser, LLM:er och verktyg som MCP. Detta ledde till formuleringen av de forskningsfrågor som arbetet syftar till att besvara.
 
 I den andra fasen formulerades målen för arbetet baserat på de problem som identifierats under den första fasen. 
-Det blev här tydligt att målet var att utveckla ett system med en struktur som tillåter en LLM att effektivt navigera och hämta information inom en organisation för att eliminera problemet med datasilos.
-Det blev även tydligare vilka tekniker och verktyg som skulle användas i utvecklingen av systemet, såsom Neo4j för grafdatabasen och Cherry Studio för användargränssnittet och LLM integrationer.
+Det blev här tydligt att målet var att utveckla ett system som låter en LLM kommunicera med och hämta data från en grafdatabas, samt att bygga ett system där LLM:en direkt hämtar från externa källornas API:er, för att ha något att jämföra med.
+Det blev även tydligare vilka tekniker och verktyg som skulle användas i utvecklingen av systemet, såsom Neo4j för grafdatabasen och Cherry Studio för användargränssnittet och LLM-integrationen.
 
 I den tredje fasen designades systemet och databasen. Här började arbetet med att designa systemets arkitektur och struktur. 
 Det skapades en plan som beskriver hur systemet skulle byggas och vilka komponenter som skulle ingå, samt hur de skulle interagera med varandra.
 Databasens struktur designades till att efterlikna en riktig organisation med olika typer av dokumentation, anställda, projekt och liknande.
+Dessa entiteter och relationer designades för att passa data från systemen: Confluence, Slack och GitHub. Dessa system valdes eftersom de är vanliga i många IT-organisationer och innehåller olika typer av information som kan vara relevant att hämta.
 Med hjälp av prompter med ChatGPT genererades också fejk data som användes för att fylla databasen och möjliggöra testning av systemet.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/nodesANDrelationships.png}
+    \caption{Översikt över grafdatabaslösningens entiteter och deras relationer}
+    \label{fig:methodology}
+\end{figure}
 
 I den fjärde fasen utvecklades systemet enligt den design som skapats i föregående fasen.
 Här skrevs koden för MCP servern, integrationen med LLM:en och kommunikationen med databasen och externa systems API:er.
