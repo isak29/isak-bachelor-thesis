@@ -1,12 +1,12 @@
 \section{Förstudie}\label{sec:prestudy}
 
 Detta kapitel redogör för de tekniker, bibliotek, tillvägagångssätt och tidigare befintliga lösningar som identifierats under förstudien och som används för att bidra med en lösning på detta problem.
-Syftet med förstudien var att identifiera problem och relevanta tekniska lösningar för att kunna lösa problemet och besvara forskningsfrågorna.
+Syftet med förstudien är att identifiera problem och relevanta tekniska lösningar för att kunna lösa problemet och besvara forskningsfrågorna.
 
 \subsection{Analys av möjliga lösningar}
-Under förstudien identifierades en del olika tekniker och tillvägagångssätt som kommer att användas för att lösa problemet med ineffektiv informationshantering.
+Under förstudien identifierades ett antal tekniker och tillvägagångssätt som kommer att användas för att lösa problemet med ineffektiv informationshantering.
 
-\subsubsection{Direkt API-baserad retrieval}
+\subsubsection{API-baserad lösning}
 
 Ett möjligt sätt för att ge en LLM tillgång till organisationens information är att skapa en lösning som direkt exponerar de befintliga systemens API:er som verktyg.
 LLM:en tolkar då användarens fråga och avgör själv vilket eller vilka verktyg som ska anropas för att hämta information från rätt system.
@@ -17,68 +17,74 @@ Information förblir spridd över separata system utan gemensam semantisk kontex
 Denna lösning inkluderas i arbetet primärt som en jämförelsepunkt mot den grafbaserade lösningen, för att undersöka om en grafbaserad lösning faktiskt ger LLM:en fördelar att koppla samman information från olika källor.
 
 
-\subsubsection{Kunskapsgrafs-baserad lösning}
+\subsubsection{Grafbaserad lösning}
 
 Ett identifierat angreppssätt för att ge en LLM tillgång till organisationens information är att skapa en kunskapsgraf innehållande data och information från de olika interna systemen.
 Data från de olika systemen samlas under en gemensam struktur där samband och relationer mellan dem skapas.
 
 Genom denna representation av data förväntas en LLM kunna koppla samman information från olika källor mer effektivt och därmed kunna navigera relationer med ett enda verktyg istället för att anropa flera olika API:er och själv försöka koppla samman informationen.
 
-Denna lösning förväntas ge färre verktygsanrop vid mer komplexa frågor som kräver tydliga samband mellan data från olika källor, och därmed bidra till en mer effektiv informationshämtning.
-
-% Kunskapsgrafer är en teknik som kan användas för att strukturera och organisera data och information från de olika interna systemen på ett sätt som ger de olika systemen en gemensam semantisk struktur att hämta data ifrån.
-% Denna lösning skapar samband och relationer mellan data och förväntas därav ge en mer sammanhängande representation av data vilket i sin tur förväntas ge AI:n en bättre förståelse för hur den ska hämta den efterfrågade informationen\cite{1}.
+Denna lösning bedöms ge färre verktygsanrop vid mer komplexa frågor som kräver tydliga samband mellan data från olika källor, och därmed bidra till en mer effektiv informationshämtning.
 
 \subsubsection{Vector databas / embeddings (RAG)}
-En annan potentiell lösning som identifierades under förstudien var att använda en vector databas och embeddings för att strukturera och organisera data och information på.
+En annan potentiell lösning som identifieras under förstudien är att använda en vektordatabas och embeddings för att strukturera och organisera data och information.
 Denna lösning bygger på att omvandla användarfrågan till en vektorrepresentation (embedding) och sedan jämföra mot de lagrade vektorerna i databasen för att hitta de mest liknande\cite{1}.
 
-Denna lösning valdes att inte implementeras i detta arbete då den liksom den API-baserade lösningen inte förändrar hur relationer och samband mellan data från olika källor representeras, vilket är det primära syftet med detta arbete.
+Denna lösning varken implementeras elelr undersöks vidare i detta arbet då den liksom den API-baserade lösningen inte förändrar hur relationer och samband mellan data från olika källor representeras, vilket är det primära syftet med detta arbete.
 
 \subsection{Val av teknisk arkitektur}
-Under förstudien identifierades flera olika verktyg och tekniker för att implementera de olika lösningarna på.
-Det har därför tagits beslut om vilka specifika tekniker och verktyg som används i den slutgiltiga lösningen.
+Under förstudien identifieras flera olika verktyg och tekniker för att implementera de olika lösningarna på.
+Därför beslutas det om vilka specifika tekniker och verktyg som används i den slutgiltiga lösningen.
+
 \subsubsection{Val av grafdatabas}
 Grafdatabasens syfte i detta arbete är att lagra data och information från de olika interna systemet i form av en kunskapsgraf.
-För att välja vilken grafdatabas som skulle användas har det gjorts en undersökning om vilken som lämpar sig bäst för detta arbetet.
+För att välja vilken grafdatabas som ska användas görs det en undersökning om vilken som lämpar sig bäst specifikt för detta arbete.
 
-Databasen som valdes var Neo4j. Detta val gjordes då det är en marknasledande grafdatabas med störst användarbas och bäst community-stöd.
+Databasen som väljs är Neo4j. Detta val görs då det är en marknasledande grafdatabas med stor användarbas och bra community-stöd.
 Den har en låg inlärningströskel med omfattande dokumentation och många guider för att komma igång. Den är även av typen OLAP (Online Analytical Processing), vilket betyder att den är specifikt anpassad för just affärsintelligens och informationssökning vilket är det primära syftet för databasen i detta arbete\cite{17}.
 
 \subsubsection{Val av kommunikationslager}
-Kommunikationslagret som valdes till detta arbete var MCP. Detta val gjordes då det är ett modernt och lättanvänt sätt att låta LLM:er kommunicera med externa system.
-Denna lösning valdes framförallt för att den fungerar för båda de lösningarna som jämförs mot varandra (API-baserad och graf-baserad).
-\subsubsection{Val av LLM}
+Kommunikationslagret som väljs till detta arbete är MCP. Detta val görs då det är ett modernt och lättanvänt sätt att låta LLM:er kommunicera med externa system.
+Denna lösning väljs framförallt för att den fungerar för båda de lösningarna som jämförs mot varandra (API-baserad och grafbaserad).
 
+\subsubsection{Val av LLM}
 För att jämföra de två lösningarna på ett rättvist sätt krävs det att samma LLM används för båda lösningarna. 
-Den LLM som valdes till detta var GPT-5.4-mini. Detta val gjordes då det är en billig modell som ändå har hög prestanda och därmed möjliggör många tester och mätningar utan att det blir för dyrt.
+Den LLM som används i detta arbete är GPT-5.4-mini. Modellen valdes för att den är kostnadseffektiv med hög prestanda, vilket möjliggör ett stort antal tester utan att kostnaden blir för hög.
 
 Eftersom det ständigt släpps nya AI-modeller är det viktiga i detta arbete inte vilken modell som används utan egentligen bara att samma modell används för båda lösningarna.
 
-\subsection{Design av kunskapsgrafen}
-Avgränsningarna i kapitel \ref{subsec:scope} gjorde det inte möjligt att skapa ett komplett system där AI:n själv hämtar och skapar grafdatabasen.
-Därför har det gjorts en förstudie om hur databasen skulle designas för att efterlikna de olika informationskällorna som finns i en verklig organisation.
-Det har undersökts vilka viktiga entitier och relationer som bör finnas för att kunna besvara de olika frågorna som väntas ställas i systemet.
+\subsection{Design av kunskapsgrafen och grafdatabasen}
+Avgränsningarna i kapitel \ref{subsec:scope} gjorde det inte möjligt att skapa ett komplett system där LLM:en själv hämtar och uppdaterar data i grafdatabasen.
+Därför undersöks det hur databasen ska designas för att efterlikna de olika informationskällorna som finns i en verklig organisation.
+
+De informationskällor som inkluderas i grafdatabasen är: Confluence, Slack och Github.
+ Dessa informationskällor är tillräckligt många och tillräckligt breda för att kunna erbjuda en realistisk representation av en verklig organisations informationskällor.
+
+De entiteter och relationer som skapas i grafdatabasen är utformade för att efterlikna de olika typer av information som finns i de olika informationskällorna, samt de relationer som finns mellan dem.
+De entiteter som inkluderas är: \textit{Person}, \textit{Team}, 
+\textit{Project}, \textit{Repository}, \textit{Issue}, \textit{Commit}, 
+\textit{SlackChannel}, \textit{Post}, \textit{ConfluenceSpace}
+\textit{Document}. Mellan dessa entiteter skapas relationer som exempelvis \textit{WORKS\_ON}, \textit{MEMBER\_OF}, \textit{HAS\_ISSUE}, \textit{HAS\_COMMIT}, \textit{POSTED\_IN}, \textit{CONTAINS}.
+
 \subsection{Design av API-baserade lösningen}
-För att kunna ställa samma frågor till båda lösningarna och på så sätt kunna göra en rättvis jämförelse mellan dem, har det även gjorts en förundersökning om hur den API-baserade lösningen skulle designas.
-Det har identifierats vilka API:er och verktyg som skulle behövas för att denna lösning ska innehålla samma eller liknande information som kunskapsgrafen och därmed tillhandahålla information som kan användas för att besvara samma frågor.
+För att täcka samma informationskällor som kunskapsgrafen identifieras att verktyg behövs för att kommunicera med API:er från Confluence, Slack och GitHub.
+Exempel på verktyg som identifieras är ett som hämtar alla personer i ett GitHub-repository, alla meddelanden i en Slack-kanal, eller alla dokument skapade av en viss person i Confluence.
 
-\subsection{Prompt engineering och frågegenering}
+\subsection{Design av frågor}
 
-I förstudien har det först bestämts vilka externa system som ska inkluderas i lösningen och vilken information som ska hämtas från dessa system.
-Därefter utformades frågorna för att täcka de olika informationskällorna.
-
-Frågorna utformades med tre olika komplexiteter för att kunna mäta hur väl de olika lösningarna presterar vid olika typer av frågor.
-
-Frågorna utformades för att efterlikna realistiska frågor som en användare skulle ställa i en verklig organisation som har dessa typer informationskällor.
+Det beslutas att utvärderingen ska baseras på 15 testfrågor fördelade över tre komplexitetsnivåer.
+De simpla frågorna (Q1–Q5) kräver ingen koppling mellan datakällor och kan besvaras med ett enda anrop till en källa.
+De medelsvåra frågorna (Q6–Q10) kräver antingen flera anrop till samma datakälla eller like mer avancerat resonemang för att nå svaret.
+De komplexa frågorna (Q11–Q15) kräver ofta kopplingar mellan data från olika källor, vilket är det scenario där skillnaden mellan de två lösningarna förväntas vara som störst.
+De fullständiga frågorna presenteras i kapitel \ref{subsec:questTest}.
 
 \subsection{Utvärderingsstrategi (Koppling till mål)}
 
-Under förstudien identifierades hur utvärderingen av de två lösningarna skulle
+Under förstudien identifieras hur utvärderingen av de två lösningarna skulle
   utformas för att kunna besvara de verifierbara målen i kapitel
   \ref{subsec:researchquestion}.
 
-För varje identifierbart mål identifierades ett konkret mätvärde:
+För varje identifierbart mål identifieras ett konkret mätvärde:
 
   \begin{itemize}
     \item \textbf{Effektivitet} — svarstid i millisekunder är ett objektivt och
