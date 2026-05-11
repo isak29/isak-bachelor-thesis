@@ -1,17 +1,20 @@
 \section{\translate{Metod}}\label{sec:method}
-I detta kapitel beskrivs den metodik som använts för att genomföra arbetet och besvara forskningsfrågorna.
+I detta kapitel beskrivs den metodik som används för att genomföra arbetet och besvara forskningsfrågorna.
 Arbetet innefattar både utveckling av ett grafbaserat kunskapssystem, ett API-baserat system samt en utvärdering
  av hur dessa system kan användas av AI-agenter för effektiv informationssökning.
 
-Metoden syftar till att ge en tydlig bild av hur systemen har utvecklats, designats och testats.
+Metoden syftar till att ge en tydlig bild av hur systemen utvecklas, designas och testas.
  Kapitlet beskriver även de verktyg, antaganden och arbetsprocesser som ligger till grund för resultaten.
 
 \subsection{{Vetenskaplig metod}}\label{subsec:scientificmethod}
 Arbetet genomförs huvudsakligen som en kvantitativ studie med inslag av kvalitativa bedömningar.
  De kvantitativa delarna består av mätningar för systemets prestanda i form av svarstid i millisekunder och antal verktygsanrop per fråga, medan mätningarna för korrekthet är kvalitativa och bedöms med antingen rätt eller fel.
 
-Utöver detta tillämpas även en designvetenskaplig metodik enligt Hevner et al. \cite{hevner2004design}. Detta motiveras av att arbetet inte enbart syftar till att analysera ett problem utan även utveckling och utvärdering av ett tekniskt system med två olika typer av lösningar för informationshantering.
-En lösning som bygger på att data från de externa datakällorna lagras i form av en grafstruktur i en grafdatabas, och en lösning som bygger på att hämta information direkt från de externa systemens API:er.
+Utöver detta tillämpas även en designvetenskaplig metodik enligt Hevner et al. \cite{hevner2004design}.
+ Detta motiveras av att arbetet inte enbart syftar till att analysera ett problem utan även utveckling och
+  utvärdering av ett tekniskt system med två olika typer av lösningar för informationshantering.
+
+Den ena lösningen bygger på att data från de externa datakällorna lagras i form av en grafstruktur i en grafdatabas, och den andra lösningen bygger på att information hämtas direkt från de externa systemens API:er.
 Systemet kommunicerar med strukturerna genom en MCP server som också utvecklas i detta arbete.
 
 Först identifierades problemen som finns i dagens informationshantering.
@@ -27,12 +30,12 @@ Ett sådant exempel är den API-baserade lösningen där nya verktyg tillkommer 
 Arbetet genomförs enligt en designvetenskaplig metodik där utvecklingen struktureras i olika faser.
 Dessa faser inkluderar problemidentifiering, målformulering, design, utveckling, testning av systemen samt utvärdering.
 
-I den första fasen undersöks och identifieras de problem som finns med dagens informationshantering inom organisationer.
-Fasen består av en litteraturstudie och analys av befintliga problem och potentiella lösningar. Det undersöks relevanta tekniker och metoder
+I den första fasen undersöks och identifieras de problem som finns i dagens informationshantering inom organisationer.
+Fasen består av en litteraturstudie och analys av befintliga problem och potentiella lösningar. Det undersöks om relevanta tekniker och metoder
 för att hantera dessa problem. Här identifieras tekniker såsom kunskapsgrafer, grafdatabaser, LLM:er och verktyg som MCP. Detta leder till formuleringen av de forskningsfrågor som arbetet syftar till att besvara.
 
 I den andra fasen formuleras målen för arbetet baserat på de problem som identifierats under den första fasen.
-Det blir här tydligt att målet är att utveckla ett system som låter en LLM kommunicera med och hämta data från en grafdatabas, samt att bygga ett system där LLM:en direkt hämtar från externa källornas API:er, för att ha något att jämföra med.
+Det blir här tydligt att målet är att utveckla ett system som låter en LLM kommunicera med och hämta data från en grafdatabas, samt att bygga ett system där LLM:en direkt hämtar från externa källornas API:er för att ha något att jämföra den grafbaserade lösningen med.
 Det blir även tydligare vilka tekniker och verktyg som ska användas i utvecklingen av systemet, såsom Neo4j för grafdatabasen och Cherry Studio för användargränssnittet och LLM-integrationen.
 
 I den tredje fasen designas systemet och databasen. Här börjar arbetet med att designa systemets arkitektur och struktur.
@@ -49,13 +52,13 @@ Figur \ref{fig:methodology} visar en översikt över grafdatabasens design med d
 \end{figure}
 
 I den fjärde fasen utvecklas systemet enligt den design som skapats i föregående fasen.
-Här skrivs koden för MCP servern och uppkopplingen till databasen och API:erna i TypeScript, och integrationen med LLM:en och MCP servern etableras i Cherry Studio.
+Här skrivs koden för MCP servern och uppkopplingen till databasen och API:erna i TypeScript och integrationen med LLM:en och uppkoppling mot den skapade MCP servern sker i Cherry Studio.
 Systemet byggs iterativt där olika delar utvecklas och testas allt eftersom.
 Det läggs till nya verktyg och ny funktionalitet under utvecklingens gång då nya behov upptäcks.
 
 I den femte fasen testas systemen. Här genomförs olika tester för att besvara de frågor som legat som grund för arbetet.
 Här mäts svarstid, antal verktygsanrop, korrekthet och relevans för att komma fram till ett resultat.
-Detta möjliggör en analys av skillnaderna mellan de två lösningarna, och därmed besvara forskningsfrågorna och dra en slutsats.
+Detta möjliggör en analys av skillnaderna mellan de två lösningarna, och låter oss besvara forskningsfrågorna för att kunna komma fram till en slutsats.
 
 I den sista fasen utvärderas systemet. Här identifieras möjliga ändringar som kan implementeras i systemen. Exempelvis fler verktyg för att hämta mer specifik information, eller en mer avancerad design av grafdatabasen.
 Det diskuteras även om framtida forskning och vidare utveckling av systemen, såsom exempelvis automatisk uppdatering och skapande av grafdatabasen. 
@@ -63,9 +66,9 @@ Det diskuteras även om framtida forskning och vidare utveckling av systemen, s�
 
 \subsection{Utvärderingsmetod}\label{subsec:evalmethod}
 Arbetet utvärderas genom att jämföra de två skapade lösningarna för att besvara de forskningsfrågor som identifierats i kapitel \ref{subsec:researchquestion}.
-De båda lösningarna kommer att ha tillgång till liknande information, och testas genom att få samma uppsättning frågor som de ska besvara.
+De båda lösningarna har tillgång till liknande information, och testas genom att få samma uppsättning frågor som de besvarar.
 
-För att besvara forskningsfrågorna så kommer det att mätas svarstid, antal verktygsanrop, korrekthet och relevans. 
+För att besvara forskningsfrågorna mäts svarstid, antal verktygsanrop och korrekthet. 
 
 \subsubsection{Jämförelsens syfte och avgränsningar}
 
@@ -74,13 +77,13 @@ Syftet med studien är inte att genomföra en strikt jämförelse mellan två id
 Den grafbaserade lösningen utgör studiens huvudsakliga fokus, då den representerar ett alternativt sätt att strukturera och representera information på.
 
 Det är också viktigt att ta hänsyn till att de två lösningarna inte har tillgång till exakt samma information eller informationsrepresentation.
-Den grafbaserade lösningen bygger på en strukturerad kunskapsgraf där relationer mellan entiteter är manuellt modellerade för att efterlikna en organisations olika delar.
+Den grafbaserade lösningen bygger på en strukturerad kunskapsgraf där relationer mellan entiteter är manuellt modellerade till att efterlikna en organisations olika delar.
 Den API-baserade lösningen hämtar istället information från specifika och faktiska datakällor.
 
 Eftersom den grafbaserade lösningen är manuellt modellerad betyder det även att all data i den är manuellt skapad och inte verklig, medan den API-baserade lösningen hämtar verklig data från riktiga API:er.
 
 Det betyder att de båda lösningarna skiljer sig från varandra i form av vad data innehåller och hur mycket data som finns i dem. 
-Det påverkar tidsmätningen i testerna samt skärmdumparna som finns i \ref{sec:appA}, och detta kommer att diskuteras mer ingående i kapitel \ref{sec:discussion}.
+Det påverkar tidsmätningen i testerna samt skärmdumparna som finns i \ref{sec:appA}, och detta diskuteras mer ingående i kapitel \ref{sec:discussion}.
 
 
 \subsection{Reliabilitet och validitet}\label{subsec:reliabilityvalidity}
@@ -89,12 +92,12 @@ En begränsning i arbetet är att varje testfråga endast besvaras en gång av v
 Eftersom LLM:er är icke-deterministiska kan svaret variera mellan körningar \cite{llm_nondeterminism,llm_background_temperature}.
  Detta innebär att resultaten inte nödvändigtvis är fullt reproducerbara.
 
-Svarstiden påverkas dessutom av externa faktorer såsom nätverkshastighet och belastning på LLM:ens API-server,
- vilket gör att tidsmätningarna bör tolkas som indikativa istället för exakta.
+Svarstiden påverkas dessutom av externa faktorer såsom nätverkshastighet och belastning på
+ LLM:ens API-server, vilket gör att tidsmätningarna bör tolkas som indikativa istället för exakta.
 
 \subsubsection{Validitet}
 Korrekthetsbedömningen av svaren görs manuellt och innebär därmed ett visst mått av subjektivitet.
-För att minska denna subjektiviteten jämförs svaren med information från respektive system för att se till att det är rätt information som hämtats.
+För att minska denna subjektivitet jämförs svaren med information från respektive system för att se till att det är rätt information som hämtats.
 
 Utvärderingen baseras på 15 testfrågor där de två lösningarna har tillgång till olika informationskällor.
 Resultaten bör därför ses som något som visar lösningarnas styrkor och svagheter snarare än en definitiv jämförelse av deras prestanda i alla situationer.
