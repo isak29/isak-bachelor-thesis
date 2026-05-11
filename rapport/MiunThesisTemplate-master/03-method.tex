@@ -8,7 +8,7 @@ Metoden syftar till att ge en tydlig bild av hur systemen har utvecklats, design
 
 \subsection{{Vetenskaplig metod}}\label{subsec:scientificmethod}
 Arbetet genomförs huvudsakligen som en kvantitativ studie med inslag av kvalitativa bedömningar.
- De kvantitativa delarna består av mätningar för systemets prestanda i form av svarstid i millisekunder och antal verktygsanrop per fråga, medans mätningarna för korrekthet är kvalitativa och bedöms med antingen rätt eller fel.
+ De kvantitativa delarna består av mätningar för systemets prestanda i form av svarstid i millisekunder och antal verktygsanrop per fråga, medan mätningarna för korrekthet är kvalitativa och bedöms med antingen rätt eller fel.
 
 Utöver detta tillämpas även en designvetenskaplig metodik enligt Hevner et al. \cite{hevner2004design}. Detta motiveras av att arbetet inte enbart syftar till att analysera ett problem utan även utveckling och utvärdering av ett tekniskt system med två olika typer av lösningar för informationshantering.
 En lösning som bygger på att data från de externa datakällorna lagras i form av en grafstruktur i en grafdatabas, och en lösning som bygger på att hämta information direkt från de externa systemens API:er.
@@ -18,29 +18,28 @@ Först identifierades problemen som finns i dagens informationshantering.
  Dessa problem beskrivs i introduktionen \ref{subsec:background} och ligger till grund för de forskningsfrågor som identifierats.
 
 Metodvalet motiveras av arbetets forskningsfrågor som identifierades i kapitel \ref{subsec:researchquestion}, och fokuserar på att undersöka hur en LLM kan utnyttja en grafbaserad struktur 
-för att effektivisera informationssökningen inom en organisation. Genom en kombination av kvantitativa mätningar och kvalitativa bedömningar 
-går det att få en översikt av systemets effektivitet och kvalitet för att sedan kunna besvara forskningsfrågorna.
+för att effektivisera informationssökningen inom en organisation.
 
-Vidare möjliggör den designvetenskapliga metodiken en iterativ utveckling och 
-utvärdering av systemet och dess funktionalitet.
+Den designvetenskapliga metodiken möjliggör en iterativ arbetsprocess där delar av systemet implementeras, testas och utvärderas i omgångar.
+Ett sådant exempel är den API-baserade lösningen där nya verktyg tillkommer regelbundet då det upptäcks att det saknas verktyg för att hämta nödvändig information.
 
 \subsection{Arbetsmetod}\label{subsec:projectmethod}
-Arbetet har genomförts enligt en designvetenskaplig metodik där utvecklingen har strukturerats i olika faser.
+Arbetet genomförs enligt en designvetenskaplig metodik där utvecklingen struktureras i olika faser.
 Dessa faser inkluderar problemidentifiering, målformulering, design, utveckling, testning av systemen samt utvärdering.
 
-I den första fasen undersöktes och identifierades de problem som finns med dagens informationshantering inom organisationer.
-Fasen bestod av en litteraturstudie och analys av befintliga problem och potentiella lösningar. Det undersöktes om relevanta tekniker och metoder 
-för att hantera dessa problem. Här identifierades tekniker såsom kunskapsgrafer, grafdatabaser, LLM:er och verktyg som MCP. Detta ledde till formuleringen av de forskningsfrågor som arbetet syftar till att besvara.
+I den första fasen undersöks och identifieras de problem som finns med dagens informationshantering inom organisationer.
+Fasen består av en litteraturstudie och analys av befintliga problem och potentiella lösningar. Det undersöks relevanta tekniker och metoder
+för att hantera dessa problem. Här identifieras tekniker såsom kunskapsgrafer, grafdatabaser, LLM:er och verktyg som MCP. Detta leder till formuleringen av de forskningsfrågor som arbetet syftar till att besvara.
 
-I den andra fasen formulerades målen för arbetet baserat på de problem som identifierats under den första fasen. 
-Det blev här tydligt att målet var att utveckla ett system som låter en LLM kommunicera med och hämta data från en grafdatabas, samt att bygga ett system där LLM:en direkt hämtar från externa källornas API:er, för att ha något att jämföra med.
-Det blev även tydligare vilka tekniker och verktyg som skulle användas i utvecklingen av systemet, såsom Neo4j för grafdatabasen och Cherry Studio för användargränssnittet och LLM-integrationen.
+I den andra fasen formuleras målen för arbetet baserat på de problem som identifierats under den första fasen.
+Det blir här tydligt att målet är att utveckla ett system som låter en LLM kommunicera med och hämta data från en grafdatabas, samt att bygga ett system där LLM:en direkt hämtar från externa källornas API:er, för att ha något att jämföra med.
+Det blir även tydligare vilka tekniker och verktyg som ska användas i utvecklingen av systemet, såsom Neo4j för grafdatabasen och Cherry Studio för användargränssnittet och LLM-integrationen.
 
-I den tredje fasen designades systemet och databasen. Här började arbetet med att designa systemets arkitektur och struktur. 
-Det skapades en plan som beskriver hur systemet skulle byggas och vilka komponenter som skulle ingå, samt hur de skulle interagera med varandra.
-Databasens struktur designades till att efterlikna en riktig organisation med olika typer av dokumentation, anställda, projekt och liknande.
-Dessa entiteter och relationer designades för att passa data från systemen: Confluence, Slack och GitHub. Dessa system valdes eftersom de är vanliga i många IT-organisationer och innehåller olika typer av information som kan vara relevant att hämta.
-Med hjälp av prompter med ChatGPT genererades också fejk data som användes för att fylla databasen och möjliggöra testning av systemet.
+I den tredje fasen designas systemet och databasen. Här börjar arbetet med att designa systemets arkitektur och struktur.
+Det skapas en plan som beskriver hur systemet ska byggas och vilka komponenter som ska ingå, samt hur de ska interagera med varandra.
+Databasens struktur designas till att efterlikna en riktig organisation med olika typer av dokumentation, anställda, projekt och liknande.
+Dessa entiteter och relationer designas för att passa data från systemen: Confluence, Slack och GitHub. Dessa system väljs eftersom de är vanliga i många IT-organisationer och innehåller olika typer av information som kan vara relevant att hämta.
+Med hjälp av prompter med ChatGPT genereras också fejk data som används för att fylla databasen och möjliggöra testning av systemet.
 Figur \ref{fig:methodology} visar en översikt över grafdatabasens design med dess olika entiteter och relationer.
 \begin{figure}[H]
     \centering
@@ -49,17 +48,17 @@ Figur \ref{fig:methodology} visar en översikt över grafdatabasens design med d
     \label{fig:methodology}
 \end{figure}
 
-I den fjärde fasen utvecklades systemet enligt den design som skapats i föregående fasen.
-Här skrevs koden för MCP servern och uppkopplingen till databasen och API:erna i TypeScript, och integrationen med LLM:en och MCP servern etablerades i Cherry Studio.
-Systemet byggdes iterativt där olika delar utvecklades och testades allt eftersom. 
-Det lades till nya verktyg och ny funktionalitet under utvecklingens gång då nya behov upptäcktes.
+I den fjärde fasen utvecklas systemet enligt den design som skapats i föregående fasen.
+Här skrivs koden för MCP servern och uppkopplingen till databasen och API:erna i TypeScript, och integrationen med LLM:en och MCP servern etableras i Cherry Studio.
+Systemet byggs iterativt där olika delar utvecklas och testas allt eftersom.
+Det läggs till nya verktyg och ny funktionalitet under utvecklingens gång då nya behov upptäcks.
 
-I den femte fasen testades systemen. Här genomfördes olika tester för att besvara de frågor som legat som grund för arbetet.
-Här mättes svarstid, antal verktygsanrop, korrekthet och relevans för att komma fram till ett resultat.
- Detta möjliggjorde en analys av skillnaderna mellan de två lösningarna, och därmed besvara forskningsfrågorna och dra en slutsats.
+I den femte fasen testas systemen. Här genomförs olika tester för att besvara de frågor som legat som grund för arbetet.
+Här mäts svarstid, antal verktygsanrop, korrekthet och relevans för att komma fram till ett resultat.
+Detta möjliggör en analys av skillnaderna mellan de två lösningarna, och därmed besvara forskningsfrågorna och dra en slutsats.
 
-I den sista fasen utvärderades systemet. Här identifierades möjliga ändringar som hade kunnat implementerats i systemen. Exempelvis fler verktyg för att hämta mer specifik information, eller en mer avancerad design av grafdatabasen.
-Det diskuterades även om framtida forskning och vidare utveckling av systemen, såsom exempelvis automatisk uppdatering och skapande av grafdatabasen. 
+I den sista fasen utvärderas systemet. Här identifieras möjliga ändringar som kan implementeras i systemen. Exempelvis fler verktyg för att hämta mer specifik information, eller en mer avancerad design av grafdatabasen.
+Det diskuteras även om framtida forskning och vidare utveckling av systemen, såsom exempelvis automatisk uppdatering och skapande av grafdatabasen. 
 
 
 \subsection{Utvärderingsmetod}\label{subsec:evalmethod}
