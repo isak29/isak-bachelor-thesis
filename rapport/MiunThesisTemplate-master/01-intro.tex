@@ -26,7 +26,9 @@ Dessa kunskapsgrafer kan sedan användas av AI-system för att förstå relation
 
 \subsection{\translate{Övergripande syfte}}\label{subsec:aim}
 \noindent
-Syftet med arbetet har främst varit att identifiera lösningar på problemet med datasilos och svåråtkomlig information i organisationer, för att sedan implementera prototyper av dessa lösningar och utvärdera dem mot varandra.
+
+Syftet med arbetet är att undersöka hur organisatorisk information kan rpresenteras för att effektivisera informationssökning med hjälp av LLM:er.
+Detta görs genom att utveckla och jämföra två olika system: en grafbaserad och en API-baserad lösning för att utvärdera hur representation av data påverkar en LLM:s förmåga att navigera och hämta information inom en organisation. 
 
 \subsection{\translate{Konkreta och verifierbara mål}}\label{subsec:researchquestion}
 För att arbetet ska kunna utvärderas på ett verifierbart sätt har följande verifierbara mål satts upp.
@@ -46,15 +48,15 @@ För att arbetet ska vara genomförbart inom tidsramen har en del avgränsningar
 
 Arbetet inkluderar:
 \begin{itemize}
-  \item {Skapande av en kunskapsgraf i form av en grafdatabas, backend med MCP server för att låta LLM prata med grafdatabasen, och en LLM för att tolka användarinmatning}
-  \item {Skapande av ett system som använder samma MCP server för att prata direkt med olika systems API:er istället för kunskapsgrafen}
+  \item {Skapande av en kunskapsgraf som lagras i en grafdatabas, backend med MCP server för att låta LLM prata med grafdatabasen, och användning av ett användargränssnitt med integrerad LLM för att tolka användarinmatning}
+  \item {Skapande av ett system som använder den skapade MCP servern för att prata direkt med olika systems API:er istället för kunskapsgrafen}
   \item {En jämförelse av de punkter från \ref{subsec:researchquestion}}
 \end{itemize}
 
 Arbetet inkluderar inte:
 \begin{itemize}
-  \item{Andra strukturer för att representera företagsinformation än kunskapsgrafer.}
-  \item{Automatiserad överföring av data från de olika systemen till grafdatabasen.}
+  \item{Skapande och utvärdering av andra typer av strukturer för att representera företagsinformation än kunskapsgrafer.}
+  \item{Skapande av ett system för automatisk överföring av data från de externa systemen till grafdatabasen.}
 \end{itemize}
 
 \subsection{\translate{Översikt}}\label{subsec:outline}
