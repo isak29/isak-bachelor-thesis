@@ -135,6 +135,33 @@
       \verb https://medium.com/@senpubali7/building-ai-agents-with-knowledge-graphs-vs-retrieval-augmented-generation-a2730ec1915a
       \endverb
     \endentry
+    \entry{21}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=cbf44511d041dc6d1dd73cc0c033122c}{%
+           family={IBM},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{fullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{bibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorbibnamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authornamehash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhash}{cbf44511d041dc6d1dd73cc0c033122c}
+      \strng{authorfullhashraw}{cbf44511d041dc6d1dd73cc0c033122c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-05-11}
+      \field{title}{What is a Knowledge Graph?}
+      \verb{urlraw}
+      \verb https://www.ibm.com/think/topics/knowledge-graph
+      \endverb
+      \verb{url}
+      \verb https://www.ibm.com/think/topics/knowledge-graph
+      \endverb
+    \endentry
     \entry{5}{misc}{}{}
       \name{author}{2}{}{%
         {{hash=c21978c0a23c79ccc7d739026aa9b4f4}{%
@@ -156,8 +183,8 @@
       \strng{authornamehash}{8a7ae65172a9f9fceb6af188123a3256}
       \strng{authorfullhash}{8a7ae65172a9f9fceb6af188123a3256}
       \strng{authorfullhashraw}{8a7ae65172a9f9fceb6af188123a3256}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{12}
@@ -202,8 +229,8 @@
       \strng{authornamehash}{69f016811276dc3d8c309f790f64963a}
       \strng{authorfullhash}{77edf458bcda3ac3061f8e216386c363}
       \strng{authorfullhashraw}{77edf458bcda3ac3061f8e216386c363}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
@@ -224,8 +251,8 @@
       \strng{authornamehash}{fdb684db7d6282b59709e317abf9a90a}
       \strng{authorfullhash}{fdb684db7d6282b59709e317abf9a90a}
       \strng{authorfullhashraw}{fdb684db7d6282b59709e317abf9a90a}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-23}
@@ -452,8 +479,8 @@
       \strng{authorfullhash}{242df64c0aec2a0407b31533cda92b51}
       \strng{authorfullhashraw}{242df64c0aec2a0407b31533cda92b51}
       \field{extraname}{2}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-28}
@@ -492,49 +519,6 @@
       \endverb
       \verb{url}
       \verb https://docs.cherry-ai.com/docs/en-us
-      \endverb
-    \endentry
-    \entry{21}{inproceedings}{}{}
-      \name{author}{3}{}{%
-        {{hash=0d37e9bdd87456d07a61831b6dda1fad}{%
-           family={Abu-Rasheed},
-           familyi={A\bibinithyphendelim R\bibinitperiod},
-           given={Hasan},
-           giveni={H\bibinitperiod}}}%
-        {{hash=e0c72a4d6a9b1e2496d7716f78b87e5b}{%
-           family={Weber},
-           familyi={W\bibinitperiod},
-           given={Christian},
-           giveni={C\bibinitperiod}}}%
-        {{hash=3a179c3bd68cb4c3b46f58ee6d02103d}{%
-           family={Fathi},
-           familyi={F\bibinitperiod},
-           given={Madjid},
-           giveni={M\bibinitperiod}}}%
-      }
-      \strng{namehash}{de1c841301b173bf2ff40a805db13545}
-      \strng{fullhash}{6e3ba3081d0725c8a802d9645359c671}
-      \strng{fullhashraw}{6e3ba3081d0725c8a802d9645359c671}
-      \strng{bibnamehash}{6e3ba3081d0725c8a802d9645359c671}
-      \strng{authorbibnamehash}{6e3ba3081d0725c8a802d9645359c671}
-      \strng{authornamehash}{de1c841301b173bf2ff40a805db13545}
-      \strng{authorfullhash}{6e3ba3081d0725c8a802d9645359c671}
-      \strng{authorfullhashraw}{6e3ba3081d0725c8a802d9645359c671}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{IEEE Global Engineering Education Conference (EDUCON)}
-      \field{title}{Knowledge Graphs as Context Sources for {LLM}-Based Explanations of Learning Recommendations}
-      \field{year}{2024}
-      \verb{doi}
-      \verb 10.1109/EDUCON60312.2024.10578654
-      \endverb
-      \verb{urlraw}
-      \verb https://arxiv.org/abs/2403.03008
-      \endverb
-      \verb{url}
-      \verb https://arxiv.org/abs/2403.03008
       \endverb
     \endentry
     \entry{hevner2004design}{article}{}{}

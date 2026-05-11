@@ -3,16 +3,22 @@ Den teori som presenteras i detta kapitel är den teori som är relevant för at
 
 
 \subsection{Kunskapsgraf}\label{subsec:Kunskapsgraf}
-En kunskapsgraf är ett designmönster som används för att organisera och representera data där fokus ligger på relationer mellan olika entiteter.
-Istället för att lagra information i tabeller eller dokument, struktureras data i form av noder (entiteter) och relationer som kopplar samman dessa.
-Detta möjliggör analys och förståelse av komplexa samband mellan noder\cite{5}.
 
-Kunskapsgrafer är särskilt användbara i situationer där data är starkt sammankopplad och där relationerna i sig bär viktig information. De används exempelvis inom rekommendationssystem, bedrägeridetektion och avancerad informationssökning.
+En kunskapsgraf är en strukturerad representation av information i form av ett nätverk av verkliga entiteter.
+Dessa entiteter kan vara objekt, händelser och begrepp och tillsammans illustrerar nätverket relationerna mellan dem.
+Informationen lagras vanligtvis i en grafdatabas och visualiseras som en grafstruktur\cite{21}.
+
+En kunskapsgraf består av tre huvudkomponenter: noder, kanter och etiketter.
+Noden representerar en enskild entitet,
+kanten representerar relationen mellan två noder, och etiketten beskriver vad noderna och relationerna representerar, exempelvis "Person" eller "Arbetar på"\cite{21}.
+
+Kunskapsgrafer är särskilt användbara i situationer där data är starkt sammankopplad och där relationerna i sig bär viktig information.
+ De används exempelvis inom rekommendationssystem, bedrägeridetektion och i detta fall för att underlätta informationssökning.
 Genom att integrera data från olika källor och organisera den utifrån tydliga samband kan kunskapsgrafer bidra till att synliggöra mönster och insikter som annars kan vara svåra att upptäcka\cite{5}.
 
 \subsubsection{Grafdatabasen Neo4j}
 
-Grafdatabaser är en typ av databashanteringssystem som representerar data i from av noder och relationer.
+Grafdatabaser är en typ av databashanteringssystem som representerar data i form av noder och relationer.
 Till skillnad från traditionella relationsdatabaser är relationerna en central del av datamodellen, vilket bidrar till effektiv traversering av data(s.~6)\cite{robinson2015graph}. 
 
 Grafdatabaser baseras på riktade grafer, vilket innebär att varje relation har en startnod och därmed en definierad riktning.
@@ -21,30 +27,40 @@ Trots detta kan relationer traverseras i båda riktningarna vid frågeställning
 
 Det är inte heller nödvändigt att alla noder i en graf är direkt kopplade till varandra, utan en graf kan bestå av flera sammanhängande delgrafer.
 
-Neo4j är grafdatabasen som används i detta projekt för att implementera kunskapsgrafen. I Neo4j är grafstrukturen implementerad direkt i databasen på lagringsnivå, och inte ovanpå an annan databasmodell.
-Detta innebär att data lagras direkt i grafstrukturen, vilket bidrar till effektiv hantering av relationer och traversering av data\cite{6}.
+I Figur \ref{fig:visualisation} visas ett urdrag från den skapade grafdatabasen där två personer är kopplade till ett projekt medans en person är kopplad till ett annat.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/visualisation.png}
+    \caption{Visualisering av en del av den skapade grafdatabasen}
+    \label{fig:visualisation}
+\end{figure}
 
+Neo4j är grafdatabasen som används i detta projekt för att implementera kunskapsgrafen. I Neo4j är grafstrukturen implementerad direkt i databasen på lagringsnivå, och inte ovanpå en annan databasmodell.
+Detta innebär att data lagras direkt i grafstrukturen och inte i en separat struktur\cite{6}.
 
 \subsubsection{Cypher}
-Cypher är det frågespråk som används i Neo4j. Det är ett deklarativt frågespårk för grafdatabaser ursprungligen utvecklat för just Neo4j.
+Cypher är det frågespråk som används i Neo4j. Det är ett deklarativt frågespråk för grafdatabaser ursprungligen utvecklat för just Neo4j.
 Språket är utformat för att uttrycka frågor genom mönstermatchning, vilket gör det möjligt att formulera graftraverseringar på ett naturligt sätt \cite{11}.
 
-Syftet med cypher somfrågespråk är att förenkla frågeställningar i grafdatabaser genom att möjliggöra analy av relationer utan join-operationer. Uttrycka graftraversering på ett naturligt sätt. Hantera skapande, uppdateringar och borttagning av data i grafen\cite{11}.
+Till skillnad från SQL, som använder join-operationer för att koppla samman
+  tabeller, uttrycker Cypher graftraverseringar direkt i frågesyntaxen vilket bidrar till mer intuitiva och läsbara frågor. Språket
+  stödjer även skapande, uppdateringar och borttagning av data i grafen\cite{11}.
 
-En cypher fråga ser ut på följande sätt:
+Nedan visas ett exempel på en Cypher-fråga som hämtar alla Repository-noder
+  som är kopplade till en Person via relationen WORKS\_ON:
+
 \begin{verbatim}
 MATCH (p:Person)-[:WORKS_ON]->(r:Repository)
 RETURN r
 \end{verbatim}
-Denna fråga hämtar alla noder av typen Repository som är kopplade till noder av typen Person genom relationen WORKS\_ON.
 
-Som vi ser i exemplet ovan är språket väldigt intuitivt och lätt att förstå.
-
+Syntaxen speglar grafstrukturen direkt — parenteser representerar noder och pilar representerar relationer — vilket gör frågorna lätta att läsa och förstå.
 
 \subsection{Large Language Model (LLM)}\label{subsec:LLM}
-En LLM är är en typ av artificiell intelligensmodell som är tränad på stora mängder data. Detta gör dem kapabla till att förstå det mänskliga språket samt andra typer av innehåll för att kunna utföra olika typer av arbetsuppgifter\cite{12}.
+En LLM är en typ av artificiell intelligensmodell som är tränad på stora mängder data.
+ Detta gör dem kapabla till att förstå det mänskliga språket samt andra typer av innehåll för att kunna utföra olika typer av arbetsuppgifter\cite{12}.
 
-I detta projekt kommer LLM'en att användas för att tolka en användares fråga och sedan tolka vilket eller vilka verktyg som ska användas för att returnera den information som efterfrågats.
+I detta projekt används LLM:en för att tolka en användares fråga och sedan avgöra vilket eller vilka verktyg som ska användas för att returnera den information som efterfrågats.
 
 \subsection{Model Context Protocol (MCP)}\label{subsec:mcp_theory}
 Model Context Protocol (MCP) är ett protokoll som används för att koppla samman LLM:er med externa system.
@@ -55,12 +71,14 @@ Istället för att modellen har direkt tillgång till alla datakällor, fungerar
 Dessa verktyg kan sedan användas för att hämta data från databaser, anropa API:er eller utföra andra typer av operationer.
 
 När en användare ställer en fråga kan LLM:en tolka frågan och avgöra vilket eller vilka verktyg som behöver användas för att samla in relevant information.
-Resultated från dessa anrop används sedan som underlag för att generera ett svar till användaren.
+Resultatet från dessa anrop används sedan som underlag för att generera ett svar till användaren.
 
 MCP möjliggör därmed utvecklingen av AI-applikationer där LLM:er fungerar som agenter som aktivt hittar och hämtar information från källor\cite{4}.
 
+\textcolor{blue}{hitta ny källa enligt Martin}
+
 \subsubsection{Programvarubibliotek (SDK)}
-För att implementera MCP servern användes ett programvarubibliotek (SDK) som erbjuder nödvändig funktionalitet.
+För att implementera MCP servern används ett programvarubibliotek (SDK) som erbjuder nödvändig funktionalitet.
 Ett SDK är en komplett uppsättning verktyg som gör det möjligt för utvecklare att bygga programvara för en specifik plattform.
 Det innehåller bland annat byggstenar, ramverk, kodexempel, felsökningsverktyg och dokumentation\cite{14}.
 
@@ -71,10 +89,10 @@ Kommunikationen mellan LLM:en och MCP-servern sker över HTTP genom request/resp
 När LLM:en anropar ett verktyg skickas en förfrågan till MCP-servern som då utför den begärda operationen och returnerar resultatet\cite{16}.
 
 Denna modell bidrar till en tydlig separation mellan LLM:en och datakällorna, där MCP-servern fungerar som en mellanhand som hanterar de externa anropen.
-Genom att använda HTTP-gränssnittet blir systemet felxibelt och kan integreras med flera olika klienter och tjänster.
+Genom att använda HTTP-gränssnittet blir systemet flexibelt och kan integreras med flera olika klienter och tjänster.
 
 \subsection{API-baserad dataåtkomst}\label{subsec:api}
-I lösningen som används för att jämföra mot grafdatabas lösningen används en API-baserad dataåtkomst där verktygen i MCP-servern gör olika API-anrop för att hämta data från olika datakällor.
+I lösningen som används för att jämföra mot grafdatabaslösningen används en API-baserad dataåtkomst där verktygen i MCP-servern gör olika API-anrop för att hämta data från olika datakällor.
 Detta innebär att istället för att ha en centraliserad databas där all data är lagrad, så hämtas data i realtid från olika källor när det behövs.
 
 \subsection{Cherry Studio}\label{subsec:CherryStudio} 
