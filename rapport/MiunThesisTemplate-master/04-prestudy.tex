@@ -54,7 +54,7 @@ Den LLM som används i detta arbete är GPT-5.4-mini. Modellen valdes för att d
 Eftersom det ständigt släpps nya AI-modeller är det viktiga i detta arbete inte vilken modell som används utan egentligen bara att samma modell används för båda lösningarna.
 
 \subsection{Design av kunskapsgrafen och grafdatabasen}
-Avgränsningarna i kapitel \ref{subsec:scope} gjorde det inte möjligt att skapa ett komplett system där LLM:en själv hämtar och uppdaterar data i grafdatabasen.
+Avgränsningarna i kapitel \ref{subsec:scope} gör det inte möjligt att skapa ett komplett system där LLM:en själv hämtar och uppdaterar data i grafdatabasen.
 Därför undersöks det hur databasen ska designas för att efterlikna de olika informationskällorna som finns i en verklig organisation.
 
 De informationskällor som inkluderas i grafdatabasen är: Confluence, Slack och Github.
@@ -65,6 +65,20 @@ De entiteter som inkluderas är: \textit{Person}, \textit{Team},
 \textit{Project}, \textit{Repository}, \textit{Issue}, \textit{Commit}, 
 \textit{SlackChannel}, \textit{Post}, \textit{ConfluenceSpace}
 \textit{Document}. Mellan dessa entiteter skapas relationer som exempelvis \textit{WORKS\_ON}, \textit{MEMBER\_OF}, \textit{HAS\_ISSUE}, \textit{HAS\_COMMIT}, \textit{POSTED\_IN}, \textit{CONTAINS}.
+
+Figur \ref{fig:yyy} Visar en komplett bild över relationer mellan noder i grafdatabasen.
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{Figures/kg_quests/yyy.png}
+  \caption{Fullständig bild över relationer mellan noder i grafdatabasen}\label{fig:yyy}
+\end{figure}
+
+I Figur \ref{fig:labels} visas etiketterna till entiteterna med färgkodningen som används i bilden ovan.
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{Figures/labels.png}
+  \caption{Etiketterna till entiteterna i grafdatabasen}\label{fig:labels}
+\end{figure}
 
 \subsection{Design av API-baserade lösningen}
 För att täcka samma informationskällor som kunskapsgrafen identifieras att verktyg behövs för att kommunicera med API:er från Confluence, Slack och GitHub.

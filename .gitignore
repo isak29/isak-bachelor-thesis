@@ -51,3 +51,5 @@ rapport/MiunThesisTemplate-master/thesis.synctex.gz
 node_modules/
 dist/
 
+# Claude
+.claude/

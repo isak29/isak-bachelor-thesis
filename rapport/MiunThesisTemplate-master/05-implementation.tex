@@ -9,16 +9,8 @@ En översikt av systemet och dess komponenter presenteras i Figur \ref{fig:imple
   \caption{System översikt}\label{fig:implementation_overview}
 \end{figure}
 
-Figur \ref{fig:yyy} Visar en komplett bild över relationer mellan noder i grafdatabasen.
-
-\begin{figure}[H]
-  \includegraphics[width=\textwidth]{Figures/kg_quests/yyy.png}
-  \caption{Fullständig bild över relationer mellan noder i grafdatabasen}\label{fig:yyy}
-\end{figure}
-
 
 % \subsection{System översikt}\label{subsec:overview1}
-
 
 \subsection{Användarinmatning}\label{subsec:overview5}
 Användaren interagerar med systemet genom att ställa frågor i ett naturligt språk. Användaren ställer frågor som "Vilka projekt har vi pågående?" eller "Vad står det i dokument x?", och behöver inte ha någon teknisk kunskap om hur systemet fungerar.
@@ -51,18 +43,18 @@ Utöver detta innehåller prompten instruktioner om tolkning av inmatning, begr�
 Se Figur \ref{fig:p2} och \ref{fig:p3} i Appendix \ref{sec:appA} för hela systemprompten som används.
 
 \subsection{MCP-servern}\label{subsec:overview2}
-MCP-servern är en central komponent i systemet som fungerar som en mellanhand mellan LLM'en och de externa verktygen. 
-Istället för att LLM'en kommunicerar direkt med databasen eller API:erna sker istället all kommunikation via MCP-servern, som i sin tur kommunicerar med de externa verktygen.
+% MCP-servern är en central komponent i systemet som fungerar som en mellanhand mellan LLM'en och de externa verktygen. 
+% Istället för att LLM'en kommunicerar direkt med databasen eller API:erna sker istället all kommunikation via MCP-servern, som i sin tur kommunicerar med de externa verktygen.
 
-Servern exponerar funktionalitet i form av verktyg (tools), som LLM'en anropar. Varje verktyg representerar en specifik operation, exempelvis hämta schema från grafdatabasen eller hämta senaste uppdateringen från ett specifikt dokument.
-Detta innebär att språkmodellen inte behöver känna till detaljer kring hur data lagras eller hämtas, utan endast vilka verktyg som finns och hur de används.
+ MCP-servern är implementerad i TypeScript med hjälp av MCP SDK.
+  Servern exponerar en endpoint \texttt{/mcp} som tar emot POST-förfrågningar
+  från Cherry Studio via HTTP.
 
-Implementationen av MCP-servern är baserad på ett HTTP-gränssnitt där inkommande förfrågningar hanteras via en endpoint.
-Servern upprättar en session per startad chatt, vilket möjliggör en kontinuerlig kommunikation tills att servern stängs av.
-Verktygen registreras vid uppstart av servern och görs då tillgängliga för språkmodellen. Vid testning och jämförelse av de olika arkitekturerna registreras endast de verktyg som tillhör respektive lösning, de andra kommenteras tillfälligt bort.
+Servern upprättar en session med ett unikt ID per startad chatt. Sessionen lever kvar så länge chatten är aktiv, vilket tillåter LLM:en att anropa flera verktyg inom samma session samt svara på följdfrågor med kontext från tidigare anrop.
 
-Detta möjliggör en enhetlig kommunikationskanal där LLM'en använder samma gränssnitt oavsett om data hämtas från en databas eller API:er.
-Det gör det också möjligt att enkelt byta ut och lägga till verktyg utan att behöva ändra något annat i systemet.
+Verktygsregistreringen sker vid sessionsstart via separata controllers för varje externt system, där det finns en för grafbaserade lösningen (Grafdatabasen) och tre för API-baserade lösningen (Confluence, Slack och GitHub).
+
+För att spara de mätvärden som krävs, skapas det  en räknare som räknar varje verktygsanrop och en timer som mäter tiden från att den första frågan ställs tills dess att svaret är genererat. 
 
 \subsubsection{Grafbaserade lösningens verktyg}
 Strukturen för dessa verktyg är relativt simpel.
@@ -79,7 +71,7 @@ Resultatet från frågorna returneras sedan till LLM'en i ett strukturerat JSON-
 Genom denna design ges LLM'en en hög grad av flexibilitet och kontroll, då den själv bestämmer vilka vägar den ska traversera i grafen för att hitta och hämta den information som efterfrågas.
 Samtidigt innebär det att LLM'ens förmåga att förstå relationerna i grafen för att kunna generera en giltig och korrekt cypher-fråga är avgörande för att lösningen ska fungera.
 
-\subsubsection{API-baserade lösningens verktyg}
+\subsubsection{API-baserade lösningens verktyg}\label{subsubsec:apiVerktyg}
 I den API-baserade lösningen är verktygen mer specifika och inriktade på att hämta information från specifika API:er.
 Totalt finns 20 verktyg fördelade över de tre systemen: 8 för GitHub, 7 för Confluence och 5 för Slack.
 
@@ -93,7 +85,7 @@ Jämfört med grafdatabaslösningens 2 verktyg kräver denna lösning alltså 20
 Detta innebär att LLM:en måste identifiera rätt verktyg för varje fråga, och att frågor som berör flera system kräver en sekvens av anrop där modellen själv kombinerar informationen.
 
 \subsection{Grafdatabasen}\label{subsec:overview3}
-Den grafbaserade lösningen bygger på en grafdatabas som implementerats i Neo4j.
+Den grafbaserade lösningen bygger på en grafdatabas som implementeras i Neo4j.
 Grafdatabasen används för att representera organisationens struktur och aktiviteter på ett sammanhängande sätt för att möjliggöra att information kan hämtas genom traversering av relationer mellan entiteter.
 
 \subsubsection{Datamodell}
@@ -108,39 +100,29 @@ Exempelvis kopplas en person till ett team via relationen \textit{MEMBER\_OF}, o
 Dessa skapar en sammanhängande struktur där information kan följas mellan olika delar av systemet.
 
 \subsubsection{Implementation i Neo4j}
-Grafen skapades genom cypher-frågor där noder och relationer definierades explicit.
+Grafen skapas genom Cypher-frågor där noder och relationer definieras explicit.
 Data lagras i Neo4j och nås via databasanslutningen som används av MCP-servern.
 
 \subsection{API-baserade lösningen}\label{subsec:overview4}
 
-Den API-baserade lösningen implementerades genom att integrera systemen GitHub, Slack och Confluence via deras API:er.
+Den API-baserade lösningen implementeras genom att integrera systemen GitHub, Slack och Confluence via deras API:er.
 Till skillnad från grafdatabaslösningen lagras ingen data centralt, utan all information hämtas dynamiskt via respektive systems API.
 
 \subsubsection{Datakällor och struktur}
 De externa systemen representerar olika delar av organisationens struktur och aktiviteter.
-GitHub används för att hämta information om repositories, issues, commits och aktiva användare, Slack används för att hämta information om kanaler och inlägg i dessa, och Confluence används för att hämta dokumentation.
+GitHub används för att bidra med information om repositories, issues, commits och aktiva användare, Slack används för att bidra med information om kanaler och inlägg i dessa, och Confluence används för att bidra med dokumentation.
 
-Varje system har sin egen datastruktur och sina identifierare. Detta innebär att det inte finns någon gemensam modell som binder samman en person från github till ett meddelande i Slack.
-Detta innebär att samma entitet förekommer i flera system utan direkt koppling.
+Varje system har sin egen datastruktur och sina identifierare
+, vilket innebär att det inte finns någon gemensam modell som binder samman en person från github till en person i Slack.
+Det är därmed LLM:ens ansvar att själv koppla samman informationen från de olika källorna.
 
 \subsubsection{Implementation av API-integrationer}
 
-API-integrationerna implementerades genom separata funktioner som kapslar in anrop till respektive system.
-Dessa funktioner används av MCP-servern och exponeras som verktyg till LLM'en. Varje verktyg är anpassad efter en specifik typ av data, exempelvis hämta information från ett specifikt repository.
+API-integrationerna implementeras genom separata funktioner som kapslar in anropen till respektive systems API.
+Dessa funktioner exponeras som verktyg via MCP-servern och görs därmed tillgängliga för LLM:en att använda.
 
-Resultaten från dessa anrop returneras i ett strukturerat format, vilket gör det möjligt för LLM'en att jobba vidare med informationen.
+Totalt implementeras 20 verktyg fördelade över de tre systemen vilket tidigare beskrivits i avsnitt \ref{subsubsec:apiVerktyg}.
 
-\subsubsection{Integration med MCP och LLM}
-
-LLM'en interagerar med de externa systemen via MCP-servern genom att 
-anropa flera olika verktyg beroende på användarens fråga. Till skillnad från 
-grafdatabaslösningen, där en enskild fråga kan räcka, kräver denna lösning ofta 
-en sekvens av verktygsanrop.
-
-Modellen använder resultatet från ett verktyg som indata till nästa steg i 
-processen, vilket möjliggör att information från flera system kan kombineras. 
-Denna iterativa process hanteras inom agent-loopen och fortsätter tills modellen 
-har tillräckligt med information för att generera ett svar.
 
 \subsection{Evalueringsupplägg}\label{subsec:eval_setup} 
 

@@ -36,7 +36,7 @@ app.post('/mcp', async (req: Request, res: Response) => {
     const server = new McpServer({ name: 'my-server', version: '1.0.0' });
 
     // Graph db tools
-    // nodesController(server);
+    nodesController(server);
     // Github tools
     // githubController(server);
     // // Slack tools
