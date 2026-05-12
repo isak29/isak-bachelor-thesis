@@ -43,10 +43,8 @@ Utöver detta innehåller prompten instruktioner om tolkning av inmatning, begr�
 Se Figur \ref{fig:p2} och \ref{fig:p3} i Appendix \ref{sec:appA} för hela systemprompten som används.
 
 \subsection{MCP-servern}\label{subsec:overview2}
-% MCP-servern är en central komponent i systemet som fungerar som en mellanhand mellan LLM'en och de externa verktygen. 
-% Istället för att LLM'en kommunicerar direkt med databasen eller API:erna sker istället all kommunikation via MCP-servern, som i sin tur kommunicerar med de externa verktygen.
 
- MCP-servern är implementerad i TypeScript med hjälp av MCP SDK.
+ MCP-servern är implementerad i TypeScript med hjälp av MCP SDK\cite{15}.
   Servern exponerar en endpoint \texttt{/mcp} som tar emot POST-förfrågningar
   från Cherry Studio via HTTP.
 
@@ -122,7 +120,6 @@ API-integrationerna implementeras genom separata funktioner som kapslar in anrop
 Dessa funktioner exponeras som verktyg via MCP-servern och görs därmed tillgängliga för LLM:en att använda.
 
 Totalt implementeras 20 verktyg fördelade över de tre systemen vilket tidigare beskrivits i avsnitt \ref{subsubsec:apiVerktyg}.
-
 
 \subsection{Evalueringsupplägg}\label{subsec:eval_setup} 
 
