@@ -101,24 +101,23 @@ För varje identifierbart mål identifieras ett konkret mätvärde:
 
 \subsection{Sammanfattning av designbeslut}
 
-Förstudien resulterade i ett antal konkreta beslut som tillsammans utgör
+Förstudien resulterar i ett antal konkreta beslut som tillsammans utgör
 grunden för implementationen och utvärderingen i detta arbete.
 
-Av de tre identifierade lösningsalternativen valdes två att implementeras:
-den grafbaserade-lösningen som arbetets huvudsakliga fokus, samt
+Av de tre identifierade lösningsalternativen väljs två att implementeras:
+den grafbaserade lösningen som arbetets huvudsakliga fokus, samt
 den API-baserade lösningen som jämförelsepunkt. Den vektorbaserade
-(RAG) lösningen uteslöts då den inte består av relationsstrukturen mellan
+(RAG) lösningen utesluts då den inte består av relationsstrukturen mellan
 data, vilket är det arbetet syftar till att undersöka.
 
-Som teknisk grund valdes Neo4j som grafdatabas tack vare dess OLAP-karaktär
-och mogna ekosystem, MCP som kommunikationslager för att på ett enhetligt
+Som teknisk grund väljs Neo4j som grafdatabas tack vare dess användarvänlighet och dokumentationsstöd, MCP som kommunikationslager för att på ett enhetligt
 sätt exponera verktyg för båda lösningarna, samt GPT-5.4-mini som LLM
 för att möjliggöra ett stort antal tester till en låg kostnad.
 
-Kunskapsgrafen och den API-baserade lösningen designades för att täcka
+Kunskapsgrafen och den API-baserade lösningen designas för att täcka
 samma informationskällor och därigenom möjliggöra en rättvis jämförelse.
 
-Testfrågorna utformades i tre komplexitetsnivåer för att undersöka i vilka situationer de två lösningarna
+Testfrågorna utformas i tre komplexitetsnivåer för att undersöka i vilka situationer de två lösningarna
 skiljer sig åt, med fokus på de komplexa frågorna där det krävs kopplingar mellan data från olika källor.
 
 Utvärderingen baseras på tre mätvärden som är svarstid, antal verktygsanrop
