@@ -24,6 +24,11 @@ Men LLM:en resonerade som att en blocker var en issue med label \texttt{blocked}
 Där tog jag beslutet att markera svaret som felaktigt eftersom jag räknar alla issues som blockers.
 
 I de komplexa frågorna presterade lösningen bra. Den hade väldigt få verktygsanrop (lika många som i de simpla frågorna) och svarade rätt på alla frågor förutom en.
+Frågan den hade fel på var fråga 13 där det frågades om namn och email till alla personer som commitat i ett specifikt repository, samt vad commit-meddelandet säger. 
+Här hittade LLM:en rätt namn och mail för alla personer med skickade alla commits personerna hade gjort, även de commits som var gjorda i andra repositoryn än det som efterfrågades, vilket var anledningen till att svaret markeras som felaktigt.
+Detta resultat beror med störst sannolikhet på en svaghet i den ställda frågan snarare än en svaghet i lösningen, då frågan inte specificerade att det endast var commits i det specifika repositoryt som efterfrågas.
+Se Figur \ref{fig:kg_q13} för hur LLM:en resonerade kring denna fråga.
+
 Tiden det tog att svara på på frågorna var ungefär lika lång som när den svarade på de simpla frågorna.
 I dessa frågor behövdes det resoneras kring hur data hänger ihop mellan olika källor, och det är just det graflösningen är designad för att göra.
 Genom att det finns kopplingar mellan exempelvis en person till ett repository och från samma person till ett slack inlägg kan LLM:en enkelt följa dessa kopplingar för att se att det är samma person som har gjort ett inlägg som är med i ett repository.
@@ -36,7 +41,7 @@ Det är i frågor som denna vi ser styrkan i den graf-baserade lösningen, då d
 
 \subsubsection{API-baserade Lösning}
 
-Den API-baserade lösningen presterade bra på de enklare frågorna där lika mycket resonemang inte behövdes, men visade tydliga svagheter i de mer komplexa frågorna där kopplingar mellan olika datakällor behövde göras.
+Den API-baserade lösningen presterade bra på de enklare frågorna där mycket resonemang inte behövdes, men visade tydliga svagheter i de mer komplexa frågorna där kopplingar mellan olika datakällor behövde göras.
 
 I de enklare frågorna presterade lösningen bra och svarade rätt på alla frågor med i genomsnitt färre verktygsanrop och med lite kortare tid än den graf-baserade lösningen.
 Det var förväntat att den här sortens lösning skulle prestera bra när det är tydliga frågor som endast kräver data från en källa.
@@ -50,35 +55,65 @@ LLM:en fick råa svar från API:erna och behövde sedan själv resonera kring va
 
 I de komplexa frågorna presterade lösningen dåligt med endast 20\% korrekta svar.
 Lösningen hade stora problem med att koppla data från en källa med data från en annan.
-Till skillnad från den graf-baserade lösningen där en person representeras som en nod med tydliga relationer till andra entiteter, kan samma person ha olika namn eller representation i olika system i den API-baserade lösningen, vilket gör det svårt för LLM:en att avgöra att det är samma person.
-Detta är en bidragande orsak till att lösningen svarade fel på det mesta.
+Till skillnad från den graf-baserade lösningen där en person representeras som en entitet med tydliga relationer till andra entiteter, kan samma person ha olika namn eller representation i olika system i den API-baserade lösningen, vilket gör det svårt för LLM:en att avgöra vilka som är samma person.
+I frågorna 12-15 behövde det göras kopplingar mellan en person i ett system med samma person i ett annat system, och det var just här lösningen hade problem. 
+Trots att systemprompten ger LLM:en instruktioner att försöka koppla namn och email mellan system så kunde den inte tolka att Isak Lampell i Slack var samma person som isak29 i GitHub.
 
 Detta bekräftar hypotesen om att en relationsbaserad graf med tydliga samband mellan entiteter underlättar för LLM:en att navigera och hämta data från olika källor.
 
 \subsection{Metoddiskussion}\label{subsec:project_method_discussion}
-Make a deep analysis and discussion of your chosen method, chosen approach,
-chosen metrics, etc. Answer all of your project phases/milestones. Have they
-been met?
+
+Design Science Research valdes som metod eftersom det möjliggjorde att två konkreta lösningar kunde designas, implementeras och utvärderas mot varandra.
+
+Genom att arbeta iterativt och ständigt testa systemet identifierades flera förbättringsområden löpande under utvecklingen.
+Exempelvis uppmärksammades och löstes problem med otydliga eller felaktiga samband i grafen, saknad av verktyg i API-lösningen och behov av tydligare instruktioner i systemprompten.
+
+Testupplägget med 15 frågor fördelade över olika komplexitetsnivåer visade sig fungera väl för att utvärdera lösningarnas kvalitéer i olika typer av sammanhang.
+Det gav en bra bild över hur väl lösningarna presterar när det gällar att bara returnera ett enkelt svar från en ensam källa jämfört med när frågorna blir otydligare eller mer komplexa och kräver resonemang och kopplingar mellan data från olika källor.
+Även fast 15 frågor kan anses som en liten mängd så var det tillräckligt för att visa tydliga mönster över hur lösningarna presterar i olika sammanhang. 
+
+Eftersom frågorna designades av mig själv och inte av en extern part så kan det finnas en risk att de är utformade på ett sätt som gynnar den grafbaserade lösningen, då det var den lösningen jag hade i åtanke när jag först designade frågorna.
+Å andra sidan så kan det också gynna den API-baserade lösningen då verktygen skulle kunna anpassas för att hämta just den information som efterfrågas i frågorna, vilket skulle kunna leda till att den API-baserade lösningen presterar bättre än den graf-baserade lösningen.
+
+För att minska denna risk designades båda lösningarna utifrån att all data som efterfrågas i frågorna ska vara möjlig att få tag på så länge LLM:en gör korrekta resonemang i form av att generera korrekta Cypher-frågor eller göra korrekta API-anrop och tolka resultaten korrekt.
+Grafdatabasen utformades så att den innehåller de entiteter och relationer som krävs för att kunna svara på frågorna, och verktygen i API-lösningen designades så att varje verktyg hämtar en specifik typ av data från en specifik källa.
+På så sätt säkerställs det i teorin att båda lösningarna har möjlighet att returnera den information som efterfrågas.
+
+Varje fråga kördes en gång per lösning vilket bidrar till att resultaten kav påverkats av slumpen, då LLM:en kan göra olika val i olika körningar som kan leda till olika resultat.
+Detta innebär att enskilda testkörningar inte nödvändigtvis är representativa. Trots detta visar resultaten ett tydligt mönster att tiden hänger ihop med antal verktygsanrop och att den grafbaserade lösningen har bättre förmåga att göra tydliga kopplingar mellan data från olika källor.
+
+Korrekthetsmåttet bedömdes subjektivt av mig själv, vilket fungerade bra i de tydliga frågorna där det gick att jämföra LLM:ens svar med vad som faktiskt finns i datakällorna.
+I frågorna där det var otydligt vad som var rätt eller fel så hade det varit bättre att bedöma LLM:ens resonemang istället för levererat svar.
+Det kan ha varit en dåligt formulerad fråga där LLM:en resonerade på ett korrekt sätt utifrån hur frågan var ställd.
+
 
 \subsection{Vetenskaplig diskussion}\label{subsec:scientific_discussion}
-Make a deep discussion of the gained scientific knowledge and your scientific
-method. What can be learnt? Is this knowledge general or specific, etc. Make a
-discussion by looking back at the related works and put your work into
-perspective. Remember to discuss and show insights into the scientific
-possibilities of this work and its limitations
+
+
+Resultatet i detta arbete stödjer och kompletterar tidigare forskning om att kunskapsgrafer kan ge LLM:er bättre förutsättningar att leverera mer korrekta och relevanta svar då de får strukturerad kontext \cite{relWork}.
+
+Till skillnad från tidigare arbeten som undersöker kunskapsgrafer i mer
+  generella sammanhang fokuserar detta arbete specifikt på hur en kunskapsgraf
+  kan användas för att slå ihop data från flera externa källor till en gemensam
+  struktur, och hur detta förbättrar en LLM:s förmåga att söka och navigera
+  information inom en organisation.
+
+Det har visat sig vara genomförbart att designa en kunskapsgraf i form av en grafdatabas och lagra data från externa källor i den, och att sedan låta en LLM navigera i grafen för att hämta information.
 
 \subsection{Rekommendationer och konsekvenser}\label{subsec:recommendation} 
 
-Discuss the scientific impact and the contribution of your work. What will be the consequences of
-this new knowledge? If you are working with an industry problem, what do you recommend the company
-to continue to pursue?
+Projektet har identifierat och undersökt en potentiell lösning i form av en kunskapsgraf som ger LLM:er bättre förutsättningar att navigera och hämta organisatorisk data för att effektivisera informationssökning.
+Lösningen lämpar sig bäst för organisationer där det finns data spridd över många system.
+
+För att implementera en sådan lösning i en verklig organisation krävs det ytterligare utveckling i form av automatisering av processen med att bygga och uppdatera grafen, så att den alltid innehåller aktuell data från de olika källorna.
+Vidare forskning för också testa lösningen med verklig organisatorisk data för att se hur väl den presterar i praktiken.
+
 
 \subsection{Etiska och samhälleliga aspekter}\label{subsec:ethical_discussions}
-You will need to include a discussion on ethics, societal impact, and
-considerations. Use the human perspective, how will we be effected by this work,
-was people involved in the process, privacy? Remember to discuss and show
-insights into this projects role in society and our responsibilities for how it
-is used.
 
-\subsection{Verklig distribution av system}\label{subsec:real_system_distribution}
+Eftersom projektet innehåller en LLM som hämtar organisatorisk data så finns det risker i form av att LLM:en genererar felaktiga eller missvisande svar som kan leda till att användare fattar felaktiga beslut baserat på dessa svar.
+
+Det är också viktigt att fundera över vilken information om användare man vill lagra i denna graf, samt om alla användare ska kunna ta del av samma information eller om det ska finnas olika nivåer av åtkomst baserat på användarens roll i organisationen.
+
+
 
