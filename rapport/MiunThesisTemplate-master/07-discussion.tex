@@ -7,8 +7,6 @@ Diskussionskapitlet inkluderar en diskussion kring resultaten som uppnåts i pro
 Projektets huvudsakliga mål var att undersöka och utveckla en lösning som med hjälp av AI effektiviserar informationssökning inom en organisation.
 Baserat på resultaten kan det konstateras att bägge de testade lösningarna fungerar på olika plan.
 
-Ett tekniskt hinder var att mätningarna inte gjordes på samma mängd data, samt data med olika innehåll.
-
 \subsubsection{Graf-baserade lösningen}
 
 Den graf-baserade lösningen presterade överlag väl och visade tydliga fördelar i de scenarion den var designad för.
@@ -79,7 +77,7 @@ För att minska denna risk designades båda lösningarna utifrån att all data s
 Grafdatabasen utformades så att den innehåller de entiteter och relationer som krävs för att kunna svara på frågorna, och verktygen i API-lösningen designades så att varje verktyg hämtar en specifik typ av data från en specifik källa.
 På så sätt säkerställs det i teorin att båda lösningarna har möjlighet att returnera den information som efterfrågas.
 
-Varje fråga kördes en gång per lösning vilket bidrar till att resultaten kav påverkats av slumpen, då LLM:en kan göra olika val i olika körningar som kan leda till olika resultat.
+Varje fråga kördes en gång per lösning vilket bidrar till att resultaten kan ha påverkats av slumpen, då LLM:en kan göra olika val i olika körningar som kan leda till olika resultat.
 Detta innebär att enskilda testkörningar inte nödvändigtvis är representativa. Trots detta visar resultaten ett tydligt mönster att tiden hänger ihop med antal verktygsanrop och att den grafbaserade lösningen har bättre förmåga att göra tydliga kopplingar mellan data från olika källor.
 
 Korrekthetsmåttet bedömdes subjektivt av mig själv, vilket fungerade bra i de tydliga frågorna där det gick att jämföra LLM:ens svar med vad som faktiskt finns i datakällorna.
@@ -106,7 +104,7 @@ Projektet har identifierat och undersökt en potentiell lösning i form av en ku
 Lösningen lämpar sig bäst för organisationer där det finns data spridd över många system.
 
 För att implementera en sådan lösning i en verklig organisation krävs det ytterligare utveckling i form av automatisering av processen med att bygga och uppdatera grafen, så att den alltid innehåller aktuell data från de olika källorna.
-Vidare forskning för också testa lösningen med verklig organisatorisk data för att se hur väl den presterar i praktiken.
+Vidare forskning bör också testa lösningen med verklig organisatorisk data för att se hur väl den presterar i praktiken.
 
 
 \subsection{Etiska och samhälleliga aspekter}\label{subsec:ethical_discussions}
