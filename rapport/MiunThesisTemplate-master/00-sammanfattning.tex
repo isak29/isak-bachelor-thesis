@@ -1,5 +1,35 @@
 \section*{Sammanfattning}\label{sec:sammanfattning}
-Also write the abstract in Swedish. If you write your thesis in Swedish, Sammanfattning should be
-before Abstract. %This is automatically handled by this latex class.
 
-\textbf{Keywords:} LaTeX 
+Organisationer består av flera interna system med mängder av data såsom projektverktyg, dokumentation, kommunikaitonskanaer och information om anställda.
+Denna spridning av information leder till att anställda spenderar onödigt mycket tid dagligen på att leta efter intern information.
+
+Detta arbete undersöker därför hur data från interna system kan representeras för att ge en LLM den kontext den behöver för att navigera och hämta denna interna information och på så sätt effektivisera informationssökning inom en organisation.
+Primärt undersöks om en grafbaserad datarepresentation i form av en kunskapsgraf ger LLM:er bättre förutsättningar att kombinera information från flera olika källor jämfört med en API-baserad lösning.
+
+Två lösningar implementeras och utvärderas. Den grafbaserade lösningen lagrar data från GitHub, Slack och Confluence i en grafdatabas, medan den API-baserade lösningen hämtar data direkt från systemens API:er.
+Båda lösningarna exponeras via en MCP-server och testas med 15 frågor fördelade över tre komplexitetsnivåer.
+
+Resultaten visar att den grafbaserade lösningen presterar bättre vid komplexa frågor som kräver att det görs kopplingar mellan data från olika källor.
+Där hade lösningen korrekta svar på 80\% av frågorna mot API-baserade lösningens 20\% korrekta svar. Den grafbaserade lösningen hade även i genomsnitt 2,4 verktygsanrop mot API-baserades 6.
+Vid de simplare frågorna presterade lösningarna i genomsnitt likvärdigt.
+
+Slutsatsen är att en grafbaserad representation ger LLM:en tydliga fördelar med att kombinera information från olika källor, medan den aPI-baserade lösningen är tillräcklig för att besvara frågor som rör enskilda källor.
+
+\textbf{Nyckelord:} kunskapsgraf, grafdatabas, LLM, informationssökning, MCP,
+  API-baserad lösning 
+
+
+% Anställda spenderar en stor del av sin tid med att leta information.
+% Detta då organisationer har flera interna system där data lagras. Det är svårt och tidskrävande att hitta information, vilket leder till ineffektivitet i arbetet.
+% Samtidigt blir AI och LLM:er allt bättre och används allt mer för att effektivisera arbetsflöden i vardagen.
+
+% Arbetet undersöker därför hur data från dessa interna system kan representeras och lagras för att ge LLM:er den kontext de behöver för att kunna navigera inom organisationen och hämta information som efterfrågas av anställda.
+% Arbetet undersöker primärt hur en grafbaserad datarepresentation bidrar och underlättar detta arbetsflöde.
+
+% I arbetet implementeras två lösningar. Ena i form av en kunskapsgraf med information från Github, SLack och Confluence. Denna kunskapsgraf lagras i en grafdatabas.
+% Den andra lösningen hämtar data direkt från de externa systemens API:er och används för att jämföras mot den grafbaserade lösningen.
+% För att testa lösningarna ställs 15 testfrågor i olika komplexitetsnivåer. Vissa frågor kräver endast att specifik information från en datakälla hämtas, medans komplexare frågor kräver att LLM:en resonerar och kombinerar data från olika datakällor.
+
+% Resultatet visar att när LLM:en får tillgång till en graf där data har tydliga relationer mellan varandra fungerar väldigt bra.
+% Även att den API-baserade lösningen fungerar bra för de simplare frågorna där det inte krävs kopplingar mellan data från olika källor.
+

@@ -1,14 +1,30 @@
 \section*{Abstract}\label{sec:abstract}
-Hey! The report shall include two abstracts, one in Swedish and one in English. The abstract acts as a
-description of the report’s contents. This allows for the possibility to have a quick review of the
-report and provides an overview of the whole report, i.e.\ contains everything from the objectives
-and methods to the results and conclusions. Examples: ``The objective of this study has been to
-answer the question\dots. The study has been conducted with the aid of\dots. The study has shown
-that\dots'' Do not mention anything that is not covered in the report. An abstract is written as one
-piece and the recommended length is 200-250 words. References to the report's text, sources or
-appendices are not allowed; the abstract should ``stand on its own''. Only use plain text, with no
-characters in italic or boldface, and no mathematical formulas. The abstract can be completed by the
-inclusion of keywords; this can ease the search for the report in the library databases. The
-keywords should be listed in order of importance.
 
-\textbf{Keywords:} LaTeX 
+Organisations consist of multiple internal systems containing large amounts of data, such as project
+tools, documentation, communication channels and information about employees.
+This spread of information leads to employees spending unnecessary amounts of time searching for
+internal information on a daily basis.
+
+This study therefore investigates how data from internal systems can be represented to provide a
+large language model (LLM) with the context it needs to navigate and retrieve internal information,
+thereby improving information retrieval within an organisation.
+The primary focus is on whether a graph-based data representation in the form of a knowledge graph
+gives LLMs better conditions for combining information from multiple sources compared to an
+API-based solution.
+
+Two solutions are implemented and evaluated. The graph-based solution stores data from GitHub,
+Slack and Confluence in a graph database, while the API-based solution retrieves data directly from
+the systems’ APIs. Both solutions are exposed via an MCP server and tested using 15 questions
+distributed across three complexity levels.
+
+The results show that the graph-based solution performs better on complex questions that require
+linking data from different sources. It achieved correct answers on 80\% of such questions compared
+to 20\% for the API-based solution, and averaged 2.4 tool calls compared to 6.
+For simpler questions, both solutions performed on average equally well.
+
+The conclusion is that a graph-based representation gives the LLM clear advantages when combining
+information from multiple sources, while the API-based solution is sufficient for answering
+questions that concern a single source.
+
+\textbf{Keywords:} knowledge graph, graph database, LLM, information retrieval, MCP,
+API-based solution
