@@ -494,6 +494,95 @@
       \verb https://modelcontextprotocol.io/specification/2025-06-18/basic/transports
       \endverb
     \endentry
+    \entry{github}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=0647960ed41328f21b9e478d684a86d5}{%
+           family={Staff},
+           familyi={S\bibinitperiod},
+           given={Coursera},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{fullhash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{fullhashraw}{0647960ed41328f21b9e478d684a86d5}
+      \strng{bibnamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorbibnamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authornamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorfullhash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorfullhashraw}{0647960ed41328f21b9e478d684a86d5}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-05-18}
+      \field{title}{What is GitHub? Use Cases and FAQ}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.coursera.org/articles/what-is-github
+      \endverb
+      \verb{url}
+      \verb https://www.coursera.org/articles/what-is-github
+      \endverb
+    \endentry
+    \entry{slack}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=3561f3a3c5576e2ce0dc0d1e268bb9b2}{%
+           family={Slack},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{fullhash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{fullhashraw}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{bibnamehash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{authorbibnamehash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{authornamehash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{authorfullhash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{authorfullhashraw}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-05-18}
+      \field{title}{What is Slack?}
+      \verb{urlraw}
+      \verb http://slack.com/help/articles/115004071768-What-is-Slack
+      \endverb
+      \verb{url}
+      \verb http://slack.com/help/articles/115004071768-What-is-Slack
+      \endverb
+    \endentry
+    \entry{confluence}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=0647960ed41328f21b9e478d684a86d5}{%
+           family={Staff},
+           familyi={S\bibinitperiod},
+           given={Coursera},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{fullhash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{fullhashraw}{0647960ed41328f21b9e478d684a86d5}
+      \strng{bibnamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorbibnamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authornamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorfullhash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorfullhashraw}{0647960ed41328f21b9e478d684a86d5}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-05-18}
+      \field{title}{What Is Confluence?}
+      \field{year}{2026}
+      \verb{urlraw}
+      \verb https://www.coursera.org/articles/what-is-confluence
+      \endverb
+      \verb{url}
+      \verb https://www.coursera.org/articles/what-is-confluence
+      \endverb
+    \endentry
     \entry{7}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=5714031392063820eb2b4e1889259f9f}{%
@@ -764,8 +853,8 @@
       \strng{authornamehash}{0523b13262b12c215d8009938f5c14f1}
       \strng{authorfullhash}{0523b13262b12c215d8009938f5c14f1}
       \strng{authorfullhashraw}{0523b13262b12c215d8009938f5c14f1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-21}

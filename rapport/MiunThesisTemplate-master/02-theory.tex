@@ -94,7 +94,31 @@ Genom att använda HTTP-gränssnittet blir systemet flexibelt och kan integreras
 I lösningen som används för att jämföra mot grafdatabaslösningen används en API-baserad dataåtkomst där verktygen i MCP-servern gör olika API-anrop för att hämta data från olika datakällor.
 Detta innebär att istället för att ha en centraliserad databas där all data är lagrad, så hämtas data i realtid från olika källor när det behövs.
 
-\subsection{Cherry Studio}\label{subsec:CherryStudio} 
+\subsection{Externa datakällor}\label{subsec:external_sources}
+De tre externa systemen GitHub, Slack och Confluence utgör de informationskällor som arbetet utgår ifrån.
+Den API-baserade lösningen hämtar data direkt från dessa systems API:er, medan den grafbaserade lösningen innehåller syntetisk
+  data modellerad efter den typ av information som finns i respektive system.
+
+\subsubsection{GitHub}\label{subsubsec:github}
+GitHub är en plattform för att lagra och hantera kodprojekt.
+Den används av utvecklare för att samarbeta, dela kod och hantera versioner av sina projekt.
+Plattformen tillhandahåller verktyg för versionshantering, kodgranskning, ärendehantering och projektledning, vilket gör den lämplig för både öppen källkod och professionella arbetsflöden\cite{github}.
+
+I detta arbete används GitHub som en av de externa datakällorna.
+Det bidrar med information om repositories, commits, issues och aktiva användare.
+
+\subsubsection{Slack}\label{subsubsec:slack}
+Slack är en kommunikationsplattform för organisationer som samlar meddelanden, filer, användare och data på ett ställe.
+Den används för att underlätta samarbete och kommunikation inom team och organisationer, och erbjuder funktioner som kanaler, direktmeddelanden, filöverföring och integrationer med andra verktyg\cite{slack}.
+
+I detta arbete används Slack som en av de externa datakällorna för att bidra med information om användare, kanaler och meddelanden.
+
+\subsubsection{Confluence}\label{subsubsec:confluence}
+Confluence är en plattform som centraliserar teamets kunskap och samarbete i en gemensam arbetsyta.
+Den används för att skapa, organisera och dela dokumentation, planer och annan information inom en organisation\cite{confluence}.
+
+I detta arbete används Confluence för att bidra med information om teams, dokumentationssidor och författare.
+\subsection{Cherry Studio}\label{subsec:CherryStudio}
 Cherry Studio är en plattform som används för att interagera med LLM:er genom ett grafiskt användargränssnitt. Plattformen stödjer flera 
 olika modeller och möjliggör konfiguration av externa integrationer exempelvis MCP\cite{7}.
 
