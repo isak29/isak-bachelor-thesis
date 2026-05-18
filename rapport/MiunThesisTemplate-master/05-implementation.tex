@@ -6,11 +6,9 @@ En översikt av systemet och dess komponenter presenteras i Figur \ref{fig:imple
 \begin{figure}[H]
   \centering
   \includegraphics[width=15cm]{Figures/image.png}
-  \caption{System översikt}\label{fig:implementation_overview}
+  \caption{Systemöversikt}\label{fig:implementation_overview}
 \end{figure}
 
-
-% \subsection{System översikt}\label{subsec:overview1}
 
 \subsection{Användarinmatning}\label{subsec:overview5}
 Användaren interagerar med systemet genom att ställa frågor i ett naturligt språk. Användaren ställer frågor som "Vilka projekt har vi pågående?" eller "Vad står det i dokument x?", och behöver inte ha någon teknisk kunskap om hur systemet fungerar.
@@ -19,7 +17,7 @@ Dessa frågor ställs i ett användargränssnitt som tillhandahålls av Cherry S
 
 \subsection{LLM-kommunikation}\label{subsec:overview6}
 Den AI-modell som används i systemet är GPT-5.4-mini, konfigurerad via Cherry Studio.
-Modellen valdes för sin kombination av hög prestanda och låg kostnad, vilket möjliggjorde ett stort antal tester\cite{8}.
+Modellen valdes för sin kombination av hög prestanda och låg kostnad, vilket är bra då det görs en hel del tester\cite{8}.
 
 Modellen arbetar iterativt genom en så kallad agent-loop där den via MCP-servern kan anropa flera verktyg i sekvens.
 Resultatet från ett anrop kan användas som indata till nästa, vilket är nödvändigt vid komplexa frågor som kräver information från flera delar av systemet.
@@ -32,12 +30,12 @@ De två lösningarna använder olika systempromptar eftersom de ställer olika k
 Systemprompten för grafdatabaslösningen fokuserar huvudsakligen på att vägleda LLM:en i hur Cypher-frågor ska formuleras.
 Den instruerar modellen att alltid hämta databasens schema som första steg för att få tillgång till korrekta namn på entiteter och relationer innan en fråga formuleras.
 
-Övrigt innehåller prompten instruktioner om namn matchning, tolkning av användarinmatning, felhantering och hur svaren ska formuleras.
+Övrigt innehåller prompten instruktioner om namnmatchning, tolkning av användarinmatning, felhantering och hur svaren ska formuleras.
 Se Figur \ref{fig:p1} i Appendix \ref{sec:appA} för hela systemprompten som används.
 
-\textbf{Den API-baserade lösningen:}
+\textbf{API-baserade lösningen:}
 Systemprompten för den API-baserade lösningen fokuserar istället på att hjälpa LLM:en identifiera vilka verktyg som ska användas för en given fråga.
-Eftersom det finns många verktyg kopplade till olika system och datakällor instrueras modellen om vilka verktyg som är lämpliga för olika typer av frågor, för att undvika onödiga eller felaktiga verktygsanrop.
+Eftersom det finns många verktyg kopplade till olika system och datakällor får modellen instruktioner om vilka verktyg som är lämpliga för olika typer av frågor, för att undvika onödiga eller felaktiga verktygsanrop.
 
 Utöver detta innehåller prompten instruktioner om tolkning av inmatning, begränsningar i verktygsanvändning, felhantering och hur svaren ska formuleras.
 Se Figur \ref{fig:p2} och \ref{fig:p3} i Appendix \ref{sec:appA} för hela systemprompten som används.
@@ -52,22 +50,22 @@ Servern upprättar en session med ett unikt ID per startad chatt. Sessionen leve
 
 Verktygsregistreringen sker vid sessionsstart via separata controllers för varje externt system, där det finns en för grafbaserade lösningen (Grafdatabasen) och tre för API-baserade lösningen (Confluence, Slack och GitHub).
 
-För att spara de mätvärden som krävs, skapas det  en räknare som räknar varje verktygsanrop och en timer som mäter tiden från att den första frågan ställs tills dess att svaret är genererat. 
+För att spara de mätvärden som krävs, skapas en räknare som räknar varje verktygsanrop och en timer som mäter tiden från att den första frågan ställs tills dess att svaret är genererat. 
 
 \subsubsection{Grafbaserade lösningens verktyg}
 Strukturen för dessa verktyg är relativt simpel.
  Det finns ett verktyg som returnerar hela schemat i grafdatabasen och ett verktyg som tar emot en cypher-fråga och returnerar resultatet av denna fråga.
 
-Det första verktyget har som syfte att ge LLM'en en överblick över hur data är strukturerad i grafdatabasen.
+Det första verktyget har som syfte att ge LLM:en en överblick över hur data är strukturerad i grafdatabasen.
 Det får tillgång till information om vilka entiteter och relationer som finns, samt vilka attribut som är kopplade till dessa.
-Syftet är att LLM'en ska kunna använda denna information för att få de korrekta namnen på entiteter och relationer, och för att då kunna formulera cypher-frågor som kan returnera det som efterfrågas.
+Syftet är att LLM:en ska kunna använda denna information för att få de korrekta namnen på entiteter och relationer, och för att då kunna formulera Cypher-frågor som kan returnera det som efterfrågas.
 
-Det andra verktyget används för att exekvera de genererade cypher-frågorna mot grafdatabasen. 
-LLM'en formulerar en cypher-fråga baserat på användarens fråga och den information den har om databasens struktur.
-Resultatet från frågorna returneras sedan till LLM'en i ett strukturerat JSON-format som den sedan använder för att formulera sitt svar till användaren.
+Det andra verktyget används för att exekvera de genererade Cypher-frågorna mot grafdatabasen. 
+LLM:en formulerar en Cypher-fråga baserat på användarens fråga och den information den har om databasens struktur.
+Resultatet från frågorna returneras sedan till LLM:en i ett strukturerat JSON-format som den sedan använder för att formulera sitt svar till användaren.
 
-Genom denna design ges LLM'en en hög grad av flexibilitet och kontroll, då den själv bestämmer vilka vägar den ska traversera i grafen för att hitta och hämta den information som efterfrågas.
-Samtidigt innebär det att LLM'ens förmåga att förstå relationerna i grafen för att kunna generera en giltig och korrekt cypher-fråga är avgörande för att lösningen ska fungera.
+Genom denna design ges LLM:en en hög grad av flexibilitet och kontroll, då den själv bestämmer vilka vägar den ska traversera i grafen för att hitta och hämta den information som efterfrågas.
+Samtidigt innebär det att LLM:ens förmåga att förstå relationerna i grafen för att kunna generera en giltig och korrekt Cypher-fråga är avgörande för att lösningen ska fungera.
 
 \subsubsection{API-baserade lösningens verktyg}\label{subsubsec:apiVerktyg}
 I den API-baserade lösningen är verktygen mer specifika och inriktade på att hämta information från specifika API:er.
@@ -88,13 +86,13 @@ Grafdatabasen används för att representera organisationens struktur och aktivi
 
 \subsubsection{Datamodell}
 
-Grafen består av flera typer av noder som representerar delarna i organisationen. Dessa inkluderar \textit{Person}, \textit{Team}, 
+Grafen består av flera typer av noder som representerar delarna i organisationen. Dessa inkluderar som nämnt i kapitel \ref{subsec:dkg} bland annat \textit{Person}, \textit{Team}, 
 \textit{Project}, \textit{Repository}, \textit{Issue}, \textit{Commit}, 
-\textit{SlackChannel}, \textit{Post}, \textit{ConfluenceSpace}
-\textit{Document}. Varje nod innehåller egenskaper såsom id, namn, tidsstämplar med mera.
+\textit{SlackChannel}, \textit{Post}, \textit{ConfluenceSpace},
+\textit{Document}. Varje nod i sig innehåller egenskaper såsom ID, namn, information, tidsstämplar med mera.
 
-Relationer används för att koppla samman dessa noder. Namnet på dessa relationer spelar stor roll eftersom det är de som LLM:en utgår från när cypher-frågan genereras.
-Exempelvis kopplas en person till ett team via relationen \textit{MEMBER\_OF}, och till ett dokument via relationen \textit{AUTHORED}, medan ett inlägg i en slackkanal kopplas mellan inlägget och kanalen via relationen \textit{HAS\_POST}.
+Relationer används för att koppla samman dessa noder. Namnet på dessa relationer spelar stor roll eftersom det är de som LLM:en utgår från när Cypher-frågan genereras.
+Exempelvis kopplas en person till ett team via relationen \textit{MEMBER\_OF}, och till ett dokument via relationen \textit{AUTHORED}, medan ett inlägg i en Slack-kanal kopplas mellan inlägget och kanalen via relationen \textit{HAS\_POST}.
 Dessa skapar en sammanhängande struktur där information kan följas mellan olika delar av systemet.
 
 \subsubsection{Implementation i Neo4j}
@@ -111,7 +109,7 @@ De externa systemen representerar olika delar av organisationens struktur och ak
 GitHub används för att bidra med information om repositories, issues, commits och aktiva användare, Slack används för att bidra med information om kanaler och inlägg i dessa, och Confluence används för att bidra med dokumentation.
 
 Varje system har sin egen datastruktur och sina identifierare
-, vilket innebär att det inte finns någon gemensam modell som binder samman en person från github till en person i Slack.
+, vilket innebär att det inte finns någon gemensam modell som binder samman en person från GitHub till en person i Slack.
 Det är därmed LLM:ens ansvar att själv koppla samman informationen från de olika källorna.
 
 \subsubsection{Implementation av API-integrationer}
@@ -124,9 +122,9 @@ Totalt implementeras 20 verktyg fördelade över de tre systemen vilket tidigare
 \subsection{Evalueringsupplägg}\label{subsec:eval_setup} 
 
 För att utvärdera de två lösningarna har 15 testfrågor definierats, där frågorna varierar i komplexitet.
-Varje fråga körs i en ny session för att inte tidigare frågor och svar ska påverka LLM'ens resonemang.
+Varje fråga körs i en ny session för att inte tidigare frågor och svar ska påverka LLM:ens resonemang.
 
-Vid varje tests mäts korrekthet, tid, antal verktygsanrop samt om modellen behöver ställa följdfrågor.
+Vid varje test mäts korrekthet, tid, antal verktygsanrop samt om modellen behöver ställa följdfrågor.
 
 Mätningen om svarstid sker från att användarens fråga är skickad tills dess att ett färdigt svar är genererat.
 

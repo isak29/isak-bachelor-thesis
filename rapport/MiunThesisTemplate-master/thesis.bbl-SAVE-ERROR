@@ -381,29 +381,31 @@
     \endentry
     \entry{4}{misc}{}{}
       \name{author}{1}{}{%
-        {{hash=d208309a8d610fc67ca9c1daa1cbba3f}{%
-           family={Yijun},
-           familyi={Y\bibinitperiod}}}%
+        {{hash=7f29aa9efee920d81e5c6a036b7b1684}{%
+           family={Gutowska},
+           familyi={G\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
       }
-      \strng{namehash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{fullhash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{fullhashraw}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{bibnamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{authorbibnamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{authornamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{authorfullhash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{authorfullhashraw}{d208309a8d610fc67ca9c1daa1cbba3f}
+      \strng{namehash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{fullhash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{fullhashraw}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{bibnamehash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{authorbibnamehash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{authornamehash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{authorfullhash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{authorfullhashraw}{7f29aa9efee920d81e5c6a036b7b1684}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-02}
-      \field{title}{Vad är MCP (Model Context Protocol) och hur det fungerar}
+      \field{title}{What is the Model Context Protocol (MCP)?}
       \verb{urlraw}
-      \verb https://blog.logto.io/sv/what-is-mcp
+      \verb https://www.ibm.com/think/topics/model-context-protocol
       \endverb
       \verb{url}
-      \verb https://blog.logto.io/sv/what-is-mcp
+      \verb https://www.ibm.com/think/topics/model-context-protocol
       \endverb
     \endentry
     \entry{14}{misc}{}{}
@@ -492,6 +494,95 @@
       \verb https://modelcontextprotocol.io/specification/2025-06-18/basic/transports
       \endverb
     \endentry
+    \entry{github}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=0647960ed41328f21b9e478d684a86d5}{%
+           family={Staff},
+           familyi={S\bibinitperiod},
+           given={Coursera},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{fullhash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{fullhashraw}{0647960ed41328f21b9e478d684a86d5}
+      \strng{bibnamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorbibnamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authornamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorfullhash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorfullhashraw}{0647960ed41328f21b9e478d684a86d5}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-05-18}
+      \field{title}{What is GitHub? Use Cases and FAQ}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.coursera.org/articles/what-is-github
+      \endverb
+      \verb{url}
+      \verb https://www.coursera.org/articles/what-is-github
+      \endverb
+    \endentry
+    \entry{slack}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=3561f3a3c5576e2ce0dc0d1e268bb9b2}{%
+           family={Slack},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{fullhash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{fullhashraw}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{bibnamehash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{authorbibnamehash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{authornamehash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{authorfullhash}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \strng{authorfullhashraw}{3561f3a3c5576e2ce0dc0d1e268bb9b2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-05-18}
+      \field{title}{What is Slack?}
+      \verb{urlraw}
+      \verb http://slack.com/help/articles/115004071768-What-is-Slack
+      \endverb
+      \verb{url}
+      \verb http://slack.com/help/articles/115004071768-What-is-Slack
+      \endverb
+    \endentry
+    \entry{confluence}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=0647960ed41328f21b9e478d684a86d5}{%
+           family={Staff},
+           familyi={S\bibinitperiod},
+           given={Coursera},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{fullhash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{fullhashraw}{0647960ed41328f21b9e478d684a86d5}
+      \strng{bibnamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorbibnamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authornamehash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorfullhash}{0647960ed41328f21b9e478d684a86d5}
+      \strng{authorfullhashraw}{0647960ed41328f21b9e478d684a86d5}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Hämtad: 2026-05-18}
+      \field{title}{What Is Confluence?}
+      \field{year}{2026}
+      \verb{urlraw}
+      \verb https://www.coursera.org/articles/what-is-confluence
+      \endverb
+      \verb{url}
+      \verb https://www.coursera.org/articles/what-is-confluence
+      \endverb
+    \endentry
     \entry{7}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=5714031392063820eb2b4e1889259f9f}{%
@@ -519,6 +610,49 @@
       \endverb
       \verb{url}
       \verb https://docs.cherry-ai.com/docs/en-us
+      \endverb
+    \endentry
+    \entry{relWork}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=0d37e9bdd87456d07a61831b6dda1fad}{%
+           family={Abu-Rasheed},
+           familyi={A\bibinithyphendelim R\bibinitperiod},
+           given={Hasan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e0c72a4d6a9b1e2496d7716f78b87e5b}{%
+           family={Weber},
+           familyi={W\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3a179c3bd68cb4c3b46f58ee6d02103d}{%
+           family={Fathi},
+           familyi={F\bibinitperiod},
+           given={Madjid},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{de1c841301b173bf2ff40a805db13545}
+      \strng{fullhash}{6e3ba3081d0725c8a802d9645359c671}
+      \strng{fullhashraw}{6e3ba3081d0725c8a802d9645359c671}
+      \strng{bibnamehash}{6e3ba3081d0725c8a802d9645359c671}
+      \strng{authorbibnamehash}{6e3ba3081d0725c8a802d9645359c671}
+      \strng{authornamehash}{de1c841301b173bf2ff40a805db13545}
+      \strng{authorfullhash}{6e3ba3081d0725c8a802d9645359c671}
+      \strng{authorfullhashraw}{6e3ba3081d0725c8a802d9645359c671}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEEE Global Engineering Education Conference (EDUCON)}
+      \field{title}{Knowledge Graphs as Context Sources for {LLM}-Based Explanations of Learning Recommendations}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1109/EDUCON60312.2024.10578654
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2403.03008
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2403.03008
       \endverb
     \endentry
     \entry{hevner2004design}{article}{}{}
@@ -719,8 +853,8 @@
       \strng{authornamehash}{0523b13262b12c215d8009938f5c14f1}
       \strng{authorfullhash}{0523b13262b12c215d8009938f5c14f1}
       \strng{authorfullhashraw}{0523b13262b12c215d8009938f5c14f1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-21}
