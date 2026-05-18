@@ -6,7 +6,7 @@ Arbetet innefattar både utveckling av ett grafbaserat kunskapssystem, ett API-b
 Metoden syftar till att ge en tydlig bild av hur systemen utvecklas, designas och testas.
  Kapitlet beskriver även de verktyg, antaganden och arbetsprocesser som ligger till grund för resultaten.
 
-\subsection{{Vetenskaplig metod}}\label{subsec:scientificmethod}
+\subsection{Vetenskaplig metod}\label{subsec:scientificmethod}
 Arbetet genomförs huvudsakligen som en kvantitativ studie med inslag av kvalitativa bedömningar.
  De kvantitativa delarna består av mätningar för systemets prestanda i form av svarstid i millisekunder och antal verktygsanrop per fråga, medan mätningarna för korrekthet är kvalitativa och bedöms med antingen rätt eller fel.
 
@@ -14,10 +14,10 @@ Utöver detta tillämpas även en designvetenskaplig metodik enligt Hevner et al
  Detta motiveras av att arbetet inte enbart syftar till att analysera ett problem utan även utveckling och
   utvärdering av ett tekniskt system med två olika typer av lösningar för informationshantering.
 
-Den ena lösningen bygger på att data från de externa datakällorna lagras i form av en grafstruktur i en grafdatabas, och den andra lösningen bygger på att information hämtas direkt från de externa systemens API:er.
-Systemet kommunicerar med strukturerna genom en MCP server som också utvecklas i detta arbete.
+Den ena lösningen bygger på att data från de externa datakällorna lagras i form av en kunskapsgraf i en grafdatabas, och den andra lösningen bygger på att information hämtas direkt från de externa systemens API:er.
+Systemet kommunicerar med strukturerna genom en MCP-server som också utvecklas i detta arbete.
 
-Först identifierades problemen som finns i dagens informationshantering.
+Först identifieras problemen som finns i dagens informationshantering.
  Dessa problem beskrivs i introduktionen \ref{subsec:background} och ligger till grund för de forskningsfrågor som identifierats.
 
 Metodvalet motiveras av arbetets forskningsfrågor som identifierades i kapitel \ref{subsec:researchquestion}, och fokuserar på att undersöka hur en LLM kan utnyttja en grafbaserad struktur 
@@ -42,7 +42,7 @@ I den tredje fasen designas systemet och databasen. Här börjar arbetet med att
 Det skapas en plan som beskriver hur systemet ska byggas och vilka komponenter som ska ingå, samt hur de ska interagera med varandra.
 Databasens struktur designas till att efterlikna en riktig organisation med olika typer av dokumentation, anställda, projekt och liknande.
 Dessa entiteter och relationer designas för att passa data från systemen: Confluence, Slack och GitHub. Dessa system väljs eftersom de är vanliga i många IT-organisationer och innehåller olika typer av information som kan vara relevant att hämta.
-Med hjälp av prompter med ChatGPT genereras också fejk data som används för att fylla databasen och möjliggöra testning av systemet.
+Med hjälp av prompter med ChatGPT genereras också syntetisk data som används för att fylla databasen och möjliggöra testning av systemet.
 Figur \ref{fig:methodology} visar en översikt över grafdatabasens design med dess olika entiteter och relationer.
 \begin{figure}[H]
     \centering
@@ -52,12 +52,12 @@ Figur \ref{fig:methodology} visar en översikt över grafdatabasens design med d
 \end{figure}
 
 I den fjärde fasen utvecklas systemet enligt den design som skapats i föregående fasen.
-Här skrivs koden för MCP servern och uppkopplingen till databasen och API:erna i TypeScript och integrationen med LLM:en och uppkoppling mot den skapade MCP servern sker i Cherry Studio.
+Här skrivs koden för MCP-servern och uppkopplingen till databasen och API:erna i TypeScript och integrationen med LLM:en och uppkoppling mot den skapade MCP-servern sker i Cherry Studio.
 Systemet byggs iterativt där olika delar utvecklas och testas allt eftersom.
 Det läggs till nya verktyg och ny funktionalitet under utvecklingens gång då nya behov upptäcks.
 
 I den femte fasen testas systemen. Här genomförs olika tester för att besvara de frågor som legat som grund för arbetet.
-Här mäts svarstid, antal verktygsanrop, korrekthet och relevans för att komma fram till ett resultat.
+Här mäts svarstid, antal verktygsanrop och korrekthet för att komma fram till ett resultat.
 Detta möjliggör en analys av skillnaderna mellan de två lösningarna, och låter oss besvara forskningsfrågorna för att kunna komma fram till en slutsats.
 
 I den sista fasen utvärderas systemet. Här identifieras möjliga ändringar som kan implementeras i systemen. Exempelvis fler verktyg för att hämta mer specifik information, eller en mer avancerad design av grafdatabasen.
@@ -72,7 +72,7 @@ För att besvara forskningsfrågorna mäts svarstid, antal verktygsanrop och kor
 
 \subsubsection{Jämförelsens syfte och avgränsningar}
 
-Syftet med studien är inte att genomföra en strikt jämförelse mellan två identiska system, utan att undersöka hur olika sätt att representera organisatorisk information påverkar en LLM:s förmåga att kunna navigera till och hämta rätt information.
+Syftet med studien är inte att genomföra en strikt jämförelse mellan två identiska system, utan istället att undersöka hur ett grafbaserat sätt att representera organisatorisk information påverkar en LLM:s förmåga att kunna navigera till och hämta rätt information.
 
 Den grafbaserade lösningen utgör studiens huvudsakliga fokus, då den representerar ett alternativt sätt att strukturera och representera information på.
 
@@ -100,5 +100,5 @@ Korrekthetsbedömningen av svaren görs manuellt och innebär därmed ett visst 
 För att minska denna subjektivitet jämförs svaren med information från respektive system för att se till att det är rätt information som hämtats.
 
 Utvärderingen baseras på 15 testfrågor där de två lösningarna har tillgång till olika informationskällor.
-Resultaten bör därför ses som något som visar lösningarnas styrkor och svagheter snarare än en definitiv jämförelse av deras prestanda i alla situationer.
+Resultaten bör därför ses som något som framhäver lösningarnas styrkor och svagheter snarare än en definitiv jämförelse av deras prestanda i alla situationer.
 
