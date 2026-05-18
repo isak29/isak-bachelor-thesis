@@ -7,7 +7,7 @@ Det som har mätts i varje körning är korrekthet, svarstid och antal verktygsa
 
 \subsection{Genererad applikation}\label{subsec:resultapp}
 Den färdiga applikationen består av en MCP-server som exponerar verktyg till de båda lösningarna.
-Den består av ett UI (Cherry Studio) med integrerad LLM (Gpt-5.4-mini) som ansluter mot MCP-servern och får tillgång till att använda verktygen.
+Den består av ett användargränssnitt (Cherry Studio) med integrerad LLM (GPT-5.4-mini) som ansluter mot MCP-servern och får tillgång till att använda verktygen.
 
 Den består även av en kunskapsgraf i form av en grafdatabas skapad och lagrad i Neo4j.
 Se Figur \ref{fig:xxx} för en översikt av användargränssnittet och hur det ser ut när ett svar genereras.
@@ -37,17 +37,17 @@ De testfrågor som använts i utvärderingen av de två lösningarna presenteras
 \item[Q9] Are there any blockers in any of our projects right now?
 \item[Q10] Which documents in confluence is about aws? and what does it say?
 \item[Q11] Give me an overview of the project Payment Platform, including its repositories, active issues and the people working on it.
-\item[Q12] Which developers have both open Git isseus and have been active in Slack during the last 24 hours? Give me proof of it.
-\item[Q13] Send me the name and email to all persons who commited in the payment-service repo. Also tell me waht the commit message says.
+\item[Q12] Which developers have both open Git issues and have been active in Slack during the last 24 hours? Give me proof of it.
+\item[Q13] Send me the name and email to all persons who committed in the payment-service repo. Also tell me what the commit message says.
 \item[Q14] In which repositories does the person who created the "information about aws" page in Confluence work?     
-\item[Q15] Can you send me the name of the most recent updated Confluence document from the person that did the most recent commit in payment-servic repo?
+\item[Q15] Can you send me the name of the most recent updated Confluence document from the person that did the most recent commit in payment-service repo?
 \end{itemize}
 
-Frågorna är på engelska för att undvika att LLM'en behöver översätta mellan svenska och engelska när den resonerar över vilka verktyg som ska användas.
+Frågorna är på engelska för att undvika att LLM:en behöver översätta mellan svenska och engelska när den resonerar över vilka verktyg som ska användas.
 
 \subsubsection{Enklare frågor}\label{subsubsec:enklareFragorResult}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|l|l|}
 \hline
@@ -67,7 +67,7 @@ Q5 & 1306 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 1155 ms / 1 / \text
 \label{tab:simple}
 \end{table}
 
-Tabellen \ref{tab:simple} visar resultatet för de enklare frågorna där det inte krävs något resonemang eller kopplingar mellan olika datakällor för att hitta svaret.
+Tabell \ref{tab:simple} visar resultatet för de enklare frågorna där det inte krävs något resonemang eller kopplingar mellan olika datakällor för att hitta svaret.
 
 \subsubsection{Medelsvåra frågor}\label{subsubsec:medelsvaraResult}
 
@@ -91,11 +91,11 @@ Q10 & 1889 ms / 2 / \textcolor{green!60!black}{\textbf{Ja}} & 3597 ms / 3 / \tex
 \label{tab:medelsvara}
 \end{table}
 
-Det vi ser i Tabell \ref{tab:medelsvara} är de resultat från de medelsvåra frågorna där det krävs att det görs kopplingar mellan olika datakällor, eller att det krävs ett resonemang för att hitta svaret. 
+Det vi ser i Tabell \ref{tab:medelsvara} är de resultat från de medelsvåra frågorna där det kan krävas att det görs flera anrop mot samma källa, eller att det krävs någon form av ytterligare resonemang för att hitta svaret. 
 
 \subsubsection{Komplexa frågor}\label{subsubsec:komplexaFragorResult}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|l|l|}
 \hline
@@ -115,7 +115,7 @@ Q15 & 4724 ms / 3 / \textcolor{green!60!black}{\textbf{Ja}} & 5337 ms / 3 / \tex
 \label{tab:komplexa}
 \end{table}
 
-Tabellen \ref{tab:komplexa} visare resultatet för de komplexa frågorna där de krävs tydliga kopplingar mellan olika datakällor, eller att det krävs ett mer komplext resonemang för att hitta svaret.
+Tabell \ref{tab:komplexa} visar resultatet för de komplexa frågorna där det krävs tydliga kopplingar mellan olika datakällor, eller att det krävs ett mer komplext resonemang för att hitta svaret.
 
 \subsection{Genomsnitt av resultat}\label{subsec:summaryResult}
 Figur \ref{fig:timeSummary} visar genomsnittet av tid per svar per komplexitet.
@@ -377,7 +377,7 @@ Figur \ref{fig:toolCallsAPI} visar antalet verktygsanrop som behövdes för att 
 %-- Skriv ett exempel på när en fråga besvarades fel --%
 
 Som vi ser i grafen så är de 4 sista frågorna felaktiga.
-Fråga 12 misslyckades lösningen med att koppla samman namnet från Github med namnet i Slack. LLM:en hittade användaren i Github men fastnade i en lång loop i letandet efter samma användare i Slack.
+I fråga 12 misslyckades LLM:en med att koppla samman namnet från Github med namnet i Slack. LLM:en hittade användaren i Github men fastnade i en lång loop i letandet efter samma användare i Slack.
 Fråga 13 misslyckades eftersom LLM:en letade efter mailen i GitHub, istället för att koppla användaren till Slack för att hitta mailen.
 Fråga 14 misslyckades med att koppla namnet från Confluence till namnet i Github.
 Fråga 15 misslyckades av samma anledning som fråga 14, använde Github namnet i Confluence istället för att använda användarnamnet i Slack.
