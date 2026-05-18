@@ -9,7 +9,7 @@ Under förstudien identifierades ett antal tekniker och tillvägagångssätt som
 \subsubsection{API-baserad lösning}
 
 Ett möjligt sätt för att ge en LLM tillgång till organisationens information är att skapa en lösning som direkt exponerar de befintliga systemens API:er som verktyg.
-LLM:en tolkar då användarens fråga och avgör själv vilket eller vilka verktyg som ska anropas för att hämta information från rätt system.
+LLM:en tolkar användarens fråga och avgör själv vilket eller vilka verktyg som ska anropas för att hämta information från rätt system.
 Denna lösning introducerar inget extra datalager och kräver ingen omstrukturering av befintlig data, utan nyttjar endast de API:er som redan finns.
 
 Det är dock viktigt att ta hänsyn till att denna lösning i grunden inte förändrar hur data är strukturerad eller representerad.
@@ -26,21 +26,21 @@ Genom denna representation av data förväntas en LLM kunna koppla samman inform
 
 Denna lösning bedöms ge färre verktygsanrop vid mer komplexa frågor som kräver tydliga samband mellan data från olika källor, och därmed bidra till en mer effektiv informationshämtning.
 
-\subsubsection{Vector databas / embeddings (RAG)}
+\subsubsection{Vektordatabas / embeddings (RAG)}
 En annan potentiell lösning som identifieras under förstudien är att använda en vektordatabas och embeddings för att strukturera och organisera data och information.
 Denna lösning bygger på att omvandla användarfrågan till en vektorrepresentation (embedding) och sedan jämföra mot de lagrade vektorerna i databasen för att hitta de mest liknande\cite{1}.
 
-Denna lösning varken implementeras elelr undersöks vidare i detta arbet då den liksom den API-baserade lösningen inte förändrar hur relationer och samband mellan data från olika källor representeras, vilket är det primära syftet med detta arbete.
+Denna lösning varken implementeras eller undersöks vidare i detta arbete då den liksom den API-baserade lösningen inte förändrar hur relationer och samband mellan data från olika källor representeras.
 
 \subsection{Val av teknisk arkitektur}
 Under förstudien identifieras flera olika verktyg och tekniker för att implementera de olika lösningarna på.
 Därför beslutas det om vilka specifika tekniker och verktyg som används i den slutgiltiga lösningen.
 
 \subsubsection{Val av grafdatabas}
-Grafdatabasens syfte i detta arbete är att lagra data och information från de olika interna systemet i form av en kunskapsgraf.
+Grafdatabasens syfte i detta arbete är att lagra data och information från de olika interna systemen i form av en kunskapsgraf.
 För att välja vilken grafdatabas som ska användas görs det en undersökning om vilken som lämpar sig bäst specifikt för detta arbete.
 
-Databasen som väljs är Neo4j. Detta val görs då det är en marknasledande grafdatabas med stor användarbas och bra community-stöd.
+Databasen som väljs är Neo4j. Detta val görs då det är en marknadsledande grafdatabas med stor användarbas och bra community-stöd.
 Den har en låg inlärningströskel med omfattande dokumentation och många guider för att komma igång. Den är även av typen OLAP (Online Analytical Processing), vilket betyder att den är specifikt anpassad för just affärsintelligens och informationssökning vilket är det primära syftet för databasen i detta arbete\cite{17}.
 
 \subsubsection{Val av kommunikationslager}
@@ -62,11 +62,11 @@ De informationskällor som inkluderas i grafdatabasen är: Confluence, Slack och
 
 De entiteter och relationer som skapas i grafdatabasen är utformade för att efterlikna de olika typer av information som finns i de olika informationskällorna, samt de relationer som finns mellan dem.
 De entiteter som inkluderas är: \textit{Person}, \textit{Team}, 
-\textit{Project}, \textit{Repository}, \textit{Issue}, \textit{Commit}, 
-\textit{SlackChannel}, \textit{Post}, \textit{ConfluenceSpace}
+\textit{Project}, \textit{Repository}, \textit{Issue}, \textit{Commit}, \textit{Push}, \textit{Service},
+\textit{SlackChannel}, \textit{SlackThread}, \textit{Post}, \textit{ConfluenceSpace} och
 \textit{Document}. Mellan dessa entiteter skapas relationer som exempelvis \textit{WORKS\_ON}, \textit{MEMBER\_OF}, \textit{HAS\_ISSUE}, \textit{HAS\_COMMIT}, \textit{POSTED\_IN}, \textit{CONTAINS}.
 
-Figur \ref{fig:yyy} Visar en komplett bild över relationer mellan noder i grafdatabasen.
+Figur \ref{fig:yyy} visar en komplett bild över relationer mellan noder i grafdatabasen.
 
 \begin{figure}[H]
   \includegraphics[width=\textwidth]{Figures/kg_quests/yyy.png}
@@ -88,11 +88,11 @@ Exempel på verktyg som identifieras är ett som hämtar alla personer i ett Git
 
 Det beslutas att utvärderingen ska baseras på 15 testfrågor fördelade över tre komplexitetsnivåer.
 De simpla frågorna (Q1–Q5) kräver ingen koppling mellan datakällor och kan besvaras med ett enda anrop till en källa.
-De medelsvåra frågorna (Q6–Q10) kräver antingen flera anrop till samma datakälla eller like mer avancerat resonemang för att nå svaret.
+De medelsvåra frågorna (Q6–Q10) kräver antingen flera anrop till samma datakälla eller lite mer avancerat resonemang för att nå svaret.
 De komplexa frågorna (Q11–Q15) kräver ofta kopplingar mellan data från olika källor, vilket är det scenario där skillnaden mellan de två lösningarna förväntas vara som störst.
-De fullständiga frågorna presenteras i kapitel \ref{subsec:questTest}.
+Samtliga frågor presenteras i kapitel \ref{subsec:questTest}.
 
-\subsection{Utvärderingsstrategi (Koppling till mål)}
+\subsection{Utvärderingsstrategi}
 
 Under förstudien identifieras hur utvärderingen av de två lösningarna skulle
   utformas för att kunna besvara de verifierbara målen i kapitel
