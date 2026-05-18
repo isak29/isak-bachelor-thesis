@@ -5,7 +5,7 @@ Detta gjordes genom att designa, implementera och jämföra en grafbaserad struk
 
 \textbf{Effektivitet i informationssökning} \\
 Vid enkla frågor var den API-baserade lösningen något snabbare än den grafbaserade, och vid de medelsvåra var den grafbaserade lösningen något snabbare.
-Vid komplexare frågor var skillnaden markant där den grafbaserade lösningen svarade i genomsnitt på  2965ms medans API-lösningen behövde i genomsnitt 18388ms.
+Vid komplexare frågor var skillnaden markant där den grafbaserade lösningen svarade i genomsnitt på 2965 ms medan API-lösningen behövde i genomsnitt 18388 ms.
 Den ökade svarstiden i API-lösningen beror på att LLM:en behövde göra fler verktygsanrop för att hämta data från olika källor.
 
 \textbf{Korrekthet i svar} \\
@@ -21,8 +21,8 @@ Vid de simplare frågorna var antalet verktygsanrop i genomsnitt mindre hos den 
 Vid de medelsvåra och komplexa frågorna ökade antalet verktygsanrop kraftigt i den API-baserade lösningen, medan den grafbaserade låg kvar på ungefär samma nivå.
 Detta beror på att den grafbaserade lösningen ofta kan traversera relationer i grafen med en enda Cypher-fråga, medan den API-baserade lösningen kräver flera anrop per datakälla.
 
-Sammanfattningsvis bekräftar resultaten att den grafbaserade representationen av data gör LLM:en bättre förutsättningar att navigera och kombinera information från olika källor.
-Den API-baserade lösningen preseterar väl så länge det handlar om en enkel fråga som beror en datakälla. Den API-baserade lösningen är också väldigt beroende av vilka verktyg som finns implementerade.
+Sammanfattningsvis bekräftar resultaten att den grafbaserade representationen av data ger LLM:en bättre förutsättningar att navigera och kombinera information från olika källor.
+Den API-baserade lösningen presterar väl så länge det handlar om en enkel fråga som berör en datakälla. Den API-baserade lösningen är också väldigt beroende av vilka verktyg som finns implementerade.
 
 \subsection{Framtida arbete}\label{subsec:future_work}
 
@@ -30,13 +30,7 @@ Ett naturligt nästa steg är att vidareutveckla den grafbaserade lösningen gen
 Det skulle vara möjligt att behålla den API-baserade lösningen som en del av systemet, där den istället används för att hämta data från källorna och sedan mata in den i grafen.
 
 En annan framtida lösning skulle kunna undersöka hur väl man kan kombinera dessa två lösningar, där LLM:en beroende på frågans komplexitet väljer vilket tillvägagångssätt den ska använda.
-För enklare frågor kan den använda API-lösningen för att snabbt och resurssnålt hämta data, medan den för mer komplexa frågor kan använda grafen.
+För enklare frågor kan den använda API-lösningen för att snabbt och resurssnålt hämta data, medan den för mer komplexa frågor kan använda grafen för att hämta svaren.
 
-
-
-% - Intressant att testa en lösning där API-baserae själv resonerar och anropar olika API:er med egen skapade API-calls
-% - Det går att fixa API-baserade lösningen bättre genom att manuellt sitta och skapa varenda tool. Mer tools = Större risk att träffa rätt
-% - Resonera kring hur man bygger en lösning som manuellt skapar KG genom API-anrop.
-% - Finns en lösning som är mer hybrid? Te.x först kollar kunskapsgraf, och den inte hittar kollar den api:er? Om den hittar kan den sen bygga rätt koppling själv i grafen?
 
 
