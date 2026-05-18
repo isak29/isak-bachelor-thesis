@@ -331,6 +331,12 @@ What I was able to confirm:
     \item Attempted a direct message lookup, but the tool requires a valid user ID and didn't yield data
 \end{enumerate}
 
+If you want, I can still try a broader approach by:
+\begin{enumerate}
+    \item pulling all messages from the \textbf{\#social} channel and filtering by date manually, or
+    \item searching for likely topics/person names if you know what the discussion was about.
+\end{enumerate}
+
 \medskip
 \textbf{Vägledning:} chose the 1. approach
 
@@ -447,6 +453,13 @@ Here's a brief overview of the project \textbf{isak-bachelor-thesis}:
     \item This looks like a very small project or a personal repository, with one clearly identified contributor/owner.
     \item Based on the available data, there's no sign of a broader team from GitHub contributors.
 \end{itemize}
+
+\textbf{What I used}
+\begin{enumerate}
+    \item Listed available repositories
+    \item Queried the repo's latest issue
+    \item Queried the repo's contributors
+\end{enumerate}
 
 \clearpage
 \subsubsection*{Q12 -- API-lösningen}\label{fig:api_q12}
@@ -580,3 +593,10 @@ What I did find:
         \item \textbf{Message:} \texttt{force him to call schema 1 time}
     \end{itemize}
 \end{itemize}
+
+\textbf{Tool calls made:}
+\begin{enumerate}
+    \item \texttt{listRepos}
+    \item \texttt{getLatestPush} for \texttt{isak29/isak-bachelor-thesis}
+    \item \texttt{getConfluenceUsers} with query \texttt{isak29} (failed)
+\end{enumerate}
