@@ -381,29 +381,31 @@
     \endentry
     \entry{4}{misc}{}{}
       \name{author}{1}{}{%
-        {{hash=d208309a8d610fc67ca9c1daa1cbba3f}{%
-           family={Yijun},
-           familyi={Y\bibinitperiod}}}%
+        {{hash=7f29aa9efee920d81e5c6a036b7b1684}{%
+           family={Gutowska},
+           familyi={G\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
       }
-      \strng{namehash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{fullhash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{fullhashraw}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{bibnamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{authorbibnamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{authornamehash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{authorfullhash}{d208309a8d610fc67ca9c1daa1cbba3f}
-      \strng{authorfullhashraw}{d208309a8d610fc67ca9c1daa1cbba3f}
+      \strng{namehash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{fullhash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{fullhashraw}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{bibnamehash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{authorbibnamehash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{authornamehash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{authorfullhash}{7f29aa9efee920d81e5c6a036b7b1684}
+      \strng{authorfullhashraw}{7f29aa9efee920d81e5c6a036b7b1684}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Hämtad: 2026-04-02}
-      \field{title}{Vad är MCP (Model Context Protocol) och hur det fungerar}
+      \field{title}{What is the Model Context Protocol (MCP)?}
       \verb{urlraw}
-      \verb https://blog.logto.io/sv/what-is-mcp
+      \verb https://www.ibm.com/think/topics/model-context-protocol
       \endverb
       \verb{url}
-      \verb https://blog.logto.io/sv/what-is-mcp
+      \verb https://www.ibm.com/think/topics/model-context-protocol
       \endverb
     \endentry
     \entry{14}{misc}{}{}

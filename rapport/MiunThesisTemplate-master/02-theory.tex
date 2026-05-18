@@ -10,7 +10,7 @@ Informationen lagras vanligtvis i en grafdatabas och visualiseras som en grafstr
 
 En kunskapsgraf består av tre huvudkomponenter: noder, kanter och etiketter.
 Noden representerar en enskild entitet,
-kanten representerar relationen mellan två noder, och etiketten beskriver vad noderna och relationerna representerar, exempelvis "Person" eller "Arbetar på"\cite{21}.
+kanten representerar relationen mellan två noder, och etiketten beskriver vad noderna och relationerna representerar, exempelvis \textit{Person} eller \textit{Arbetar på}\cite{21}.
 
 Kunskapsgrafer är särskilt användbara i situationer där data är starkt sammankopplad och där relationerna i sig bär viktig information.
  De används exempelvis inom rekommendationssystem, bedrägeridetektion och i detta fall för att underlätta informationssökning.
@@ -27,7 +27,7 @@ Trots detta kan relationer traverseras i båda riktningarna vid frågeställning
 
 Det är inte heller nödvändigt att alla noder i en graf är direkt kopplade till varandra, utan en graf kan bestå av flera sammanhängande delgrafer.
 
-I Figur \ref{fig:visualisation} visas ett urdrag från den skapade grafdatabasen där två personer är kopplade till ett projekt medans en person är kopplad till ett annat.
+I Figur \ref{fig:visualisation} visas ett urdrag från den skapade grafdatabasen där två personer är kopplade till ett projekt medan en person är kopplad till ett annat.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{Figures/visualisation.png}
@@ -54,13 +54,14 @@ MATCH (p:Person)-[:WORKS_ON]->(r:Repository)
 RETURN r
 \end{verbatim}
 
-Syntaxen speglar grafstrukturen direkt — parenteser representerar noder och pilar representerar relationer — vilket gör frågorna lätta att läsa och förstå.
+Syntaxen speglar grafstrukturen direkt. Parenteser representerar noder och pilar representerar relationer, vilket gör frågorna lätta att läsa och förstå.
 
 \subsection{Large Language Model (LLM)}\label{subsec:LLM}
 En LLM är en typ av artificiell intelligensmodell som är tränad på stora mängder data.
  Detta gör dem kapabla till att förstå det mänskliga språket samt andra typer av innehåll för att kunna utföra olika typer av arbetsuppgifter\cite{12}.
 
-I detta projekt används LLM:en för att tolka en användares fråga och sedan avgöra vilket eller vilka verktyg som ska användas för att returnera den information som efterfrågats.
+I detta projekt används LLM:en för att tolka en användares fråga och sedan avgöra vilket eller vilka verktyg som ska användas för att hämta rätt information från antingen grafdatabasen eller systemens API:er.
+Den används även för att generera de Cypher-frågor som körs mot grafdatabasen.
 
 \subsection{Model Context Protocol (MCP)}\label{subsec:mcp_theory}
 Model Context Protocol (MCP) är ett protokoll som används för att koppla samman LLM:er med externa system.
@@ -75,10 +76,8 @@ Resultatet från dessa anrop används sedan som underlag för att generera ett s
 
 MCP möjliggör därmed utvecklingen av AI-applikationer där LLM:er fungerar som agenter som aktivt hittar och hämtar information från källor\cite{4}.
 
-\textcolor{blue}{hitta ny källa enligt Martin}
-
 \subsubsection{Programvarubibliotek (SDK)}
-För att implementera MCP servern används ett programvarubibliotek (SDK) som erbjuder nödvändig funktionalitet.
+För att implementera MCP-servern används ett programvarubibliotek (SDK) som erbjuder nödvändig funktionalitet.
 Ett SDK är en komplett uppsättning verktyg som gör det möjligt för utvecklare att bygga programvara för en specifik plattform.
 Det innehåller bland annat byggstenar, ramverk, kodexempel, felsökningsverktyg och dokumentation\cite{14}.
 
@@ -116,5 +115,5 @@ Författarna visar att en LLM som har tillgång till strukturerad kontext från 
 Arbetet bygger liksom mitt på att ge en LLM strukturerad kontext från en kunskapsgraf för att förbättra dess förmåga att hämta och använda information.
 Skillnaden är att detta arbete fokuserar på att minska hallucinationer inom utbildningen, medan mitt arbete fokuserar på informationshämtning inom en organisation.
 
-\subsubsection{}
+% \subsubsection{}
 
