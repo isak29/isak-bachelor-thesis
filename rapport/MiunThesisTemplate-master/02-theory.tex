@@ -84,8 +84,8 @@ Det innehåller bland annat byggstenar, ramverk, kodexempel, felsökningsverktyg
 I projektet används MCP SDK \cite{15} för att skapa servern, sessioner och verktyg som LLM:en kan använda.
 
 \subsubsection{Kommunikation över Hyper Text Transfer Protocol (HTTP)}
-Kommunikationen mellan LLM:en och MCP-servern sker över Hyper Text Transfer Protocol (HTTP) genom request/response-baserat gränssnitt.
-När LLM:en anropar ett verktyg skickas en förfrågan till MCP-servern som då utför den begärda operationen och returnerar resultatet\cite{16}.
+Kommunikationen mellan LLM:en och MCP-servern sker genom Cherry Studio över Hyper Text Transfer Protocol (HTTP) genom request/response-baserat gränssnitt.
+När LLM:en anropar ett verktyg skickar Cherry Studio en förfrågan till MCP-servern som då utför den begärda operationen och returnerar resultatet\cite{16}.
 
 Denna modell bidrar till en tydlig separation mellan LLM:en och datakällorna, där MCP-servern fungerar som en mellanhand som hanterar de externa anropen.
 Genom att använda HTTP-gränssnittet blir systemet flexibelt och kan integreras med flera olika klienter och tjänster.

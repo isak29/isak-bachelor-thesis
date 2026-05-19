@@ -19,7 +19,11 @@ Dessa frågor ställs i ett användargränssnitt som tillhandahålls av Cherry S
 Den AI-modell som används i systemet är GPT-5.4-mini, konfigurerad via Cherry Studio.
 Modellen valdes för sin kombination av hög prestanda och låg kostnad, vilket är bra då det görs en hel del tester\cite{8}.
 
-Modellen arbetar iterativt genom en så kallad agent-loop där den via MCP-servern kan anropa flera verktyg i sekvens.
+När Cherry Studio kopplar upp sig mot MCP-servern hämtas verktygslistan automatiskt och sparas lokalt.
+Varje meddelande skickas till LLM:en som en samling av systemprompten, verktygslistan och chatthistoriken (Om det finns tidigare meddelande i samma session).
+Modellen arbetar därefter iterativt genom en så kallad agent-loop där den kan anropa flera verktyg i följd innan den levererar ett slutgiltigt svar till användaren.
+
+När LLM:en bestämmer sig för att använda ett verktyg skickar Cherry Studio en HTTP-förfrågan till MCP-servern, som utför operationen och returnerar resultatet tillbaka till LLM:en.
 Resultatet från ett anrop kan användas som indata till nästa, vilket är nödvändigt vid komplexa frågor som kräver information från flera delar av systemet.
 
 \subsubsection{Systempromptar}
