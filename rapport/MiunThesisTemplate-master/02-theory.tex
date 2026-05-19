@@ -83,15 +83,15 @@ Det innehåller bland annat byggstenar, ramverk, kodexempel, felsökningsverktyg
 
 I projektet används MCP SDK \cite{15} för att skapa servern, sessioner och verktyg som LLM:en kan använda.
 
-\subsubsection{Kommunikation över HTTP}
-Kommunikationen mellan LLM:en och MCP-servern sker över HTTP genom request/response-baserat gränssnitt.
+\subsubsection{Kommunikation över Hyper Text Transfer Protocol (HTTP)}
+Kommunikationen mellan LLM:en och MCP-servern sker över Hyper Text Transfer Protocol (HTTP) genom request/response-baserat gränssnitt.
 När LLM:en anropar ett verktyg skickas en förfrågan till MCP-servern som då utför den begärda operationen och returnerar resultatet\cite{16}.
 
 Denna modell bidrar till en tydlig separation mellan LLM:en och datakällorna, där MCP-servern fungerar som en mellanhand som hanterar de externa anropen.
 Genom att använda HTTP-gränssnittet blir systemet flexibelt och kan integreras med flera olika klienter och tjänster.
 
 \subsection{API-baserad dataåtkomst}\label{subsec:api}
-I lösningen som används för att jämföra mot grafdatabaslösningen används en API-baserad dataåtkomst där verktygen i MCP-servern gör olika API-anrop för att hämta data från olika datakällor.
+I lösningen som används för att jämföra mot grafbaserade lösningen används en API-baserad dataåtkomst där verktygen i MCP-servern tillhandahåller kod för att göra olika API-anrop för att hämta data från olika datakällor.
 Detta innebär att istället för att ha en centraliserad databas där all data är lagrad, så hämtas data i realtid från olika källor när det behövs.
 
 \subsection{Externa datakällor}\label{subsec:external_sources}
@@ -105,7 +105,7 @@ Den används av utvecklare för att samarbeta, dela kod och hantera versioner av
 Plattformen tillhandahåller verktyg för versionshantering, kodgranskning, ärendehantering och projektledning, vilket gör den lämplig för både öppen källkod och professionella arbetsflöden\cite{github}.
 
 I detta arbete används GitHub som en av de externa datakällorna.
-Det bidrar med information om repositories, commits, issues och aktiva användare.
+Det bidrar med information om  projekt (repositories), Tillagd/ändrad kod (commits), problem (issues) och aktiva användare.
 
 \subsubsection{Slack}\label{subsubsec:slack}
 Slack är en kommunikationsplattform för organisationer som samlar meddelanden, filer, användare och data på ett ställe.

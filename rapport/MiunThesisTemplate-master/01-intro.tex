@@ -1,5 +1,5 @@
 \section{\translate{Introduktion}}\label{sec:intro}
-Projektet syftar till att undersöka hur organisatorisk information kan representeras för att med hjälp av LLM:er effektivisera intern informationssökning inom en organisation.
+Projektet syftar till att undersöka hur organisatorisk information kan representeras för att med hjälp av Large Language Models (LLM:er) effektivisera intern informationssökning inom en organisation.
 
 Projektet görs i samarbete med företaget Knightec Group AB.
 \subsection{\translate{Bakgrund och problemmotivering}}\label{subsec:background}
@@ -12,7 +12,7 @@ Denna spridning gör det svårt för anställda att få en samlad bild av verksa
 från flera olika system\cite{2}.
 
 Problemet är inte begränsat till enskilda organisationer, utan förekommer inom många sorters verksamheter.
-Enligt en studie från IDC (International Data Corporation) citerad i \cite{armedia} visas det att en kunskapsarbetare i genomsnitt spenderar upp till 2,5 timmar per dag att söka information, vilket motsvarar ungefär 30\% av en vanlig arbetsdag.
+Enligt en studie från International Data Corporation (IDC) citerad i \cite{armedia} visas det att en kunskapsarbetare i genomsnitt spenderar upp till 2,5 timmar per dag att söka information, vilket motsvarar ungefär 30\% av en vanlig arbetsdag.
 Globalt uppskattas det leda till att företag förlorar stora summor pengar varje år på grund av denna ineffektivitet i informationshanteringen. Det leder inte bara till dessa ekonomiska förluster,
 utan påverkar även de psykologiska aspekterna hos medarbetare, exempelvis frustration hos medarbetare när en bra idé dör på grund av den långa tid det tar att hitta stödjande data\cite{2}.
 
@@ -48,8 +48,8 @@ För att arbetet ska vara genomförbart inom tidsramen har en del avgränsningar
 
 Arbetet inkluderar:
 \begin{itemize}
-  \item {Skapande av en kunskapsgraf som lagras i en grafdatabas, backend med MCP server för att låta LLM:en prata med grafdatabasen och användning av ett användargränssnitt med integrerad LLM för att tolka användarinmatning}
-  \item {Skapande av ett system som använder den skapade MCP servern för att prata direkt med olika systems API:er istället för kunskapsgrafen}
+  \item {Skapande av en kunskapsgraf som lagras i en grafdatabas, backend med Model Context Protocol (MCP) server för att låta LLM:en prata med grafdatabasen och användning av ett användargränssnitt med integrerad LLM för att tolka användarinmatning}
+  \item {Skapande av ett system som använder den skapade MCP-servern för att prata direkt med olika systems API:er istället för kunskapsgrafen}
   \item {Tester och jämförelse av de punkter från \ref{subsec:researchquestion}}
 \end{itemize}
 
@@ -63,7 +63,7 @@ Arbetet inkluderar inte:
 \noindent
 \texttt{Kapitel 1.} Introduktion som ger läsaren en förståelse för det befintliga problemet samt en översikt över hur problemet planeras att lösas.
 
-\texttt{Kapitel 2.} Teorin ger läsaren en förståelse för de olika bibliotek och verktyg som använts för att skapa Proof Of Concept(PoC) systemet.
+\texttt{Kapitel 2.} Teorin ger läsaren en förståelse för de olika bibliotek och verktyg som använts för att skapa Proof Of Concept (PoC) systemet.
 
 \texttt{Kapitel 3.} Metoden tar upp hur genomförandet av arbetet har sett ut, det vill säga de arbetsmetoder som följts.
 
