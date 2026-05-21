@@ -1,17 +1,11 @@
 \section*{Sammanfattning}\label{sec:sammanfattning}
-
-Organisationer består av flera interna system med mängder av data såsom projektverktyg, dokumentation, kommunikationskanaler och information om anställda.
-Denna spridning av information leder till att anställda spenderar onödigt mycket tid dagligen på att leta efter intern information.
-
-Detta arbete undersöker därför hur data från interna system kan representeras för att ge en LLM den kontext den behöver för att navigera och hämta denna interna information och på så sätt effektivisera informationssökning inom en organisation.
-Primärt undersöks om en grafbaserad datarepresentation i form av en kunskapsgraf ger LLM:er bättre förutsättningar att kombinera information från flera olika källor jämfört med en API-baserad lösning.
-
+Detta arbete undersöker hur data från interna system kan representeras för att ge en LLM den kontext den behöver för att navigera och hämta intern organisatorisk information och på så sätt effektivisera intern informationssökning.
+Primärt undersöks det om grafbaserad datarepresentation i form av en kunskapsgraf ger LLM:er bättre förutsättningar att kombinera information från flera olika källor jämfört med en lösning där information hämtas direkt från källornas API:er.
 Två lösningar implementeras och utvärderas. Den grafbaserade lösningen lagrar data från GitHub, Slack och Confluence i en grafdatabas, medan den API-baserade lösningen hämtar data direkt från systemens API:er.
 Båda lösningarna exponeras via en MCP-server och testas med 15 frågor fördelade över tre komplexitetsnivåer.
-
 Resultatet visar att den grafbaserade lösningen presterar bättre vid komplexa frågor som kräver att det görs kopplingar mellan data från olika källor.
-Där hade lösningen korrekta svar på 80\% av frågorna mot API-baserade lösningens 20\% korrekta svar. Den grafbaserade lösningen hade även i genomsnitt 2,4 verktygsanrop mot API-baserades 6.
-Vid de simplare frågorna presterade lösningarna i genomsnitt likvärdigt.
+Där hade lösningen korrekta svar på 80\% av frågorna mot API-baserade lösningens 20\% korrekta svar. Den grafbaserade lösningen hade även i genomsnitt mindre resursförbrukning i form av antal verktygsanrop.
+Vid de simplare frågorna där komplexa resonemang inte behövs presterade lösningarna i genomsnitt likvärdigt.
 
 Slutsatsen är att en grafbaserad representation av organisatorisk data ger LLM:en tydliga fördelar med att kombinera information från olika källor, medan den API-baserade lösningen är tillräcklig för att besvara frågor som rör enskilda källor.
 

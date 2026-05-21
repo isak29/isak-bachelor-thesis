@@ -655,6 +655,95 @@
       \verb https://arxiv.org/abs/2403.03008
       \endverb
     \endentry
+    \entry{edge2024graphrag}{misc}{}{}
+      \name{author}{13}{}{%
+        {{hash=189e08257df5e44d50272dc5a180d62e}{%
+           family={Edge},
+           familyi={E\bibinitperiod},
+           given={Darren},
+           giveni={D\bibinitperiod}}}%
+        {{hash=287352c7f17de381db14926f95d9bc52}{%
+           family={Trinh},
+           familyi={T\bibinitperiod},
+           given={Ha},
+           giveni={H\bibinitperiod}}}%
+        {{hash=57b0bb5fdbcf443dd639970a5d1b62dc}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Newman},
+           giveni={N\bibinitperiod}}}%
+        {{hash=53f364f633d1ea34d2d95ddca01e95af}{%
+           family={Bradley},
+           familyi={B\bibinitperiod},
+           given={Joshua},
+           giveni={J\bibinitperiod}}}%
+        {{hash=482d9b2604d2255346e3ae058c0077a3}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4f87221aa3fa624ed99451c17729877e}{%
+           family={Kulkarni},
+           familyi={K\bibinitperiod},
+           given={Apurva},
+           giveni={A\bibinitperiod}}}%
+        {{hash=72e9f860291937a077fc0b30d0476b7b}{%
+           family={Lacewell},
+           familyi={L\bibinitperiod},
+           given={Jina},
+           giveni={J\bibinitperiod}}}%
+        {{hash=718e0640af5e3f072e51bc1385cc7f60}{%
+           family={Nguyen},
+           familyi={N\bibinitperiod},
+           given={Monica},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0abcf83c2e4021e7a863cae3952787f0}{%
+           family={Nys},
+           familyi={N\bibinitperiod},
+           given={Jaap},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c961e57073060a58d2e08e5a5cd0be7c}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+        {{hash=64bcfe7da85f6cc11a57ba77e23ca3d2}{%
+           family={Truitt},
+           familyi={T\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=97756ebad7b6772e7c17c98cb8203e67}{%
+           family={Larson},
+           familyi={L\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=699d626ef41a1a827d623529c1a45e5a}{%
+           family={Potts},
+           familyi={P\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ed2bef9783d9e58731f105d6eec07ac}
+      \strng{fullhash}{711fa238a16d70f08eda288b537d96af}
+      \strng{fullhashraw}{711fa238a16d70f08eda288b537d96af}
+      \strng{bibnamehash}{3ed2bef9783d9e58731f105d6eec07ac}
+      \strng{authorbibnamehash}{3ed2bef9783d9e58731f105d6eec07ac}
+      \strng{authornamehash}{3ed2bef9783d9e58731f105d6eec07ac}
+      \strng{authorfullhash}{711fa238a16d70f08eda288b537d96af}
+      \strng{authorfullhashraw}{711fa238a16d70f08eda288b537d96af}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{Hämtad: 2026-05-10, från \url{https://arxiv.org/abs/2404.16130}}
+      \field{eprintclass}{cs.CL}
+      \field{eprinttype}{arXiv}
+      \field{title}{From Local to Global: A Graph {RAG} Approach to Query-Focused Summarization}
+      \field{year}{2024}
+      \verb{eprint}
+      \verb 2404.16130
+      \endverb
+    \endentry
     \entry{hevner2004design}{article}{}{}
       \name{author}{4}{}{%
         {{hash=e054261c7f1739e1ba1db0a45e385c1b}{%
@@ -822,8 +911,8 @@
       \strng{authornamehash}{0f83aa534f3a7f6cd71a2eb037401e57}
       \strng{authorfullhash}{0f83aa534f3a7f6cd71a2eb037401e57}
       \strng{authorfullhashraw}{0f83aa534f3a7f6cd71a2eb037401e57}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{addendum}{Hämtad: 2026-05-04}

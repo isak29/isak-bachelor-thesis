@@ -1,6 +1,6 @@
 \section{Diskussion}\label{sec:discussion}
 
-Diskussionskapitlet inkluderar en diskussion kring resultaten som uppnåts i projektet, samt en analys av metoder, tekniska förutsättningar och vidare utveckling av systemen.
+Diskussionskapitlet inkluderar en diskussion kring resultaten som uppnåts i projektet, samt en analys av metoder, tekniska förutsättningar och framtida utveckling av systemen.
 
 \subsection{Analys av Resultat}\label{subsec:discussion_analysis}
 
@@ -29,9 +29,9 @@ Se Figur \ref{fig:kg_q13} för hur LLM:en resonerade kring denna fråga.
 
 Tiden det tog att svara på frågorna var ungefär lika lång som när den svarade på de simpla frågorna.
 I dessa frågor behövdes det resoneras kring hur data hänger ihop mellan olika källor, och det är just det graflösningen är designad för att göra.
-Genom att det finns kopplingar mellan exempelvis en person till ett repository och från samma person till ett slack inlägg kan LLM:en enkelt följa dessa kopplingar för att se att det är samma person som har gjort ett inlägg som är med i ett repository.
+Genom att det finns kopplingar mellan exempelvis en person till ett repository och från samma person till ett Slack-inlägg kan LLM:en enkelt följa dessa kopplingar för att se att det är samma person som har gjort ett inlägg som är med i ett repository.
 
-En indikation på detta resonemang ser vi i fråga 15 där det frågades om namnet på det senast uppdaterade confluence dokumentet från personen som gjorde den senaste commiten i repositoryt \textit{payment-service}.
+En indikation på detta resonemang ser vi i fråga 15 där det frågades om namnet på det senast uppdaterade Confluence-dokumentet från personen som gjorde den senaste commiten i repositoryt \textit{payment-service}.
 Som vi ser i Figur \ref{fig:kg_q15}, frågar LLM:en först efter schemat, sedan efter personen som gjorde den senaste commiten i det efterfrågade repositoryt, och till sist efter det senaste uppdaterade dokumentet från den personen.
 Den hämtade denna informationen med en enda genererad Cypher-fråga, om man räknar bort schema-anropet.
 

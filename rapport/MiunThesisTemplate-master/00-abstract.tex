@@ -1,30 +1,27 @@
 \section*{Abstract}\label{sec:abstract}
 
 Organisations consist of multiple internal systems containing large amounts of data, such as project
-tools, documentation, communication channels and information about employees.
-This spread of information leads to employees spending unnecessary amounts of time searching for
-internal information on a daily basis.
-
-This study therefore investigates how data from internal systems can be represented to provide a
-large language model (LLM) with the context it needs to navigate and retrieve internal information,
+tools, documentation, and communication channels.
+This spread of information leads to employees spending unnecessary time searching for information
+across different systems on a daily basis.
+This study investigates how data from internal systems can be represented to provide a large language
+model (LLM) with the context it needs to navigate and retrieve internal organisational information,
 thereby improving information retrieval within an organisation.
 The primary focus is on whether a graph-based data representation in the form of a knowledge graph
-gives LLMs better conditions for combining information from multiple sources compared to an
-API-based solution.
-
+gives LLMs better conditions for combining information from multiple sources compared to a solution
+where information is retrieved directly from the systems’ APIs.
 Two solutions are implemented and evaluated. The graph-based solution stores data from GitHub,
 Slack and Confluence in a graph database, while the API-based solution retrieves data directly from
 the systems’ APIs. Both solutions are exposed via an MCP server and tested using 15 questions
 distributed across three complexity levels.
-
 The results show that the graph-based solution performs better on complex questions that require
-linking data from different sources. It achieved correct answers on 80\% of such questions compared
-to 20\% for the API-based solution, and averaged 2.4 tool calls compared to 6.
-For simpler questions, both solutions performed on average equally well.
+linking data from different sources, achieving correct answers on 80\% of such questions compared
+to 20\% for the API-based solution. The graph-based solution also averaged fewer tool calls.
+For simpler questions where complex reasoning is not required, both solutions performed equally well on average.
 
-The conclusion is that a graph-based representation of organizational data gives the LLM clear advantages when combining
-information from multiple sources, while the API-based solution is sufficient for answering
-questions that concern a single source.
+The conclusion is that a graph-based representation of organisational data gives the LLM clear
+advantages when combining information from multiple sources, while the API-based solution is
+sufficient for answering questions that concern a single source.
 
 \textbf{Keywords:} knowledge graph, graph database, LLM, information retrieval, MCP,
 API-based solution

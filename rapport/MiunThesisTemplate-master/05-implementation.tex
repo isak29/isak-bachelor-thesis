@@ -57,8 +57,8 @@ Verktygsregistreringen sker vid sessionsstart via separata controllers för varj
 För att spara de mätvärden som krävs, skapas en räknare som räknar varje verktygsanrop och en timer som mäter tiden från att den första frågan ställs tills dess att svaret är genererat. 
 
 \subsubsection{Grafbaserade lösningens verktyg}
-Strukturen för dessa verktyg är relativt simpel.
- Det finns ett verktyg som returnerar hela schemat i grafdatabasen och ett verktyg som tar emot en cypher-fråga och returnerar resultatet av denna fråga.
+Strukturen för dessa verktyg följer en enkel design.
+ Det finns ett verktyg som returnerar hela schemat i grafdatabasen och ett verktyg som tar emot en Cypher-fråga och returnerar resultatet av denna fråga.
 
 Det första verktyget har som syfte att ge LLM:en en överblick över hur data är strukturerad i grafdatabasen.
 Det får tillgång till information om vilka entiteter och relationer som finns, samt vilka attribut som är kopplade till dessa.

@@ -105,7 +105,7 @@ Den används av utvecklare för att samarbeta, dela kod och hantera versioner av
 Plattformen tillhandahåller verktyg för versionshantering, kodgranskning, ärendehantering och projektledning, vilket gör den lämplig för både öppen källkod och professionella arbetsflöden\cite{github}.
 
 I detta arbete används GitHub som en av de externa datakällorna.
-Det bidrar med information om  projekt (repositories), Tillagd/ändrad kod (commits), problem (issues) och aktiva användare.
+Det bidrar med information om  projekt (repositories), tillagd/ändrad kod (commits), problem (issues) och aktiva användare.
 
 \subsubsection{Slack}\label{subsubsec:slack}
 Slack är en kommunikationsplattform för organisationer som samlar meddelanden, filer, användare och data på ett ställe.
@@ -140,5 +140,15 @@ Författarna visar att en LLM som har tillgång till strukturerad kontext från 
 Arbetet bygger liksom mitt på att ge en LLM strukturerad kontext från en kunskapsgraf för att förbättra dess förmåga att hämta och använda information.
 Skillnaden är att detta arbete fokuserar på att minska hallucinationer inom utbildningen, medan mitt arbete fokuserar på informationshämtning inom en organisation.
 
-% \subsubsection{}
+\subsubsection{From Local to Global: A Graph RAG Approach to Query-Focused Summarization}
+
+Arbetet undersöker hur en grafbaserad RAG-lösning (Retrieval-Augmented Generation) kan förbättra LLM:ers förmåga att besvara globala frågor riktade mot en samling textdokument.
+Metoden går ut på att låta en LLM automatiskt bygga kunskapsgrafen med entiteter och relationer från dokumenten,
+ och sedan dela in dessa i olika kluster där varje kluster sedan sammanfattas av LLM:en.
+När en fråga ställs används dessa sammanfattningar som kontext till LLM:en för att generera ett svar.
+Resultaten visar att detta tillvägagångssätt presterar bättre än vanlig RAG på globala frågor som kräver förståelse för hela datasetet\cite{edge2024graphrag}.
+
+Liksom mitt arbete bygger GraphRAG på principen att en kunskapsgraf ger LLM:en bättre förutsättningar att navigera och kombinera information jämfört med att söka i ostrukturerad data.
+Skillnaden är att GraphRAG bygger grafen automatiskt från ostrukturerad text och fokuserar på dokumentsammanfattning, medan detta arbete utgår från en manuellt modellerad kunskapsgraf med syfte att koppla samman organisatorisk information från olika datakällor.
+
 
