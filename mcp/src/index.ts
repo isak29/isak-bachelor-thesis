@@ -76,9 +76,12 @@ app.post('/mcp', async (req: Request, res: Response) => {
         if (transport.sessionId) sessions.delete(transport.sessionId);
     };
 
+    // connect mcp-server to transportchannel
     await server.connect(transport);
+    // handle incoming requests from cherry
     await transport.handleRequest(req, res, req.body);
 
+    // saves tansport in MAP with sessionID as key to prevent cherry from not creating new server
     if (transport.sessionId) {
         sessions.set(transport.sessionId, transport);
     }

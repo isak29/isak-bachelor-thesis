@@ -133,16 +133,17 @@ tb(s, "Exjobbet är gjort i samarbete med Knightec — ett tech-konsultbolag med
 tb(s, "Informationen är spridd över tre system:", 0.5, 1.8, 8.0, 0.45, size=14, bold=True, color=ORANGE)
 
 systems = [
-    ("GitHub", "Projekt & programkod\nRepositories, commits,\nissues, aktiva användare", BLUE),
-    ("Slack", "Kommunikation\nKanaler, meddelanden,\nanvändare", GREEN),
-    ("Confluence", "Intern dokumentation\nProcesser, rutiner,\nriktlinjer, teams", ORANGE),
+    ("GitHub", BLUE, ["Projekt & programkod", "Repositories", "Commits", "Issues", "Aktiva användare"]),
+    ("Slack", GREEN, ["Kommunikation", "Kanaler", "Meddelanden", "Användare"]),
+    ("Confluence", ORANGE, ["Intern dokumentation", "Processer & rutiner", "Riktlinjer", "Teams", "Sidor & författare"]),
 ]
-for i, (name, desc, col) in enumerate(systems):
+for i, (name, col, items) in enumerate(systems):
     x = 0.5 + i * 4.2
     _rect(s, x, 2.4, 3.9, 3.9, CARD, col)
     tb(s, name, x, 2.5, 3.9, 0.65, size=22, bold=True, color=col, align=PP_ALIGN.CENTER)
     _rect(s, x + 0.3, 3.25, 3.3, 0.04, col, None)
-    tb(s, desc, x + 0.15, 3.4, 3.6, 2.6, size=13, color=GRAY, align=PP_ALIGN.CENTER)
+    for j, item in enumerate(items):
+        tb(s, f"• {item}", x + 0.3, 3.38 + j * 0.52, 3.3, 0.48, size=13, color=GRAY)
 
 tb(s, "Problemet: ingen gemensam struktur — data kan inte enkelt kombineras",
    0.5, 6.45, 12.3, 0.5, size=13, italic=True, color=GRAY, align=PP_ALIGN.CENTER)

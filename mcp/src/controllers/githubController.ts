@@ -245,7 +245,6 @@ export const githubController = (server: McpServer) => {
     }
   );
 
-
   // Search commits by keyword in a repository
   server.registerTool(
     'search-commits',
