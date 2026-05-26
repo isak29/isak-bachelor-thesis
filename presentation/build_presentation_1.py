@@ -101,30 +101,25 @@ tb(s, "Isak Lampell  ·  Knightec Group AB  ·  Mittuniversitetet  ·  2026",
    1.0, 4.1, 11.33, 0.5, size=13, color=GRAY, align=PP_ALIGN.CENTER)
 
 # ═══════════════════════════════════════════════════════════
-# SLIDE 2 – Hook / Problemet
+# SLIDE 2 – Problemet (övergripande)
 # ═══════════════════════════════════════════════════════════
 s = new_slide(prs)
 heading(s, "Problemet")
 
-tb(s, "Föreställ dig att du som konsult behöver snabbt hitta ett svar...",
-   0.5, 1.1, 12.3, 0.5, size=15, italic=True, color=ORANGE)
+tb(s, "Föreställ dig att du sitter på ett företag med hundratals kollegor,\nmånga projekt och tusentals dokumentationssidor med information om riktlinjer och rutiner.",
+   0.5, 1.15, 8.5, 0.9, size=15, color=TEXT)
 
-bullet(s, [
-    ("Vem skrev det här Confluence-dokumentet?", TEXT),
-    ("", TEXT),
-    ("Var i Slack diskuterades det här beslutet?", TEXT),
-    ("", TEXT),
-    ("Vem i GitHub skrev koden för den här funktionen?", TEXT),
-], l=0.7, t=1.75, w=7.0, size=14)
+tb(s, "Allt är spritt över många olika interna system och du behöver snabbt hitta svaret på en specifik fråga.",
+   0.5, 2.2, 8.5, 0.65, size=15, color=TEXT)
 
-tb(s, "Svaret finns — men kräver sökning i flera\nsystem och manuella kopplingar.",
-   0.7, 4.2, 7.0, 0.8, size=14, italic=True, color=GRAY)
+tb(s, "Det du gör är att du börjar söka, frågar kollegor och söker lite ytterligare\ntills du hittar svaret. Det kan ta väldigt lång tid som egentligen borde\nläggas på det riktiga arbetet.",
+   0.5, 3.05, 8.5, 1.1, size=15, color=GRAY)
 
-_rect(s, 0.5, 5.2, 7.3, 1.95, CARD, ORANGE)
-tb(s, "Det här är vardagen hos många organisationer idag.\nDet är exakt det problemet mitt arbete syftar till att lösa.",
-   0.65, 5.4, 7.0, 1.55, size=14, bold=True, color=TEXT)
+_rect(s, 0.5, 4.45, 8.5, 1.3, CARD, ORANGE)
+tb(s, "Det här är vardagen hos många organisationer idag —\noch det är precis det problemet mitt arbete syftar till att lösa.",
+   0.65, 4.6, 8.2, 1.0, size=15, bold=True, color=TEXT)
 
-img_box(s, 8.2, 1.1, 4.8, 6.1, "[ BILD: Information\nspridd i olika system ]")
+img_box(s, 9.2, 1.15, 3.8, 5.6, "[ BILD ]")
 
 # ═══════════════════════════════════════════════════════════
 # SLIDE 3 – Bakgrund: Knightec & Systemen
