@@ -91,10 +91,10 @@ s = new_slide(prs)
 
 _rect(s, 0, 2.8, 13.33, 0.06, ORANGE, None)
 
-tb(s, "Effektivisering av informationssökning med LLM:er",
+tb(s, "Grafbaserad datarepresentation för LLM-driven informationssökning i organisationer",
    0.8, 0.9, 11.73, 1.7, size=34, bold=True, color=TEXT, align=PP_ALIGN.CENTER)
 
-tb(s, "En jämförelse av grafbaserad kunskapsgraf mot API-baserad informationshämtning",
+tb(s, "En jämförelse mellan grafbaserad och API-baserad dataåtkomst avseende effektivitet, korrekthet och resursanvändning",
    1.0, 3.05, 11.33, 0.7, size=16, italic=True, color=ORANGE, align=PP_ALIGN.CENTER)
 
 tb(s, "Isak Lampell  ·  Knightec Group AB  ·  Mittuniversitetet  ·  2026",
