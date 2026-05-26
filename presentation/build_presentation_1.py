@@ -148,7 +148,49 @@ tb(s, "Problemet: ingen gemensam struktur — data kan inte enkelt kombineras",
    0.5, 6.45, 12.3, 0.5, size=13, italic=True, color=GRAY, align=PP_ALIGN.CENTER)
 
 # ═══════════════════════════════════════════════════════════
-# SLIDE 4 – Teori
+# SLIDE 4 – De två lösningarna (översikt)
+# ═══════════════════════════════════════════════════════════
+s = new_slide(prs)
+heading(s, "Två lösningar undersöks")
+
+tb(s, "För att lösa problemet implementeras och jämförs två olika lösningar:",
+   0.5, 1.1, 12.3, 0.45, size=14, color=TEXT)
+
+# Lösning 1 – Graf
+_rect(s, 0.5, 1.7, 6.0, 5.5, CARD, ORANGE)
+tb(s, "Lösning 1 — Grafbaserad", 0.65, 1.8, 5.7, 0.55, size=17, bold=True, color=ORANGE)
+_rect(s, 0.65, 2.45, 5.7, 0.03, ORANGE, None)
+bullet(s, [
+    ("• Data från GitHub, Slack och Confluence", TEXT),
+    ("  samlas i en gemensam grafstruktur", GRAY),
+    ("", TEXT),
+    ("• Tydliga relationer och samband modelleras", TEXT),
+    ("  direkt i databasen", GRAY),
+    ("", TEXT),
+    ("• Ex: Isak Lampell är kopplad till en Confluence-sida,", TEXT),
+    ("  ett GitHub-projekt och meddelanden i Slack", GRAY),
+    ("", TEXT),
+    ("• LLM:en navigerar grafen för att hitta svar", TEXT),
+], l=0.7, t=2.6, w=5.6, size=13)
+
+# Lösning 2 – API
+_rect(s, 6.85, 1.7, 6.0, 5.5, CARD, BLUE)
+tb(s, "Lösning 2 — API-baserad", 7.0, 1.8, 5.7, 0.55, size=17, bold=True, color=BLUE)
+_rect(s, 7.0, 2.45, 5.7, 0.03, BLUE, None)
+bullet(s, [
+    ("• Ingen central lagring — data hämtas i realtid", TEXT),
+    ("  direkt från systemens API:er", GRAY),
+    ("", TEXT),
+    ("• LLM:en resonerar själv kring kopplingar", TEXT),
+    ("  efter att data hämtats", GRAY),
+    ("", TEXT),
+    ("• Ex: API-anrop hämtar alla användare från GitHub,", TEXT),
+    ("  LLM plockar ut rätt person och gör nytt anrop", GRAY),
+    ("  mot Confluence för att hämta den personens sidor", GRAY),
+], l=7.0, t=2.6, w=5.7, size=13)
+
+# ═══════════════════════════════════════════════════════════
+# SLIDE 5 – Teori (tidigare SLIDE 4)
 # ═══════════════════════════════════════════════════════════
 s = new_slide(prs)
 heading(s, "Teori")
@@ -211,19 +253,36 @@ for i, (txt, x, w) in enumerate(zip(steps_dsr, xpos, widths)):
         _rect(s, x, 1.75, w, 1.1, CARD, ORANGE)
         tb(s, txt, x + 0.05, 1.85, w - 0.1, 0.9, size=13, bold=True, color=TEXT, align=PP_ALIGN.CENTER)
 
-levels = [
-    ("Simpla  Q1–Q5", "Data från en enskild källa.\nInget komplext resonemang.", BLUE),
-    ("Medelsvåra  Q6–Q10", "Mer resonemang krävs.\nFlera anrop från en källa.", ORANGE),
-    ("Komplexa  Q11–Q15", "Kopplingar mellan\nolika datakällor krävs.", RED),
+q_levels = [
+    ("Simpla  Q1–Q5", BLUE, [
+        "Q1: Get all GitHub repos",
+        "Q2: Show latest message from general Slack channel",
+        "Q3: Get info about the bachelor-thesis repo",
+        "Q4: Show every user in the organisation",
+        "Q5: Send me all pages from Confluence",
+    ]),
+    ("Medelsvåra  Q6–Q10", ORANGE, [
+        "Q6: What GitHub issues are open in payment-service?",
+        "Q7: What project is connected to isak-bachelor-thesis\n     repo, and who works on that?",
+        "Q8: Summarize what happened in general Slack\n     channel on April 13, 14 and 15",
+        "Q9: Are there any blockers in any of our projects?",
+        "Q10: Which Confluence docs are about AWS?\n      What does it say?",
+    ]),
+    ("Komplexa  Q11–Q15", RED, [
+        "Q11: Overview of Payment Platform: repos,\n      issues and people working on it",
+        "Q12: Developers with open Git issues AND active\n      in Slack last 24h? Give me proof",
+        "Q13: Name and email of all persons who committed\n      in payment-service. What do commits say?",
+        "Q14: In which repos does the person who created\n      the AWS Confluence page work?",
+        "Q15: Most recent Confluence doc from the person\n      who did latest commit in payment-service?",
+    ]),
 ]
-for i, (title, desc, col) in enumerate(levels):
+for i, (title, col, questions) in enumerate(q_levels):
     x = 0.4 + i * 4.25
-    _rect(s, x, 3.2, 4.05, 3.95, CARD, col)
-    tb(s, title, x + 0.1, 3.3, 3.85, 0.65, size=15, bold=True, color=col)
-    _rect(s, x + 0.3, 4.05, 3.45, 0.04, col, None)
-    tb(s, desc, x + 0.15, 4.2, 3.75, 1.3, size=13, color=GRAY, align=PP_ALIGN.CENTER)
-    tb(s, "Mäts: korrekthet · anrop · tid",
-       x + 0.15, 5.7, 3.75, 0.4, size=11, italic=True, color=GRAY_LT, align=PP_ALIGN.CENTER)
+    _rect(s, x, 3.2, 4.05, 4.05, CARD, col)
+    tb(s, title, x + 0.1, 3.28, 3.85, 0.55, size=14, bold=True, color=col)
+    _rect(s, x + 0.2, 3.88, 3.65, 0.03, col, None)
+    for j, q in enumerate(questions):
+        tb(s, q, x + 0.15, 3.98 + j * 0.62, 3.8, 0.58, size=10, color=GRAY)
 
 # ═══════════════════════════════════════════════════════════
 # SLIDE 7 – Systemarkitektur
@@ -231,24 +290,7 @@ for i, (title, desc, col) in enumerate(levels):
 s = new_slide(prs)
 heading(s, "Systemarkitektur")
 
-arch_boxes = [
-    (0.4,  3.1, 2.0, 1.0, "Användare",               CARD, ORANGE),
-    (2.9,  3.1, 2.4, 1.0, "Cherry Studio\n(UI + chatt)", CARD, ORANGE),
-    (5.9,  1.7, 2.4, 1.0, "LLM",                     CARD, BLUE),
-    (5.9,  4.2, 2.4, 1.0, "MCP Server",              CARD, ORANGE),
-    (9.2,  1.7, 3.9, 1.0, "Lösning 1: Graf\n(Neo4j)",       CARD, GREEN),
-    (9.2,  4.2, 3.9, 1.0, "Lösning 2: API\nGitHub/Slack/Confluence", CARD, RED),
-]
-for (x, y, w, h, lbl, fill, border) in arch_boxes:
-    _rect(s, x, y, w, h, fill, border)
-    tb(s, lbl, x + 0.05, y + 0.08, w - 0.1, h - 0.16, size=13, bold=True,
-       color=TEXT, align=PP_ALIGN.CENTER)
-
-tb(s, "→", 2.3, 3.45, 0.65, 0.5, size=22, color=ORANGE, align=PP_ALIGN.CENTER)
-tb(s, "↑↓", 6.85, 2.1, 0.5, 0.5, size=18, color=BLUE, align=PP_ALIGN.CENTER)
-tb(s, "↑↓", 6.85, 4.6, 0.5, 0.5, size=18, color=ORANGE, align=PP_ALIGN.CENTER)
-tb(s, "Cypher →", 8.35, 2.05, 1.1, 0.35, size=11, italic=True, color=GREEN)
-tb(s, "REST →",   8.35, 4.6, 1.1, 0.35, size=11, italic=True, color=RED)
+img_box(s, 0.4, 1.15, 12.5, 4.6, "[ BILD: Systemarkitektur ]")
 
 _rect(s, 0.4, 5.9, 12.5, 1.25, CARD, GRAY_LT)
 tb(s, "1. Fråga ställs  →  2. LLM väljer verktyg  →  3. MCP kör verktyget  →  4. Data returneras  →  5. LLM formulerar svar",
