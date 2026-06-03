@@ -19,6 +19,9 @@
 
 \hyphenation{gra-fba-se-rad API-ba-se-rad da-ta-re-pre-sen-ta-tion da-ta-åt-komst in-for-ma-tions-sök-ning or-ga-ni-sa-tio-ner re-surs-an-vänd-ning ef-fek-ti-vi-tet}
 
+% Fix: prevent titlepage from starting a blank page before the Diva PDF
+\patchcmd{\endtitlepage}{\if@restonecol\twocolumn\else\newpage\fi}{\if@restonecol\twocolumn\fi}{}{}
+
 \title{Grafbaserad datarepresentation för LLM-driven informationssökning i organisationer}
 \subtitle{En jämförelse mellan grafbaserad och API-baserad dataåtkomst avseende effektivitet, korrekthet och resursanvändning}
 \author{Isak Lampell}
