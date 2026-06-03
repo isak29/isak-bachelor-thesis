@@ -264,6 +264,8 @@
   \global\let\author\relax
   \global\let\date\relax
   \global\let\and\relax
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
   \restoregeometry
 }
   \pagestyle{fancy}

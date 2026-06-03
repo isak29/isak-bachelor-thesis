@@ -4,7 +4,6 @@
 %When writing your thesis in Swedish, only change in the documentclass from English to Swedish. All
 %section headings that have a translate will automatically be changed to the swedish translation.
 
-%\documentclass[english]{miunthesis}
 \documentclass[swedish]{miunthesis}
 \usepackage{csquotes}
 \usepackage{booktabs}
@@ -42,6 +41,8 @@
 
 \begin{document}
   \maketitle
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
   \pagenumbering{roman}
   \includepdf[pages=-]{Diva_publish.pdf}
   \newpage
@@ -79,9 +80,7 @@
   \include{08-conclusions}
   \addcontentsline{toc}{section}{\translate{References}}
   \printbibliography{}
-  \newpage\clearpage
-  \pagestyle{fancy}
-  \setcounter{page}{1}
+  
   \appendix
   \noappendicestocpagenum
   \include{Appendices/appA}
