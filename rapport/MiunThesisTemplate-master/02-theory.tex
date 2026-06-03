@@ -30,7 +30,7 @@ Det är inte heller nödvändigt att alla noder i en graf är direkt kopplade ti
 I Figur \ref{fig:visualisation} visas ett urdrag från den skapade grafdatabasen där två personer är kopplade till ett projekt medan en person är kopplad till ett annat.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{Figures/visualisation.png}
+    \includegraphics[width=0.8\textwidth]{Figures/corre.png}
     \caption{Visualisering av en del av den skapade grafdatabasen}
     \label{fig:visualisation}
 \end{figure}
@@ -132,7 +132,7 @@ Cherry Studio fungerar därmed som gränssnittet mellan användaren och systemet
 
 I detta underkapitel presenteras tidigare forskning och arbete som är relevant för detta projekt.
 
-\subsubsection{Knowledge Graphs as Context Sources for LLM-Based Explanations of Learning Recommendations}
+\subsubsection{Kunskapsgrafer som kontextkällor för LLM:er i utbildningssystem}
 
 Arbetet undersöker hur kunskapsgrafer kan användas som faktakällor för att minska hallucinationer i LLM-genererade svar inom utbildningssystem.
 Författarna visar att en LLM som har tillgång till strukturerad kontext från en kunskapsgraf levererar mer korrekta och relevanta förklaringar jämfört när modellen enbart förlitar sig på träningsdata\cite{relWork}.
@@ -140,7 +140,7 @@ Författarna visar att en LLM som har tillgång till strukturerad kontext från 
 Arbetet bygger liksom mitt på att ge en LLM strukturerad kontext från en kunskapsgraf för att förbättra dess förmåga att hämta och använda information.
 Skillnaden är att detta arbete fokuserar på att minska hallucinationer inom utbildningen, medan mitt arbete fokuserar på informationshämtning inom en organisation.
 
-\subsubsection{From Local to Global: A Graph RAG Approach to Query-Focused Summarization}
+\subsubsection{GraphRAG för frågefokuserad sammanfattning}
 
 Arbetet undersöker hur en grafbaserad RAG-lösning (Retrieval-Augmented Generation) kan förbättra LLM:ers förmåga att besvara globala frågor riktade mot en samling textdokument.
 Metoden går ut på att låta en LLM automatiskt bygga kunskapsgrafen med entiteter och relationer från dokumenten,
