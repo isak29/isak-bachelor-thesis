@@ -31,7 +31,7 @@ Arbetet genomförs enligt en designvetenskaplig metodik där utvecklingen strukt
 Dessa faser inkluderar problemidentifiering, målformulering, design, utveckling, testning av systemen samt utvärdering.
 
 I den första fasen undersöks och identifieras de problem som finns i dagens informationshantering inom organisationer.
-Fasen består av en litteraturstudie och analys av befintliga problem och potentiella lösningar. Det undersöks om relevanta tekniker och metoder
+Fasen består av en förstudie och analys av befintliga problem och potentiella lösningar, se kapitel \ref{sec:prestudy}. Det undersöks om relevanta tekniker och metoder
 för att hantera dessa problem. Här identifieras tekniker såsom kunskapsgrafer, grafdatabaser, LLM:er och verktyg som MCP. Detta leder till formuleringen av de forskningsfrågor som arbetet syftar till att besvara.
 
 I den andra fasen formuleras målen för arbetet baserat på de problem som identifierats under den första fasen.
@@ -85,6 +85,10 @@ Eftersom den grafbaserade lösningen är manuellt modellerad betyder det även a
 Det betyder att de båda lösningarna skiljer sig från varandra i form av vad data innehåller och hur mycket data som finns i dem. 
 Det påverkar tidsmätningen i testerna samt skärmdumparna som finns i \ref{sec:appA}, och detta diskuteras mer ingående i kapitel \ref{sec:discussion}.
 
+\subsubsection{Framgångskriterier}
+Arbetet som helhet bedöms ha nått sitt syfte om det visar att den grafbaserade datarepresentationen ger LLM:en en bättre förmåga att hämta sammankopplad information från de olika datakällorna.
+Detta i sig uppnås genom att den grafbaserade lösningen har fler korrekta svar, snabbare svarstider och mindre antal verktygsanrop på frågor som kräver att information från olika datakällor kombineras.
+Dessa frågor finns listade i kapitel \ref{subsec:questTest}.
 
 \subsection{Reliabilitet och validitet}\label{subsec:reliabilityvalidity}
 \subsubsection{Reliabilitet}
