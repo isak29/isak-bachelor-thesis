@@ -238,7 +238,7 @@
     \\
     \\
     \large \@author \par
-    \vspace*{115mm}
+    \vspace*{110mm}
 
 
     \begin{spacing}{1.2}
