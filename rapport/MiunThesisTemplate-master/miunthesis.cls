@@ -231,7 +231,7 @@
   \fancyfoot{}
     \vspace*{0.5cm}
     \fontfamily{phv}
-    \LARGE{\textbf{\@title}}
+    \LARGE{\textbf{\parbox[t]{\linewidth}{\raggedright\hyphenpenalty=10000\exhyphenpenalty=10000\relax\@title}}}
     \\
     \\
     \printsubtitle
