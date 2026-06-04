@@ -28,7 +28,7 @@ Denna lösning bedöms ge färre verktygsanrop vid mer komplexa frågor som krä
 
 \subsubsection{Vektordatabas / embeddings (RAG)}
 En annan potentiell lösning som identifieras under förstudien är att använda en vektordatabas och embeddings för att strukturera och organisera data och information.
-Denna lösning bygger på att omvandla användarfrågan till en vektorrepresentation (embedding) och sedan jämföra mot de lagrade vektorerna i databasen för att hitta de mest liknande\cite{1}.
+Denna lösning bygger på att omvandla användarfrågan till en vektorrepresentation (embedding) och sedan jämföra mot de lagrade vektorerna i databasen för att hitta de mest liknande~\cite{1}.
 
 Denna lösning varken implementeras eller undersöks vidare i detta arbete då den liksom den API-baserade lösningen inte förändrar hur relationer och samband mellan data från olika källor representeras.
 
@@ -41,7 +41,7 @@ Grafdatabasens syfte i detta arbete är att lagra data och information från de 
 För att välja vilken grafdatabas som ska användas görs det en undersökning om vilken som lämpar sig bäst specifikt för detta arbete.
 
 Databasen som väljs är Neo4j. Detta val görs då det är en marknadsledande grafdatabas med stor användarbas och bra community-stöd.
-Den har en låg inlärningströskel med omfattande dokumentation och många guider för att komma igång. Den är även av typen Online Analytical Processing (OLAP), vilket betyder att den är specifikt anpassad för just affärsintelligens och informationssökning vilket är det primära syftet för databasen i detta arbete\cite{17}.
+Den har en låg inlärningströskel med omfattande dokumentation och många guider för att komma igång. Den är även av typen Online Analytical Processing (OLAP), vilket betyder att den är specifikt anpassad för just affärsintelligens och informationssökning vilket är det primära syftet för databasen i detta arbete~\cite{17}.
 
 \subsubsection{Val av kommunikationslager}
 Kommunikationslagret som väljs till detta arbete är MCP. Detta val görs då det är ett modernt och lättanvänt sätt att låta LLM:er kommunicera med externa system.

@@ -17,7 +17,7 @@ Dessa frågor ställs i ett användargränssnitt som tillhandahålls av Cherry S
 
 \subsection{LLM-kommunikation}\label{subsec:overview6}
 Den AI-modell som används i systemet är GPT-5.4-mini, konfigurerad via Cherry Studio.
-Modellen valdes för sin kombination av hög prestanda och låg kostnad, vilket är bra då det görs en hel del tester\cite{8}.
+Modellen valdes för sin kombination av hög prestanda och låg kostnad, vilket är bra då det görs en hel del tester~\cite{8}.
 
 När Cherry Studio kopplar upp sig mot MCP-servern hämtas verktygslistan automatiskt och sparas lokalt.
 Varje meddelande skickas till LLM:en som en samling av systemprompten, verktygslistan och chatthistoriken (Om det finns tidigare meddelande i samma session).
@@ -46,7 +46,7 @@ Se Figur \ref{fig:p2} och \ref{fig:p3} i Appendix \ref{sec:appA} för hela syste
 
 \subsection{MCP-servern}\label{subsec:overview2}
 
- MCP-servern är implementerad i TypeScript med hjälp av MCP SDK\cite{15}.
+ MCP-servern är implementerad i TypeScript med hjälp av MCP SDK~\cite{15}.
   Servern exponerar en endpoint \texttt{/mcp} som tar emot POST-förfrågningar
   från Cherry Studio via HTTP.
 
