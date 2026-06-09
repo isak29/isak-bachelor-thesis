@@ -71,7 +71,7 @@ Det gav en bra bild över hur väl lösningarna presterar när det gäller att b
 Även fast 15 frågor kan anses som en liten mängd så var det tillräckligt för att visa tydliga mönster över hur lösningarna presterar i olika sammanhang. 
 
 Eftersom frågorna designades av mig själv och inte av en extern part så kan det finnas en risk att de är utformade på ett sätt som gynnar den grafbaserade lösningen, då det var den lösningen jag hade i åtanke när jag först designade frågorna.
-Å andra sidan så kan det också gynna den API-baserade lösningen då verktygen skulle kunna anpassas till att hämta just den information som efterfrågas i frågorna, vilket skulle kunna leda till att den API-baserade lösningen presterar bättre än den borde.
+Det går även att resonera så att frågorna också kan gynna den API-baserade lösningen då verktygen skulle kunna anpassas till att hämta just den information som efterfrågas i frågorna, vilket skulle leda till att den API-baserade lösningen presterar bättre än den borde.
 
 För att minska denna risk designades båda lösningarna utifrån att all data som efterfrågas i frågorna ska vara möjlig att få tag på så länge LLM:en gör korrekta resonemang i form av att generera korrekta Cypher-frågor eller göra korrekta API-anrop och tolka resultaten korrekt.
 Grafdatabasen utformades så att den innehåller de entiteter och relationer som krävs för att kunna svara på frågorna, och verktygen i API-lösningen designades så att varje verktyg hämtar en specifik typ av data från en specifik källa.
